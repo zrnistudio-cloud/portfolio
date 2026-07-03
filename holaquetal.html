@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hola, que tal! — María Fernanda Juárez</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #0a0a09; --surface: #1a1918; --text: #efeee8; --muted: #817e74; --border: #2a2926; --accent: #d4ff3a; --ease: cubic-bezier(0.23, 1, 0.32, 1); }
+  :root.light { --bg: #fefdf8; --surface: #f8f7f2; --text: #1a1918; --muted: #6b6960; --border: #e5e4df; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
+  .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
+  .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
+  .cursor-ring.expand { width: 70px; height: 70px; }
+  @media (max-width: 900px) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+  .back-link { position: fixed; top: 2rem; left: 3rem; z-index: 100; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; display: flex; align-items: center; gap: 0.5rem; }
+  .back-link:hover { color: var(--accent); }
+  .project-container { max-width: 900px; margin: 0 auto; padding: 8rem 3rem 6rem; }
+  .project-hero { margin-bottom: 4rem; }
+  .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+  .project-title { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
+  .project-description { font-size: 1.1rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag { padding: 0.5rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .project-gallery { display: flex; flex-direction: column; gap: 2rem; }
+  .project-image { width: 100%; border-radius: 12px; overflow: hidden; background: var(--surface); }
+  .project-image img { width: 100%; height: auto; display: block; }
+  @media (max-width: 900px) { .back-link { top: 1.5rem; left: 1.5rem; } .project-container { padding: 6rem 1.5rem 4rem; } .project-title { font-size: 2.5rem; } }
+</style>
+</head>
+<body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+<a href="../index.html" class="back-link">← Volver</a>
+<div class="project-container">
+  <div class="project-hero">
+    <p class="project-label">Bootcamp Challenge</p>
+    <h1 class="project-title">Hola, que tal!</h1>
+    <p class="project-description">
+      Challenge. Diseñé una aplicación mobile que fomenta conexiones entre profesionales dentro del entorno laboral durante la pausa del mediodía. A través de una experiencia intuitiva y cálida, la app permite coordinar almuerzos, encuentros breves y actividades compartidas entre colegas o personas de distintas áreas. El proyecto incluyó investigación cualitativa, definición de perfiles de usuario, diseño de flujos, wireframes y prototipo validado con usuarios reales.
+    </p>
+    <div class="project-tags">
+      <span class="tag">Benchmark</span>
+      <span class="tag">Research</span>
+      <span class="tag">Prototipado</span>
+      <span class="tag">Design System</span>
+    </div>
+  </div>
+  <div class="project-gallery">
+    <div class="project-image"><img src="../assets/proyectos/holaquetal/01.jpg" alt="Hola que tal Screenshot 1" loading="lazy" /></div>
+    <div class="project-image"><img src="../assets/proyectos/holaquetal/02.jpg" alt="Hola que tal Screenshot 2" loading="lazy" /></div>
+    <div class="project-image"><img src="../assets/proyectos/holaquetal/03.jpg" alt="Hola que tal Screenshot 3" loading="lazy" /></div>
+  </div>
+</div>
+<script>
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  document.addEventListener('mousemove', e => { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
+  document.querySelectorAll('a, .tag').forEach(el => { el.addEventListener('mouseenter', () => ring.classList.add('expand')); el.addEventListener('mouseleave', () => ring.classList.remove('expand')); });
+</script>
+</body>
+</html>
