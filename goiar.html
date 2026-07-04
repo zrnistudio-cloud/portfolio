@@ -4,37 +4,385 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Goiar — María Fernanda Juárez</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #0a0a09; --surface: #1a1918; --text: #efeee8; --muted: #817e74; --border: #2a2926; --accent: #d4ff3a; }
+  :root { --bg: #faf8f5; --surface: #f0ede8; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --accent: #4a6741; --accent2: #4a6741; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  
   .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
   .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
   .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
   .cursor-ring.expand { width: 70px; height: 70px; }
   @media (max-width: 900px) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+  
   .back-link { position: fixed; top: 2rem; left: 3rem; z-index: 100; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
   .back-link:hover { color: var(--accent); }
-  .coming-soon { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 3rem; }
-  .coming-soon h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; margin-bottom: 1rem; }
-  .coming-soon p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
+  
+  .container { max-width: 1300px; margin: 0 auto; padding: 8rem 3rem 6rem; }
+  
+  /* HERO */
+  .hero { margin-bottom: 10rem; }
+  .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(74, 103, 65, 0.08); border: 1px solid var(--accent2); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 2rem; }
+  .status-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent2); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  
+  .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+  .project-label::before { content: ''; width: 50px; height: 1px; background: var(--accent); }
+  
+  .project-title { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 10vw, 8rem); font-weight: 200; line-height: 0.95; margin-bottom: 2rem; letter-spacing: -0.02em; }
+  .project-subtitle { font-size: 1.6rem; line-height: 1.5; color: var(--muted); margin-bottom: 5rem; max-width: 950px; }
+  
+  .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; margin-bottom: 5rem; }
+  .hero-main { }
+  .hero-sidebar { }
+  
+  .meta-list { display: flex; flex-direction: column; gap: 2.5rem; }
+  .meta-item { }
+  .meta-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .meta-value { font-size: 1.05rem; color: var(--text); line-height: 1.6; }
+  
+  /* SECTIONS */
+  .section { margin-bottom: 10rem; }
+  .section-header { margin-bottom: 4rem; }
+  .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
+  .section-intro { font-size: 1.3rem; line-height: 1.7; color: var(--text); max-width: 950px; }
+  
+  /* WIDGETS GRID */
+  .widgets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; margin-top: 4rem; }
+  .widget-card { padding: 3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; position: relative; overflow: hidden; transition: all 0.3s ease; }
+  .widget-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+  .widget-card:hover::before { transform: scaleX(1); }
+  .widget-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+  
+  .widget-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+  .widget-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
+  .widget-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+  
+  /* SCOPE CARDS */
+  .scope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; }
+  .scope-card { padding: 2.5rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border: 1px solid var(--border); border-radius: 12px; }
+  .scope-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .scope-title { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.8rem; }
+  .scope-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
+  
+  /* PROCESS TIMELINE */
+  .timeline { max-width: 900px; margin: 4rem 0; }
+  .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 3rem; margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-phase { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 200; font-style: italic; color: var(--accent); opacity: 0.3; line-height: 1; }
+  .timeline-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 1.2rem; }
+  .timeline-content p { font-size: 1.05rem; line-height: 1.9; color: var(--muted); margin-bottom: 1.5rem; }
+  .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .timeline-tag { padding: 0.4rem 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  
+  /* STATS */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin: 5rem 0; padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stat-item { text-align: center; }
+  .stat-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 300; font-style: italic; color: var(--accent); margin-bottom: 0.5rem; line-height: 1; }
+  .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  
+  /* QUOTE */
+  .quote-block { max-width: 1000px; margin: 8rem auto; padding: 5rem 4rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border-left: 4px solid var(--accent); }
+  .quote-block p { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 300; font-style: italic; line-height: 1.4; color: var(--text); }
+  
+  /* IMAGES */
+  .image-showcase { margin: 6rem 0; }
+  .showcase-image { width: 100%; border-radius: 20px; overflow: hidden; background: var(--surface); margin-bottom: 3rem; box-shadow: 0 12px 40px rgba(28,25,23,0.08); }
+  .showcase-image img { width: 100%; height: auto; display: block; }
+  .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; }
+  
+  @media (max-width: 900px) {
+    .back-link { top: 1.5rem; left: 1.5rem; }
+    .container { padding: 6rem 1.5rem 4rem; }
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .timeline-item { grid-template-columns: 1fr; gap: 1.5rem; }
+    .widgets-grid, .scope-grid, .image-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
-<a href="../index.html" class="back-link">← Volver</a>
-<div class="coming-soon">
-  <h1>Goiar</h1>
-  <p>Case study completo próximamente.<br/>Este será el proyecto destacado con estructura completa: Overview, Proceso, Research y Resultados.</p>
+
+<a href="index.html" class="back-link">← Volver</a>
+
+<div class="container">
+  
+  <div class="hero">
+    <span class="status-badge">En curso</span>
+    <p class="project-label">Proyecto Destacado · UX Lead</p>
+    <h1 class="project-title">Goiar</h1>
+    <p class="project-subtitle">
+      Suite Gonnectia — Diseño integral de producto para un ecosistema SaaS que conecta comercios, clientes y operaciones de cobranza con flujos completos navegables, AI integrada y expansión internacional.
+    </p>
+    
+    <div class="hero-grid">
+      <div class="hero-main">
+        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem;">
+          Como UX Lead en Goiar, lidero el diseño de producto end-to-end para una plataforma compleja que abarca múltiples verticales: B2C (clientes finales), B2B (comercios), GoCollet (cobranzas), y BackOffice. El desafío es construir experiencias coherentes que escalen a través de diferentes roles, países y modelos de negocio.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--muted);">
+          El proyecto integra QA de diseño con AI, prototipado rápido con FigmaMake + Claude, y automatización de historias de usuario desde Jira. Trabajo en colaboración directa con Product, Dev, Comercial y clientes en América Latina.
+        </p>
+      </div>
+      
+      <div class="hero-sidebar">
+        <div class="meta-list">
+          <div class="meta-item">
+            <p class="meta-label">Rol</p>
+            <p class="meta-value">UX Lead<br/>Product Designer<br/>Design System Owner</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Alcance</p>
+            <p class="meta-value">B2C, B2B, BackOffice<br/>Web + Mobile</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Verticales</p>
+            <p class="meta-value">SaaS, Fintech<br/>Cobranzas, Comercial</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Geografía</p>
+            <p class="meta-value">Argentina, Chile,<br/>expansión LATAM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIDGETS -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">01 — Widgets</p>
+      <h2 class="section-title">Ecosistema de Producto</h2>
+      <p class="section-intro">
+        Suite Gonnectia es un ecosistema multi-producto con flujos completos, navegables y listos para desarrollo y demos con clientes. Cada vertical requiere arquitectura de información específica y componentes reutilizables.
+      </p>
+    </div>
+    
+    <div class="widgets-grid">
+      <div class="widget-card">
+        <div class="widget-icon">🏪</div>
+        <h3 class="widget-title">B2C + B2B + GoCollet</h3>
+        <p class="widget-desc">Diseño de flujos completos para clientes finales, comercios adheridos y plataforma de cobranzas. Navegación coherente entre roles con componentes compartidos.</p>
+      </div>
+      
+      <div class="widget-card">
+        <div class="widget-icon">✓</div>
+        <h3 class="widget-title">QA Design + AI</h3>
+        <p class="widget-desc">Navegación continua detectando errores e inconsistencias antes de producción. Reportes automáticos con propuestas de mejora basadas en heurísticas.</p>
+      </div>
+      
+      <div class="widget-card">
+        <div class="widget-icon">🤖</div>
+        <h3 class="widget-title">AI Integrada</h3>
+        <p class="widget-desc">FigmaMake + Claude para demos interactivos, prototipos rápidos y automatización de historias de usuario desde Jira a especificaciones de diseño.</p>
+      </div>
+      
+      <div class="widget-card">
+        <div class="widget-icon">💼</div>
+        <h3 class="widget-title">PreVenta + Comercial</h3>
+        <p class="widget-desc">Presentaciones navegables, prototipos funcionales y brochures personalizados para cada cliente. Velocidad en tiempo de respuesta comercial.</p>
+      </div>
+      
+      <div class="widget-card">
+        <div class="widget-icon">🌐</div>
+        <h3 class="widget-title">GOIAR y Comercial</h3>
+        <p class="widget-desc">Sitio web corporativo, landings por producto y vertical, assets para redes sociales y campañas de marketing consistentes con el brand.</p>
+      </div>
+      
+      <div class="widget-card">
+        <div class="widget-icon">👥</div>
+        <h3 class="widget-title">Clientes y Expansión</h3>
+        <p class="widget-desc">Operativo diario con clientes LATAM, QA por rol y país, rediseño de arquitectura para escalabilidad, look & feel adaptado a mercados locales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALCANCE -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">02 — Alcance</p>
+      <h2 class="section-title">Responsabilidades como UX Lead</h2>
+    </div>
+    
+    <div class="scope-grid">
+      <div class="scope-card">
+        <p class="scope-label">Investigación</p>
+        <h3 class="scope-title">Entrevistas con Usuarios</h3>
+        <p class="scope-desc">Sesiones F&F con clientes, detección de bugs en flujos reales, propuestas de mejora con datos cuantitativos y cualitativos.</p>
+      </div>
+      
+      <div class="scope-card">
+        <p class="scope-label">Estrategia</p>
+        <h3 class="scope-title">Arquitectura de Información</h3>
+        <p class="scope-desc">Rediseño de navegación por rol, simplificación de onboarding, mapeo de journey por vertical y país.</p>
+      </div>
+      
+      <div class="scope-card">
+        <p class="scope-label">Diseño</p>
+        <h3 class="scope-title">Flujos Completos Navegables</h3>
+        <p class="scope-desc">Prototipos high-fidelity listos para desarrollo, validados con usuarios reales y equipos internos.</p>
+      </div>
+      
+      <div class="scope-card">
+        <p class="scope-label">Sistema</p>
+        <h3 class="scope-title">Design System Multi-Producto</h3>
+        <p class="scope-desc">Tokens, componentes reutilizables, documentación de patrones, versionado por plataforma (web/mobile).</p>
+      </div>
+      
+      <div class="scope-card">
+        <p class="scope-label">Colaboración</p>
+        <h3 class="scope-title">Trabajo Cross-Funcional</h3>
+        <p class="scope-desc">Coordinación con Product, Dev, Comercial y Clientes. Ceremonias Agile, refinamiento de backlog, handoff a desarrollo.</p>
+      </div>
+      
+      <div class="scope-card">
+        <p class="scope-label">Métricas</p>
+        <h3 class="scope-title">Informes de Usabilidad</h3>
+        <p class="scope-desc">Tracking de KPIs de producto, análisis de sesiones, propuestas de optimización basadas en comportamiento real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">03 — Proceso</p>
+      <h2 class="section-title">Metodología de Trabajo</h2>
+    </div>
+    
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-phase">01</div>
+        <div class="timeline-content">
+          <h3>Discovery & Research</h3>
+          <p>
+            Entrevistas con stakeholders internos (Product, Comercial, Dev) y usuarios finales (comercios, equipos de cobranza). Análisis de flujos existentes, identificación de pain points críticos, benchmarking competitivo por vertical.
+          </p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">User Interviews</span>
+            <span class="timeline-tag">Journey Mapping</span>
+            <span class="timeline-tag">Competitive Analysis</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-phase">02</div>
+        <div class="timeline-content">
+          <h3>Arquitectura & Wireframes</h3>
+          <p>
+            Definición de estructura de navegación por rol (Cliente, Comercio, Cobrador, Admin). Wireframes de baja fidelidad, validación de flujos con Product. Mapeo de componentes compartidos vs específicos por vertical.
+          </p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">IA Design</span>
+            <span class="timeline-tag">User Flows</span>
+            <span class="timeline-tag">Lo-fi Prototypes</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-phase">03</div>
+        <div class="timeline-content">
+          <h3>Diseño de UI & Prototipos</h3>
+          <p>
+            High-fidelity mockups en Figma, prototipado interactivo con FigmaMake. Tests de usabilidad con usuarios reales por país. Iteración basada en feedback cuantitativo (métricas) y cualitativo (sesiones grabadas).
+          </p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">UI Design</span>
+            <span class="timeline-tag">Interactive Prototypes</span>
+            <span class="timeline-tag">Usability Testing</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-phase">04</div>
+        <div class="timeline-content">
+          <h3>Handoff & QA Continuo</h3>
+          <p>
+            Documentación de especificaciones, handoff a desarrollo con Design System. QA de diseño en staging, detección de inconsistencias visuales y de UX. Ciclo continuo de mejora con feedback post-lanzamiento.
+          </p>
+          <div class="timeline-tags">
+            <span class="timeline-tag">Design Specs</span>
+            <span class="timeline-tag">QA Automation</span>
+            <span class="timeline-tag">Post-Launch Optimization</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <p class="stat-label">Verticales de producto</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3</div>
+      <p class="stat-label">Países activos</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <p class="stat-label">Flujos diseñados</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">15+</div>
+      <p class="stat-label">Clientes B2B</p>
+    </div>
+  </div>
+
+  <div class="quote-block">
+    <p>"El desafío de Goiar es diseñar coherencia en la complejidad: múltiples productos, roles, geografías y modelos de negocio bajo una experiencia unificada."</p>
+  </div>
+
+  <!-- IMAGES -->
+  <div class="image-showcase">
+    <div class="showcase-image">
+      <img src="assets/proyectos/goiar/01.jpg" alt="Goiar - Dashboard" loading="lazy" />
+    </div>
+    <div class="image-grid">
+      <div class="showcase-image">
+        <img src="assets/proyectos/goiar/02.jpg" alt="Goiar - B2C Flow" loading="lazy" />
+      </div>
+      <div class="showcase-image">
+        <img src="assets/proyectos/goiar/03.jpg" alt="Goiar - B2B Panel" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <h2 class="section-title">Impacto y Aprendizajes</h2>
+    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text); margin-bottom: 2rem; max-width: 900px;">
+      Goiar me permitió ejercer liderazgo de diseño en un contexto de alta complejidad: coordinar con múltiples stakeholders, diseñar para audiencias diversas, integrar AI en el proceso de diseño y mantener coherencia visual en un ecosistema en constante expansión.
+    </p>
+    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--muted); max-width: 900px;">
+      El mayor aprendizaje fue equilibrar velocidad (tiempo de respuesta comercial) con profundidad (research robusto), y construir sistemas escalables sin sacrificar la experiencia específica de cada rol y geografía.
+    </p>
+  </section>
+
 </div>
+
 <script>
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
-  document.addEventListener('mousemove', e => { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
-  document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => ring.classList.add('expand')); el.addEventListener('mouseleave', () => ring.classList.remove('expand')); });
+  document.addEventListener('mousemove', e => { 
+    dot.style.left = e.clientX + 'px'; 
+    dot.style.top = e.clientY + 'px'; 
+    ring.style.left = e.clientX + 'px'; 
+    ring.style.top = e.clientY + 'px'; 
+  });
+  document.querySelectorAll('a').forEach(el => { 
+    el.addEventListener('mouseenter', () => ring.classList.add('expand')); 
+    el.addEventListener('mouseleave', () => ring.classList.remove('expand')); 
+  });
 </script>
+
 </body>
 </html>

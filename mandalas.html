@@ -3,38 +3,314 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Goiar — María Fernanda Juárez</title>
+<title>Sereia · Mandalas del Alma — María Fernanda Juárez</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #0a0a09; --surface: #1a1918; --text: #efeee8; --muted: #817e74; --border: #2a2926; --accent: #d4ff3a; }
+  :root { --bg: #0a0a09; --surface: #1a1918; --text: #efeee8; --muted: #817e74; --border: #2a2926; --accent: #F4511E; --accent2: #9C27B0; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  
   .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
   .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
   .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
   .cursor-ring.expand { width: 70px; height: 70px; }
   @media (max-width: 900px) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+  
   .back-link { position: fixed; top: 2rem; left: 3rem; z-index: 100; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
   .back-link:hover { color: var(--accent); }
-  .coming-soon { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 3rem; }
-  .coming-soon h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; margin-bottom: 1rem; }
-  .coming-soon p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
+  
+  .container { max-width: 1200px; margin: 0 auto; padding: 8rem 3rem 6rem; }
+  
+  /* HERO */
+  .hero { margin-bottom: 8rem; }
+  .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .project-label::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
+  .project-title { font-family: 'Fraunces', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; line-height: 1.05; margin-bottom: 0.5rem; }
+  .project-subtitle { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 300; font-style: italic; color: var(--muted); margin-bottom: 3rem; }
+  .project-intro { font-size: 1.3rem; line-height: 1.7; color: var(--text); margin-bottom: 4rem; max-width: 900px; }
+  
+  .hero-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; padding: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .meta-item { }
+  .meta-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .meta-value { font-size: 1.05rem; color: var(--text); font-weight: 400; line-height: 1.5; }
+  
+  /* SECTIONS */
+  .section { margin-bottom: 8rem; }
+  .section-title { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; margin-bottom: 3rem; }
+  .section-intro { font-size: 1.2rem; line-height: 1.8; color: var(--text); margin-bottom: 3rem; max-width: 900px; }
+  .section-text { font-size: 1.05rem; line-height: 1.9; color: var(--muted); margin-bottom: 2rem; max-width: 850px; }
+  
+  /* PROBLEM/SOLUTION */
+  .dual-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin: 4rem 0; }
+  .card { padding: 3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+  .card-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+  .card-title { font-family: 'Fraunces', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 1.5rem; }
+  .card-text { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+  
+  /* KEY DECISIONS */
+  .decisions-grid { display: grid; gap: 2.5rem; margin-top: 4rem; }
+  .decision-item { padding: 2.5rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border-left: 3px solid var(--accent); }
+  .decision-title { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 1rem; color: var(--accent); }
+  .decision-desc { font-size: 1rem; line-height: 1.8; color: var(--text); }
+  
+  /* FLOW STEPS */
+  .flow-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; }
+  .flow-card { padding: 2.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; position: relative; }
+  .flow-number { position: absolute; top: 1.5rem; right: 1.5rem; font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 200; color: var(--accent); opacity: 0.2; }
+  .flow-title { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .flow-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
+  
+  /* DESIGN SYSTEM */
+  .ds-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .ds-card { padding: 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+  .ds-title { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .ds-value { font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; }
+  .ds-desc { font-size: 0.9rem; line-height: 1.6; color: var(--muted); }
+  
+  /* QUOTE */
+  .quote-block { max-width: 900px; margin: 6rem auto; padding: 4rem 3rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border-left: 4px solid var(--accent); }
+  .quote-block p { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 300; font-style: italic; line-height: 1.5; color: var(--text); }
+  
+  /* IMAGES */
+  .image-showcase { margin: 6rem 0; }
+  .showcase-image { width: 100%; border-radius: 16px; overflow: hidden; background: var(--surface); margin-bottom: 2rem; }
+  .showcase-image img { width: 100%; height: auto; display: block; }
+  .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+  
+  @media (max-width: 900px) {
+    .back-link { top: 1.5rem; left: 1.5rem; }
+    .container { padding: 6rem 1.5rem 4rem; }
+    .dual-cards, .flow-grid, .ds-grid, .image-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
-<a href="../index.html" class="back-link">← Volver</a>
-<div class="coming-soon">
-  <h1>Goiar</h1>
-  <p>Case study completo próximamente.<br/>Este será el proyecto destacado con estructura completa: Overview, Proceso, Research y Resultados.</p>
+
+<a href="index.html" class="back-link">← Volver</a>
+
+<div class="container">
+  
+  <div class="hero">
+    <p class="project-label">Proyecto Propio · UX Lead</p>
+    <h1 class="project-title">Sereia</h1>
+    <p class="project-subtitle">Mandalas del Alma</p>
+    <p class="project-intro">
+      Una app contemplativa de pintura de mandalas con lectura emocional automática: el color y el símbolo elegidos se traducen en una interpretación amable, basada en simbología junguiana y cromoterapia. El desafío fue diseñar una experiencia de wellness que respetara el silencio del usuario.
+    </p>
+    
+    <div class="hero-meta">
+      <div class="meta-item">
+        <p class="meta-label">Rol</p>
+        <p class="meta-value">UX Lead, UI Designer,<br/>Design System & Prototipado</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Categoría</p>
+        <p class="meta-value">Mobile App<br/>Wellness / Mindfulness</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Stack</p>
+        <p class="meta-value">Design System propio<br/>Prototipo React</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Duración</p>
+        <p class="meta-value">Ritual de 8 minutos<br/>Experiencia sin fricción</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEMA Y SOLUCIÓN -->
+  <section class="section">
+    <h2 class="section-title">El Problema</h2>
+    
+    <div class="dual-cards">
+      <div class="card">
+        <p class="card-label">Diagnóstico</p>
+        <h3 class="card-title">Apps de meditación dominantes son verbales y guiadas</h3>
+        <p class="card-text">
+          Calm y Headspace demandan atención sostenida. Falta una vía no verbal, breve y autoexpresiva para personas con ansiedad o sobrecarga emocional que necesitan habitar una pausa sin sentirse evaluadas ni guiadas.
+        </p>
+      </div>
+      
+      <div class="card">
+        <p class="card-label">Gap en el mercado</p>
+        <h3 class="card-title">Las apps de mandalas existentes son solo técnicas</h3>
+        <p class="card-text">
+          Pintar mandalas tiene evidencia clínica como práctica de regulación emocional, pero las apps son coloring books sin dimensión simbólica ni terapéutica. Falta integrar el gesto creativo con interpretación significativa.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLUJO DEL RITUAL -->
+  <section class="section">
+    <h2 class="section-title">Flujo del Ritual (8 minutos)</h2>
+    
+    <div class="flow-grid">
+      <div class="flow-card">
+        <div class="flow-number">01</div>
+        <h3 class="flow-title">Home — Bienvenida</h3>
+        <p class="flow-desc">Saludo según hora del día, CTA de "Comenzar el ritual", tarjeta visual con los pasos del proceso.</p>
+      </div>
+      
+      <div class="flow-card">
+        <div class="flow-number">02</div>
+        <h3 class="flow-title">Galería — Elección</h3>
+        <p class="flow-desc">6 mandalas (Loto, Sol, Espiral, Estrella, Flor, Luna) cada uno con palabra-clave simbólica.</p>
+      </div>
+      
+      <div class="flow-card">
+        <div class="flow-number">03</div>
+        <h3 class="flow-title">Lienzo — Pintura</h3>
+        <p class="flow-desc">Paleta de 12 colores DS, herramientas balde/pincel, undo, progreso, hint de respiración animado a 4 segundos.</p>
+      </div>
+      
+      <div class="flow-card">
+        <div class="flow-number">04</div>
+        <h3 class="flow-title">Resultado — Lectura</h3>
+        <p class="flow-desc">Modal con símbolo elegido, lectura de 3 colores dominantes, interpretación según familia cromática, cierre afirmativo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DECISIONES UX CLAVE -->
+  <section class="section">
+    <h2 class="section-title">Decisiones UX Clave</h2>
+    
+    <div class="decisions-grid">
+      <div class="decision-item">
+        <h3 class="decision-title">Sin onboarding ni cuenta obligatoria</h3>
+        <p class="decision-desc">Fricción cero para una app de autocuidado. El usuario entra directo al ritual. La experiencia debe sentirse como un gesto espontáneo, no como un compromiso.</p>
+      </div>
+      
+      <div class="decision-item">
+        <h3 class="decision-title">Lenguaje no clínico</h3>
+        <p class="decision-desc">Copys en segunda persona, voseo argentino, tono cálido: "Esta no es una herramienta clínica. Es un gesto amable hacia vos." Sin jerga psicológica ni diagnósticos.</p>
+      </div>
+      
+      <div class="decision-item">
+        <h3 class="decision-title">Sin gamificación</h3>
+        <p class="decision-desc">Cero rachas, badges o métricas. La app honra el silencio y respeta el ritmo personal. No se mide el "progreso" — se habita el presente.</p>
+      </div>
+      
+      <div class="decision-item">
+        <h3 class="decision-title">Tab bar oculto durante el ritual</h3>
+        <p class="decision-desc">Galería y lienzo entran en modo inmersivo. Nada distrae del gesto contemplativo. La navegación reaparece solo al finalizar.</p>
+      </div>
+      
+      <div class="decision-item">
+        <h3 class="decision-title">Persistencia local, no en la nube</h3>
+        <p class="decision-desc">El progreso vive en el dispositivo. Privacidad total, sin sincronización ni recolección de datos emocionales.</p>
+      </div>
+      
+      <div class="decision-item">
+        <h3 class="decision-title">Hint de respiración integrado</h3>
+        <p class="decision-desc">Punto pulsando a 4 segundos (inhalar/exhalar) sin instrucciones explícitas. El usuario descubre la pauta de forma orgánica.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SYSTEM -->
+  <section class="section">
+    <h2 class="section-title">Sistema de Diseño</h2>
+    <p class="section-text">
+      Tokens propios documentados con escalas cromáticas terapéuticas (coral/violet/teal/sun/pink/sage), neutrales paper/ink, sombras cálidas, radii consistentes y type scale balanceado.
+    </p>
+    
+    <div class="ds-grid">
+      <div class="ds-card">
+        <p class="ds-title">Tipografía Display</p>
+        <p class="ds-value">Instrument Serif</p>
+        <p class="ds-desc">Italic para acentos emocionales y títulos contemplativos</p>
+      </div>
+      
+      <div class="ds-card">
+        <p class="ds-title">Tipografía UI</p>
+        <p class="ds-value">Geist</p>
+        <p class="ds-desc">Claridad y neutralidad para interfaces funcionales</p>
+      </div>
+      
+      <div class="ds-card">
+        <p class="ds-title">Brand Color</p>
+        <p class="ds-value" style="color: var(--accent);">Coral #F4511E</p>
+        <p class="ds-desc">Vitalidad cálida, alejado del azul wellness genérico</p>
+      </div>
+      
+      <div class="ds-card">
+        <p class="ds-title">Firma Visual</p>
+        <p class="ds-value">Auras radiales</p>
+        <p class="ds-desc">Gradientes coral + violeta + teal en Home como identidad distintiva</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="quote-block">
+    <p>"El reto fue construir una experiencia de wellness que respetara el silencio del usuario: sin onboarding, sin métricas, sin lenguaje clínico."</p>
+  </div>
+
+  <!-- COMPONENTES CLAVE -->
+  <section class="section">
+    <h2 class="section-title">Componentes Clave que Diseñé</h2>
+    <p class="section-text">
+      <strong>Mandala SVG paintable</strong> con regiones interactivas y metadatos por símbolo. <strong>Paleta cromática terapéutica</strong> con metadatos emocionales por color (fuego/agua/aire/tierra/sombra). <strong>Motor de lectura simbólica</strong> que cuenta colores dominantes y genera mensajes contextuales. <strong>Modal de resultado</strong> con jerarquía editorial clara. <strong>Tab bar contextual</strong> que aparece/desaparece según el estado del ritual.
+    </p>
+  </section>
+
+  <!-- IMAGES -->
+  <div class="image-showcase">
+    <div class="showcase-image">
+      <img src="assets/exploracion/mandalas/01.jpg" alt="Sereia - Home" loading="lazy" />
+    </div>
+    <div class="image-grid">
+      <div class="showcase-image">
+        <img src="assets/exploracion/mandalas/02.jpg" alt="Sereia - Galería" loading="lazy" />
+      </div>
+      <div class="showcase-image">
+        <img src="assets/exploracion/mandalas/03.jpg" alt="Sereia - Lienzo" loading="lazy" />
+      </div>
+      <div class="showcase-image">
+        <img src="assets/exploracion/mandalas/04.jpg" alt="Sereia - Resultado" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <!-- MÉTRICAS -->
+  <section class="section">
+    <h2 class="section-title">Métricas de Éxito Propuestas</h2>
+    <p class="section-text">
+      <strong>Tiempo medio en lienzo:</strong> Target 6–10 minutos (validación de engagement contemplativo).<br/>
+      <strong>% de sesiones que llegan al modal de lectura:</strong> Indica completitud del ritual.<br/>
+      <strong>Retención semanal sin notificaciones push:</strong> Métrica de valor intrínseco, no de manipulación.<br/>
+      <strong>NPS cualitativo abierto:</strong> En lugar de estrellas, un espacio para que el usuario escriba su experiencia.
+    </p>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Reflexión Final</h2>
+    <p class="section-text">
+      Sereia es una exploración de diseño anti-patrón: construir una app de bienestar que no mida, no gamifique, no presione. El desafío fue crear una experiencia que invite a la pausa en lugar de exigir productividad emocional. Definí el sistema completo, el flujo del ritual y un motor simbólico que da sentido al gesto sin imponer interpretación.
+    </p>
+  </section>
+
 </div>
+
 <script>
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
-  document.addEventListener('mousemove', e => { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
-  document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => ring.classList.add('expand')); el.addEventListener('mouseleave', () => ring.classList.remove('expand')); });
+  document.addEventListener('mousemove', e => { 
+    dot.style.left = e.clientX + 'px'; 
+    dot.style.top = e.clientY + 'px'; 
+    ring.style.left = e.clientX + 'px'; 
+    ring.style.top = e.clientY + 'px'; 
+  });
+  document.querySelectorAll('a').forEach(el => { 
+    el.addEventListener('mouseenter', () => ring.classList.add('expand')); 
+    el.addEventListener('mouseleave', () => ring.classList.remove('expand')); 
+  });
 </script>
+
 </body>
 </html>

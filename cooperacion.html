@@ -4,37 +4,122 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Cooperación Seguros — María Fernanda Juárez</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #0a0a09; --surface: #1a1918; --text: #efeee8; --muted: #817e74; --border: #2a2926; --accent: #d4ff3a; }
+  :root { --bg: #faf8f5; --surface: #f0ede8; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --accent: #4a6741; --ease: cubic-bezier(0.23, 1, 0.32, 1); }
+  :root.light { --bg: #fefdf8; --surface: #f8f7f2; --text: #1a1918; --muted: #6b6960; --border: #e5e4df; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  
   .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
   .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
   .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
   .cursor-ring.expand { width: 70px; height: 70px; }
   @media (max-width: 900px) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+  
   .back-link { position: fixed; top: 2rem; left: 3rem; z-index: 100; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
   .back-link:hover { color: var(--accent); }
-  .coming-soon { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 3rem; }
-  .coming-soon h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; margin-bottom: 1rem; }
-  .coming-soon p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
+  
+  .container { max-width: 1100px; margin: 0 auto; padding: 8rem 3rem 6rem; }
+  
+  .hero { margin-bottom: 6rem; }
+  .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
+  .project-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
+  .project-intro { font-size: 1.25rem; line-height: 1.8; color: var(--text); margin-bottom: 3rem; max-width: 900px; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag { padding: 0.6rem 1.2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  
+  .section { margin-bottom: 6rem; }
+  .project-item { margin-bottom: 5rem; padding-bottom: 5rem; border-bottom: 1px solid var(--border); }
+  .project-item:last-child { border-bottom: none; }
+  .project-item-title { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 1rem; }
+  .project-item-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 2rem; }
+  .project-item-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 2rem; }
+  
+  .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+  .project-image { width: 100%; border-radius: 12px; overflow: hidden; background: var(--surface); }
+  .project-image img { width: 100%; height: auto; display: block; }
+  
+  @media (max-width: 900px) {
+    .back-link { top: 1.5rem; left: 1.5rem; }
+    .container { padding: 6rem 1.5rem 4rem; }
+    .image-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
-<a href="../index.html" class="back-link">← Volver</a>
-<div class="coming-soon">
-  <h1>Cooperación Seguros</h1>
-  <p>Case study completo próximamente.<br/>Proyecto con estructura completa: Overview, Proceso, Research y Resultados.</p>
+<a href="index.html" class="back-link">← Volver</a>
+<div class="container">
+  <div class="hero">
+    <p class="project-label">Caso de Estudio</p>
+    <h1 class="project-title">Cooperación Seguros</h1>
+    <p class="project-intro">
+      Como diseñadora UX/UI en Cooperación Seguros, participé en la mejora de experiencias digitales para productores y asegurados. Lideré el diseño de flujos clave como cotizadores, denuncias de siniestros, pasarelas de pago y un chatbot de asistencia. Trabajé en colaboración con equipos de desarrollo, marketing y producto para garantizar soluciones funcionales, accesibles y alineadas con los objetivos del negocio.
+    </p>
+    <div class="project-tags">
+      <span class="tag">Liderazgo en diseño</span>
+      <span class="tag">Research</span>
+      <span class="tag">Chatbots con IA</span>
+      <span class="tag">Equipos multidisciplinarios</span>
+      <span class="tag">Design System</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="project-item">
+      <h2 class="project-item-title">Cotizadores de Seguros</h2>
+      <p class="project-item-desc">Diseñé la experiencia para los cotizadores dentro de PortalPAS. El foco: optimizar carga de datos, comparación y generación de cotizaciones claras. Interfaz limpia con flujos ágiles y componentes reutilizables.</p>
+      <p class="project-item-meta">Product Designer UX UI | 2023</p>
+      <div class="image-grid">
+        <div class="project-image"><img src="assets/proyectos/cooperacion/01.jpg" loading="lazy" /></div>
+        <div class="project-image"><img src="assets/proyectos/cooperacion/02.jpg" loading="lazy" /></div>
+        <div class="project-image"><img src="assets/proyectos/cooperacion/03.jpg" loading="lazy" /></div>
+      </div>
+    </div>
+    <div class="project-item">
+      <h2 class="project-item-title">Denuncia de Siniestros</h2>
+      <p class="project-item-desc">Solución digital para denuncias por terceros. Reducir fricción con formularios claros, validaciones en tiempo real y carga simplificada de documentación.</p>
+      <p class="project-item-meta">Product Designer UX UI | 2023</p>
+      <div class="image-grid">
+        <div class="project-image"><img src="assets/proyectos/cooperacion/04.jpg" loading="lazy" /></div>
+        <div class="project-image"><img src="assets/proyectos/cooperacion/05.jpg" loading="lazy" /></div>
+      </div>
+    </div>
+    <div class="project-item">
+      <h2 class="project-item-title">E-Pagos</h2>
+      <p class="project-item-desc">Pasarela de pagos para productores y asegurados. Enfoque en accesibilidad, seguridad y eficiencia con flujos intuitivos.</p>
+      <p class="project-item-meta">Product Designer UX UI | 2023</p>
+      <div class="image-grid">
+        <div class="project-image"><img src="assets/proyectos/cooperacion/06.jpg" loading="lazy" /></div>
+        <div class="project-image"><img src="assets/proyectos/cooperacion/07.jpg" loading="lazy" /></div>
+      </div>
+    </div>
+    <div class="project-item">
+      <h2 class="project-item-title">Intranet</h2>
+      <p class="project-item-desc">Diseño de intranet corporativa. Interfaz clara, moderna y funcional con dashboards optimizados para usabilidad.</p>
+      <p class="project-item-meta">Product Designer UX UI | 2023</p>
+      <div class="image-grid">
+        <div class="project-image"><img src="assets/proyectos/cooperacion/08.jpg" loading="lazy" /></div>
+      </div>
+    </div>
+    <div class="project-item">
+      <h2 class="project-item-title">Chatbot PAS</h2>
+      <p class="project-item-desc">Chatbot para productores de seguros. Mapeo de flujos conversacionales con respuestas claras y empáticas.</p>
+      <p class="project-item-meta">Product Designer UX UI | 2023</p>
+      <div class="image-grid">
+        <div class="project-image"><img src="assets/proyectos/cooperacion/09.jpg" loading="lazy" /></div>
+        <div class="project-image"><img src="assets/proyectos/cooperacion/10.jpg" loading="lazy" /></div>
+      </div>
+    </div>
+  </div>
 </div>
 <script>
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
   document.addEventListener('mousemove', e => { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
-  document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => ring.classList.add('expand')); el.addEventListener('mouseleave', () => ring.classList.remove('expand')); });
+  document.querySelectorAll('a, .tag').forEach(el => { el.addEventListener('mouseenter', () => ring.classList.add('expand')); el.addEventListener('mouseleave', () => ring.classList.remove('expand')); });
 </script>
 </body>
 </html>

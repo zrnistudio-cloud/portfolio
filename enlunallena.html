@@ -3,38 +3,231 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Goiar — María Fernanda Juárez</title>
+<title>En Luna Llena — María Fernanda Juárez</title>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #0a0a09; --surface: #1a1918; --text: #efeee8; --muted: #817e74; --border: #2a2926; --accent: #d4ff3a; }
+  :root { --bg: #0a0712; --surface: #1a1520; --text: #efeee8; --muted: #9d9aa8; --border: #2a2635; --accent: #c9a0dc; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  
   .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
   .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
   .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
   .cursor-ring.expand { width: 70px; height: 70px; }
   @media (max-width: 900px) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+  
   .back-link { position: fixed; top: 2rem; left: 3rem; z-index: 100; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
   .back-link:hover { color: var(--accent); }
-  .coming-soon { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 3rem; }
-  .coming-soon h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; margin-bottom: 1rem; }
-  .coming-soon p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
+  
+  .container { max-width: 1100px; margin: 0 auto; padding: 8rem 3rem 6rem; }
+  
+  .hero { margin-bottom: 6rem; text-align: center; }
+  .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
+  .project-emoji { font-size: 4rem; margin-bottom: 2rem; }
+  .project-title { font-family: 'Fraunces', serif; font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 300; font-style: italic; line-height: 1.1; margin-bottom: 2rem; }
+  .project-subtitle { font-size: 1.3rem; line-height: 1.7; color: var(--muted); margin: 0 auto 3rem; max-width: 700px; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+  .tag { padding: 0.6rem 1.2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  
+  .section { margin-bottom: 6rem; }
+  .section-title { font-family: 'Fraunces', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; margin-bottom: 2rem; text-align: center; }
+  .section-text { font-size: 1.1rem; line-height: 1.9; color: var(--text); margin: 0 auto 2rem; max-width: 800px; text-align: center; }
+  
+  .vision-card { max-width: 900px; margin: 4rem auto; padding: 3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; text-align: center; }
+  .vision-card h3 { font-family: 'Fraunces', serif; font-size: 1.6rem; font-weight: 400; font-style: italic; color: var(--accent); margin-bottom: 1.5rem; }
+  .vision-card p { font-size: 1.05rem; line-height: 1.8; color: var(--muted); }
+  
+  .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; margin: 4rem 0; }
+  .feature-card { padding: 2.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-align: center; }
+  .feature-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
+  .feature-title { font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 400; margin-bottom: 1rem; }
+  .feature-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
+  
+  .process-timeline { max-width: 700px; margin: 4rem auto; }
+  .timeline-item { display: flex; gap: 2rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+  .timeline-item:last-child { border-bottom: none; }
+  .timeline-number { font-family: 'Fraunces', serif; font-size: 3rem; font-weight: 200; font-style: italic; color: var(--accent); opacity: 0.4; line-height: 1; min-width: 60px; }
+  .timeline-content h3 { font-family: 'Fraunces', serif; font-size: 1.4rem; font-weight: 400; margin-bottom: 0.8rem; }
+  .timeline-content p { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+  
+  .image-showcase { margin: 5rem 0; }
+  .showcase-image { width: 100%; border-radius: 16px; overflow: hidden; background: var(--surface); margin-bottom: 2rem; }
+  .showcase-image img { width: 100%; height: auto; display: block; }
+  .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  
+  .impact-quote { max-width: 800px; margin: 5rem auto; padding: 4rem 3rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border-left: 3px solid var(--accent); text-align: center; }
+  .impact-quote p { font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 300; font-style: italic; line-height: 1.6; color: var(--text); margin-bottom: 1.5rem; }
+  .impact-quote cite { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-style: normal; }
+  
+  @media (max-width: 900px) {
+    .back-link { top: 1.5rem; left: 1.5rem; }
+    .container { padding: 6rem 1.5rem 4rem; }
+    .timeline-item { flex-direction: column; gap: 1rem; }
+    .image-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
-<a href="../index.html" class="back-link">← Volver</a>
-<div class="coming-soon">
-  <h1>Goiar</h1>
-  <p>Case study completo próximamente.<br/>Este será el proyecto destacado con estructura completa: Overview, Proceso, Research y Resultados.</p>
+
+<a href="index.html" class="back-link">← Volver</a>
+
+<div class="container">
+  
+  <div class="hero">
+    <p class="project-label">Proyecto de Exploración</p>
+    <div class="project-emoji">🌙</div>
+    <h1 class="project-title">En Luna Llena</h1>
+    <p class="project-subtitle">
+      Una experiencia lunar para consultar fases, descubrir eventos bajo la luna llena y recibir lecturas de bienestar con una mirada intuitiva, simbólica y editorial.
+    </p>
+    <div class="project-tags">
+      <span class="tag">UX Research</span>
+      <span class="tag">UI Design</span>
+      <span class="tag">Branding</span>
+      <span class="tag">Editorial Design</span>
+      <span class="tag">Wellness</span>
+    </div>
+  </div>
+
+  <section class="section">
+    <h2 class="section-title">Visión del Proyecto</h2>
+    <p class="section-text">
+      En Luna Llena nace de la necesidad de crear un espacio digital que conecte a las personas con los ciclos lunares de una forma cercana, mágica y ritual. No es solo una app de calendario astronómico, es una experiencia de bienestar que invita a la introspección y la conexión con los ritmos naturales.
+    </p>
+    
+    <div class="vision-card">
+      <h3>Diseñar con sensibilidad</h3>
+      <p>
+        El desafío fue traducir la atmósfera contemplativa y ceremonial de la observación lunar a una interfaz digital que se sintiera íntima, cálida y respetuosa con la práctica del usuario.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Funcionalidades Clave</h2>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🌕</div>
+        <h3 class="feature-title">Calendario Lunar</h3>
+        <p class="feature-desc">
+          Visualización clara y estética de las fases lunares con información astronómica y simbólica para cada día del mes.
+        </p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">✨</div>
+        <h3 class="feature-title">Eventos y Rituales</h3>
+        <p class="feature-desc">
+          Agenda de eventos especiales, círculos de luna llena y rituales comunitarios en Argentina, con detalles de ubicación y modalidad.
+        </p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🔮</div>
+        <h3 class="feature-title">Lecturas de Bienestar</h3>
+        <p class="feature-desc">
+          Devoluciones personalizadas según la fase lunar actual, con sugerencias de prácticas, reflexiones y mensajes intuitivos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">Proceso de Diseño</h2>
+    
+    <div class="process-timeline">
+      <div class="timeline-item">
+        <div class="timeline-number">01</div>
+        <div class="timeline-content">
+          <h3>Investigación de Usuarios</h3>
+          <p>
+            Entrevistas con personas interesadas en astrología, rituales lunares y bienestar holístico. Identificación de necesidades: información confiable, comunidad, guía práctica para conectar con los ciclos.
+          </p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-number">02</div>
+        <div class="timeline-content">
+          <h3>Definición de Tono y Estética</h3>
+          <p>
+            Construcción de una identidad visual que equilibrara misticismo y claridad. Paleta de colores nocturnos con acentos violetas suaves, tipografía editorial, ilustraciones delicadas.
+          </p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-number">03</div>
+        <div class="timeline-content">
+          <h3>Wireframes y Prototipos</h3>
+          <p>
+            Diseño de flujos intuitivos para explorar fases, descubrir eventos y recibir lecturas. Priorización de la experiencia contemplativa: animaciones suaves, espacios generosos, lectura pausada.
+          </p>
+        </div>
+      </div>
+      
+      <div class="timeline-item">
+        <div class="timeline-number">04</div>
+        <div class="timeline-content">
+          <h3>Validación y Refinamiento</h3>
+          <p>
+            Tests con usuarios del público objetivo. Ajustes en lenguaje, jerarquía visual y frecuencia de notificaciones para respetar el ritmo personal de cada usuario.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="image-showcase">
+    <div class="showcase-image">
+      <img src="assets/exploracion/luna-llena/01.jpg" alt="En Luna Llena - Pantalla principal" loading="lazy" />
+    </div>
+    <div class="image-grid">
+      <div class="showcase-image">
+        <img src="assets/exploracion/luna-llena/02.jpg" alt="En Luna Llena - Calendario" loading="lazy" />
+      </div>
+      <div class="showcase-image">
+        <img src="assets/exploracion/luna-llena/03.jpg" alt="En Luna Llena - Lecturas" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <div class="impact-quote">
+    <p>"Un espacio donde lo digital se encuentra con lo ritual, creando una experiencia de conexión íntima con los ciclos de la naturaleza."</p>
+    <cite>Reflexión de Diseño</cite>
+  </div>
+
+  <section class="section">
+    <h2 class="section-title">Aprendizajes</h2>
+    <p class="section-text">
+      Este proyecto me permitió explorar el diseño centrado en la experiencia emocional y simbólica. Aprendí a equilibrar información funcional (datos astronómicos precisos) con contenido inspiracional (mensajes de bienestar), manteniendo claridad y belleza en cada pantalla.
+    </p>
+    <p class="section-text">
+      El mayor desafío fue diseñar una interfaz que invitara a la calma en un mundo digital que suele demandar velocidad y eficiencia. La tipografía editorial, los espacios en blanco generosos y las transiciones suaves fueron clave para lograr esa atmósfera contemplativa.
+    </p>
+  </section>
+
 </div>
+
 <script>
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
-  document.addEventListener('mousemove', e => { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
-  document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => ring.classList.add('expand')); el.addEventListener('mouseleave', () => ring.classList.remove('expand')); });
+  document.addEventListener('mousemove', e => { 
+    dot.style.left = e.clientX + 'px'; 
+    dot.style.top = e.clientY + 'px'; 
+    ring.style.left = e.clientX + 'px'; 
+    ring.style.top = e.clientY + 'px'; 
+  });
+  document.querySelectorAll('a').forEach(el => { 
+    el.addEventListener('mouseenter', () => ring.classList.add('expand')); 
+    el.addEventListener('mouseleave', () => ring.classList.remove('expand')); 
+  });
 </script>
+
 </body>
 </html>

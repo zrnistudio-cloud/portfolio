@@ -4,37 +4,264 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>OTERIX — María Fernanda Juárez</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #0a0a09; --surface: #1a1918; --text: #efeee8; --muted: #817e74; --border: #2a2926; --accent: #d4ff3a; }
+  :root { --bg: #faf8f5; --surface: #f0ede8; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --accent: #4a6741; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  
   .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
   .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
   .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
   .cursor-ring.expand { width: 70px; height: 70px; }
   @media (max-width: 900px) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
+  
   .back-link { position: fixed; top: 2rem; left: 3rem; z-index: 100; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
   .back-link:hover { color: var(--accent); }
-  .coming-soon { min-height: 100vh; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding: 3rem; }
-  .coming-soon h1 { font-family: 'Fraunces', serif; font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; margin-bottom: 1rem; }
-  .coming-soon p { font-size: 1.2rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
+  
+  .container { max-width: 1200px; margin: 0 auto; padding: 8rem 3rem 6rem; }
+  
+  /* HERO */
+  .hero { margin-bottom: 8rem; }
+  .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .project-label::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
+  .project-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; line-height: 1.05; margin-bottom: 2rem; }
+  .project-subtitle { font-size: 1.4rem; line-height: 1.6; color: var(--muted); margin-bottom: 4rem; max-width: 800px; }
+  
+  .hero-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem; padding: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .meta-item { }
+  .meta-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .meta-value { font-size: 1.1rem; color: var(--text); font-weight: 400; }
+  
+  /* SECTIONS */
+  .section { margin-bottom: 8rem; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; margin-bottom: 3rem; }
+  .section-intro { font-size: 1.2rem; line-height: 1.8; color: var(--text); margin-bottom: 3rem; max-width: 900px; }
+  .section-text { font-size: 1.05rem; line-height: 1.9; color: var(--muted); margin-bottom: 2rem; max-width: 800px; }
+  
+  /* HIGHLIGHTS */
+  .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 4rem 0; }
+  .highlight-card { padding: 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+  .highlight-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .highlight-title { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .highlight-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
+  
+  /* PROCESS STEPS */
+  .process-grid { display: grid; gap: 4rem; margin-top: 4rem; }
+  .process-step { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; }
+  .step-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 200; color: var(--accent); opacity: 0.3; line-height: 1; }
+  .step-content h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem; }
+  .step-content p { font-size: 1rem; line-height: 1.8; color: var(--muted); }
+  
+  /* RESULTS */
+  .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 4rem; }
+  .result-card { text-align: center; padding: 3rem 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
+  .result-number { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 300; font-style: italic; color: var(--accent); margin-bottom: 0.5rem; }
+  .result-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  
+  /* IMAGES */
+  .image-showcase { margin: 5rem 0; }
+  .showcase-image { width: 100%; border-radius: 16px; overflow: hidden; background: var(--surface); margin-bottom: 2rem; }
+  .showcase-image img { width: 100%; height: auto; display: block; }
+  .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  
+  @media (max-width: 900px) {
+    .back-link { top: 1.5rem; left: 1.5rem; }
+    .container { padding: 6rem 1.5rem 4rem; }
+    .process-step { grid-template-columns: 1fr; }
+    .step-number { font-size: 3rem; }
+    .image-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
+
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
-<a href="../index.html" class="back-link">← Volver</a>
-<div class="coming-soon">
-  <h1>OTERIX</h1>
-  <p>Case study completo próximamente.<br/>Proyecto con estructura completa: Overview, Proceso, Research y Resultados.</p>
+
+<a href="index.html" class="back-link">← Volver al portfolio</a>
+
+<div class="container">
+  
+  <!-- HERO -->
+  <div class="hero">
+    <p class="project-label">Case Study · UX Lead</p>
+    <h1 class="project-title">OTERIX</h1>
+    <p class="project-subtitle">
+      Diseño integral de un sistema de gestión de mantenimiento industrial que optimiza el tracking de órdenes de trabajo, centraliza la supervisión de activos y transforma procesos operativos críticos en tiempo real.
+    </p>
+    
+    <div class="hero-meta">
+      <div class="meta-item">
+        <p class="meta-label">Rol</p>
+        <p class="meta-value">UX Lead · Product Designer</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Industria</p>
+        <p class="meta-value">B2B · Industrial Tech</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Alcance</p>
+        <p class="meta-value">Research · UX/UI · System Design</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Año</p>
+        <p class="meta-value">2024</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="section">
+    <h2 class="section-title">Overview</h2>
+    <p class="section-intro">
+      OTERIX es una plataforma que digitaliza la gestión de mantenimiento en entornos industriales complejos, donde cada minuto de downtime impacta directamente en la producción.
+    </p>
+    
+    <div class="highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon">⚙️</div>
+        <h3 class="highlight-title">Problema</h3>
+        <p class="highlight-desc">
+          Los equipos de mantenimiento gestionaban órdenes de trabajo con planillas Excel, comunicación fragmentada y falta de visibilidad en tiempo real sobre el estado de activos críticos.
+        </p>
+      </div>
+      
+      <div class="highlight-card">
+        <div class="highlight-icon">🎯</div>
+        <h3 class="highlight-title">Solución</h3>
+        <p class="highlight-desc">
+          Un sistema centralizado con tracking en tiempo real, alertas automáticas para situaciones críticas y dashboards que permiten tomar decisiones basadas en datos actualizados.
+        </p>
+      </div>
+      
+      <div class="highlight-card">
+        <div class="highlight-icon">📊</div>
+        <h3 class="highlight-title">Impacto</h3>
+        <p class="highlight-desc">
+          Reducción del 40% en tiempo de respuesta ante fallas, mejora en trazabilidad de intervenciones y visibilidad completa del estado operacional.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="section">
+    <h2 class="section-title">Proceso</h2>
+    
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="step-number">01</div>
+        <div class="step-content">
+          <h3>Research & Discovery</h3>
+          <p>
+            Entrevistas en profundidad con técnicos de mantenimiento, supervisores y gerentes de planta. Shadowing de jornadas completas para entender pain points reales: tiempos muertos, duplicación de trabajo, pérdida de información crítica entre turnos.
+          </p>
+        </div>
+      </div>
+      
+      <div class="process-step">
+        <div class="step-number">02</div>
+        <div class="step-content">
+          <h3>Arquitectura de Información</h3>
+          <p>
+            Definición de flujos de trabajo optimizados: desde la creación de órdenes hasta su cierre, priorizando velocidad y claridad. Jerarquización de información crítica vs secundaria para reducir carga cognitiva en entornos de alta presión.
+          </p>
+        </div>
+      </div>
+      
+      <div class="process-step">
+        <div class="step-number">03</div>
+        <div class="step-content">
+          <h3>Diseño de Interfaz</h3>
+          <p>
+            Wireframes de baja fidelidad validados con usuarios, iteración de prototipos funcionales. Diseño visual adaptado a condiciones de uso reales: legibilidad en tablets industriales, accesibilidad con guantes, contrastes para ambientes de planta.
+          </p>
+        </div>
+      </div>
+      
+      <div class="process-step">
+        <div class="step-number">04</div>
+        <div class="step-content">
+          <h3>Validación & Iteración</h3>
+          <p>
+            Tests de usabilidad con usuarios reales en contexto operativo. Ajustes basados en feedback: simplificación de formularios, reducción de pasos para acciones frecuentes, mejora de sistema de alertas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY FEATURES -->
+  <section class="section">
+    <h2 class="section-title">Decisiones Clave de Diseño</h2>
+    <p class="section-text">
+      <strong>Dashboard centrado en prioridad:</strong> Las órdenes críticas siempre visibles en la parte superior, codificadas por color y urgencia. Reducción de clics para acceder a información esencial.
+    </p>
+    <p class="section-text">
+      <strong>Formularios inteligentes:</strong> Autocompletado basado en historial, campos condicionales que se muestran solo cuando son relevantes, validaciones en tiempo real para evitar errores.
+    </p>
+    <p class="section-text">
+      <strong>Sistema de alertas contextual:</strong> Notificaciones que distinguen entre urgente y informativo, integración con canales de comunicación existentes del equipo.
+    </p>
+  </section>
+
+  <!-- IMAGES -->
+  <div class="image-showcase">
+    <div class="showcase-image">
+      <img src="assets/proyectos/oterix/01.jpg" alt="OTERIX Dashboard" loading="lazy" />
+    </div>
+    <div class="image-grid">
+      <div class="showcase-image">
+        <img src="assets/proyectos/oterix/02.jpg" alt="OTERIX Órdenes" loading="lazy" />
+      </div>
+      <div class="showcase-image">
+        <img src="assets/proyectos/oterix/03.jpg" alt="OTERIX Alertas" loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <!-- RESULTADOS -->
+  <section class="section">
+    <h2 class="section-title">Resultados</h2>
+    
+    <div class="results-grid">
+      <div class="result-card">
+        <div class="result-number">40%</div>
+        <p class="result-label">Reducción en tiempo de respuesta</p>
+      </div>
+      <div class="result-card">
+        <div class="result-number">100%</div>
+        <p class="result-label">Trazabilidad de intervenciones</p>
+      </div>
+      <div class="result-card">
+        <div class="result-number">3x</div>
+        <p class="result-label">Velocidad en creación de órdenes</p>
+      </div>
+    </div>
+    
+    <p class="section-text" style="margin-top: 3rem;">
+      El sistema se implementó exitosamente en múltiples plantas industriales, transformando la forma en que los equipos gestionan el mantenimiento. Los usuarios destacan la claridad de la información y la reducción significativa en fricción operativa.
+    </p>
+  </section>
+
 </div>
+
 <script>
   const dot = document.querySelector('.cursor-dot');
   const ring = document.querySelector('.cursor-ring');
-  document.addEventListener('mousemove', e => { dot.style.left = e.clientX + 'px'; dot.style.top = e.clientY + 'px'; ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
-  document.querySelectorAll('a').forEach(el => { el.addEventListener('mouseenter', () => ring.classList.add('expand')); el.addEventListener('mouseleave', () => ring.classList.remove('expand')); });
+  document.addEventListener('mousemove', e => { 
+    dot.style.left = e.clientX + 'px'; 
+    dot.style.top = e.clientY + 'px'; 
+    ring.style.left = e.clientX + 'px'; 
+    ring.style.top = e.clientY + 'px'; 
+  });
+  document.querySelectorAll('a').forEach(el => { 
+    el.addEventListener('mouseenter', () => ring.classList.add('expand')); 
+    el.addEventListener('mouseleave', () => ring.classList.remove('expand')); 
+  });
 </script>
+
 </body>
 </html>

@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Bikeing App — María Fernanda Juárez</title>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #0a0a09; --surface: #1a1918; --text: #efeee8; --muted: #817e74; --border: #2a2926; --accent: #d4ff3a; --ease: cubic-bezier(0.23, 1, 0.32, 1); }
+  :root { --bg: #faf8f5; --surface: #f0ede8; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --accent: #4a6741; --ease: cubic-bezier(0.23, 1, 0.32, 1); }
   :root.light { --bg: #fefdf8; --surface: #f8f7f2; --text: #1a1918; --muted: #6b6960; --border: #e5e4df; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
   .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
   .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
   .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
@@ -21,7 +21,7 @@
   .project-container { max-width: 900px; margin: 0 auto; padding: 8rem 3rem 6rem; }
   .project-hero { margin-bottom: 4rem; }
   .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
-  .project-title { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
+  .project-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
   .project-description { font-size: 1.1rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
   .tag { padding: 0.5rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
@@ -34,7 +34,7 @@
 <body>
 <div class="cursor-dot"></div>
 <div class="cursor-ring"></div>
-<a href="../index.html" class="back-link">← Volver</a>
+<a href="index.html" class="back-link">← Volver</a>
 <div class="project-container">
   <div class="project-hero">
     <p class="project-label">Caso de Estudio</p>
@@ -51,9 +51,9 @@
     </div>
   </div>
   <div class="project-gallery">
-    <div class="project-image"><img src="../assets/proyectos/bikeing/01.jpg" alt="Bikeing Screenshot 1" loading="lazy" /></div>
-    <div class="project-image"><img src="../assets/proyectos/bikeing/02.jpg" alt="Bikeing Screenshot 2" loading="lazy" /></div>
-    <div class="project-image"><img src="../assets/proyectos/bikeing/03.jpg" alt="Bikeing Screenshot 3" loading="lazy" /></div>
+    <div class="project-image"><img src="assets/proyectos/bikeing/01.jpg" alt="Bikeing Screenshot 1" loading="lazy" /></div>
+    <div class="project-image"><img src="assets/proyectos/bikeing/02.jpg" alt="Bikeing Screenshot 2" loading="lazy" /></div>
+    <div class="project-image"><img src="assets/proyectos/bikeing/03.jpg" alt="Bikeing Screenshot 3" loading="lazy" /></div>
   </div>
 </div>
 <script>
