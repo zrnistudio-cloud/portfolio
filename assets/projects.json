@@ -1,0 +1,72 @@
+{
+  "proyectos": [
+    {
+      "id": "goiar",
+      "nombre": "Goiar",
+      "carpeta": "goiar",
+      "imagenes": {
+        "cover": "cover.jpg",
+        "mockup1": "dashboard.jpg",
+        "mockup2": "mobile.jpg"
+      }
+    },
+    {
+      "id": "oterix",
+      "nombre": "OTERIX",
+      "carpeta": "oterix",
+      "imagenes": {
+        "cover": "cover.jpg"
+      }
+    },
+    {
+      "id": "cooperacion",
+      "nombre": "Cooperación Seguros",
+      "carpeta": "cooperacion",
+      "imagenes": {
+        "cover": "cover.jpg"
+      }
+    },
+    {
+      "id": "ieb",
+      "nombre": "IEB+ / Fintech",
+      "carpeta": "ieb",
+      "imagenes": {
+        "cover": "cover.jpg"
+      }
+    },
+    {
+      "id": "arneg",
+      "nombre": "ARNEG / CRM",
+      "carpeta": "arneg",
+      "imagenes": {
+        "cover": "cover.jpg"
+      }
+    },
+    {
+      "id": "laboratorio",
+      "nombre": "Laboratorio MX",
+      "carpeta": "laboratorio",
+      "imagenes": {
+        "cover": "cover.jpg"
+      }
+    }
+  ],
+  "exploracion": [
+    {
+      "id": "luna-llena",
+      "nombre": "En luna llena",
+      "carpeta": "luna-llena",
+      "imagenes": {
+        "cover": "cover.jpg"
+      }
+    },
+    {
+      "id": "mandalas",
+      "nombre": "Mandalas del alma",
+      "carpeta": "mandalas",
+      "imagenes": {
+        "cover": "cover.jpg"
+      }
+    }
+  ]
+}
