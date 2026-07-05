@@ -1,1 +1,1 @@
-assets/proyectos/cooperacion/CS. Dashb01.jpg
+Dashb01.jpg
