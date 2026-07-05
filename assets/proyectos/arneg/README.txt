@@ -1,1 +1,1 @@
-Colocá tu imagen cover.jpg aquí
+arneg2.jpg
