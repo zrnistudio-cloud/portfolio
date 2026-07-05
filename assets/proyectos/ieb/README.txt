@@ -1,1 +1,1 @@
-Colocá tu imagen cover.jpg aquí
+1.jpg
