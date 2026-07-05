@@ -1,1 +1,1 @@
-Colocá tu imagen cover.jpg aquí
+GL9.jpg
