@@ -1,1 +1,1 @@
-Colocá tu imagen cover.jpg aquí
+assets/proyectos/cooperacion/CS. Dashb01.jpg
