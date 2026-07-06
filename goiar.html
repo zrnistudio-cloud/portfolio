@@ -4,34 +4,32 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Goiar — María Fernanda Juárez</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #faf8f5; --surface: #f0ede8; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --accent: #4a6741; --accent2: #4a6741; }
+  :root { --bg: #faf8f5; --surface: #f0ede8; --fg: #1c1917; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --green: #4a6741; --accent: #4a6741; --accent2: #4a6741; --serif: 'Playfair Display', Georgia, serif; --sans: 'Inter', system-ui, sans-serif; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
-  
-  .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
-  .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
-  .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
-  .cursor-ring.expand { width: 70px; height: 70px; }
-  @media (max-width: 900px) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
-  
-  .back-link { position: fixed; top: 2rem; left: 3rem; z-index: 100; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
-  .back-link:hover { color: var(--accent); }
-  
-  .container { max-width: 1300px; margin: 0 auto; padding: 8rem 3rem 6rem; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--fg); line-height: 1.6; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1400px; margin: 0 auto; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; }
+  .nav-brand { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--green); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-link { font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: var(--fg); }
+
+  .container { max-width: 1300px; margin: 0 auto; padding: 130px 48px 80px; }
   
   /* HERO */
   .hero { margin-bottom: 10rem; }
-  .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(74, 103, 65, 0.08); border: 1px solid var(--accent2); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 2rem; }
+  .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(74, 103, 65, 0.08); border: 1px solid var(--accent2); border-radius: 100px; font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 2rem; }
   .status-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent2); border-radius: 50%; animation: pulse 2s infinite; }
   @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
   
-  .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+  .project-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
   .project-label::before { content: ''; width: 50px; height: 1px; background: var(--accent); }
   
-  .project-title { font-family: 'Playfair Display', serif; font-size: clamp(4rem, 10vw, 8rem); font-weight: 200; line-height: 0.95; margin-bottom: 2rem; letter-spacing: -0.02em; }
+  .project-title { font-family: var(--serif); font-style: italic; font-size: clamp(4rem, 10vw, 8rem); font-weight: 200; line-height: 0.95; margin-bottom: 2rem; letter-spacing: -0.02em; }
   .project-subtitle { font-size: 1.6rem; line-height: 1.5; color: var(--muted); margin-bottom: 5rem; max-width: 950px; }
   
   .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; margin-bottom: 5rem; }
@@ -40,14 +38,14 @@
   
   .meta-list { display: flex; flex-direction: column; gap: 2.5rem; }
   .meta-item { }
-  .meta-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .meta-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
   .meta-value { font-size: 1.05rem; color: var(--text); line-height: 1.6; }
   
   /* SECTIONS */
   .section { margin-bottom: 10rem; }
   .section-header { margin-bottom: 4rem; }
-  .section-number { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
+  .section-number { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .section-title { font-family: var(--serif); font-style: italic; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
   .section-intro { font-size: 1.3rem; line-height: 1.7; color: var(--text); max-width: 950px; }
   
   /* WIDGETS GRID */
@@ -58,13 +56,13 @@
   .widget-card:hover { border-color: var(--accent); transform: translateY(-4px); }
   
   .widget-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
-  .widget-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
+  .widget-title { font-family: var(--serif); font-style: italic; font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
   .widget-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); }
   
   /* SCOPE CARDS */
   .scope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; }
   .scope-card { padding: 2.5rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border: 1px solid var(--border); border-radius: 12px; }
-  .scope-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .scope-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
   .scope-title { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.8rem; }
   .scope-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
   
@@ -72,21 +70,21 @@
   .timeline { max-width: 900px; margin: 4rem 0; }
   .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 3rem; margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
   .timeline-item:last-child { border-bottom: none; }
-  .timeline-phase { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 200; font-style: italic; color: var(--accent); opacity: 0.3; line-height: 1; }
-  .timeline-content h3 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 1.2rem; }
+  .timeline-phase { font-family: var(--serif); font-style: italic; font-size: 4rem; font-weight: 200; font-style: italic; color: var(--accent); opacity: 0.3; line-height: 1; }
+  .timeline-content h3 { font-family: var(--serif); font-style: italic; font-size: 1.8rem; font-weight: 400; margin-bottom: 1.2rem; }
   .timeline-content p { font-size: 1.05rem; line-height: 1.9; color: var(--muted); margin-bottom: 1.5rem; }
   .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-  .timeline-tag { padding: 0.4rem 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .timeline-tag { padding: 0.4rem 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
   
   /* STATS */
   .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin: 5rem 0; padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .stat-item { text-align: center; }
-  .stat-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 300; font-style: italic; color: var(--accent); margin-bottom: 0.5rem; line-height: 1; }
-  .stat-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .stat-number { font-family: var(--serif); font-style: italic; font-size: 4rem; font-weight: 300; font-style: italic; color: var(--accent); margin-bottom: 0.5rem; line-height: 1; }
+  .stat-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   
   /* QUOTE */
   .quote-block { max-width: 1000px; margin: 8rem auto; padding: 5rem 4rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border-left: 4px solid var(--accent); }
-  .quote-block p { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 300; font-style: italic; line-height: 1.4; color: var(--text); }
+  .quote-block p { font-family: var(--serif); font-style: italic; font-size: 2rem; font-weight: 300; font-style: italic; line-height: 1.4; color: var(--text); }
   
   /* IMAGES */
   .image-showcase { margin: 6rem 0; }
@@ -94,9 +92,13 @@
   .showcase-image img { width: 100%; height: auto; display: block; }
   .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; }
   
+  footer { border-top: 1px solid var(--border); margin-top: 80px; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; padding: 28px 48px; display: flex; justify-content: space-between; }
+  .footer-inner span { font-size: 12px; color: var(--muted); }
+
   @media (max-width: 900px) {
-    .back-link { top: 1.5rem; left: 1.5rem; }
-    .container { padding: 6rem 1.5rem 4rem; }
+    .nav-inner, .footer-inner { padding-left: 24px; padding-right: 24px; }
+    .container { padding: 110px 24px 60px; }
     .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
     .timeline-item { grid-template-columns: 1fr; gap: 1.5rem; }
     .widgets-grid, .scope-grid, .image-grid { grid-template-columns: 1fr; }
@@ -105,10 +107,17 @@
 </head>
 <body>
 
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-<a href="index.html" class="back-link">← Volver</a>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">María Fernanda Juárez</a>
+    <div class="nav-links">
+      <a href="sobre-mi.html" class="nav-link">sobre mí</a>
+      <a href="experiencia.html" class="nav-link">experiencia</a>
+      <a href="proyectos.html" class="nav-link">proyectos</a>
+      <a href="index.html#contacto" class="nav-link">contacto</a>
+    </div>
+  </div>
+</nav>
 
 <div class="container">
   
@@ -123,7 +132,10 @@
     <div class="hero-grid">
       <div class="hero-main">
         <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem;">
-          Como UX Lead en Goiar, lidero el diseño de producto end-to-end para una plataforma compleja que abarca múltiples verticales: B2C (clientes finales), B2B (comercios), GoCollet (cobranzas), y BackOffice. El desafío es construir experiencias coherentes que escalen a través de diferentes roles, países y modelos de negocio.
+          Goiar es infraestructura fintech: le da a cualquier empresa las cuentas, los pagos y la adquirencia para que el dinero de su industria circule bajo su propia marca, en producción en 1 mes en lugar de los 12 a 24 meses que toma construir un fintech desde cero. Es una plataforma modular (Base + Emisión de cuentas y tarjetas, Pagos, Adquirencia e Inversiones) adaptada a más de una decena de industrias, desde agro hasta seguros y logística.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem;">
+          Como UX Lead en Goiar, lidero el diseño de producto end-to-end para esa plataforma: múltiples verticales — B2C (clientes finales), B2B (comercios), GoCollet (cobranzas), y BackOffice. El desafío es construir experiencias coherentes que escalen a través de diferentes roles, países y modelos de negocio.
         </p>
         <p style="font-size: 1.15rem; line-height: 1.8; color: var(--muted);">
           El proyecto integra QA de diseño con AI, prototipado rápido con FigmaMake + Claude, y automatización de historias de usuario desde Jira. Trabajo en colaboración directa con Product, Dev, Comercial y clientes en América Latina.
@@ -345,15 +357,7 @@
   <!-- IMAGES -->
   <div class="image-showcase">
     <div class="showcase-image">
-      <img src="assets/proyectos/goiar/01.jpg" alt="Goiar - Dashboard" loading="lazy" />
-    </div>
-    <div class="image-grid">
-      <div class="showcase-image">
-        <img src="assets/proyectos/goiar/02.jpg" alt="Goiar - B2C Flow" loading="lazy" />
-      </div>
-      <div class="showcase-image">
-        <img src="assets/proyectos/goiar/03.jpg" alt="Goiar - B2B Panel" loading="lazy" />
-      </div>
+      <img src="assets/proyectos/goiar/01.png" alt="Goiar - Pantallas de la app B2C: saldo, transferencias y pagos con QR" loading="lazy" />
     </div>
   </div>
 
@@ -369,20 +373,12 @@
 
 </div>
 
-<script>
-  const dot = document.querySelector('.cursor-dot');
-  const ring = document.querySelector('.cursor-ring');
-  document.addEventListener('mousemove', e => { 
-    dot.style.left = e.clientX + 'px'; 
-    dot.style.top = e.clientY + 'px'; 
-    ring.style.left = e.clientX + 'px'; 
-    ring.style.top = e.clientY + 'px'; 
-  });
-  document.querySelectorAll('a').forEach(el => { 
-    el.addEventListener('mouseenter', () => ring.classList.add('expand')); 
-    el.addEventListener('mouseleave', () => ring.classList.remove('expand')); 
-  });
-</script>
+<footer>
+  <div class="footer-inner">
+    <span>© María Fernanda Juárez 2026</span>
+    <span>Rosario, Argentina</span>
+  </div>
+</footer>
 
 </body>
 </html>

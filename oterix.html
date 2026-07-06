@@ -4,39 +4,37 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>OTERIX — María Fernanda Juárez</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #faf8f5; --surface: #f0ede8; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --accent: #4a6741; }
+  :root { --bg: #faf8f5; --surface: #f0ede8; --fg: #1c1917; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --green: #4a6741; --accent: #4a6741; --serif: 'Playfair Display', Georgia, serif; --sans: 'Inter', system-ui, sans-serif; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
-  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; cursor: none; }
-  
-  .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
-  .cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
-  .cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
-  .cursor-ring.expand { width: 70px; height: 70px; }
-  @media (max-width: 900px) { body { cursor: auto; } .cursor-dot, .cursor-ring { display: none; } }
-  
-  .back-link { position: fixed; top: 2rem; left: 3rem; z-index: 100; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.3s ease; }
-  .back-link:hover { color: var(--accent); }
-  
-  .container { max-width: 1200px; margin: 0 auto; padding: 8rem 3rem 6rem; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--fg); line-height: 1.6; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1400px; margin: 0 auto; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; }
+  .nav-brand { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--green); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-link { font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: var(--fg); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 130px 48px 80px; }
   
   /* HERO */
   .hero { margin-bottom: 8rem; }
-  .project-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .project-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
   .project-label::before { content: ''; width: 40px; height: 1px; background: var(--accent); }
-  .project-title { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; line-height: 1.05; margin-bottom: 2rem; }
+  .project-title { font-family: var(--serif); font-style: italic; font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; line-height: 1.05; margin-bottom: 2rem; }
   .project-subtitle { font-size: 1.4rem; line-height: 1.6; color: var(--muted); margin-bottom: 4rem; max-width: 800px; }
   
   .hero-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin-bottom: 4rem; padding: 3rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .meta-item { }
-  .meta-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .meta-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
   .meta-value { font-size: 1.1rem; color: var(--text); font-weight: 400; }
   
   /* SECTIONS */
   .section { margin-bottom: 8rem; }
-  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; margin-bottom: 3rem; }
+  .section-title { font-family: var(--serif); font-style: italic; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; margin-bottom: 3rem; }
   .section-intro { font-size: 1.2rem; line-height: 1.8; color: var(--text); margin-bottom: 3rem; max-width: 900px; }
   .section-text { font-size: 1.05rem; line-height: 1.9; color: var(--muted); margin-bottom: 2rem; max-width: 800px; }
   
@@ -44,21 +42,21 @@
   .highlights { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin: 4rem 0; }
   .highlight-card { padding: 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
   .highlight-icon { font-size: 2rem; margin-bottom: 1rem; }
-  .highlight-title { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .highlight-title { font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
   .highlight-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
   
   /* PROCESS STEPS */
   .process-grid { display: grid; gap: 4rem; margin-top: 4rem; }
   .process-step { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; }
-  .step-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 200; color: var(--accent); opacity: 0.3; line-height: 1; }
-  .step-content h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem; }
+  .step-number { font-family: var(--serif); font-style: italic; font-size: 4rem; font-weight: 200; color: var(--accent); opacity: 0.3; line-height: 1; }
+  .step-content h3 { font-family: var(--serif); font-style: italic; font-size: 1.6rem; font-weight: 400; margin-bottom: 1rem; }
   .step-content p { font-size: 1rem; line-height: 1.8; color: var(--muted); }
   
   /* RESULTS */
   .results-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-top: 4rem; }
   .result-card { text-align: center; padding: 3rem 2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; }
-  .result-number { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 300; font-style: italic; color: var(--accent); margin-bottom: 0.5rem; }
-  .result-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .result-number { font-family: var(--serif); font-style: italic; font-size: 3.5rem; font-weight: 300; font-style: italic; color: var(--accent); margin-bottom: 0.5rem; }
+  .result-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
   
   /* IMAGES */
   .image-showcase { margin: 5rem 0; }
@@ -66,9 +64,13 @@
   .showcase-image img { width: 100%; height: auto; display: block; }
   .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; margin-top: 3rem; }
   
+  footer { border-top: 1px solid var(--border); margin-top: 80px; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; padding: 28px 48px; display: flex; justify-content: space-between; }
+  .footer-inner span { font-size: 12px; color: var(--muted); }
+
   @media (max-width: 900px) {
-    .back-link { top: 1.5rem; left: 1.5rem; }
-    .container { padding: 6rem 1.5rem 4rem; }
+    .nav-inner, .footer-inner { padding-left: 24px; padding-right: 24px; }
+    .container { padding: 110px 24px 60px; }
     .process-step { grid-template-columns: 1fr; }
     .step-number { font-size: 3rem; }
     .image-grid { grid-template-columns: 1fr; }
@@ -77,10 +79,17 @@
 </head>
 <body>
 
-<div class="cursor-dot"></div>
-<div class="cursor-ring"></div>
-
-<a href="index.html" class="back-link">← Volver al portfolio</a>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">María Fernanda Juárez</a>
+    <div class="nav-links">
+      <a href="sobre-mi.html" class="nav-link">sobre mí</a>
+      <a href="experiencia.html" class="nav-link">experiencia</a>
+      <a href="proyectos.html" class="nav-link">proyectos</a>
+      <a href="index.html#contacto" class="nav-link">contacto</a>
+    </div>
+  </div>
+</nav>
 
 <div class="container">
   
@@ -89,7 +98,7 @@
     <p class="project-label">Case Study · UX Lead</p>
     <h1 class="project-title">OTERIX</h1>
     <p class="project-subtitle">
-      Diseño integral de un sistema de gestión de mantenimiento industrial que optimiza el tracking de órdenes de trabajo, centraliza la supervisión de activos y transforma procesos operativos críticos en tiempo real.
+      Diseño UX/UI de OTERIX, un SaaS de gestión de órdenes de trabajo industrial que digitaliza el mantenimiento de planta: activos, preventivos y trazabilidad completa, en producción y operativo hoy.
     </p>
     
     <div class="hero-meta">
@@ -116,31 +125,31 @@
   <section class="section">
     <h2 class="section-title">Overview</h2>
     <p class="section-intro">
-      OTERIX es una plataforma que digitaliza la gestión de mantenimiento en entornos industriales complejos, donde cada minuto de downtime impacta directamente en la producción.
+      OTERIX digitaliza las órdenes de trabajo, activos y preventivos de una planta industrial, con trazabilidad completa y control en tiempo real desde cualquier dispositivo.
     </p>
-    
+
     <div class="highlights">
       <div class="highlight-card">
         <div class="highlight-icon">⚙️</div>
         <h3 class="highlight-title">Problema</h3>
         <p class="highlight-desc">
-          Los equipos de mantenimiento gestionaban órdenes de trabajo con planillas Excel, comunicación fragmentada y falta de visibilidad en tiempo real sobre el estado de activos críticos.
+          El mantenimiento industrial sin sistema frena la producción: órdenes en papel o Excel, sin trazabilidad de activos, aprobaciones que demoran días, sin visibilidad en tiempo real, preventivo que no se cumple y equipos descoordinados. El 40% del tiempo se pierde buscando información de activos y OTs anteriores, y el 60% de las fallas podrían evitarse con un preventivo bien gestionado.
         </p>
       </div>
-      
+
       <div class="highlight-card">
         <div class="highlight-icon">🎯</div>
         <h3 class="highlight-title">Solución</h3>
         <p class="highlight-desc">
-          Un sistema centralizado con tracking en tiempo real, alertas automáticas para situaciones críticas y dashboards que permiten tomar decisiones basadas en datos actualizados.
+          Un sistema real y operativo: creación de OTs con prioridad (P1 a P5), categoría de falla, asignación y materiales; flujo de aprobación completo por roles (Emitida → Aprobada → En ejecución → Cerrada); estructura jerárquica Área → Categoría → Activo con historial de intervenciones; preventivos con recurrencia y generación automática de calendario; acceso mobile responsive y notificaciones básicas por WhatsApp.
         </p>
       </div>
-      
+
       <div class="highlight-card">
         <div class="highlight-icon">📊</div>
         <h3 class="highlight-title">Impacto</h3>
         <p class="highlight-desc">
-          Reducción del 40% en tiempo de respuesta ante fallas, mejora en trazabilidad de intervenciones y visibilidad completa del estado operacional.
+          -30% en tiempo de resolución, 100% de registro digital con trazabilidad real por activo, +45% de cumplimiento del preventivo y acceso 24/7 en tiempo real. Implementación en menos de una semana, multi-empresa y multi-planta.
         </p>
       </div>
     </div>
@@ -197,27 +206,42 @@
   <section class="section">
     <h2 class="section-title">Decisiones Clave de Diseño</h2>
     <p class="section-text">
-      <strong>Dashboard centrado en prioridad:</strong> Las órdenes críticas siempre visibles en la parte superior, codificadas por color y urgencia. Reducción de clics para acceder a información esencial.
+      <strong>Dashboard en tiempo real:</strong> Visibilidad completa del estado de planta — OTs abiertas, críticas y cerradas, técnicos asignados y tiempos de resolución — para decisiones basadas en datos actualizados.
     </p>
     <p class="section-text">
-      <strong>Formularios inteligentes:</strong> Autocompletado basado en historial, campos condicionales que se muestran solo cuando son relevantes, validaciones en tiempo real para evitar errores.
+      <strong>Jerarquía Área → Categoría → Activo:</strong> Estructura para organizar toda la planta, con cada activo mostrando su historial de intervenciones y materiales asociados.
     </p>
     <p class="section-text">
-      <strong>Sistema de alertas contextual:</strong> Notificaciones que distinguen entre urgente y informativo, integración con canales de comunicación existentes del equipo.
+      <strong>Flujo de aprobación por roles:</strong> Estados claros (Emitida → Aprobada → En ejecución → Cerrada) con permisos diferenciados para técnico, supervisor y administrador.
+    </p>
+    <p class="section-text">
+      <strong>Preventivos con recurrencia:</strong> Programación de OTs preventivas (diaria a anual) con generación automática del calendario y alertas anticipadas antes del vencimiento.
+    </p>
+    <p class="section-text">
+      <strong>WhatsApp como canal operativo:</strong> Notificación al técnico al asignarle una OT y aviso al supervisor ante una orden crítica (P1), con enlace directo a la orden desde el mensaje.
     </p>
   </section>
 
   <!-- IMAGES -->
   <div class="image-showcase">
     <div class="showcase-image">
-      <img src="assets/proyectos/oterix/01.jpg" alt="OTERIX Dashboard" loading="lazy" />
+      <img src="assets/proyectos/oterix/01.png" alt="OTERIX Landing" loading="lazy" />
     </div>
     <div class="image-grid">
       <div class="showcase-image">
-        <img src="assets/proyectos/oterix/02.jpg" alt="OTERIX Órdenes" loading="lazy" />
+        <img src="assets/proyectos/oterix/02.png" alt="OTERIX Screenshot 2" loading="lazy" />
       </div>
       <div class="showcase-image">
-        <img src="assets/proyectos/oterix/03.jpg" alt="OTERIX Alertas" loading="lazy" />
+        <img src="assets/proyectos/oterix/03.png" alt="OTERIX Screenshot 3" loading="lazy" />
+      </div>
+      <div class="showcase-image">
+        <img src="assets/proyectos/oterix/04.png" alt="OTERIX Screenshot 4" loading="lazy" />
+      </div>
+      <div class="showcase-image">
+        <img src="assets/proyectos/oterix/05.png" alt="OTERIX Screenshot 5" loading="lazy" />
+      </div>
+      <div class="showcase-image">
+        <img src="assets/proyectos/oterix/06.png" alt="OTERIX Screenshot 6" loading="lazy" />
       </div>
     </div>
   </div>
@@ -228,40 +252,32 @@
     
     <div class="results-grid">
       <div class="result-card">
-        <div class="result-number">40%</div>
-        <p class="result-label">Reducción en tiempo de respuesta</p>
+        <div class="result-number">-30%</div>
+        <p class="result-label">Tiempo de resolución</p>
       </div>
       <div class="result-card">
         <div class="result-number">100%</div>
-        <p class="result-label">Trazabilidad de intervenciones</p>
+        <p class="result-label">Registro digital y trazabilidad</p>
       </div>
       <div class="result-card">
-        <div class="result-number">3x</div>
-        <p class="result-label">Velocidad en creación de órdenes</p>
+        <div class="result-number">+45%</div>
+        <p class="result-label">Cumplimiento del preventivo</p>
       </div>
     </div>
-    
+
     <p class="section-text" style="margin-top: 3rem;">
-      El sistema se implementó exitosamente en múltiples plantas industriales, transformando la forma en que los equipos gestionan el mantenimiento. Los usuarios destacan la claridad de la información y la reducción significativa en fricción operativa.
+      OTERIX está operativo en producción hoy, con implementación en menos de una semana y soporte multi-empresa y multi-planta. Los equipos técnicos acceden a toda la información desde el celular, mientras supervisores y gerencia tienen visibilidad 24/7 sobre el estado real de la operación.
     </p>
   </section>
 
 </div>
 
-<script>
-  const dot = document.querySelector('.cursor-dot');
-  const ring = document.querySelector('.cursor-ring');
-  document.addEventListener('mousemove', e => { 
-    dot.style.left = e.clientX + 'px'; 
-    dot.style.top = e.clientY + 'px'; 
-    ring.style.left = e.clientX + 'px'; 
-    ring.style.top = e.clientY + 'px'; 
-  });
-  document.querySelectorAll('a').forEach(el => { 
-    el.addEventListener('mouseenter', () => ring.classList.add('expand')); 
-    el.addEventListener('mouseleave', () => ring.classList.remove('expand')); 
-  });
-</script>
+<footer>
+  <div class="footer-inner">
+    <span>© María Fernanda Juárez 2026</span>
+    <span>Rosario, Argentina</span>
+  </div>
+</footer>
 
 </body>
 </html>

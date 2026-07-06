@@ -1,1 +1,1 @@
-Dashb01.jpg
+Colocá tu imagen cover.jpg aquí
