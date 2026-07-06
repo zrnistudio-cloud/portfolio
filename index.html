@@ -28,16 +28,16 @@ nav {
 }
 nav.scrolled { border-color: var(--border); }
 .nav-inner {
-  max-width: 1400px; margin: 0 auto; padding: 10px 48px 20px;
+  max-width: 100%; margin: 0 auto; padding: 10px 64px 20px;
   display: flex; align-items: center; justify-content: space-between;
 }
 .nav-links { display: flex; align-items: center; gap: 48px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 .nav-links.visible { opacity: 1; pointer-events: all; }
 .nav-link {
   font-family: var(--sans); font-size: 13px; letter-spacing: 0.03em;
-  color: var(--muted); text-decoration: none; transition: color 0.2s;
+  color: var(--muted); text-decoration: none; transition: color 0.2s, font-weight 0.2s;
 }
-.nav-link:hover { color: var(--fg); }
+.nav-link:hover { color: var(--fg); font-weight: 700; }
 .nav-brand { display: flex; align-items: center; gap: 12px; user-select: none; }
 .brand-mark { color: #4a6741; flex-shrink: 0; transition: transform 0.4s ease; }
 .nav-brand.rotated .brand-mark { transform: rotate(45deg); }
@@ -73,8 +73,13 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
   min-height: 100vh; display: flex; flex-direction: column;
   justify-content: space-between; max-width: 100%;
   padding: 140px 64px 64px; background: var(--bg);
-  position: relative;
+  position: relative; z-index: 0;
 }
+#hero-particles {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  z-index: -1; pointer-events: none;
+}
+@media (max-width: 900px) { #hero-particles { display: none; } }
 .hero-eyebrow {
   display: flex; align-items: center; gap: 20px;
   font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em;
@@ -273,9 +278,18 @@ footer { background: var(--fg); }
   .footer-top { grid-template-columns: 1fr 1fr; padding: 40px 24px 32px; gap: 32px; }
   .footer-bottom { padding: 16px 24px; flex-direction: column; gap: 6px; text-align: center; }
 }
+
+.cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; border-radius: 50%; pointer-events: none; z-index: 9999; mix-blend-mode: difference; }
+.cursor-dot { width: 6px; height: 6px; background: #fff; transform: translate(-50%, -50%); }
+.cursor-ring { width: 36px; height: 36px; border: 1px solid #fff; transform: translate(-50%, -50%); transition: width 0.3s ease, height 0.3s ease; }
+.cursor-ring.expand { width: 70px; height: 70px; }
+@media (max-width: 900px) { .cursor-dot, .cursor-ring { display: none; } }
 </style>
 </head>
 <body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
 
 <nav id="nav">
   <div class="nav-inner">
@@ -303,6 +317,7 @@ footer { background: var(--fg); }
 </nav>
 
 <section class="hero-new">
+  <canvas id="hero-particles"></canvas>
   <!-- EYEBROW + TÍTULO -->
   <div style="margin:40px 0 0;">
     <div style="display:flex;align-items:center;padding-bottom:10px;border-bottom:0.5px solid #c8c4bc;margin-bottom:12px;">
@@ -319,8 +334,8 @@ footer { background: var(--fg); }
   <!-- BOTTOM ROW -->
   <div class="hero-bottom">
     <div class="hero-ctas" style="justify-content:flex-start;">
-      <a href="#trabajo" class="cta-primary">Ver proyectos →</a>
-      <a href="#contacto" class="cta-secondary">Descargar CV</a>
+      <a href="proyectos.html" class="cta-primary">Ver proyectos →</a>
+      <a href="assets/cv/CV-MFernandaJuarez-2026.pdf" class="cta-secondary" download="CV-MFernandaJuarez-2026.pdf">Descargar CV</a>
     </div>
     <div class="hero-info">
       <p class="info-location">Base en Rosario y Nuñez · AR</p>
@@ -630,6 +645,90 @@ footer { background: var(--fg); }
     if (el) el.textContent = new Date().toLocaleTimeString('es-AR', {timeZone:'America/Argentina/Buenos_Aires',hour:'numeric',minute:'2-digit',hour12:true}) + ' hora local';
   };
   updateTime(); setInterval(updateTime, 60000);
+
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  document.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top = e.clientY + 'px';
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .pill').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
+  });
+
+  (function() {
+    const canvas = document.getElementById('hero-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const hero = canvas.parentElement;
+    const COLORS = ['74,103,65', '200,75,47', '184,148,90'];
+    let w, h, particles, rafId;
+
+    function isMobile() { return window.innerWidth <= 900; }
+
+    function resize() {
+      w = canvas.width = hero.offsetWidth;
+      h = canvas.height = hero.offsetHeight;
+    }
+
+    function initParticles() {
+      if (isMobile()) { particles = []; return; }
+      const count = Math.max(18, Math.min(46, Math.floor((w * h) / 26000)));
+      particles = Array.from({ length: count }, () => ({
+        x: w * (0.38 + Math.random() * 0.62),
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: (Math.random() - 0.5) * 0.22,
+        r: Math.random() * 1.6 + 0.6,
+        c: COLORS[Math.floor(Math.random() * COLORS.length)]
+      }));
+    }
+
+    function step() {
+      ctx.clearRect(0, 0, w, h);
+      for (const p of particles) {
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < w * 0.32 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+      }
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const a = particles[i], b = particles[j];
+          const dx = a.x - b.x, dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 130) {
+            ctx.strokeStyle = `rgba(${a.c},${(0.14 * (1 - dist / 130)).toFixed(3)})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+      for (const p of particles) {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.c},0.5)`;
+        ctx.fill();
+      }
+      rafId = requestAnimationFrame(step);
+    }
+
+    resize();
+    initParticles();
+    cancelAnimationFrame(rafId);
+    step();
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { resize(); initParticles(); }, 150);
+    });
+  })();
 </script>
 </body>
 </html>
