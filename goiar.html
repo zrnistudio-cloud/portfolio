@@ -48,24 +48,6 @@
   .section-title { font-family: var(--serif); font-style: italic; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
   .section-intro { font-size: 1.3rem; line-height: 1.7; color: var(--text); max-width: 950px; }
   
-  /* WIDGETS GRID */
-  .widgets-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; margin-top: 4rem; }
-  .widget-card { padding: 3rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; position: relative; overflow: hidden; transition: all 0.3s ease; }
-  .widget-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
-  .widget-card:hover::before { transform: scaleX(1); }
-  .widget-card:hover { border-color: var(--accent); transform: translateY(-4px); }
-  
-  .widget-icon { font-size: 2.5rem; margin-bottom: 1.5rem; }
-  .widget-title { font-family: var(--serif); font-style: italic; font-size: 1.5rem; font-weight: 400; margin-bottom: 1rem; }
-  .widget-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); }
-  
-  /* SCOPE CARDS */
-  .scope-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 4rem; }
-  .scope-card { padding: 2.5rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border: 1px solid var(--border); border-radius: 12px; }
-  .scope-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-  .scope-title { font-size: 1.2rem; font-weight: 500; margin-bottom: 0.8rem; }
-  .scope-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); }
-  
   /* PROCESS TIMELINE */
   .timeline { max-width: 900px; margin: 4rem 0; }
   .timeline-item { display: grid; grid-template-columns: 120px 1fr; gap: 3rem; margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
@@ -76,6 +58,18 @@
   .timeline-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
   .timeline-tag { padding: 0.4rem 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
   
+  /* VERTICALES */
+  .verticals-list { display: flex; flex-direction: column; gap: 4.5rem; margin-top: 4rem; }
+  .vertical-item { padding-bottom: 4.5rem; border-bottom: 1px solid var(--border); }
+  .vertical-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .vertical-tag { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .vertical-item h3 { font-family: var(--serif); font-style: italic; font-size: 1.9rem; font-weight: 400; margin-bottom: 1.2rem; }
+  .vertical-item p { font-size: 1.05rem; line-height: 1.9; color: var(--muted); margin-bottom: 1.2rem; max-width: 900px; }
+  .vertical-item p:last-of-type { margin-bottom: 1.5rem; }
+  .vertical-image { margin-top: 2.5rem; border-radius: 16px; overflow: hidden; background: var(--surface); box-shadow: 0 12px 40px rgba(28,25,23,0.06); }
+  .vertical-image img { width: 100%; height: auto; display: block; }
+  .vertical-image-caption { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.06em; color: var(--muted); opacity: 0.65; margin-top: 0.8rem; }
+
   /* STATS */
   .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin: 5rem 0; padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .stat-item { text-align: center; }
@@ -86,12 +80,6 @@
   .quote-block { max-width: 1000px; margin: 8rem auto; padding: 5rem 4rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border-left: 4px solid var(--accent); }
   .quote-block p { font-family: var(--serif); font-style: italic; font-size: 2rem; font-weight: 300; font-style: italic; line-height: 1.4; color: var(--text); }
   
-  /* IMAGES */
-  .image-showcase { margin: 6rem 0; }
-  .showcase-image { width: 100%; border-radius: 20px; overflow: hidden; background: var(--surface); margin-bottom: 3rem; box-shadow: 0 12px 40px rgba(28,25,23,0.08); }
-  .showcase-image img { width: 100%; height: auto; display: block; }
-  .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 3rem; }
-  
   footer { border-top: 1px solid var(--border); margin-top: 80px; }
   .footer-inner { max-width: 1400px; margin: 0 auto; padding: 28px 48px; display: flex; justify-content: space-between; }
   .footer-inner span { font-size: 12px; color: var(--muted); }
@@ -101,7 +89,6 @@
     .container { padding: 110px 24px 60px; }
     .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
     .timeline-item { grid-template-columns: 1fr; gap: 1.5rem; }
-    .widgets-grid, .scope-grid, .image-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
@@ -135,7 +122,7 @@
           Goiar es infraestructura fintech: le da a cualquier empresa las cuentas, los pagos y la adquirencia para que el dinero de su industria circule bajo su propia marca, en producción en 1 mes en lugar de los 12 a 24 meses que toma construir un fintech desde cero. Es una plataforma modular (Base + Emisión de cuentas y tarjetas, Pagos, Adquirencia e Inversiones) adaptada a más de una decena de industrias, desde agro hasta seguros y logística.
         </p>
         <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem;">
-          Como UX Lead en Goiar, lidero el diseño de producto end-to-end para esa plataforma: múltiples verticales — B2C (clientes finales), B2B (comercios), GoCollet (cobranzas), y BackOffice. El desafío es construir experiencias coherentes que escalen a través de diferentes roles, países y modelos de negocio.
+          Como UX Lead en Goiar, lidero el diseño de producto end-to-end para toda la plataforma. El desafío no es solo diseñar pantallas: es construir experiencias coherentes que escalen a través de distintos roles, países y modelos de negocio, sin perder profundidad en ninguno de los frentes que sostengo.
         </p>
         <p style="font-size: 1.15rem; line-height: 1.8; color: var(--muted);">
           El proyecto integra QA de diseño con AI, prototipado rápido con FigmaMake + Claude, y automatización de historias de usuario desde Jira. Trabajo en colaboración directa con Product, Dev, Comercial y clientes en América Latina.
@@ -165,97 +152,75 @@
     </div>
   </div>
 
-  <!-- WIDGETS -->
+  <!-- VERTICALES -->
   <section class="section">
     <div class="section-header">
-      <p class="section-number">01 — Widgets</p>
-      <h2 class="section-title">Ecosistema de Producto</h2>
+      <p class="section-number">01 — Verticales</p>
+      <h2 class="section-title">Frentes de Trabajo</h2>
       <p class="section-intro">
-        Suite Gonnectia es un ecosistema multi-producto con flujos completos, navegables y listos para desarrollo y demos con clientes. Cada vertical requiere arquitectura de información específica y componentes reutilizables.
+        Mi trabajo en Goiar se despliega en cuatro frentes que se retroalimentan: el producto core, la cuenta estratégica más grande del ecosistema, el aporte de UX al proceso comercial, y el liderazgo del equipo de diseño.
       </p>
     </div>
-    
-    <div class="widgets-grid">
-      <div class="widget-card">
-        <div class="widget-icon">🏪</div>
-        <h3 class="widget-title">B2C + B2B + GoCollet</h3>
-        <p class="widget-desc">Diseño de flujos completos para clientes finales, comercios adheridos y plataforma de cobranzas. Navegación coherente entre roles con componentes compartidos.</p>
-      </div>
-      
-      <div class="widget-card">
-        <div class="widget-icon">✓</div>
-        <h3 class="widget-title">QA Design + AI</h3>
-        <p class="widget-desc">Navegación continua detectando errores e inconsistencias antes de producción. Reportes automáticos con propuestas de mejora basadas en heurísticas.</p>
-      </div>
-      
-      <div class="widget-card">
-        <div class="widget-icon">🤖</div>
-        <h3 class="widget-title">AI Integrada</h3>
-        <p class="widget-desc">FigmaMake + Claude para demos interactivos, prototipos rápidos y automatización de historias de usuario desde Jira a especificaciones de diseño.</p>
-      </div>
-      
-      <div class="widget-card">
-        <div class="widget-icon">💼</div>
-        <h3 class="widget-title">PreVenta + Comercial</h3>
-        <p class="widget-desc">Presentaciones navegables, prototipos funcionales y brochures personalizados para cada cliente. Velocidad en tiempo de respuesta comercial.</p>
-      </div>
-      
-      <div class="widget-card">
-        <div class="widget-icon">🌐</div>
-        <h3 class="widget-title">GOIAR y Comercial</h3>
-        <p class="widget-desc">Sitio web corporativo, landings por producto y vertical, assets para redes sociales y campañas de marketing consistentes con el brand.</p>
-      </div>
-      
-      <div class="widget-card">
-        <div class="widget-icon">👥</div>
-        <h3 class="widget-title">Clientes y Expansión</h3>
-        <p class="widget-desc">Operativo diario con clientes LATAM, QA por rol y país, rediseño de arquitectura para escalabilidad, look & feel adaptado a mercados locales.</p>
-      </div>
-    </div>
-  </section>
 
-  <!-- ALCANCE -->
-  <section class="section">
-    <div class="section-header">
-      <p class="section-number">02 — Alcance</p>
-      <h2 class="section-title">Responsabilidades como UX Lead</h2>
-    </div>
-    
-    <div class="scope-grid">
-      <div class="scope-card">
-        <p class="scope-label">Investigación</p>
-        <h3 class="scope-title">Entrevistas con Usuarios</h3>
-        <p class="scope-desc">Sesiones F&F con clientes, detección de bugs en flujos reales, propuestas de mejora con datos cuantitativos y cualitativos.</p>
+    <div class="verticals-list">
+      <div class="vertical-item">
+        <p class="vertical-tag">Producto</p>
+        <h3>Suite Gonnectia — GoDigital B2B, GoDigital B2C, GoCollect</h3>
+        <p>
+          El corazón del ecosistema es la Suite Gonnectia, compuesta por tres productos que diseño de punta a punta. GoDigital B2C es la app del cliente final: saldo, transferencias y pagos con QR y tarjeta, pensada para máxima simplicidad y confianza. GoDigital B2B es el panel de los comercios adheridos: conciliación, reportes de ventas, gestión de sucursales y usuarios, con foco en datos operativos accionables. GoCollect es la plataforma de cobranzas para el equipo comercial y financiero: gestión de deuda, recordatorios automatizados y seguimiento de cobranza por cliente.
+        </p>
+        <p>
+          Diseño los tres productos sobre un mismo sistema de componentes —tokens, patrones y librería compartida— pero con jerarquías de información distintas según el rol de cada uno: lo que cambia no es el lenguaje visual, sino qué información se prioriza en cada pantalla.
+        </p>
+        <div class="vertical-image">
+          <img src="assets/proyectos/goiar/cover.jpg" alt="Suite Gonnectia - imagen de referencia" loading="lazy" />
+        </div>
+        <p class="vertical-image-caption">Imagen de referencia — se actualiza con capturas reales de cada producto.</p>
       </div>
-      
-      <div class="scope-card">
-        <p class="scope-label">Estrategia</p>
-        <h3 class="scope-title">Arquitectura de Información</h3>
-        <p class="scope-desc">Rediseño de navegación por rol, simplificación de onboarding, mapeo de journey por vertical y país.</p>
+
+      <div class="vertical-item">
+        <p class="vertical-tag">Cuenta Estratégica</p>
+        <h3>Clientes Agro</h3>
+        <p>
+          Llevo adelante el diseño para una de las cuentas más grandes del sector agro en Argentina (por confidencialidad no puedo nombrar al cliente). Diseñé informes con automatización de AI sobre un dashboard de métricas de SEO, SEM y GEO, junto con informes de pedidos operativos que el equipo del cliente usa para tomar decisiones sin depender de un analista de datos.
+        </p>
+        <p>
+          Además corro una auditoría de UX/UI asistida por AI sobre todo el portal —detección de bugs, mejoras y problemas de accesibilidad—, combinada con benchmark de portales similares del sector, discovery de nuevas funcionalidades y entrevistas directas con los usuarios del cliente para validar cada hipótesis antes de pasarla a desarrollo.
+        </p>
+        <div class="vertical-image">
+          <img src="assets/proyectos/goiar/cover.jpg" alt="Clientes Agro - imagen de referencia" loading="lazy" />
+        </div>
+        <p class="vertical-image-caption">Imagen de referencia — se actualiza con captura real del dashboard de métricas.</p>
       </div>
-      
-      <div class="scope-card">
-        <p class="scope-label">Diseño</p>
-        <h3 class="scope-title">Flujos Completos Navegables</h3>
-        <p class="scope-desc">Prototipos high-fidelity listos para desarrollo, validados con usuarios reales y equipos internos.</p>
+
+      <div class="vertical-item">
+        <p class="vertical-tag">De Lead a Kickoff</p>
+        <h3>Comercial UX/UI</h3>
+        <p>
+          Diseño el aporte que hace UX al proceso comercial, desde que entra un lead hasta el kickoff del proyecto. Esto incluye landings por producto y por vertical de industria (agro, seguros, logística, entre otras), y prototipos del producto adaptados al look & feel de cada cliente potencial, para que puedan visualizarse usando la plataforma antes de firmar.
+        </p>
+        <p>
+          También diseño las presentaciones para las reuniones de propuesta de valor y propuesta comercial, y participo en el kickoff de cada cuenta nueva para establecer, junto al cliente, los criterios de diseño y UX del proyecto desde el primer día.
+        </p>
+        <div class="vertical-image">
+          <img src="assets/proyectos/goiar/cover.jpg" alt="Comercial UX/UI - imagen de referencia" loading="lazy" />
+        </div>
+        <p class="vertical-image-caption">Imagen de referencia — se actualiza con captura real de landing o prototipo comercial.</p>
       </div>
-      
-      <div class="scope-card">
-        <p class="scope-label">Sistema</p>
-        <h3 class="scope-title">Design System Multi-Producto</h3>
-        <p class="scope-desc">Tokens, componentes reutilizables, documentación de patrones, versionado por plataforma (web/mobile).</p>
-      </div>
-      
-      <div class="scope-card">
-        <p class="scope-label">Colaboración</p>
-        <h3 class="scope-title">Trabajo Cross-Funcional</h3>
-        <p class="scope-desc">Coordinación con Product, Dev, Comercial y Clientes. Ceremonias Agile, refinamiento de backlog, handoff a desarrollo.</p>
-      </div>
-      
-      <div class="scope-card">
-        <p class="scope-label">Métricas</p>
-        <h3 class="scope-title">Informes de Usabilidad</h3>
-        <p class="scope-desc">Tracking de KPIs de producto, análisis de sesiones, propuestas de optimización basadas en comportamiento real.</p>
+
+      <div class="vertical-item">
+        <p class="vertical-tag">Mi Rol Como Líder</p>
+        <h3>Liderazgo del Equipo de UX/UI</h3>
+        <p>
+          Diseñé y mantengo un dashboard automatizado para el control y seguimiento de tareas del equipo, carga de horas y capacity — visibilidad en tiempo real de en qué está trabajando cada diseñador y cuánta capacidad libre hay para tomar nuevos pedidos.
+        </p>
+        <p>
+          Más allá del trabajo de producto, mi rol de liderazgo incluye la distribución de tareas dentro del equipo, mentoría y revisión de trabajo, definición de procesos y estándares de calidad, y ser el punto de contacto de diseño frente a Product, Dev y Comercial.
+        </p>
+        <div class="vertical-image">
+          <img src="assets/proyectos/goiar/cover.jpg" alt="Liderazgo del equipo - imagen de referencia" loading="lazy" />
+        </div>
+        <p class="vertical-image-caption">Imagen de referencia — se actualiza con captura real del dashboard de capacity.</p>
       </div>
     </div>
   </section>
@@ -263,17 +228,20 @@
   <!-- PROCESO -->
   <section class="section">
     <div class="section-header">
-      <p class="section-number">03 — Proceso</p>
+      <p class="section-number">02 — Proceso</p>
       <h2 class="section-title">Metodología de Trabajo</h2>
+      <p class="section-intro">
+        Independientemente del frente, sigo el mismo proceso de diseño de punta a punta: investigación, arquitectura, prototipado de alta fidelidad y un ciclo continuo de QA post-lanzamiento.
+      </p>
     </div>
-    
+
     <div class="timeline">
       <div class="timeline-item">
         <div class="timeline-phase">01</div>
         <div class="timeline-content">
           <h3>Discovery & Research</h3>
           <p>
-            Entrevistas con stakeholders internos (Product, Comercial, Dev) y usuarios finales (comercios, equipos de cobranza). Análisis de flujos existentes, identificación de pain points críticos, benchmarking competitivo por vertical.
+            Entrevistas con stakeholders internos y usuarios finales, análisis de flujos existentes, identificación de pain points críticos y benchmarking competitivo por vertical.
           </p>
           <div class="timeline-tags">
             <span class="timeline-tag">User Interviews</span>
@@ -282,13 +250,13 @@
           </div>
         </div>
       </div>
-      
+
       <div class="timeline-item">
         <div class="timeline-phase">02</div>
         <div class="timeline-content">
           <h3>Arquitectura & Wireframes</h3>
           <p>
-            Definición de estructura de navegación por rol (Cliente, Comercio, Cobrador, Admin). Wireframes de baja fidelidad, validación de flujos con Product. Mapeo de componentes compartidos vs específicos por vertical.
+            Definición de estructura de navegación por rol. Wireframes de baja fidelidad, validación de flujos con Product y mapeo de componentes compartidos vs. específicos por vertical.
           </p>
           <div class="timeline-tags">
             <span class="timeline-tag">IA Design</span>
@@ -297,13 +265,13 @@
           </div>
         </div>
       </div>
-      
+
       <div class="timeline-item">
         <div class="timeline-phase">03</div>
         <div class="timeline-content">
           <h3>Diseño de UI & Prototipos</h3>
           <p>
-            High-fidelity mockups en Figma, prototipado interactivo con FigmaMake. Tests de usabilidad con usuarios reales por país. Iteración basada en feedback cuantitativo (métricas) y cualitativo (sesiones grabadas).
+            High-fidelity mockups en Figma, prototipado interactivo con FigmaMake + Claude. Tests de usabilidad con usuarios reales por país e iteración basada en feedback cuantitativo y cualitativo.
           </p>
           <div class="timeline-tags">
             <span class="timeline-tag">UI Design</span>
@@ -312,13 +280,13 @@
           </div>
         </div>
       </div>
-      
+
       <div class="timeline-item">
         <div class="timeline-phase">04</div>
         <div class="timeline-content">
           <h3>Handoff & QA Continuo</h3>
           <p>
-            Documentación de especificaciones, handoff a desarrollo con Design System. QA de diseño en staging, detección de inconsistencias visuales y de UX. Ciclo continuo de mejora con feedback post-lanzamiento.
+            Documentación de especificaciones y handoff a desarrollo con Design System. QA de diseño en staging asistido por AI, y ciclo continuo de mejora con feedback post-lanzamiento.
           </p>
           <div class="timeline-tags">
             <span class="timeline-tag">Design Specs</span>
@@ -354,20 +322,10 @@
     <p>"El desafío de Goiar es diseñar coherencia en la complejidad: múltiples productos, roles, geografías y modelos de negocio bajo una experiencia unificada."</p>
   </div>
 
-  <!-- IMAGES -->
-  <div class="image-showcase">
-    <div class="showcase-image">
-      <img src="assets/proyectos/goiar/01.png" alt="Goiar - Pantallas de la app B2C: saldo, transferencias y pagos con QR" loading="lazy" />
-    </div>
-  </div>
-
   <section class="section">
     <h2 class="section-title">Impacto y Aprendizajes</h2>
-    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--text); margin-bottom: 2rem; max-width: 900px;">
-      Goiar me permitió ejercer liderazgo de diseño en un contexto de alta complejidad: coordinar con múltiples stakeholders, diseñar para audiencias diversas, integrar AI en el proceso de diseño y mantener coherencia visual en un ecosistema en constante expansión.
-    </p>
     <p style="font-size: 1.15rem; line-height: 1.9; color: var(--muted); max-width: 900px;">
-      El mayor aprendizaje fue equilibrar velocidad (tiempo de respuesta comercial) con profundidad (research robusto), y construir sistemas escalables sin sacrificar la experiencia específica de cada rol y geografía.
+      El mayor aprendizaje de sostener estos cuatro frentes a la vez fue equilibrar velocidad —tiempo de respuesta comercial— con profundidad —research y auditorías robustas—, construyendo sistemas escalables sin sacrificar la experiencia específica de cada rol, cliente y geografía.
     </p>
   </section>
 
