@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>María Fernanda Juárez — UX Lead & Product Designer</title>
+<title>María Fernanda Juárez — UX/UI AI Lead & Product Designer</title>
+<meta name="description" content="María Fernanda Juárez — UX/UI AI Lead & Product Designer. +6 años liderando diseño de producto en fintech, seguros e industrial B2B, desde research hasta interfaz final." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="María Fernanda Juárez — UX/UI AI Lead & Product Designer" />
+<meta property="og:description" content="+6 años liderando diseño de producto en fintech, seguros e industrial B2B, desde research hasta interfaz final." />
+<meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/proyectos/goiar/cover.jpg" />
+<meta property="og:url" content="https://mfernandaj-portfolio.vercel.app" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,23 +39,27 @@ nav.scrolled { border-color: var(--border); }
   max-width: 100%; margin: 0 auto; padding: 10px 64px 20px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav-links { display: flex; align-items: center; gap: 48px; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
-.nav-links.visible { opacity: 1; pointer-events: all; }
+.nav-links { display: flex; align-items: center; gap: 48px; }
 .nav-link {
   font-family: var(--sans); font-size: 13px; letter-spacing: 0.03em;
   color: var(--muted); text-decoration: none; transition: color 0.2s, font-weight 0.2s;
 }
 .nav-link:hover { color: var(--fg); font-weight: 700; }
-.nav-brand { display: flex; align-items: center; gap: 12px; user-select: none; }
-.brand-mark { color: #4a6741; flex-shrink: 0; transition: transform 0.4s ease; }
-.nav-brand.rotated .brand-mark { transform: rotate(45deg); }
+.nav-brand { display: flex; align-items: center; gap: 12px; user-select: none; position: relative; }
 .brand-name {
-  font-family: var(--sans); font-size: 15px; font-weight: 500;
+  font-family: var(--sans); font-size: 16px; font-weight: 700;
   color: #4a6741; letter-spacing: 0.02em; line-height: 1;
-  writing-mode: vertical-rl; transition: all 0.4s ease;
   white-space: nowrap;
 }
-.brand-name.horizontal { writing-mode: horizontal-tb; }
+.brand-photo {
+  position: absolute; top: calc(100% + 16px); left: 50%;
+  width: 120px; height: 120px; object-fit: cover; border-radius: 50%;
+  border: 3px solid var(--bg); box-shadow: 0 12px 32px rgba(28,25,23,0.22);
+  opacity: 0; pointer-events: none;
+  transform: translateX(-50%) translateY(-8px) scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.nav-brand:hover .brand-photo { opacity: 1; transform: translateX(-50%) translateY(0) scale(1); }
 
 .hero {
   min-height: 100vh; display: flex; flex-direction: column;
@@ -89,15 +101,15 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .eyebrow-text { }
 
 .hero-title-big {
-  font-family: var(--serif); font-size: clamp(60px, 8vw, 126px);
-  font-weight: 400; line-height: 1.0; color: var(--fg);
-  letter-spacing: -0.02em; margin: 40px 0 4px;
+  font-family: var(--serif); font-size: clamp(49px, 6.5vw, 101px);
+  font-weight: 400; line-height: 1.02; color: var(--fg);
+  letter-spacing: -0.02em; margin: 36px 0 4px;
 }
 .hero-title-big em { font-style: italic; color: #4a6741; }
 .hero-subtitle { font-family: var(--sans); font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 700px; margin-top: 0; margin-bottom: 0; }
 
 .hero-bottom {
-  display: grid; grid-template-columns: 1fr 1fr;
+  display: flex;
   align-items: end; gap: 32px;
 }
 .hero-sub {
@@ -119,10 +131,6 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
   transition: border-color 0.2s;
 }
 .cta-secondary:hover { border-color: var(--fg); }
-.hero-info { text-align: right; }
-.info-location { font-family: var(--sans); font-size: 11px; color: var(--muted); letter-spacing: 0.08em; margin-bottom: 6px; }
-.info-years { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg); margin-bottom: 4px; }
-.info-tags { font-family: var(--sans); font-size: 11px; color: var(--muted); letter-spacing: 0.05em; }
 
 /* TICKER */
 .ticker-wrap {
@@ -139,11 +147,49 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .tick-sep { color: #4a6741; font-style: normal; }
 @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+/* STAT LINE */
+.stat-line {
+  display: flex; flex-wrap: wrap; gap: 16px;
+  padding: 48px 64px; background: var(--bg);
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.stat-card {
+  flex: 1 1 190px; min-width: 190px; position: relative; overflow: hidden;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 26px 24px 24px; border: 1px solid var(--border); border-radius: 14px;
+  text-decoration: none; background: var(--bg);
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.stat-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: #4a6741; transform: scaleX(0); transform-origin: left;
+  transition: transform 0.3s ease;
+}
+.stat-card:hover::before { transform: scaleX(1); }
+a.stat-card:hover {
+  border-color: #4a6741; transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(28,25,23,0.08);
+}
+.stat-card-top { display: flex; align-items: center; gap: 12px; }
+.stat-card-icon {
+  width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+  background: rgba(74,103,65,0.1); display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.stat-card-number {
+  font-family: var(--sans); font-size: clamp(26px, 2.6vw, 36px); font-weight: 700;
+  color: #4a6741; line-height: 1;
+}
+.stat-card-label { font-family: var(--sans); font-size: 13px; color: var(--muted); line-height: 1.45; }
+.stat-card-source {
+  font-family: var(--sans); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--fg); opacity: 0.55; margin-top: 4px;
+}
 @media (max-width: 900px) {
   .hero-new { padding: 120px 24px 48px; }
-  .hero-bottom { grid-template-columns: 1fr; gap: 24px; }
   .hero-ctas { justify-content: flex-start; }
-  .hero-info { text-align: left; }
+  .stat-line { padding: 32px 24px; gap: 12px; }
+  .stat-card { flex: 1 1 140px; min-width: 140px; padding: 20px 18px 18px; }
 }
 
 
@@ -158,6 +204,22 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
 .proj-card-name { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--fg); }
 .proj-card-meta { font-family: var(--sans); font-size: 12px; color: var(--muted); }
 @media (max-width: 900px) { .proj-grid, .proj-grid-3 { grid-template-columns: repeat(2, 1fr); } }
+
+/* PROJECT FEATURED (Goiar) */
+.proj-featured { display: grid; grid-template-columns: 1.4fr 1fr; text-decoration: none; color: var(--fg); border-radius: 12px; overflow: hidden; margin-bottom: 20px; transition: opacity 0.2s; }
+.proj-featured:hover { opacity: 0.9; }
+.proj-featured-img { overflow: hidden; min-height: 360px; background: var(--border); }
+.proj-featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.proj-featured-info { padding: 48px; display: flex; flex-direction: column; justify-content: center; gap: 14px; background: var(--fg); }
+.proj-featured-badge { display: inline-flex; align-items: center; gap: 8px; font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: #7a9d6f; width: fit-content; }
+.proj-featured-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #7a9d6f; flex-shrink: 0; }
+.proj-featured-name { font-family: var(--serif); font-style: italic; font-size: clamp(34px, 4.2vw, 52px); font-weight: 400; color: #faf8f5; margin: 0; }
+.proj-featured-desc { font-family: var(--sans); font-size: 14px; color: rgba(250,248,245,0.6); }
+@media (max-width: 900px) {
+  .proj-featured { grid-template-columns: 1fr; }
+  .proj-featured-img { min-height: 220px; }
+  .proj-featured-info { padding: 28px 24px; }
+}
 
 .section-container { max-width: 1400px; margin: 0 auto; padding: 80px 48px; }
 
@@ -203,16 +265,6 @@ hr.divider { border: none; border-top: 1px solid var(--border); }
   font-size: 16px; line-height: 1.75; color: rgba(250,248,245,0.8);
   max-width: 380px;
 }
-
-.filter-bar { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; }
-.pill {
-  font-size: 11px; letter-spacing: 0.08em; text-transform: lowercase;
-  color: var(--muted); border: 1px solid var(--border);
-  padding: 6px 16px; border-radius: 100px; cursor: pointer;
-  background: transparent; transition: all 0.2s; font-family: var(--sans);
-}
-.pill:hover, .pill.active { background: var(--primary); color: #fff; border-color: var(--primary); }
-.experience-card.hidden { display: none; }
 
 .exploration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 24px; }
 .expl-card {
@@ -293,21 +345,11 @@ footer { background: var(--fg); }
 
 <nav id="nav">
   <div class="nav-inner">
-    <div class="nav-brand rotated" id="nav-brand" style="cursor:pointer;" onclick="toggleName()">
-      <div class="brand-mark">
-        <svg width="32" height="32" viewBox="0 0 36 36" fill="none">
-          <line x1="6" y1="6" x2="30" y2="30" stroke="currentColor" stroke-width="1.5"/>
-          <line x1="30" y1="6" x2="6" y2="30" stroke="currentColor" stroke-width="1.5"/>
-        </svg>
-      </div>
-      <div style="display:flex;align-items:flex-start;gap:8px;">
-        <div class="brand-name horizontal" id="brand-name">María Fernanda Juárez</div>
-        <img id="brand-photo" src="assets/fer.jpg" alt="María Fernanda Juárez"
-          style="height:0;width:0;opacity:0;object-fit:cover;border-radius:4px;transition:all 0.4s ease;display:block;flex-shrink:0;" />
-      </div>
-      <img id="brand-photo" src="assets/fer.jpg" alt="María Fernanda Juárez" style="height:0;width:0;opacity:0;border-radius:50%;object-fit:cover;transition:all 0.4s ease;flex-shrink:0;" />
+    <div class="nav-brand" id="nav-brand">
+      <span class="brand-name">María Fernanda Juárez</span>
+      <img class="brand-photo" src="assets/fer.jpg" alt="María Fernanda Juárez" />
     </div>
-    <div class="nav-links visible">
+    <div class="nav-links">
       <a href="sobre-mi.html" class="nav-link">sobre mí</a>
       <a href="experiencia.html" class="nav-link">experiencia</a>
       <a href="proyectos.html" class="nav-link">proyectos</a>
@@ -318,8 +360,9 @@ footer { background: var(--fg); }
 
 <section class="hero-new">
   <canvas id="hero-particles"></canvas>
-  <!-- EYEBROW + TÍTULO -->
+  <!-- SALUDO + EYEBROW + TÍTULO -->
   <div style="margin:40px 0 0;">
+    <p style="font-family:var(--sans);font-size:20px;font-weight:700;color:#4a6741;margin-bottom:14px;">¡Hola! Bienvenidos a mi portfolio</p>
     <div style="display:flex;align-items:center;padding-bottom:10px;border-bottom:0.5px solid #c8c4bc;margin-bottom:12px;">
       <span style="font-family:var(--sans);font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:#4a6741;">UX UI AI Lead · Product Designer · 2026</span>
     </div>
@@ -337,13 +380,65 @@ footer { background: var(--fg); }
       <a href="proyectos.html" class="cta-primary">Ver proyectos →</a>
       <a href="assets/cv/CV-MFernandaJuarez-2026.pdf" class="cta-secondary" download="CV-MFernandaJuarez-2026.pdf">Descargar CV</a>
     </div>
-    <div class="hero-info">
-      <p class="info-location">Base en Rosario y Nuñez · AR</p>
-      <p class="info-years">+6 años en diseño de productos y servicios</p>
-      <p class="info-tags">Fintech · Seguros · B2B/B2C · Software</p>
-    </div>
   </div>
 </section>
+
+<!-- STAT LINE -->
+<div class="stat-line">
+  <div class="stat-card">
+    <div class="stat-card-top">
+      <span class="stat-card-icon">🎨</span>
+      <span class="stat-card-number">20</span>
+    </div>
+    <span class="stat-card-label">años en diseño gráfico y web</span>
+  </div>
+  <div class="stat-card">
+    <div class="stat-card-top">
+      <span class="stat-card-icon">🚀</span>
+      <span class="stat-card-number">+6</span>
+    </div>
+    <span class="stat-card-label">liderando producto digital</span>
+  </div>
+  <div class="stat-card">
+    <div class="stat-card-top">
+      <span class="stat-card-icon">🧭</span>
+      <span class="stat-card-number">5</span>
+    </div>
+    <span class="stat-card-label">industrias: fintech, seguros, salud, industrial, CRM/ERP</span>
+  </div>
+  <a href="goiar.html" class="stat-card">
+    <div class="stat-card-top">
+      <span class="stat-card-icon">🧠</span>
+      <span class="stat-card-number">Lead</span>
+    </div>
+    <span class="stat-card-label">de equipo, IA y estrategia</span>
+    <span class="stat-card-source">Goiar →</span>
+  </a>
+  <a href="goiar.html" class="stat-card">
+    <div class="stat-card-top">
+      <span class="stat-card-icon">⚙️</span>
+      <span class="stat-card-number">50+</span>
+    </div>
+    <span class="stat-card-label">flujos diseñados y en producción</span>
+    <span class="stat-card-source">Goiar →</span>
+  </a>
+  <a href="oterix.html" class="stat-card">
+    <div class="stat-card-top">
+      <span class="stat-card-icon">⚡</span>
+      <span class="stat-card-number">-30%</span>
+    </div>
+    <span class="stat-card-label">tiempo de resolución de órdenes</span>
+    <span class="stat-card-source">OTERIX →</span>
+  </a>
+  <a href="oterix.html" class="stat-card">
+    <div class="stat-card-top">
+      <span class="stat-card-icon">🔒</span>
+      <span class="stat-card-number">100%</span>
+    </div>
+    <span class="stat-card-label">trazabilidad con registro digital</span>
+    <span class="stat-card-source">OTERIX →</span>
+  </a>
+</div>
 
 <!-- TICKER -->
 <div class="ticker-wrap">
@@ -396,28 +491,6 @@ footer { background: var(--fg); }
         <div class="exp-meta"><span>Ago 2019–Oct 2021</span><span class="exp-dot">·</span><span>Diseñadora Gráfica Sr. – UX UI · ERP, Design System, Web</span></div>
       </div>
     </div>
-
-    <!-- EXPERIENCIA EXTRA (oculta por defecto) -->
-    <div id="exp-extra" style="display:none;">
-      <div class="experience-card">
-        <div class="exp-info">
-          <span class="exp-company">ZRNI Studio</span>
-          <div class="exp-meta"><span>Mar 2020–Actualidad</span><span class="exp-dot">·</span><span>Dirección de Arte / Branding Freelance · Branding, UX UI, Web-App</span></div>
-        </div>
-      </div>
-      <div class="experience-card">
-        <div class="exp-info">
-          <span class="exp-company">Ministerio de Trabajo Argentina</span>
-          <div class="exp-meta"><span>Nov 2013–Feb 2021</span><span class="exp-dot">·</span><span>Consultora en Diseño y Comunicación · Web, Redes, Eventos</span></div>
-        </div>
-      </div>
-      <div class="experience-card">
-        <div class="exp-info">
-          <span class="exp-company">Home Global Argentina</span>
-          <div class="exp-meta"><span>Ene 2013–Nov 2013</span><span class="exp-dot">·</span><span>Diseñadora Gráfica</span></div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div style="margin-top:24px;">
@@ -430,16 +503,20 @@ footer { background: var(--fg); }
 <!-- PROYECTOS -->
 <section id="proyectos" class="section-container">
   <div class="section-header">proyectos</div>
-  <div class="proj-grid">
-    <a href="goiar.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e8ebe0;">
-        <img src="assets/proyectos/goiar/cover.jpg" onerror="this.style.display='none'" alt="Goiar" />
-      </div>
-      <div class="proj-card-info">
-        <span class="proj-card-name">Goiar</span>
-        <span class="proj-card-meta">UX UI Lead · Suite Gonnectia · 2026</span>
-      </div>
-    </a>
+
+  <!-- GOIAR: PROYECTO DESTACADO -->
+  <a href="goiar.html" class="proj-featured" style="margin-top:24px;">
+    <div class="proj-featured-img">
+      <img src="assets/proyectos/goiar/cover.jpg" onerror="this.style.display='none'" alt="Goiar" />
+    </div>
+    <div class="proj-featured-info">
+      <span class="proj-featured-badge">Proyecto actual · UX/UI Lead</span>
+      <h3 class="proj-featured-name">Goiar</h3>
+      <p class="proj-featured-desc">Suite Gonnectia · Fintech B2B/B2C · 2026</p>
+    </div>
+  </a>
+
+  <div class="proj-grid proj-grid-3">
     <a href="cooperacion.html" class="proj-card">
       <div class="proj-card-img" style="background:#e5e8ec;">
         <img src="assets/proyectos/cooperacion/cover.jpg" onerror="this.style.display='none'" alt="Cooperación" />
@@ -576,7 +653,7 @@ footer { background: var(--fg); }
     </div>
     <div class="footer-col">
       <p class="footer-col-title">Navegación</p>
-      <a href="#trabajo" class="footer-link">experiencia</a>
+      <a href="experiencia.html" class="footer-link">experiencia</a>
       <a href="proyectos.html" class="footer-link">proyectos</a>
       <a href="sobre-mi.html" class="footer-link">sobre mí</a>
       <a href="#contacto" class="footer-link">contacto</a>
@@ -599,46 +676,8 @@ footer { background: var(--fg); }
 </footer>
 
 <script>
-  function toggleName() {
-    const brand = document.getElementById('nav-brand');
-    const name = document.getElementById('brand-name');
-    const photo = document.getElementById('brand-photo');
-    const links = document.querySelector('.nav-links');
-    const isHorizontal = brand.classList.toggle('rotated');
-    name.classList.toggle('horizontal');
-    links.classList.toggle('visible', isHorizontal);
-    if (isHorizontal) {
-      photo.style.height = '0';
-      photo.style.width = '0';
-      photo.style.opacity = '0';
-    } else {
-      const h = name.offsetHeight;
-      photo.style.height = h + 'px';
-      photo.style.width = (h * 0.85) + 'px';
-      photo.style.opacity = '1';
-    }
-  }
-
-  function toggleExp() {
-    const extra = document.getElementById('exp-extra');
-    const btn = document.getElementById('btn-ver-mas');
-    const visible = extra.style.display === 'block';
-    extra.style.display = visible ? 'none' : 'block';
-    btn.textContent = visible ? 'ver más →' : 'ver menos ↑';
-  }
-
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
-  });
-  document.querySelectorAll('.pill').forEach(p => {
-    p.addEventListener('click', () => {
-      document.querySelectorAll('.pill').forEach(x => x.classList.remove('active'));
-      p.classList.add('active');
-      const f = p.dataset.filter;
-      document.querySelectorAll('.experience-card').forEach(r => {
-        r.classList.toggle('hidden', f !== 'all' && !r.dataset.tags.includes(f));
-      });
-    });
   });
   const updateTime = () => {
     const el = document.getElementById('hora-local');
@@ -654,7 +693,7 @@ footer { background: var(--fg); }
     ring.style.left = e.clientX + 'px';
     ring.style.top = e.clientY + 'px';
   });
-  document.querySelectorAll('a, button, .pill').forEach(el => {
+  document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => ring.classList.add('expand'));
     el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
   });
