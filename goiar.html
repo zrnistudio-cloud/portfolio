@@ -3,7 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Goiar — María Fernanda Juárez</title>
+<title>Goiar — Case Study UX Lead | María Fernanda Juárez</title>
+<meta name="description" content="Cómo lidero como UX Lead cuatro frentes de Goiar en paralelo: producto core, cuenta estratégica, proceso comercial y equipo de diseño — con research, AI y métricas de impacto." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Goiar — Case Study UX Lead | María Fernanda Juárez" />
+<meta property="og:description" content="Cómo lidero como UX Lead cuatro frentes de Goiar en paralelo: producto core, cuenta estratégica, proceso comercial y equipo de diseño — con research, AI y métricas de impacto." />
+<meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/proyectos/goiar/cover.webp" />
+<meta property="og:url" content="https://mfernandaj-portfolio.vercel.app/goiar.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
   :root { --bg: #faf8f5; --surface: #f0ede8; --fg: #1c1917; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --green: #4a6741; --accent: #4a6741; --accent2: #4a6741; --serif: 'Playfair Display', Georgia, serif; --sans: 'Inter', system-ui, sans-serif; }
@@ -17,6 +25,7 @@
   .nav-links { display: flex; gap: 40px; }
   .nav-link { font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .nav-link:hover, .nav-link.active { color: var(--fg); }
+a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px; }
 
   .container { max-width: 1300px; margin: 0 auto; padding: 130px 48px 80px; }
   
@@ -67,6 +76,9 @@
   .vertical-lead { font-size: 1.15rem; line-height: 1.6; color: var(--fg); font-weight: 500; margin-bottom: 1rem; max-width: 900px; }
   .vertical-item p { font-size: 1.02rem; line-height: 1.8; color: var(--muted); margin-bottom: 1.2rem; max-width: 900px; }
   .vertical-item p:last-of-type { margin-bottom: 1.5rem; }
+  .research-note { margin: 0 0 1.3rem; padding: 1.2rem 1.4rem; background: rgba(74,103,65,0.05); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; display: flex; flex-direction: column; gap: 0.55rem; max-width: 900px; }
+  .vertical-item .research-note p.research-line { color: var(--text); font-size: 0.92rem; line-height: 1.6; margin: 0; max-width: none; }
+  .research-line strong { font-family: var(--sans); color: var(--accent); }
   .vertical-impact { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.3rem; }
   .impact-chip { display: inline-flex; align-items: center; padding: 0.55rem 1.1rem; background: rgba(74,103,65,0.06); border: 1px solid rgba(74,103,65,0.2); border-radius: 100px; font-size: 0.85rem; line-height: 1.3; color: var(--text); }
   .impact-chip strong { font-family: var(--sans); color: var(--accent); font-weight: 700; }
@@ -166,7 +178,7 @@
 
       <div class="hero-sidebar">
         <div class="hero-image">
-          <img src="assets/proyectos/goiar/B2C%202.png" onerror="this.parentElement.style.display='none'" alt="Goiar - App B2C" />
+          <img src="assets/proyectos/goiar/B2C-2.webp" onerror="this.parentElement.style.display='none'" alt="Goiar - App B2C" />
         </div>
         <div class="meta-list">
           <div class="meta-item">
@@ -234,6 +246,11 @@
             <p>
               GoDigital B2C (app del cliente final), GoDigital B2B (panel de comercios adheridos) y GoCollect (cobranzas del equipo comercial) comparten tokens, patrones y librería — pero con distinta jerarquía de información según el rol de cada usuario.
             </p>
+            <div class="research-note">
+              <p class="research-line"><strong>12 entrevistas</strong> con usuarios en etapa F&amp;F y ya en producción, en Argentina y Chile.</p>
+              <p class="research-line"><strong>Hallazgo:</strong> el alta de comercios en GoDigital B2B se abandonaba cuando se pedían datos que el comercio ya había dado en otro paso — rediseñé el flujo para autocompletarlos.</p>
+              <p class="research-line"><strong>Validación:</strong> 2 rondas de test de usabilidad antes de cada pase a producción, con ajustes de flujo entre ronda y ronda.</p>
+            </div>
             <div class="vertical-impact">
               <span class="impact-chip"><strong>12–24 meses → 1 mes</strong>&nbsp;de producción para un fintech propio</span>
               <span class="impact-chip"><strong>3</strong>&nbsp;productos, 1 solo design system</span>
@@ -242,9 +259,9 @@
           <div class="carousel" data-carousel>
             <div class="carousel-viewport">
               <div class="carousel-track">
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital 01.jpg" alt="Suite Gonnectia - GoDigital B2C, app del cliente final" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital 02.jpg" alt="Suite Gonnectia - Recaudación y liquidaciones" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital 03.jpg" alt="Suite Gonnectia - Panel web, pagos y dólar MEP" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital-01.webp" alt="Suite Gonnectia - GoDigital B2C, app del cliente final" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital-02.webp" alt="Suite Gonnectia - Recaudación y liquidaciones" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital-03.webp" alt="Suite Gonnectia - Panel web, pagos y dólar MEP" loading="lazy" /></div>
               </div>
             </div>
             <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
@@ -270,15 +287,15 @@
             </p>
             <div class="vertical-impact">
               <span class="impact-chip"><strong>De reportes manuales → dashboard en tiempo real</strong></span>
-              <span class="impact-chip"><strong>+17,7%</strong>&nbsp;sesiones vs. período anterior</span>
-              <span class="impact-chip"><strong>21,9% → 21,4%</strong>&nbsp;dead clicks</span>
+              <span class="impact-chip"><strong>+17,7%</strong>&nbsp;sesiones vs. período anterior (~70.900 sesiones/mes)</span>
+              <span class="impact-chip"><strong>21,9% → 21,4%</strong>&nbsp;dead clicks sobre esas ~70.900 sesiones/mes</span>
             </div>
           </div>
           <div class="carousel" data-carousel>
             <div class="carousel-viewport">
               <div class="carousel-track">
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/agro.jpg" alt="Clientes Agro - dashboard de métricas" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/agro1.jpg" alt="Clientes Agro - reporte de métricas con automatización AI" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/agro.webp" alt="Clientes Agro - dashboard de métricas" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/agro1.webp" alt="Clientes Agro - reporte de métricas con automatización AI" loading="lazy" /></div>
               </div>
             </div>
             <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
@@ -307,11 +324,11 @@
           <div class="carousel" data-carousel>
             <div class="carousel-viewport">
               <div class="carousel-track">
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta1.jpg" alt="Comercial UX/UI - material de preventa 1" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta2.jpg" alt="Comercial UX/UI - material de preventa 2" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta3.jpg" alt="Comercial UX/UI - material de preventa 3" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta4.jpg" alt="Comercial UX/UI - material de preventa 4" loading="lazy" /></div>
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta5.jpg" alt="Comercial UX/UI - material de preventa 5" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta1.webp" alt="Comercial UX/UI - material de preventa 1" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta2.webp" alt="Comercial UX/UI - material de preventa 2" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta3.webp" alt="Comercial UX/UI - material de preventa 3" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta4.webp" alt="Comercial UX/UI - material de preventa 4" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta5.webp" alt="Comercial UX/UI - material de preventa 5" loading="lazy" /></div>
               </div>
             </div>
             <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
@@ -335,13 +352,14 @@
             <div class="vertical-impact">
               <span class="impact-chip">Roadmap trimestral y OKRs alineados a negocio</span>
               <span class="impact-chip"><strong>5,2 días</strong>&nbsp;lead time promedio</span>
-              <span class="impact-chip"><strong>72% handoff · 68% DoD</strong>&nbsp;cumplimiento</span>
+              <span class="impact-chip"><strong>72%</strong>&nbsp;de handoffs a Dev sin retrabajo</span>
+              <span class="impact-chip"><strong>68%</strong>&nbsp;de tareas que cumplen Definition of Done al primer intento</span>
             </div>
           </div>
           <div class="carousel" data-carousel>
             <div class="carousel-viewport">
               <div class="carousel-track">
-                <div class="carousel-slide"><img src="assets/proyectos/goiar/cover.jpg" alt="Liderazgo del equipo - imagen de referencia" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/cover.webp" alt="Liderazgo del equipo - imagen de referencia" loading="lazy" /></div>
               </div>
             </div>
             <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
@@ -380,7 +398,7 @@
 
       <div class="ai-card">
         <div class="ai-card-image">
-          <img src="assets/proyectos/goiar/capacity.jpg" alt="Dashboard de Capacity" loading="lazy" />
+          <img src="assets/proyectos/goiar/capacity.webp" alt="Dashboard de Capacity" loading="lazy" />
         </div>
         <h3 class="ai-card-title">Dashboard de Capacity</h3>
         <p class="ai-card-desc">Roadmap, carga de horas y capacity del equipo en tiempo real, con seguimiento de tareas por diseñador.</p>

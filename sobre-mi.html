@@ -4,6 +4,14 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Sobre mí — María Fernanda Juárez</title>
+<meta name="description" content="Sobre María Fernanda Juárez: Product Designer UX/UI con foco en fintech, sistemas de diseño y liderazgo de equipos." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Sobre mí — María Fernanda Juárez" />
+<meta property="og:description" content="Sobre María Fernanda Juárez: Product Designer UX/UI con foco en fintech, sistemas de diseño y liderazgo de equipos." />
+<meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/fer.jpg" />
+<meta property="og:url" content="https://mfernandaj-portfolio.vercel.app/sobre-mi.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -28,6 +36,7 @@ nav {
 .nav-links { display: flex; gap: 40px; }
 .nav-link { font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .nav-link:hover, .nav-link.active { color: var(--fg); }
+a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px; }
 
 .container { max-width: 1400px; margin: 0 auto; padding: 120px 48px 80px; }
 
@@ -54,6 +63,13 @@ hr.divider { border: none; border-top: 1px solid var(--border); margin-bottom: 4
 .skill-name { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--fg); margin-bottom: 8px; }
 .skill-tags { font-family: var(--sans); font-size: 12px; color: var(--muted); line-height: 1.6; }
 
+/* PRINCIPLES */
+.principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 64px; }
+.principle-card { padding: 28px 26px; background: #f0ede8; border: 1px solid var(--border); border-radius: 12px; }
+.principle-number { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--green); opacity: 0.4; line-height: 1; margin-bottom: 14px; }
+.principle-title { font-family: var(--serif); font-style: italic; font-size: 19px; font-weight: 400; color: var(--fg); margin-bottom: 10px; }
+.principle-desc { font-family: var(--sans); font-size: 13px; line-height: 1.7; color: var(--muted); }
+
 /* FOOTER */
 footer { border-top: 1px solid var(--border); margin-top: 80px; }
 .footer-inner { max-width: 1400px; margin: 0 auto; padding: 28px 48px; display: flex; justify-content: space-between; }
@@ -64,6 +80,7 @@ footer { border-top: 1px solid var(--border); margin-top: 80px; }
   .container { padding: 100px 24px 60px; }
   .content-grid { grid-template-columns: 1fr; gap: 40px; }
   .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .principles-grid { grid-template-columns: 1fr; }
   .footer-inner { padding: 24px; flex-direction: column; gap: 8px; }
 }
 </style>
@@ -92,13 +109,33 @@ footer { border-top: 1px solid var(--border); margin-top: 80px; }
   <div class="content-grid">
     <div class="bio-text">
       <p>Product Designer UX/UI con una visión integral del proceso de diseño: desde la investigación hasta la interfaz final. Trabajo en todas las etapas del producto — detección de necesidades, flujos, wireframes, prototipos e interfaces escalables.</p>
-      <p>Colaboro con equipos multidisciplinarios siempre enfocada en la experiencia del usuario y los objetivos del negocio. Lideré proyectos en fintech, aseguradoras y CRMs, tomando decisiones estratégicas de diseño con criterio y datos.</p>
+      <p>Creo que el buen diseño en fintech no es el más lindo, sino el que genera confianza: claridad en los números, cero sorpresas, accesibilidad real. Lidero con esa vara — research antes que intuición, sistemas antes que pantallas sueltas, y métricas que le importen al negocio, no solo al equipo de diseño.</p>
       <p>Hoy incorporo herramientas y lógica de AI en mi proceso — para investigar más rápido, iterar con mayor precisión y diseñar productos preparados para el futuro.</p>
       <span class="ai-tag">AI-informed design process</span>
     </div>
     <div class="photo-block">
       <img src="assets/fer.jpg" alt="María Fernanda Juárez" />
 
+    </div>
+  </div>
+
+  <hr class="divider" />
+  <p class="skills-label">principios de diseño</p>
+  <div class="principles-grid">
+    <div class="principle-card">
+      <div class="principle-number">01</div>
+      <p class="principle-title">Research antes que intuición</p>
+      <p class="principle-desc">Toda decisión de diseño importante nace de una entrevista, un dato o un test de usabilidad — no de mi gusto personal.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-number">02</div>
+      <p class="principle-title">Sistemas, no pantallas sueltas</p>
+      <p class="principle-desc">Diseño componentes y patrones reutilizables desde el día uno, para que escalar no signifique rehacer todo de cero.</p>
+    </div>
+    <div class="principle-card">
+      <div class="principle-number">03</div>
+      <p class="principle-title">Métricas que le importan al negocio</p>
+      <p class="principle-desc">Mido lo que le importa a Producto y a Comercial —tiempo, conversión, adopción— no solo lo que es lindo para el equipo de diseño.</p>
     </div>
   </div>
 

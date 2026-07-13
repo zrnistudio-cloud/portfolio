@@ -8,7 +8,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:title" content="María Fernanda Juárez — UX/UI AI Lead & Product Designer" />
 <meta property="og:description" content="+6 años liderando diseño de producto en fintech, seguros e industrial B2B, desde research hasta interfaz final." />
-<meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/proyectos/goiar/cover.jpg" />
+<meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/proyectos/goiar/cover.webp" />
 <meta property="og:url" content="https://mfernandaj-portfolio.vercel.app" />
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
@@ -45,6 +45,7 @@ nav.scrolled { border-color: var(--border); }
   color: var(--muted); text-decoration: none; transition: color 0.2s, font-weight 0.2s;
 }
 .nav-link:hover { color: var(--fg); font-weight: 700; }
+a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px; }
 .nav-brand { display: flex; align-items: center; gap: 12px; user-select: none; position: relative; }
 .brand-name {
   font-family: var(--sans); font-size: 16px; font-weight: 700;
@@ -507,7 +508,7 @@ footer { background: var(--fg); }
   <!-- GOIAR: PROYECTO DESTACADO -->
   <a href="goiar.html" class="proj-featured" style="margin-top:24px;">
     <div class="proj-featured-img">
-      <img src="assets/proyectos/goiar/cover.jpg" onerror="this.style.display='none'" alt="Goiar" />
+      <img src="assets/proyectos/goiar/cover.webp" onerror="this.style.display='none'" alt="Goiar" loading="lazy" />
     </div>
     <div class="proj-featured-info">
       <span class="proj-featured-badge">Proyecto actual · UX/UI Lead</span>
@@ -519,7 +520,7 @@ footer { background: var(--fg); }
   <div class="proj-grid proj-grid-3">
     <a href="cooperacion.html" class="proj-card">
       <div class="proj-card-img" style="background:#e5e8ec;">
-        <img src="assets/proyectos/cooperacion/cover.jpg" onerror="this.style.display='none'" alt="Cooperación" />
+        <img src="assets/proyectos/cooperacion/cover.jpg" onerror="this.style.display='none'" alt="Cooperación" loading="lazy" />
       </div>
       <div class="proj-card-info">
         <span class="proj-card-name">Cooperación Seguros</span>
@@ -528,7 +529,7 @@ footer { background: var(--fg); }
     </a>
     <a href="oterix.html" class="proj-card">
       <div class="proj-card-img" style="background:#ece8e5;">
-        <img src="assets/proyectos/oterix/cover.jpg" onerror="this.style.display='none'" alt="OTERIX" />
+        <img src="assets/proyectos/oterix/cover.jpg" onerror="this.style.display='none'" alt="OTERIX" loading="lazy" />
       </div>
       <div class="proj-card-info">
         <span class="proj-card-name">OTERIX</span>
@@ -537,7 +538,7 @@ footer { background: var(--fg); }
     </a>
     <a href="ieb.html" class="proj-card">
       <div class="proj-card-img" style="background:#e8ece5;">
-        <img src="assets/proyectos/ieb/cover.jpg" onerror="this.style.display='none'" alt="IEB+" />
+        <img src="assets/proyectos/ieb/cover.jpg" onerror="this.style.display='none'" alt="IEB+" loading="lazy" />
       </div>
       <div class="proj-card-info">
         <span class="proj-card-name">IEB+</span>
@@ -555,10 +556,10 @@ footer { background: var(--fg); }
 <!-- EXPLORACIÓN -->
 <section id="exploracion" class="section-container">
   <div class="section-header">exploración</div>
-  <div class="proj-grid proj-grid-3">
+  <div class="proj-grid">
     <a href="enlunallena.html" class="proj-card">
       <div class="proj-card-img" style="background:#0a0712;">
-        <img src="assets/exploracion/luna-llena/cover.jpg" onerror="this.style.display='none'" alt="En Luna Llena" />
+        <img src="assets/exploracion/luna-llena/cover.jpg" onerror="this.style.display='none'" alt="En Luna Llena" loading="lazy" />
       </div>
       <div class="proj-card-info">
         <span class="proj-card-name">En Luna Llena</span>
@@ -567,47 +568,11 @@ footer { background: var(--fg); }
     </a>
     <a href="mandalas.html" class="proj-card">
       <div class="proj-card-img" style="background:#1a0a0a;">
-        <img src="assets/exploracion/mandalas/cover.jpg" onerror="this.style.display='none'" alt="Sereia" />
+        <img src="assets/exploracion/mandalas/cover.jpg" onerror="this.style.display='none'" alt="Sereia" loading="lazy" />
       </div>
       <div class="proj-card-info">
         <span class="proj-card-name">Sereia · Mandalas del Alma</span>
         <span class="proj-card-meta">Mindfulness · Proyecto propio</span>
-      </div>
-    </a>
-    <a href="bikeing.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e5ece8;">
-        <img src="assets/exploracion/bikeing/cover.jpg" onerror="this.style.display='none'" alt="Bikeing" />
-      </div>
-      <div class="proj-card-info">
-        <span class="proj-card-name">Bikeing</span>
-        <span class="proj-card-meta">UX Designer · App ciclismo</span>
-      </div>
-    </a>
-    <a href="holaquetal.html" class="proj-card">
-      <div class="proj-card-img" style="background:#ece5e8;">
-        <img src="assets/exploracion/holaquetal/01.jpg" onerror="this.style.display='none'" alt="Hola qué tal" />
-      </div>
-      <div class="proj-card-info">
-        <span class="proj-card-name">Hola ¿qué tal?</span>
-        <span class="proj-card-meta">UX Designer · App networking</span>
-      </div>
-    </a>
-    <a href="delosbarcos.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e8e5ec;">
-        <img src="assets/exploracion/delosbarcos/cover.jpg" onerror="this.style.display='none'" alt="De los Barcos" />
-      </div>
-      <div class="proj-card-info">
-        <span class="proj-card-name">De los Barcos</span>
-        <span class="proj-card-meta">UX Designer · CRM · 2023</span>
-      </div>
-    </a>
-    <a href="topdoctor.html" class="proj-card">
-      <div class="proj-card-img" style="background:#ece8e5;">
-        <img src="assets/exploracion/topdoctor/01.jpg" onerror="this.style.display='none'" alt="TopDoctors" />
-      </div>
-      <div class="proj-card-info">
-        <span class="proj-card-name">TopDoctors</span>
-        <span class="proj-card-meta">UX Designer · Salud · 2022</span>
       </div>
     </a>
   </div>
@@ -653,9 +618,9 @@ footer { background: var(--fg); }
     </div>
     <div class="footer-col">
       <p class="footer-col-title">Navegación</p>
+      <a href="sobre-mi.html" class="footer-link">sobre mí</a>
       <a href="experiencia.html" class="footer-link">experiencia</a>
       <a href="proyectos.html" class="footer-link">proyectos</a>
-      <a href="sobre-mi.html" class="footer-link">sobre mí</a>
       <a href="#contacto" class="footer-link">contacto</a>
     </div>
     <div class="footer-col">
@@ -681,7 +646,12 @@ footer { background: var(--fg); }
   });
   const updateTime = () => {
     const el = document.getElementById('hora-local');
-    if (el) el.textContent = new Date().toLocaleTimeString('es-AR', {timeZone:'America/Argentina/Buenos_Aires',hour:'numeric',minute:'2-digit',hour12:true}) + ' hora local';
+    if (!el) return;
+    try {
+      el.textContent = new Date().toLocaleTimeString('es-AR', {timeZone:'America/Argentina/Buenos_Aires',hour:'numeric',minute:'2-digit',hour12:true}) + ' hora local (GMT-3)';
+    } catch (e) {
+      el.textContent = 'GMT-3';
+    }
   };
   updateTime(); setInterval(updateTime, 60000);
 

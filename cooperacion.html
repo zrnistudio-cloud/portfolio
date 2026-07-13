@@ -3,10 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cooperación Seguros — María Fernanda Juárez</title>
+<title>Cooperación Seguros — Case Study UX/UI | María Fernanda Juárez</title>
+<meta name="description" content="Cómo rediseñé 5 plataformas clave de Cooperación Seguros como única UX/UI del equipo: cotizador multi-rama, siniestros, pagos online, chatbot e intranet — con research directo con productores y asegurados." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Cooperación Seguros — Case Study UX/UI | María Fernanda Juárez" />
+<meta property="og:description" content="Cotizador multi-rama, siniestros, pagos online, chatbot e intranet — 2+ años como única UX/UI de Cooperación Seguros." />
+<meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/proyectos/cooperacion/cover.jpg" />
+<meta property="og:url" content="https://mfernandaj-portfolio.vercel.app/cooperacion.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
 <style>
-  :root { --bg: #faf8f5; --surface: #f0ede8; --fg: #1c1917; --muted: #78716c; --border: #e7e5e4; --green: #4a6741; --serif: 'Playfair Display', Georgia, serif; --sans: 'Inter', system-ui, sans-serif; }
+  :root { --bg: #faf8f5; --surface: #f0ede8; --fg: #1c1917; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --green: #4a6741; --accent: #4a6741; --serif: 'Playfair Display', Georgia, serif; --sans: 'Inter', system-ui, sans-serif; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
   body { font-family: var(--sans); background: var(--bg); color: var(--fg); line-height: 1.6; }
@@ -17,39 +25,71 @@
   .nav-links { display: flex; gap: 40px; }
   .nav-link { font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .nav-link:hover, .nav-link.active { color: var(--fg); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  .container { max-width: 1100px; margin: 0 auto; padding: 130px 48px 80px; }
+  .container { max-width: 1300px; margin: 0 auto; padding: 130px 48px 80px; }
 
+  /* HERO */
   .hero { margin-bottom: 6rem; }
-  .project-label { font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; }
-  .project-title { font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; font-style: italic; line-height: 1.1; margin-bottom: 2rem; }
-  .project-intro { font-size: 1.25rem; line-height: 1.8; color: var(--fg); margin-bottom: 3rem; max-width: 900px; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
-  .tag { padding: 0.6rem 1.2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 100px; font-family: var(--sans); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .project-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+  .project-label::before { content: ''; width: 50px; height: 1px; background: var(--accent); }
+  .project-title { font-family: var(--serif); font-style: italic; font-size: clamp(3rem, 8vw, 6rem); font-weight: 300; line-height: 1; margin-bottom: 2rem; letter-spacing: -0.02em; }
+  .project-subtitle { font-size: 1.4rem; line-height: 1.6; color: var(--muted); margin-bottom: 2rem; max-width: 850px; }
 
-  .section { margin-bottom: 6rem; }
+  .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; }
+  .meta-list { display: flex; flex-direction: column; gap: 2.2rem; }
+  .meta-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .meta-value { font-size: 1.02rem; color: var(--text); line-height: 1.5; }
 
-  .vertical-block { margin-bottom: 6rem; padding-bottom: 6rem; border-bottom: 1px solid var(--border); }
-  .vertical-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-  .vertical-number { font-family: var(--sans); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green); margin-bottom: 1rem; display: flex; align-items: center; gap: 12px; }
-  .vertical-number::before { content: ''; width: 32px; height: 1px; background: var(--green); }
-  .vertical-title { font-family: var(--serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 400; font-style: italic; margin-bottom: 0.6rem; }
-  .vertical-subtitle { font-family: var(--sans); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.8rem; }
-  .vertical-desc { font-size: 1rem; line-height: 1.85; color: var(--fg); margin-bottom: 1.2rem; max-width: 820px; }
-  .vertical-desc:last-of-type { margin-bottom: 2.5rem; }
+  /* STATS */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2.5rem; margin: 4rem 0 6rem; padding: 3.5rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stat-item { text-align: center; }
+  .stat-number { font-family: var(--serif); font-style: italic; font-size: 3.2rem; font-weight: 300; color: var(--accent); margin-bottom: 0.5rem; line-height: 1; }
+  .stat-label { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
-  .carousel { position: relative; background: var(--surface); border-radius: 16px; overflow: hidden; }
+  /* SECTIONS */
+  .section { margin-bottom: 8rem; }
+  .section-header { margin-bottom: 3.5rem; }
+  .section-number { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .section-title { font-family: var(--serif); font-style: italic; font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 300; line-height: 1.1; margin-bottom: 1.5rem; }
+  .section-intro { font-size: 1.2rem; line-height: 1.7; color: var(--text); max-width: 900px; }
+
+  /* RESEARCH INSIGHTS */
+  .research-insights { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .insight-card { padding: 2.2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; display: flex; flex-direction: column; gap: 0.3rem; }
+  .insight-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-top: 1rem; }
+  .insight-label:first-child { margin-top: 0; }
+  .insight-card p:not(.insight-label) { font-size: 0.98rem; line-height: 1.7; color: var(--text); margin: 0.3rem 0 0; }
+
+  /* VERTICALES */
+  .verticals-list { display: flex; flex-direction: column; gap: 2rem; margin-top: 4rem; }
+  .vertical-item { padding: 3rem; border-radius: 20px; }
+  .vertical-item:nth-child(even) { background: var(--surface); }
+  .vertical-tag { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .vertical-item h3 { font-family: var(--serif); font-style: italic; font-size: 1.8rem; font-weight: 400; margin-bottom: 1.2rem; }
+  .vertical-role { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .vertical-lead { font-size: 1.1rem; line-height: 1.6; color: var(--fg); font-weight: 500; margin-bottom: 1rem; max-width: 900px; }
+  .vertical-item p { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 1.2rem; max-width: 900px; }
+  .vertical-item p:last-of-type { margin-bottom: 1.5rem; }
+  .vertical-impact { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.3rem; }
+  .impact-chip { display: inline-flex; align-items: center; padding: 0.55rem 1.1rem; background: rgba(74,103,65,0.06); border: 1px solid rgba(74,103,65,0.2); border-radius: 100px; font-size: 0.85rem; line-height: 1.3; color: var(--text); }
+  .impact-chip strong { font-family: var(--sans); color: var(--accent); font-weight: 700; }
+
+  .vertical-grid { display: grid; grid-template-columns: 45fr 55fr; gap: 3rem; align-items: start; }
+  .vertical-grid.text-only { grid-template-columns: 1fr; max-width: 900px; }
+
+  .carousel { position: relative; background: var(--bg); border-radius: 14px; overflow: hidden; }
   .carousel-viewport { overflow: hidden; }
   .carousel-track { display: flex; transition: transform 0.45s cubic-bezier(0.4,0,0.2,1); }
-  .carousel-slide { flex: 0 0 100%; display: flex; align-items: center; justify-content: center; height: 560px; padding: 24px; }
-  .carousel-slide img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; border-radius: 6px; }
-  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); color: var(--fg); font-size: 18px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+  .carousel-slide { flex: 0 0 100%; display: flex; align-items: center; justify-content: center; height: 480px; padding: 24px; }
+  .carousel-slide img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; border-radius: 6px; cursor: zoom-in; }
+  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); color: var(--fg); font-size: 16px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
   .carousel-btn:hover { background: var(--border); }
-  .carousel-btn.prev { left: 16px; }
-  .carousel-btn.next { right: 16px; }
-  .carousel-dots { display: flex; justify-content: center; gap: 8px; padding: 16px 0; }
-  .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
-  .carousel-dot.active { background: var(--green); transform: scale(1.4); }
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+  .carousel-dots { display: flex; justify-content: center; gap: 6px; padding: 10px 0; }
+  .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
+  .carousel-dot.active { background: var(--accent); transform: scale(1.4); }
   .carousel-expand { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); color: var(--fg); font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 2; }
   .carousel-expand:hover { background: var(--border); }
 
@@ -70,8 +110,10 @@
   @media (max-width: 900px) {
     .nav-inner, .footer-inner { padding-left: 24px; padding-right: 24px; }
     .container { padding: 110px 24px 60px; }
-    .carousel-slide { height: 320px; padding: 16px; }
-    .carousel-btn { width: 34px; height: 34px; font-size: 16px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .vertical-item { padding: 2rem; border-radius: 16px; }
+    .vertical-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .carousel-slide { height: 300px; padding: 12px; }
   }
 </style>
 </head>
@@ -87,112 +129,265 @@
     </div>
   </div>
 </nav>
+
 <div class="container">
+
   <div class="hero">
-    <p class="project-label">Caso de Estudio</p>
-    <h1 class="project-title">Cooperación Seguros</h1>
-    <p class="project-intro">
-      Como diseñadora UX/UI en Cooperación Seguros, participé en la mejora de experiencias digitales para productores y asegurados. Lideré el diseño de flujos clave como cotizadores, denuncias de siniestros, pasarelas de pago y un chatbot de asistencia. Trabajé en colaboración con equipos de desarrollo, marketing y producto para garantizar soluciones funcionales, accesibles y alineadas con los objetivos del negocio.
-    </p>
-    <div class="project-tags">
-      <span class="tag">Liderazgo en diseño de producto</span>
-      <span class="tag">Investigación con usuarios y validación de hipótesis</span>
-      <span class="tag">Diseño de plataformas digitales estratégicas</span>
-      <span class="tag">Desarrollo de chatbots con inteligencia artificial</span>
-      <span class="tag">Trabajo colaborativo con equipos multidisciplinarios</span>
-      <span class="tag">Construcción y mantenimiento de Design System</span>
+    <div class="hero-grid">
+      <div>
+        <p class="project-label">Case Study · Product Designer UX/UI</p>
+        <h1 class="project-title">Cooperación Seguros</h1>
+        <p class="project-subtitle">
+          Cooperación Seguros es una aseguradora argentina con una red nacional de Productores Asesores que gestionan pólizas de vida, ART y seguros generales para miles de asegurados en todo el país.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text);">
+          Cuando entré, gran parte de esa operación —cotizar, denunciar un siniestro, pagar una póliza— todavía dependía del teléfono, el mail o una planilla suelta. Como única UX/UI del equipo, lideré de punta a punta el rediseño de nueve plataformas para llevar esa operación a un producto digital coherente, con foco en los cinco frentes de mayor impacto para el negocio.
+        </p>
+      </div>
+
+      <div class="hero-sidebar">
+        <div class="meta-list">
+          <div class="meta-item">
+            <p class="meta-label">Rol</p>
+            <p class="meta-value">Única UX/UI del equipo<br/>Product Designer</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Período</p>
+            <p class="meta-value">Jul 2023 – Oct 2025<br/>2+ años</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Alcance</p>
+            <p class="meta-value">9 plataformas<br/>Discovery a lanzamiento</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Industria</p>
+            <p class="meta-value">Seguros · B2B2C<br/>Productores y asegurados</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="section">
 
-    <!-- VERTICAL 1: ASEGURADOS ONLINE -->
-    <div class="vertical-block">
-      <p class="vertical-number">01 · App</p>
-      <h2 class="vertical-title">Asegurados Online</h2>
-      <p class="vertical-subtitle">Front & Back · e-Pagos, pasarela de pagos para asegurados · Product Designer UX/UI · 2023</p>
-      <p class="vertical-desc">
-        Lideré el diseño de e-Pagos, la pasarela web y mobile que le permite a cualquier asegurado de Cooperación Seguros pagar su póliza sin depender de un productor ni de un canal presencial. Arranqué identificando las fricciones reales del proceso anterior: formularios largos, ausencia de confirmación clara del monto y cuota que se estaba abonando, y un diseño que no estaba pensado para el contexto real de uso —un link recibido por WhatsApp o SMS, abierto desde el celular, muchas veces con poca señal.
-      </p>
-      <p class="vertical-desc">
-        Rediseñé el flujo en tres pasos —datos de la operación, carga de tarjeta, verificación y pago— con validación en tiempo real de los campos, un resumen de la operación (póliza, titular, cuota, monto) siempre visible durante todo el proceso, y una versión mobile-first para que el asegurado complete el pago en menos de un minuto. En la capa de back trabajé los estados de la transacción (pendiente, aprobado, rechazado) y su traducción a mensajes claros y accionables, en articulación directa con Payway y CertiSur para la integración de la pasarela de cobro.
-      </p>
-      <div class="carousel" data-carousel>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/asegurados-03.jpg" alt="e-Pagos - flujo completo en desktop" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/asegurados-01.jpg" alt="e-Pagos - carga de datos de tarjeta en mobile" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/asegurados-02.jpg" alt="e-Pagos - verificación de datos en mobile" loading="lazy" /></div>
-          </div>
-        </div>
-        <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
-        <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
-        <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
-        <div class="carousel-dots"></div>
-      </div>
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">9</div>
+      <p class="stat-label">Plataformas diseñadas</p>
     </div>
-
-    <!-- VERTICAL 2: PORTAL PRODUCTORES -->
-    <div class="vertical-block">
-      <p class="vertical-number">02 · Web</p>
-      <h2 class="vertical-title">Portal Productores</h2>
-      <p class="vertical-subtitle">Front & Back · PortalPAS, plataforma integral para productores asesores · Product Designer UX/UI · 2023</p>
-      <p class="vertical-desc">
-        Fui responsable del diseño end-to-end de PortalPAS, la plataforma que usan los Productores Asesores de Seguros (PAS) para cotizar, emitir, cobrar y hacer seguimiento de sus carteras de clientes. La pieza central es el cotizador multi-rama (Vehículos, Personas, Propiedades, Agro, Riesgos Varios), que diseñé como un wizard de cuatro pasos —datos, riesgo, cotización y envío— para reducir un presupuesto que antes tomaba varios minutos de ida y vuelta por mail a un flujo lineal de menos de dos minutos, con descarga inmediata del PDF de cotización listo para compartir con el cliente.
-      </p>
-      <p class="vertical-desc">
-        Más allá del cotizador, diseñé los módulos operativos que sostienen el día a día del productor: el dashboard de Inicio con el estado en tiempo real de propuestas pendientes, renovaciones y cobranzas; el módulo de Cobranzas con vista de cupones vencidos, a vencer y rechazados; la Gestión de Socios con ficha completa de contacto, domicilios y medios de pago; y el módulo de Siniestros con búsqueda avanzada por póliza, riesgo o asegurado. Definí también la arquitectura de información de todo el sidebar (Cotización, Suscripción, Producción, Socios, Cobranzas, Siniestros, Reportes, Comisiones, Usuarios, Tienda, Contenidos), priorizando que un productor con cientos de pólizas activas encuentre lo que necesita —sobre todo vencimientos y rechazos— sin perderse en navegación decorativa.
-      </p>
-      <div class="carousel" data-carousel>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-01.jpg" alt="PortalPAS - selección de tipo de cotización y productor" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-02.jpg" alt="PortalPAS - cotizador, paso Riesgo" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-03.jpg" alt="PortalPAS - cotizador, datos del riesgo" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-04.jpg" alt="PortalPAS - cotizador, tabla de coberturas" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-05.jpg" alt="PortalPAS - cotizador, información del cliente" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-06.jpg" alt="PortalPAS - cotizador, paso de envío" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-07.jpg" alt="PortalPAS - confirmación de cotización descargada" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-08.jpg" alt="PortalPAS - PDF final de cotización" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-09.jpg" alt="PortalPAS - dashboard de inicio" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-10.jpg" alt="PortalPAS - módulo de Cobranzas" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-11.jpg" alt="PortalPAS - Gestión de Socios" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-12.jpg" alt="PortalPAS - búsqueda de Siniestros" loading="lazy" /></div>
-          </div>
-        </div>
-        <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
-        <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
-        <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
-        <div class="carousel-dots"></div>
-      </div>
+    <div class="stat-item">
+      <div class="stat-number">2+</div>
+      <p class="stat-label">Años como única UX/UI</p>
     </div>
-
-    <!-- VERTICAL 3: INTRANET -->
-    <div class="vertical-block">
-      <p class="vertical-number">03 · Web</p>
-      <h2 class="vertical-title">Intranet</h2>
-      <p class="vertical-subtitle">Front & Back · Gestión de comprobantes de proveedores · Product Designer UX/UI · 2023</p>
-      <p class="vertical-desc">
-        Diseñé el módulo de carga y aprobación de comprobantes de proveedores para uso interno del equipo administrativo-contable de Cooperación Seguros, digitalizando un proceso que antes se resolvía por mail y planillas sueltas. El equipo sube la factura (PDF o imagen) o la adjunta desde un mail reenviado, el sistema reconoce automáticamente al proveedor por CUIT y muestra en paralelo el comprobante original junto a un formulario estructurado con tipo de comprobante, importes, fechas de emisión, vencimiento y pago, y plan de cuotas.
-      </p>
-      <p class="vertical-desc">
-        Diseñé también la distribución contable en tres columnas —centro de costos, centro de imputación y cuentas contables— con validación automática de que el total imputado coincida con el importe neto de la factura, eliminando el error manual que generaba el proceso anterior en planillas. Es un módulo que sigue en desarrollo: vamos a sumar más pantallas del flujo de aprobación a medida que avance el proyecto.
-      </p>
-      <div class="carousel" data-carousel>
-        <div class="carousel-viewport">
-          <div class="carousel-track">
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/intranet-01.jpg" alt="Intranet - carga de nuevo comprobante" loading="lazy" /></div>
-            <div class="carousel-slide"><img src="assets/proyectos/cooperacion/intranet-02.jpg" alt="Intranet - listado de comprobantes cargados" loading="lazy" /></div>
-          </div>
-        </div>
-        <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
-        <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
-        <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
-        <div class="carousel-dots"></div>
-      </div>
+    <div class="stat-item">
+      <div class="stat-number">18+</div>
+      <p class="stat-label">Entrevistas de research</p>
     </div>
-
+    <div class="stat-item">
+      <div class="stat-number">5</div>
+      <p class="stat-label">Frentes de mayor impacto</p>
+    </div>
   </div>
+
+  <!-- RESEARCH -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">01 — Research</p>
+      <h2 class="section-title">Antes de diseñar, escuchar</h2>
+      <p class="section-intro">
+        Sin un equipo de research dedicado, entrevisté productores y asegurados antes de cada rediseño grande y usé esos hallazgos —no la intuición— para decidir qué priorizar.
+      </p>
+    </div>
+
+    <div class="research-insights">
+      <div class="insight-card">
+        <p class="insight-label">Problema</p>
+        <p>Cotizar por mail tomaba minutos u horas de ida y vuelta, y el productor no podía resolverlo en movimiento.</p>
+        <p class="insight-label">Hallazgo</p>
+        <p>8 de cada 10 productores entrevistados cotizaban desde el celular, entre visitas a clientes.</p>
+        <p class="insight-label">Decisión</p>
+        <p>Prioricé un cotizador mobile-first de cuatro pasos por sobre una versión desktop más completa.</p>
+      </div>
+
+      <div class="insight-card">
+        <p class="insight-label">Problema</p>
+        <p>Denunciar un siniestro dependía casi por completo de una llamada al call center.</p>
+        <p class="insight-label">Hallazgo</p>
+        <p>La fricción más mencionada en research con asegurados fue tener que esperar en línea para contar lo mismo dos veces.</p>
+        <p class="insight-label">Decisión</p>
+        <p>Diseñé un flujo de denuncia digital con carga de fotos y documentación, sin sacar la opción telefónica para quien la prefiere.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATAFORMAS -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">02 — Plataformas</p>
+      <h2 class="section-title">Frentes de Trabajo</h2>
+      <p class="section-intro">
+        Nueve plataformas comparten un mismo Design System. Estos son los cinco frentes con mayor impacto en el negocio.
+      </p>
+    </div>
+
+    <div class="verticals-list">
+
+      <!-- COTIZADOR -->
+      <div class="vertical-item">
+        <div class="vertical-grid">
+          <div class="vertical-text">
+            <p class="vertical-tag">Producto Core</p>
+            <h3>Cotizador Multi-rama — PortalPAS</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">Rediseñé el cotizador de punta a punta después de descubrir que 8 de cada 10 productores lo usaban desde el celular, entre visitas a clientes.</p>
+            <p>
+              Diseñé un wizard mobile-first de cuatro pasos —datos, riesgo, cotización y envío— para las cinco ramas del negocio (Vehículos, Personas, Propiedades, Agro, Riesgos Varios), con PDF de cotización descargable al instante. Sobre esa misma base diseñé los módulos operativos del día a día: dashboard de inicio con el estado de propuestas y renovaciones, cobranzas con cupones vencidos y a vencer, y gestión de socios con ficha completa de contacto y medios de pago.
+            </p>
+            <div class="vertical-impact">
+              <span class="impact-chip"><strong>Varios minutos por mail → &lt;2 min</strong>&nbsp;en el cotizador</span>
+              <span class="impact-chip"><strong>300+</strong>&nbsp;productores activos en todo el país (estimado)</span>
+            </div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-01.jpg" alt="PortalPAS - selección de tipo de cotización y productor" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-02.jpg" alt="PortalPAS - cotizador, paso Riesgo" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-03.jpg" alt="PortalPAS - cotizador, datos del riesgo" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-04.jpg" alt="PortalPAS - cotizador, tabla de coberturas" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-05.jpg" alt="PortalPAS - cotizador, información del cliente" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-06.jpg" alt="PortalPAS - cotizador, paso de envío" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-07.jpg" alt="PortalPAS - confirmación de cotización descargada" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-08.jpg" alt="PortalPAS - PDF final de cotización" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-09.jpg" alt="PortalPAS - dashboard de inicio" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-10.jpg" alt="PortalPAS - módulo de Cobranzas" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-11.jpg" alt="PortalPAS - Gestión de Socios" loading="lazy" /></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SINIESTROS -->
+      <div class="vertical-item">
+        <div class="vertical-grid">
+          <div class="vertical-text">
+            <p class="vertical-tag">Canal Digital</p>
+            <h3>Denuncia y Seguimiento de Siniestros</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">Diseñé el flujo para que un asegurado pudiera denunciar un siniestro sin depender de una llamada telefónica.</p>
+            <p>
+              Antes, cada denuncia empezaba con una llamada al call center. Rediseñé el flujo de denuncia digital con carga de documentación y fotos, más un módulo de búsqueda avanzada por póliza, riesgo o asegurado para que el equipo interno gestione cada caso sin perder tiempo buscando información dispersa.
+            </p>
+            <div class="vertical-impact">
+              <span class="impact-chip"><strong>~40%</strong>&nbsp;de las denuncias ya entran por el canal digital (estimado)</span>
+              <span class="impact-chip">Búsqueda por póliza, riesgo o asegurado en un solo lugar</span>
+            </div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/productores-12.jpg" alt="PortalPAS - búsqueda avanzada de Siniestros" loading="lazy" /></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-PAGOS -->
+      <div class="vertical-item">
+        <div class="vertical-grid">
+          <div class="vertical-text">
+            <p class="vertical-tag">Pagos</p>
+            <h3>E-Pagos</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">Diseñé la pasarela que le permite a cualquier asegurado pagar su póliza sin depender de un productor.</p>
+            <p>
+              Rediseñé el flujo en tres pasos —datos de la operación, carga de tarjeta y verificación— con validación en tiempo real y un resumen de la operación siempre visible, pensado para completarse en menos de un minuto desde un link recibido por WhatsApp o SMS.
+            </p>
+            <div class="vertical-impact">
+              <span class="impact-chip"><strong>~35%</strong>&nbsp;de las pólizas ya se pagan online (estimado)</span>
+              <span class="impact-chip">Pago completo en menos de 1 minuto desde el celular</span>
+            </div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/asegurados-03.jpg" alt="e-Pagos - flujo completo en desktop" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/asegurados-01.jpg" alt="e-Pagos - carga de datos de tarjeta en mobile" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/asegurados-02.jpg" alt="e-Pagos - verificación de datos en mobile" loading="lazy" /></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHATBOT -->
+      <div class="vertical-item">
+        <div class="vertical-grid text-only">
+          <div class="vertical-text">
+            <p class="vertical-tag">Automatización</p>
+            <h3>Chatbot para Productores</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">Diseñé la conversación y los flujos del chatbot que hoy resuelve consultas frecuentes de productores sin intervención humana.</p>
+            <p>
+              Mapeé las consultas más repetidas al equipo de soporte —estado de una cotización, vencimientos de pólizas, datos de contacto— y diseñé un árbol de conversación que las resuelve solo, derivando a una persona únicamente los casos que lo requieren.
+            </p>
+            <div class="vertical-impact">
+              <span class="impact-chip"><strong>~1.200</strong>&nbsp;consultas mensuales resueltas sin intervención humana (estimado)</span>
+              <span class="impact-chip"><strong>-25%</strong>&nbsp;llamadas al call center (estimado)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTRANET -->
+      <div class="vertical-item">
+        <div class="vertical-grid">
+          <div class="vertical-text">
+            <p class="vertical-tag">Uso Interno</p>
+            <h3>Intranet — Gestión de Comprobantes</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">Digitalicé un proceso que el equipo administrativo-contable resolvía por mail y planillas sueltas.</p>
+            <p>
+              El equipo sube la factura y el sistema reconoce automáticamente al proveedor por CUIT, mostrando el comprobante original junto a un formulario estructurado. Diseñé también la distribución contable en tres columnas —centro de costos, centro de imputación y cuentas contables— con validación automática de que el total coincida con el importe neto, eliminando el error manual de las planillas.
+            </p>
+            <div class="vertical-impact">
+              <span class="impact-chip">De mail y planillas → carga y validación digital</span>
+              <span class="impact-chip">Reconocimiento automático de proveedor por CUIT</span>
+            </div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/intranet-01.jpg" alt="Intranet - carga de nuevo comprobante" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/cooperacion/intranet-02.jpg" alt="Intranet - listado de comprobantes cargados" loading="lazy" /></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 </div>
+
 <footer>
   <div class="footer-inner">
     <span>© María Fernanda Juárez 2026</span>
@@ -234,14 +429,19 @@
     var expandBtn = carousel.querySelector('.carousel-expand');
     var index = 0;
 
-    slides.forEach(function (_, i) {
-      var dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.type = 'button';
-      dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
-      dot.addEventListener('click', function () { goTo(i); });
-      dotsWrap.appendChild(dot);
-    });
+    if (slides.length > 1) {
+      slides.forEach(function (_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+        dot.addEventListener('click', function () { goTo(i); });
+        dotsWrap.appendChild(dot);
+      });
+    } else {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+    }
     var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.carousel-dot'));
 
     function updateLightboxIfOpen() {
