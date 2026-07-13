@@ -50,6 +50,18 @@
   .carousel-dots { display: flex; justify-content: center; gap: 8px; padding: 16px 0; }
   .carousel-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
   .carousel-dot.active { background: var(--green); transform: scale(1.4); }
+  .carousel-expand { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); color: var(--fg); font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 2; }
+  .carousel-expand:hover { background: var(--border); }
+
+  .lightbox-overlay { position: fixed; inset: 0; background: rgba(28,25,23,0.94); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 5vh 5vw; }
+  .lightbox-overlay.active { display: flex; }
+  .lightbox-overlay img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+  .lightbox-close { position: absolute; top: 24px; right: 32px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 22px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+  .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 22px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+  .lightbox-nav.prev { left: 24px; }
+  .lightbox-nav.next { right: 24px; }
 
   footer { border-top: 1px solid var(--border); margin-top: 80px; }
   .footer-inner { max-width: 1400px; margin: 0 auto; padding: 28px 48px; display: flex; justify-content: space-between; }
@@ -114,6 +126,7 @@
         </div>
         <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
         <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+        <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
         <div class="carousel-dots"></div>
       </div>
     </div>
@@ -148,6 +161,7 @@
         </div>
         <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
         <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+        <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
         <div class="carousel-dots"></div>
       </div>
     </div>
@@ -172,6 +186,7 @@
         </div>
         <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
         <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+        <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
         <div class="carousel-dots"></div>
       </div>
     </div>
@@ -185,13 +200,38 @@
   </div>
 </footer>
 
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" type="button" aria-label="Cerrar">&times;</button>
+  <button class="lightbox-nav prev" type="button" aria-label="Anterior">‹</button>
+  <img src="" alt="" />
+  <button class="lightbox-nav next" type="button" aria-label="Siguiente">›</button>
+</div>
+
 <script>
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = lightbox.querySelector('img');
+  var activeGoTo = null;
+  var activeGetIndex = null;
+
+  function closeLightbox() { lightbox.classList.remove('active'); lightbox.currentCarousel = null; }
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+  lightbox.querySelector('.lightbox-nav.prev').addEventListener('click', function () { if (activeGoTo) activeGoTo(activeGetIndex() - 1); });
+  lightbox.querySelector('.lightbox-nav.next').addEventListener('click', function () { if (activeGoTo) activeGoTo(activeGetIndex() + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft' && activeGoTo) activeGoTo(activeGetIndex() - 1);
+    if (e.key === 'ArrowRight' && activeGoTo) activeGoTo(activeGetIndex() + 1);
+  });
+
   document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
     var track = carousel.querySelector('.carousel-track');
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
     var dotsWrap = carousel.querySelector('.carousel-dots');
     var prevBtn = carousel.querySelector('.carousel-btn.prev');
     var nextBtn = carousel.querySelector('.carousel-btn.next');
+    var expandBtn = carousel.querySelector('.carousel-expand');
     var index = 0;
 
     slides.forEach(function (_, i) {
@@ -204,11 +244,36 @@
     });
     var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.carousel-dot'));
 
+    function updateLightboxIfOpen() {
+      if (lightbox.classList.contains('active') && lightbox.currentCarousel === carousel) {
+        var img = slides[index].querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      }
+    }
+
     function goTo(i) {
       index = (i + slides.length) % slides.length;
       track.style.transform = 'translateX(-' + (index * 100) + '%)';
       dots.forEach(function (d, di) { d.classList.toggle('active', di === index); });
+      updateLightboxIfOpen();
     }
+
+    function openLightbox() {
+      lightbox.currentCarousel = carousel;
+      var img = slides[index].querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      activeGoTo = goTo;
+      activeGetIndex = function () { return index; };
+    }
+
+    if (expandBtn) expandBtn.addEventListener('click', openLightbox);
+    slides.forEach(function (slide) {
+      var img = slide.querySelector('img');
+      if (img) { img.style.cursor = 'zoom-in'; img.addEventListener('click', openLightbox); }
+    });
 
     if (prevBtn) prevBtn.addEventListener('click', function () { goTo(index - 1); });
     if (nextBtn) nextBtn.addEventListener('click', function () { goTo(index + 1); });
