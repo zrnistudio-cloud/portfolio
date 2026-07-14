@@ -59,7 +59,13 @@
   .nav-links { display: flex; gap: 40px; }
   .nav-link { font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .nav-link:hover, .nav-link.active { color: var(--fg); }
-a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px;  border-radius: 2px; }
+::selection { background: #4a6741; color: #faf8f5; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #d6d1c7; border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover { background: #4a6741; }
+body { animation: page-fade-in 0.4s ease; }
+@keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
 
   /* CONTAINER */
   .project-container {

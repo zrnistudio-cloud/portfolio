@@ -24,24 +24,45 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(
 .nav-links { display: flex; gap: 40px; }
 .nav-link { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .nav-link:hover { color: var(--fg); }
-a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px; border-radius: 2px; }
 .back-link { font-size: 13px; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
 .back-link:hover { color: var(--fg); }
 
 .container { max-width: 1400px; margin: 0 auto; padding: 120px 48px 80px; }
 .page-label { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
 .page-title { font-family: var(--serif); font-size: clamp(40px, 6vw, 80px); font-weight: 400; font-style: italic; line-height: 1.0; margin-bottom: 56px; }
+.page-asterisk { display: block; font-family: var(--serif); font-size: 20px; color: var(--green); margin-bottom: 8px; }
 
 hr.divider { border: none; border-top: 1px solid var(--border); margin-bottom: 48px; }
 .section-label { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
 
 .proj-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-bottom: 64px; }
 .proj-card { text-decoration: none; color: var(--fg); display: flex; flex-direction: column; gap: 12px; transition: opacity 0.2s; }
-.proj-card:hover { opacity: 0.7; }
-.proj-card-img { width: 100%; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; background: var(--border); }
-.proj-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.proj-card-name { font-size: 14px; font-weight: 500; }
+.proj-card-img { width: 100%; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; background: var(--border); position: relative; display: flex; align-items: center; justify-content: center; }
+.proj-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s cubic-bezier(.22,1,.36,1); }
+.proj-card:hover .proj-card-img img { transform: scale(1.04); }
+.card-fallback { display: none; font-family: var(--serif); font-size: 48px; font-style: italic; color: rgba(74,103,65,0.25); }
+.proj-card-img.no-img { display: flex; align-items: center; justify-content: center; }
+.proj-card-img.no-img .card-fallback { display: block; }
+.proj-card-info { position: relative; padding-right: 20px; display: flex; flex-direction: column; gap: 2px; }
+.proj-card-name { font-size: 14px; font-weight: 500; transition: color .25s; }
+.proj-card:hover .proj-card-name { color: var(--green); }
 .proj-card-meta { font-size: 12px; color: var(--muted); }
+.proj-card-arrow { position: absolute; right: 0; top: 0; color: var(--green); opacity: 0; transform: translate(-6px, 6px); transition: opacity .3s ease, transform .3s ease; }
+.proj-card:hover .proj-card-arrow { opacity: 1; transform: translate(0, 0); }
+
+.section-label::before { content: '✳'; color: var(--green); font-size: 12px; margin-right: 6px; display: inline-block; }
+
+::selection { background: var(--green); color: #faf8f5; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #d6d1c7; border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover { background: var(--green); }
+body { animation: page-fade-in 0.4s ease; }
+@keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity .55s ease, transform .55s ease; transition-delay: calc(var(--i, 0) * 60ms); }
+  .reveal.in { opacity: 1; transform: none; }
+}
 
 footer { border-top: 1px solid var(--border); }
 .footer-inner { max-width: 1400px; margin: 0 auto; padding: 28px 48px; display: flex; justify-content: space-between; }
@@ -67,81 +88,118 @@ footer { border-top: 1px solid var(--border); }
 </nav>
 
 <div class="container">
+  <span class="page-asterisk">✳</span>
   <p class="page-label">portafolio</p>
   <h1 class="page-title">Proyectos</h1>
 
   <hr class="divider" />
-  <p class="section-label">Producto · UX UI</p>
+  <p class="section-label reveal">Producto · UX UI</p>
   <div class="proj-grid">
-    <a href="goiar.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e8ebe0;"><img src="assets/proyectos/goiar/cover.webp" onerror="this.style.display='none'" alt="Goiar" loading="lazy" /></div>
-      <span class="proj-card-name">Goiar</span>
-      <span class="proj-card-meta">UX UI Lead · Suite Gonnectia · 2026</span>
+    <a href="goiar.html" class="proj-card reveal" style="--i:0;">
+      <div class="proj-card-img" style="background:#e8ebe0;"><img src="assets/proyectos/goiar/cover.webp" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="Goiar" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">Goiar</span>
+        <span class="proj-card-meta">UX UI Lead · Suite Gonnectia · 2026</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="cooperacion.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e5e8ec;"><img src="assets/proyectos/cooperacion/cover.jpg" onerror="this.style.display='none'" alt="Cooperación" loading="lazy" /></div>
-      <span class="proj-card-name">Cooperación Seguros</span>
-      <span class="proj-card-meta">Product Designer · Seguro · 2025</span>
+    <a href="cooperacion.html" class="proj-card reveal" style="--i:1;">
+      <div class="proj-card-img" style="background:#e5e8ec;"><img src="assets/proyectos/cooperacion/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="Cooperación" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">Cooperación Seguros</span>
+        <span class="proj-card-meta">Product Designer · Seguro · 2025</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="oterix.html" class="proj-card">
-      <div class="proj-card-img" style="background:#ece8e5;"><img src="assets/proyectos/oterix/cover.jpg" onerror="this.style.display='none'" alt="OTERIX" loading="lazy" /></div>
-      <span class="proj-card-name">OTERIX</span>
-      <span class="proj-card-meta">Founder · B2B Industrial · 2026</span>
+    <a href="oterix.html" class="proj-card reveal" style="--i:2;">
+      <div class="proj-card-img" style="background:#ece8e5;"><img src="assets/proyectos/oterix/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="OTERIX" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">OTERIX</span>
+        <span class="proj-card-meta">Founder · B2B Industrial · 2026</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="ieb.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e8ece5;"><img src="assets/proyectos/ieb/cover.jpg" onerror="this.style.display='none'" alt="IEB+" loading="lazy" /></div>
-      <span class="proj-card-name">IEB+</span>
-      <span class="proj-card-meta">UX/UI Designer · Fintech · MangooDev · 2024</span>
+    <a href="ieb.html" class="proj-card reveal" style="--i:3;">
+      <div class="proj-card-img" style="background:#e8ece5;"><img src="assets/proyectos/ieb/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="IEB+" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">IEB+</span>
+        <span class="proj-card-meta">UX/UI Designer · Fintech · MangooDev · 2024</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="arneg.html" class="proj-card">
-      <div class="proj-card-img" style="background:#ece5e8;"><img src="assets/proyectos/arneg/cover.jpg" onerror="this.style.display='none'" alt="ARNEG" loading="lazy" /></div>
-      <span class="proj-card-name">ARNEG</span>
-      <span class="proj-card-meta">Product Designer · CRM B2B · MangooDev · 2023</span>
+    <a href="arneg.html" class="proj-card reveal" style="--i:4;">
+      <div class="proj-card-img" style="background:#ece5e8;"><img src="assets/proyectos/arneg/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="ARNEG" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">ARNEG</span>
+        <span class="proj-card-meta">Product Designer · CRM B2B · MangooDev · 2023</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="laboratorio.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e5ece8;"><img src="assets/proyectos/laboratorio/cover.jpg" onerror="this.style.display='none'" alt="Laboratorio" loading="lazy" /></div>
-      <span class="proj-card-name">Laboratorio México</span>
-      <span class="proj-card-meta">UX Designer · Pharma · 2023</span>
+    <a href="laboratorio.html" class="proj-card reveal" style="--i:5;">
+      <div class="proj-card-img" style="background:#e5ece8;"><img src="assets/proyectos/laboratorio/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="Laboratorio" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">Laboratorio México</span>
+        <span class="proj-card-meta">UX Designer · Pharma · 2023</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
   </div>
 
   <hr class="divider" />
-  <p class="section-label">Exploración</p>
+  <p class="section-label reveal">Exploración</p>
   <div class="proj-grid">
-    <a href="enlunallena.html" class="proj-card">
-      <div class="proj-card-img" style="background:#0a0712;"><img src="assets/exploracion/luna-llena/cover.jpg" onerror="this.style.display='none'" alt="En Luna Llena" loading="lazy" /></div>
-      <span class="proj-card-name">En Luna Llena</span>
-      <span class="proj-card-meta">Wellness · App mobile</span>
+    <a href="enlunallena.html" class="proj-card reveal" style="--i:0;">
+      <div class="proj-card-img" style="background:#0a0712;"><img src="assets/exploracion/luna-llena/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="En Luna Llena" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">En Luna Llena</span>
+        <span class="proj-card-meta">Wellness · App mobile</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="mandalas.html" class="proj-card">
-      <div class="proj-card-img" style="background:#1a0a0a;"><img src="assets/exploracion/mandalas/cover.jpg" onerror="this.style.display='none'" alt="Sereia" loading="lazy" /></div>
-      <span class="proj-card-name">Sereia · Mandalas del Alma</span>
-      <span class="proj-card-meta">Mindfulness · Proyecto propio</span>
+    <a href="mandalas.html" class="proj-card reveal" style="--i:1;">
+      <div class="proj-card-img" style="background:#1a0a0a;"><img src="assets/exploracion/mandalas/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="Sereia" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">Sereia · Mandalas del Alma</span>
+        <span class="proj-card-meta">Mindfulness · Proyecto propio</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
   </div>
 
   <hr class="divider" />
-  <p class="section-label">Formación · Ejercicios de diseño (2022)</p>
+  <p class="section-label reveal">Formación · Ejercicios de diseño (2022)</p>
   <div class="proj-grid">
-    <a href="bikeing.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e5ece8;"><img src="assets/exploracion/bikeing/cover.jpg" onerror="this.style.display='none'" alt="Bikeing" loading="lazy" /></div>
-      <span class="proj-card-name">Bikeing</span>
-      <span class="proj-card-meta">Ejercicio · App ciclismo</span>
+    <a href="bikeing.html" class="proj-card reveal" style="--i:0;">
+      <div class="proj-card-img" style="background:#e5ece8;"><img src="assets/exploracion/bikeing/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="Bikeing" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">Bikeing</span>
+        <span class="proj-card-meta">Ejercicio · App ciclismo</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="holaquetal.html" class="proj-card">
-      <div class="proj-card-img" style="background:#ece5e8;"><img src="assets/exploracion/holaquetal/01.jpg" onerror="this.style.display='none'" alt="Hola qué tal" loading="lazy" /></div>
-      <span class="proj-card-name">Hola ¿qué tal?</span>
-      <span class="proj-card-meta">Ejercicio · App networking</span>
+    <a href="holaquetal.html" class="proj-card reveal" style="--i:1;">
+      <div class="proj-card-img" style="background:#ece5e8;"><img src="assets/exploracion/holaquetal/01.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="Hola qué tal" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">Hola ¿qué tal?</span>
+        <span class="proj-card-meta">Ejercicio · App networking</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="delosbarcos.html" class="proj-card">
-      <div class="proj-card-img" style="background:#e8e5ec;"><img src="assets/exploracion/delosbarcos/cover.jpg" onerror="this.style.display='none'" alt="De los Barcos" loading="lazy" /></div>
-      <span class="proj-card-name">De los Barcos</span>
-      <span class="proj-card-meta">Ejercicio · CRM · 2023</span>
+    <a href="delosbarcos.html" class="proj-card reveal" style="--i:2;">
+      <div class="proj-card-img" style="background:#e8e5ec;"><img src="assets/exploracion/delosbarcos/cover.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="De los Barcos" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">De los Barcos</span>
+        <span class="proj-card-meta">Ejercicio · CRM · 2023</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
-    <a href="topdoctor.html" class="proj-card">
-      <div class="proj-card-img" style="background:#ece8e5;"><img src="assets/exploracion/topdoctor/01.jpg" onerror="this.style.display='none'" alt="TopDoctors" loading="lazy" /></div>
-      <span class="proj-card-name">TopDoctors</span>
-      <span class="proj-card-meta">Ejercicio · Salud · 2022</span>
+    <a href="topdoctor.html" class="proj-card reveal" style="--i:3;">
+      <div class="proj-card-img" style="background:#ece8e5;"><img src="assets/exploracion/topdoctor/01.jpg" onerror="this.parentElement.classList.add('no-img'); this.remove();" alt="TopDoctors" loading="lazy" /><span class="card-fallback">✳</span></div>
+      <div class="proj-card-info">
+        <span class="proj-card-name">TopDoctors</span>
+        <span class="proj-card-meta">Ejercicio · Salud · 2022</span>
+        <span class="proj-card-arrow">↗</span>
+      </div>
     </a>
   </div>
 </div>
@@ -152,5 +210,16 @@ footer { border-top: 1px solid var(--border); }
     <span>Rosario, Argentina</span>
   </div>
 </footer>
+
+<script>
+  if (window.matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+  }
+</script>
 </body>
 </html>

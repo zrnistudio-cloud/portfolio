@@ -36,7 +36,13 @@ nav {
 .nav-links { display: flex; gap: 40px; }
 .nav-link { font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
 .nav-link:hover, .nav-link.active { color: var(--fg); }
-a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px; }
+a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px;  border-radius: 2px; }
+::selection { background: #4a6741; color: #faf8f5; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #d6d1c7; border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover { background: #4a6741; }
+body { animation: page-fade-in 0.4s ease; }
+@keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
 
 .container { max-width: 1400px; margin: 0 auto; padding: 120px 48px 80px; }
 
@@ -44,6 +50,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offs
 .sobre-hero { margin-bottom: 80px; }
 .section-label { font-family: var(--sans); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
 .sobre-title { font-family: var(--serif); font-size: clamp(40px, 6vw, 80px); font-weight: 400; font-style: italic; line-height: 1.0; color: var(--fg); margin-bottom: 0; }
+.page-asterisk { display: block; font-family: var(--serif); font-size: 20px; color: #4a6741; margin-bottom: 8px; }
 
 /* CONTENT GRID */
 .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-bottom: 80px; }
@@ -102,6 +109,7 @@ footer { border-top: 1px solid var(--border); margin-top: 80px; }
 <div class="container">
 
   <div class="sobre-hero">
+    <span class="page-asterisk">✳</span>
     <p class="section-label">sobre mí</p>
     <h1 class="sobre-title">Diseño con criterio<br/>y liderazgo.</h1>
   </div>
