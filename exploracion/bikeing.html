@@ -384,8 +384,6 @@
   /* photo variant: natural image height on top, text below — no crop, no overlay */
   .explore-card.has-photo{aspect-ratio:auto;justify-content:flex-start;padding:0;}
   .explore-card.has-photo img{display:block;width:100%;height:auto;}
-  .eg-fixed-h{width:100%;height:186px;overflow:hidden;}
-  .eg-fixed-h img{width:100%;height:auto;}
   .explore-card.has-photo .num{padding:16px 20px 0;}
   .explore-card.has-photo h4{padding:0 20px;}
   .explore-card.has-photo p{padding:0 20px 20px;}
@@ -446,12 +444,11 @@
   .proj-card .proj-sub{font-size:12px;color:var(--olive);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
   .proj-card .proj-desc{font-size:13px;color:var(--dim);line-height:1.6;margin-top:8px;}
   .proj-simple-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-  .proj-simple-card{display:block;border:1px solid var(--border);background:var(--paper);padding:24px;transition:transform .3s var(--ease),border-color .3s;}
+  .proj-simple-card{border:1px solid var(--border);background:var(--paper);padding:24px;transition:transform .3s var(--ease),border-color .3s;}
   .proj-simple-card:hover{transform:translateY(-4px);border-color:var(--olive);}
   .proj-simple-card .num{font-family:var(--font-pixel);font-size:10px;color:var(--olive);}
   .proj-simple-card h4{font-family:var(--font-display);font-size:16px;font-weight:700;margin:10px 0 4px;text-transform:uppercase;}
   .proj-simple-card p{font-size:12px;color:var(--dim);}
-  .proj-simple-card img{width:100%;height:auto;display:block;border-radius:2px;margin-bottom:14px;}
 
   /* ===== design principles (sobre-mi.html) ===== */
   .principles-grid{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
@@ -476,6 +473,8 @@
   .cs-stat span{display:block;margin-top:8px;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--dim);}
   .cs-media{aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:var(--paper);}
   .cs-media img{width:100%;height:auto;display:block;}
+  .cs-gallery{margin-top:16px;display:flex;flex-direction:column;gap:16px;}
+  .cs-gallery img{width:100%;height:auto;display:block;border-radius:4px;}
   .cs-section{padding:80px 0;border-top:1px solid var(--border);}
   .cs-section-num{font-family:var(--font-pixel);font-size:11px;color:var(--olive);letter-spacing:1px;text-transform:uppercase;}
   .cs-section h2{font-family:var(--font-display);font-size:clamp(26px,3.6vw,44px);font-weight:700;text-transform:uppercase;margin-top:14px;letter-spacing:-.02em;}
@@ -536,8 +535,6 @@
     .about-secondary-grid{grid-template-columns:1fr;gap:32px;}
     .about-more-row{justify-content:flex-start;}
     .skills-row{grid-template-columns:1fr 1fr;}
-    .skill-item{min-width:0;}
-    .skill-desc{white-space:normal;}
     .metrics-grid{grid-template-columns:1fr 1fr;}
     .explore-grid{grid-template-columns:1fr 1fr;}
     .process-steps{grid-template-columns:1fr;}
@@ -549,11 +546,6 @@
     .proj-grid{grid-template-columns:1fr;}
     .proj-simple-grid{grid-template-columns:1fr 1fr;}
     .principles-grid{grid-template-columns:1fr;}
-  }
-
-
-  @media (max-width:600px){
-    .skills-row{grid-template-columns:1fr;}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -570,7 +562,7 @@
 <div class="cursor" id="cursor"><p>Ver</p></div>
 
 <header class="site-nav">
-  <a href="index.html#top" class="logo-mark" data-cursor="Al inicio">María Fernanda Juárez</a>
+  <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio">María Fernanda Juárez</a>
   <div class="nav-right">
     <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="menuOverlay" data-hover-anim>
       <span class="plus">+</span> <span data-hover-text>Menú</span>
@@ -581,11 +573,11 @@
 <div class="menu-overlay" id="menuOverlay">
   <nav>
     <ul class="menu-links">
-      <li><span class="num">01</span><a href="index.html#top" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text>Inicio</span></a></li>
-      <li><span class="num">02</span><a href="sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Sobre mí</span></a></li>
-      <li><span class="num">03</span><a href="experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Experiencia</span></a></li>
-      <li><span class="num">04</span><a href="proyectos.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Proyectos</span></a></li>
-      <li><span class="num">05</span><a href="contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Contacto</span></a></li>
+      <li><span class="num">01</span><a href="../index.html#top" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Inicio</span></a></li>
+      <li><span class="num">02</span><a href="../sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Sobre mí</span></a></li>
+      <li><span class="num">03</span><a href="../experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Experiencia</span></a></li>
+      <li><span class="num">04</span><a href="../proyectos.html" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text>Proyectos</span></a></li>
+      <li><span class="num">05</span><a href="../contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Contacto</span></a></li>
     </ul>
   </nav>
   <div class="nav-corners" id="navCorners"><span></span><span></span><span></span><span></span></div>
@@ -603,292 +595,48 @@
 
 <main id="top">
 
-  <section class="hero-section">
+  <section class="cs-hero">
     <div class="wrap">
-      <p class="hero-greeting" data-anim="fade">¡Hola! Bienvenidos a mi portfolio</p>
-      <div class="hero-top-row">
-        <h1 class="hero-heading" data-anim="letters">Diseño productos que</h1>
-        <p class="hero-desc" data-anim="lines">Lidero equipos de diseño integrando investigación, UI y herramientas de IA en un mismo proceso — para tomar decisiones de producto con más criterio y menos vueltas.</p>
-      </div>
-      <h1 class="hero-heading" data-anim="letters">escalan con criterio</h1>
-      <div class="hero-outline" data-cursor="¡Ese es el punto!" data-easteregg="Hell yeah!">
-        <h1 class="hero-heading is-accent" data-anim="letters">estratégico.</h1>
-        <div class="nav-corners"><span></span><span></span><span></span><span></span></div>
-      </div>
-
-      <p class="hero-subheading" data-anim="fade">UX UI AI Lead · Product Designer · 2026</p>
-      <div class="hero-actions" data-anim="fade">
-        <a href="proyectos.html" class="btn btn-primary" data-hover-anim data-cursor="Ver proyectos"><span data-hover-text>Ver proyectos →</span></a>
-        <a href="https://drive.google.com/file/d/1JsMbCXItNqhNYv1Ru43jRdD53rSbE03M/view" target="_blank" rel="noopener" class="btn btn-ghost" data-hover-anim data-cursor="Abrir CV"><span data-hover-text>Descargar CV</span></a>
-        <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" class="btn-icon" aria-label="LinkedIn" data-cursor="LinkedIn">↗</a>
-      </div>
-      <div class="hero-stats" data-anim="fade">
-        <span>Based in <strong>Rosario y Nuñez · AR</strong></span>
-        <span><strong>5+ años</strong> en product design</span>
-        <span>Fintech · Seguros · <strong>B2B</strong> · SaaS</span>
-      </div>
-    </div>
-
-    <div class="hero-bottom-bar" data-anim="fade">
-      <div class="hbb-left">
-        <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" class="text-link" data-hover-anim data-cursor="Ir a LinkedIn"><span data-hover-text>LinkedIn,</span></a>
-        <a href="https://drive.google.com/file/d/1JsMbCXItNqhNYv1Ru43jRdD53rSbE03M/view" target="_blank" rel="noopener" class="text-link" data-hover-anim data-cursor="Abrir CV"><span data-hover-text>CV,</span></a>
-      </div>
-      <a href="#about" class="hbb-scroll text-link" data-hover-anim data-cursor="Bajar">
-        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="m204.24 148.24l-72 72a6 6 0 0 1-8.48 0l-72-72a6 6 0 0 1 8.48-8.48L122 201.51V40a6 6 0 0 1 12 0v161.51l61.76-61.75a6 6 0 0 1 8.48 8.48"/></svg>
-        <span data-hover-text>scroll down</span>
-      </a>
-      <a href="mailto:mariafernandajuarezdg@gmail.com" class="text-link" data-hover-anim data-cursor="Enviar mail"><span data-hover-text>mariafernandajuarezdg@gmail.com</span></a>
-    </div>
-  </section>
-
-  <div class="marquee">
-    <div class="marquee-track" id="marqueeTrack">
-      <span>UX Strategy</span><span>AI First Design</span><span>Product Leadership</span><span>Design Systems</span><span>User Research</span><span>Fintech</span><span>B2B Platforms</span>
-      <span>UX Strategy</span><span>AI First Design</span><span>Product Leadership</span><span>Design Systems</span><span>User Research</span><span>Fintech</span><span>B2B Platforms</span>
-    </div>
-  </div>
-
-  <section class="section-pad" id="about">
-    <div class="wrap">
-      <div class="section-tag" data-anim="fade">Sobre mí</div>
-
-      <div class="about-more-row" data-anim="fade">
-        <a href="sobre-mi.html" class="link-arrow" data-hover-anim data-cursor="Más sobre mí"><span data-hover-text>Más sobre mí ↗</span></a>
-      </div>
-
-      <div class="about-secondary-grid">
-        <div>
-          <div class="about-icon-row" data-anim="fade">
-            <svg class="about-hand" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M234.49 111.07L172.72 49.3a6 6 0 0 0-8.49 8.48l45.87 45.87A6 6 0 0 1 206 112H60a6 6 0 0 0-4.24 10.24l52 52a6 6 0 1 0 8.48-8.48L75.49 125H206a18 18 0 0 0 12.73-30.73l-.07-.07l15.34 15.34a6 6 0 0 0 8.48-8.48Z"/></svg>
-            <div class="about-body">
-              <p data-anim="lines">Soy <strong>María Fernanda</strong>: UX/UI Lead y Product Designer con un proceso <strong>AI First</strong>. Investigación, diseño e IA trabajan juntos en cada etapa del producto — detección de necesidades, flujos, wireframes, prototipos e interfaces escalables.</p>
-              <p data-anim="lines">Lidero <strong>equipos multidisciplinarios</strong> con foco en la experiencia del usuario y los objetivos del negocio. Dirigí proyectos en fintech, aseguradoras y CRMs, tomando decisiones estratégicas con criterio, datos y AI en cada etapa del proceso.</p>
-              <p data-anim="lines">La IA no reemplaza el criterio: <strong>lo potencia</strong>. La uso para investigar más rápido, iterar con mayor precisión y anticipar decisiones de producto antes de llegar a la interfaz.</p>
-            </div>
-          </div>
-        </div>
-
-        <div data-anim="fade">
-          <div class="portrait-card">
-            <img src="assets/fer.jpg" alt="María Fernanda Juárez" onerror="this.style.display='none'">
-            <div class="portrait-initials">
-              <span class="big">Mf</span>
-              <span class="tag">María Fernanda Juárez</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skills-row" data-anim="stagger">
-        <div class="ai-badge"><span class="ai-dot" id="aiDot"></span> AI First design process</div>
-        <div class="skill-item"><span class="skill-name">UX Strategy</span><span class="skill-desc">Research · Flujos · IA</span></div>
-        <div class="skill-item"><span class="skill-name">UI Design</span><span class="skill-desc">Design systems · A11y</span></div>
-        <div class="skill-item"><span class="skill-name">Liderazgo</span><span class="skill-desc">Equipo · Stakeholders</span></div>
-        <div class="skill-item"><span class="skill-name">AI Tools</span><span class="skill-desc">Research · Ideación</span></div>
-        <div class="skill-item"><span class="skill-name">Figma / FigJam</span><span class="skill-desc">Prototipos · Handoff</span></div>
-        <div class="skill-item"><span class="skill-name">Agile</span><span class="skill-desc">Sprints · Discovery</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="metrics-strip">
-    <div class="metrics-grid" data-anim="stagger">
-      <div class="metric-item">
-        <div class="metric-num" data-count="10" data-suffix="k+">0</div>
-        <div class="metric-label">Usuarios impactados</div>
-        <div class="metric-desc">En productos financieros y aseguradoras</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="15" data-suffix="+">0</div>
-        <div class="metric-label">Proyectos liderados</div>
-        <div class="metric-desc">Desde research hasta implementación</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="5" data-suffix="">0</div>
-        <div class="metric-label">Equipos multidisciplinarios</div>
-        <div class="metric-desc">Producto, Dev, Negocio, Marketing</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="7" data-suffix="">0</div>
-        <div class="metric-label">Design systems</div>
-        <div class="metric-desc">Creados y escalados en producción</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-pad" style="padding-bottom:0;">
-    <div class="wrap">
-      <div class="section-tag" data-anim="fade">Trayectoria</div>
-      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4.4vw,48px);font-weight:600;text-transform:uppercase;letter-spacing:-.03em;line-height:.98;" data-anim="letters">Experiencia</h2>
-      <div style="margin-top:40px;" data-anim="stagger">
-        <div class="exp-teaser-item">
-          <div><span class="company">Goiar</span><br><span class="role">UX UI Lead · Suite Gonnectia B2B/B2C</span></div>
-          <span class="dates">Oct 2025 — actualidad</span>
-        </div>
-        <div class="exp-teaser-item">
-          <div><span class="company">Cooperación Seguros</span><br><span class="role">Product Designer UX UI</span></div>
-          <span class="dates">Jul 2023 — Oct 2025</span>
-        </div>
-        <div class="exp-teaser-item">
-          <div><span class="company">Mangoo Dev</span><br><span class="role">UX UI Sr.</span></div>
-          <span class="dates">Sep 2022 — Jul 2023</span>
-        </div>
-      </div>
-      <div class="about-more-row" data-anim="fade" style="border-bottom:none;">
-        <a href="experiencia.html" class="link-arrow" data-hover-anim data-cursor="Ver experiencia"><span data-hover-text>Ver experiencia completa ↗</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="projects-scroll" id="work">
-    <div class="projects-head">
-      <div class="section-tag" data-anim="fade">Proyectos profesionales</div>
-      <h2 data-anim="letters">Trabajo real, impacto real.</h2>
-      <div class="meta" data-anim="fade">004 proyectos<br>Fintech · Seguros · SaaS · B2B<br>2021 — presente</div>
-    </div>
-
-    <div class="ps-section" id="psSection">
-      <div class="ps-content">
-        <div class="ps-content-list">
-          <div class="ps-content-item is-active">
-            <span class="ps-tag line-anim">Fintech</span>
-            <h3 class="ps-title line-anim">Goiar</h3>
-            <p class="ps-desc line-anim">Liderazgo UX estratégico en producto activo — definición de experiencia, criterio de producto y visión de diseño a largo plazo.</p>
-            <div class="ps-tags line-anim"><span class="hl">UX Lead</span><span class="hl">AI</span><span>Strategy</span><span>SaaS</span></div>
-            <span class="ps-date line-anim">Proyecto 01 · 2025-2026</span>
-          </div>
-          <div class="ps-content-item">
-            <span class="ps-tag line-anim">Seguros</span>
-            <h3 class="ps-title line-anim">Cooperación Seguros</h3>
-            <p class="ps-desc line-anim">Lideré el diseño de experiencias digitales para productores y asegurados: cotizadores, denuncias de siniestros, pasarelas de pago y un chatbot de asistencia.</p>
-            <div class="ps-tags line-anim"><span class="hl">Product Lead</span><span>Seguros</span><span>Chatbot</span></div>
-            <span class="ps-date line-anim">Proyecto 02 · 2023</span>
-          </div>
-          <div class="ps-content-item">
-            <span class="ps-tag line-anim">Fintech</span>
-            <h3 class="ps-title line-anim">IEB+ / Fintech</h3>
-            <p class="ps-desc line-anim">Diseñé una plataforma de inversión financiera con arquitectura de información clara y UI moderna, pensada para acercar el mundo financiero a nuevos usuarios (con Mangoodev).</p>
-            <div class="ps-tags line-anim"><span class="hl">UX Strategy</span><span>UI Design</span><span>Fintech</span></div>
-            <span class="ps-date line-anim">Proyecto 03 · 2024</span>
-          </div>
-          <div class="ps-content-item">
-            <span class="ps-tag line-anim">CRM Industrial</span>
-            <h3 class="ps-title line-anim">Oterix</h3>
-            <p class="ps-desc line-anim">Fundé y lidero el diseño de producto de una plataforma B2B para el sector industrial — de la estrategia a la interfaz.</p>
-            <div class="ps-tags line-anim"><span class="hl">Founder</span><span>B2B</span><span>Industrial</span></div>
-            <span class="ps-date line-anim">Proyecto 04 · 2026</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ps-visual">
-        <a href="proyectos/goiar.html" class="ps-visual-item" data-cursor="Ver caso">
-          <img src="assets/proyectos/goiar/cover.webp" alt="Goiar">
-          <div class="ps-mobile-info"></div>
-        </a>
-
-        <a href="proyectos/cooperacion.html" class="ps-visual-item" data-cursor="Ver caso">
-          <img src="assets/proyectos/cooperacion/cover.jpg" alt="Cooperación Seguros">
-        </a>
-
-        <a href="proyectos/ieb.html" class="ps-visual-item" data-cursor="Ver caso">
-          <img src="assets/proyectos/ieb/cover.jpg" alt="IEB+">
-        </a>
-
-        <a href="proyectos/oterix.html" class="ps-visual-item" data-cursor="Ver caso">
-          <img src="assets/proyectos/oterix/cover.jpg" alt="Oterix">
-        </a>
-
-        <div class="ps-more" data-anim="fade">
-          <a href="proyectos.html" class="link-arrow" data-hover-anim data-cursor="Ver proyectos"><span data-hover-text>Ver todos los proyectos ↗</span></a>
-        </div>
+      <div class="section-tag" data-anim="fade">Bootcamp</div>
+      <h1 data-anim="letters">Bikeing App</h1>
+      <p class="cs-intro" data-anim="lines">Diseñé una aplicación mobile enfocada en brindar seguridad, comunidad y seguimiento de rutas para ciclistas urbanos. El proyecto abarcó todo el proceso de diseño: investigación de usuarios, definición de arquetipos, ideación de funcionalidades clave, wireframes y prototipo interactivo en Figma. Validé el flujo mediante test con usuarios y apliqué principios de accesibilidad y diseño centrado en el usuario.</p>
+      <dl class="cs-meta-grid" data-anim="stagger">
+        <div><dt>Tipo</dt><dd>Ejercicio de formación</dd></div>
+        <div><dt>Categoría</dt><dd>App de ciclismo</dd></div>
+        <div><dt>Año</dt><dd>2022</dd></div>
+      </dl>
+      <div class="cs-tags" data-anim="stagger">
+        <span>Benchmark</span><span>Research</span><span>Arquitectura de la información</span><span>Prototipado</span><span>Entrevista con usuarios</span>
       </div>
     </div>
   </section>
 
   <section class="section-pad">
     <div class="wrap">
-      <div class="section-tag" data-anim="fade">Exploración & challenges</div>
-      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4.4vw,48px);font-weight:600;text-transform:uppercase;letter-spacing:-.03em;line-height:.98;max-width:22ch;" data-anim="letters">Exploración y aprendizaje continuo.</h2>
-      <div class="explore-grid" data-anim="stagger">
-        <a href="exploracion/luna-llena.html" class="explore-card has-photo" style="grid-column:span 2;" data-cursor="Ver exploración">
-          <img src="assets/exploracion/luna-llena/cover.jpg" alt="En luna llena" loading="lazy">
-          <span class="num">Exploración 01</span>
-          <h4>En luna llena</h4>
-          <p>App web para conocer más sobre las fases de la luna y eventos relacionados.</p>
-        </a>
-        <a href="exploracion/mandalas.html" class="explore-card has-photo" style="grid-column:span 2;" data-cursor="Ver exploración">
-          <img src="assets/exploracion/mandalas/cover.jpg" alt="Sereia · Mandalas del alma" loading="lazy">
-          <span class="num">Exploración 02</span>
-          <h4>Mandalas del alma</h4>
-          <p>Relajate pintando mandalas, obtené devoluciones personalizadas y accedé a cursos.</p>
-        </a>
-        <a href="exploracion/bikeing.html" class="explore-card has-photo" data-cursor="Ver caso">
-          <div class="eg-fixed-h"><img src="assets/exploracion/bikeing/cover.jpg" alt="Bikeing" loading="lazy"></div>
-          <span class="num">Ejercicio 01</span>
-          <h4>Bikeing</h4>
-          <p>App ciclismo</p>
-        </a>
-        <a href="exploracion/holaquetal.html" class="explore-card has-photo" data-cursor="Ver caso">
-          <div class="eg-fixed-h"><img src="assets/exploracion/holaquetal/01.jpg" alt="Hola ¿qué tal?" loading="lazy"></div>
-          <span class="num">Ejercicio 02</span>
-          <h4>Hola ¿qué tal?</h4>
-          <p>App networking</p>
-        </a>
-        <a href="exploracion/delosbarcos.html" class="explore-card has-photo" data-cursor="Ver caso">
-          <div class="eg-fixed-h"><img src="assets/exploracion/delosbarcos/cover.jpg" alt="De los Barcos" loading="lazy"></div>
-          <span class="num">Ejercicio 03</span>
-          <h4>De los Barcos</h4>
-          <p>CRM · 2023</p>
-        </a>
-        <a href="exploracion/topdoctor.html" class="explore-card has-photo" data-cursor="Ver caso">
-          <div class="eg-fixed-h"><img src="assets/exploracion/topdoctor/01.jpg" alt="TopDoctors" loading="lazy"></div>
-          <span class="num">Ejercicio 04</span>
-          <h4>TopDoctors</h4>
-          <p>Salud · 2022</p>
-        </a>
+      <div class="cs-gallery" data-anim="fade">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%201a%201.jpg" alt="Bikeing App - pantalla 1" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%201b%201.jpg" alt="Bikeing App - pantalla 2" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%202%201.jpg" alt="Bikeing App - pantalla 3" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%203a%201.jpg" alt="Bikeing App - pantalla 4" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%203b.jpg" alt="Bikeing App - pantalla 5" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%203c.jpg" alt="Bikeing App - pantalla 6" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%204%20a.jpg" alt="Bikeing App - pantalla 7" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%204%20b.jpg" alt="Bikeing App - pantalla 8" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%204%20c.jpg" alt="Bikeing App - pantalla 9" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%205%20a.jpg" alt="Bikeing App - pantalla 10" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%205%20b.jpg" alt="Bikeing App - pantalla 11" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%206%20a.jpg" alt="Bikeing App - pantalla 12" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%206%20b.jpg" alt="Bikeing App - pantalla 13" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%206%20c.jpg" alt="Bikeing App - pantalla 14" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%207%20a.jpg" alt="Bikeing App - pantalla 15" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%207%20b.jpg" alt="Bikeing App - pantalla 16" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%207%20c.jpg" alt="Bikeing App - pantalla 17" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%208%20a.jpg" alt="Bikeing App - pantalla 18" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%208%20b.jpg" alt="Bikeing App - pantalla 19" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%208%20c.jpg" alt="Bikeing App - pantalla 20" loading="lazy">
+        <img src="../assets/exploracion/bikeing/BIKEING%20APP%209.jpg" alt="Bikeing App - pantalla 21" loading="lazy">
       </div>
-    </div>
-  </section>
-
-  <section class="section-pad process-section">
-    <div class="wrap">
-      <div class="section-tag" data-anim="fade">Cómo trabajo</div>
-      <h2 data-anim="letters">Del research a la interfaz final.</h2>
-      <div class="process-steps" data-anim="stagger">
-        <div class="process-step">
-          <span class="num">01</span>
-          <h3>Investigar</h3>
-          <p>Detecto necesidades reales del negocio y de los usuarios antes de definir flujos o interfaces.</p>
-        </div>
-        <div class="process-step">
-          <span class="num">02</span>
-          <h3>Diseñar</h3>
-          <p>Wireframes, prototipos e interfaces escalables, trabajando codo a codo con equipos multidisciplinarios.</p>
-        </div>
-        <div class="process-step">
-          <span class="num">03</span>
-          <h3>Iterar con IA</h3>
-          <p>Incorporo herramientas de AI para investigar más rápido e iterar con mayor precisión.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-pad cta-banner" id="contact">
-    <div class="wrap">
-      <h2 data-anim="letters">Hablemos.</h2>
-      <p data-anim="lines">Estoy disponible para proyectos de liderazgo UX, consultoría de producto y colaboraciones estratégicas.</p>
-      <div class="cta-actions" data-anim="fade">
-        <a href="mailto:mariafernandajuarezdg@gmail.com" class="btn btn-primary" data-hover-anim data-cursor="Enviar mail"><span data-hover-text>Escribime</span></a>
-        <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" class="btn btn-ghost" data-hover-anim data-cursor="Ir a LinkedIn"><span data-hover-text>LinkedIn ↗</span></a>
-      </div>
-      <div class="cta-links" data-anim="fade">
-        <a href="mailto:mariafernandajuarezdg@gmail.com">mariafernandajuarezdg@gmail.com</a>
-        <a href="tel:+5493413373195">+54 9 341 337 3195</a>
-        <span>Rosario y Nuñez, Argentina</span>
-      </div>
+      <a href="../proyectos.html" class="cs-nav-back" data-hover-anim data-cursor="Volver" style="margin-top:60px;"><span data-hover-text>← Volver a proyectos</span></a>
     </div>
   </section>
 
@@ -897,16 +645,16 @@
 <footer>
   <div class="wrap footer-top">
     <div class="footer-brand">
-      <a href="index.html#top" class="logo-mark" data-cursor="Al inicio">María Fernanda Juárez</a>
+      <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio">María Fernanda Juárez</a>
       <p>Product Designer UX/UI. Visión estratégica y liderazgo end-to-end en fintech, seguros, CRMs y productos digitales escalables.</p>
     </div>
     <div class="footer-col">
       <h4>Links</h4>
-      <a href="index.html#top">Inicio</a>
-      <a href="sobre-mi.html">Sobre mí</a>
-      <a href="experiencia.html">Experiencia</a>
-      <a href="proyectos.html">Proyectos</a>
-      <a href="contacto.html">Contacto</a>
+      <a href="../index.html#top">Inicio</a>
+      <a href="../sobre-mi.html">Sobre mí</a>
+      <a href="../experiencia.html">Experiencia</a>
+      <a href="../proyectos.html">Proyectos</a>
+      <a href="../contacto.html">Contacto</a>
     </div>
     <div class="footer-col">
       <h4>Contacto</h4>

@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>María Fernanda Juárez — UX UI AI Lead · Product Designer</title>
+<title>Experiencia — María Fernanda Juárez</title>
 <meta name="description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." />
 <meta name="author" content="María Fernanda Juárez" />
 <meta name="robots" content="noindex, nofollow" />
@@ -193,10 +193,6 @@
     display:inline-block;padding:0 10px;position:relative;
   }
   .hero-outline .nav-corners span{border-color:var(--olive);width:12px;height:12px;}
-  .hero-greeting{
-    font-family:var(--font-pixel);font-size:13px;letter-spacing:.5px;
-    color:var(--olive);margin-bottom:20px;
-  }
   .hero-subheading{
     font-size:clamp(13px,1.5vw,17px);font-weight:500;letter-spacing:.08em;text-transform:uppercase;
     color:var(--dim);margin-top:24px;
@@ -248,25 +244,19 @@
   .about-body strong{color:var(--olive);font-weight:600;}
   .about-closer{font-style:italic;font-weight:600;color:var(--black);margin-top:18px;font-size:18px;}
   .ai-badge{
-    width:100%;box-sizing:border-box;
-    display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 18px;
+    display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:10px 18px;
     background:rgba(91,110,43,.08);border:1px solid var(--olive);border-radius:40px;
     font-family:var(--font-pixel);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--olive);
-    white-space:nowrap;
   }
-  .ai-dot{width:7px;height:7px;border-radius:50%;background:var(--olive);flex-shrink:0;}
-  .skills-row{
-    margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
-  }
+  .ai-dot{width:7px;height:7px;border-radius:50%;background:var(--olive);}
+  .skills-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px;}
   .skill-item{
-    width:100%;box-sizing:border-box;
-    border:1px solid var(--border);border-radius:30px;padding:10px 16px;background:var(--paper);
-    display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;
-    transition:border-color .3s,background .3s,transform .3s var(--ease);
+    border:1px solid var(--border);border-radius:30px;padding:8px 14px;background:var(--paper);
+    display:flex;align-items:center;gap:8px;transition:border-color .3s,background .3s,transform .3s var(--ease);
   }
   .skill-item:hover{border-color:var(--olive);background:rgba(91,110,43,.06);transform:translateY(-2px);}
-  .skill-name{font-family:var(--font-pixel);font-size:10px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;}
-  .skill-desc{font-size:11px;color:var(--dim);white-space:nowrap;}
+  .skill-name{font-family:var(--font-pixel);font-size:10px;text-transform:uppercase;letter-spacing:.5px;}
+  .skill-desc{font-size:11px;color:var(--dim);}
   .portrait-card{aspect-ratio:4/5;background:var(--black);position:relative;overflow:hidden;}
   .portrait-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;}
   .portrait-corner{position:absolute;font-family:var(--font-pixel);font-size:9px;letter-spacing:1px;color:var(--lime);z-index:2;}
@@ -294,7 +284,7 @@
     display:grid;grid-template-columns:1fr 2.2fr;gap:3%;
     position:relative;
   }
-  .ps-content{position:sticky;top:0;height:68vh;display:flex;flex-direction:column;justify-content:center;}
+  .ps-content{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;justify-content:center;}
   .ps-content-list{position:relative;width:100%;height:64vh;}
   .ps-content-item{
     position:absolute;inset:0;opacity:0;
@@ -309,18 +299,22 @@
   .ps-tags span{font-size:11px;text-transform:uppercase;letter-spacing:.5px;border:1px solid var(--border);padding:5px 10px;border-radius:20px;color:var(--dim);}
   .ps-tags span.hl{border-color:var(--olive);color:var(--olive);}
   .ps-date{font-family:var(--font-pixel);font-size:10px;letter-spacing:1px;color:var(--dim);}
-  .ps-visual{padding:14vh 0 10vh;}
-  .ps-more{margin-top:24px;text-align:right;}
+  .ps-visual{padding:40vh 0;}
   .ps-visual-item{
-    display:block;position:relative;width:100%;margin-bottom:2rem;
+    display:block;position:relative;width:100%;height:74vh;margin-bottom:2rem;
     opacity:.2;transition:opacity .4s;border-radius:4px;overflow:hidden;
   }
   .ps-visual-item.is-active{opacity:1;}
-  .ps-visual-item img{width:100%;height:auto;display:block;}
   .ps-status{
     position:absolute;top:16px;left:16px;z-index:4;background:var(--lime);color:var(--black);
     font-family:var(--font-pixel);font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:5px 10px;border-radius:20px;
   }
+
+  /* mockups — .mock is only a container marker; .ps-visual-item keeps its own
+     position/size so the items stack vertically in the scroll flow. */
+  .mock{overflow:hidden;}
+  .mock-inner{position:absolute;inset:0;will-change:transform;}
+  .mock-inner img{width:100%;height:100%;object-fit:cover;display:block;}
   .mock-row{height:6px;background:rgba(255,255,255,.08);border-radius:2px;margin-bottom:5px;}
   .mock-row.w30{width:30%;} .mock-row.w40{width:40%;} .mock-row.w50{width:50%;}
   .mock-row.w60{width:60%;} .mock-row.w70{width:70%;} .mock-row.w80{width:80%;}
@@ -374,21 +368,12 @@
   .explore-card{
     aspect-ratio:1;border:1px solid var(--border);background:var(--paper);position:relative;overflow:hidden;
     display:flex;flex-direction:column;justify-content:flex-end;padding:20px;transition:transform .4s var(--ease),border-color .3s;
-    align-self:start;
   }
   .explore-card:hover{transform:translateY(-6px);border-color:var(--olive);}
   .explore-card .num{font-family:var(--font-pixel);font-size:10px;color:var(--olive);}
   .explore-card h4{font-family:var(--font-display);font-size:18px;font-weight:700;margin:8px 0 4px;text-transform:uppercase;letter-spacing:-.01em;}
   .explore-card p{font-size:12px;color:var(--dim);line-height:1.5;}
   .explore-card svg{position:absolute;inset:0;width:100%;height:100%;opacity:.1;padding:24px;}
-  /* photo variant: natural image height on top, text below — no crop, no overlay */
-  .explore-card.has-photo{aspect-ratio:auto;justify-content:flex-start;padding:0;}
-  .explore-card.has-photo img{display:block;width:100%;height:auto;}
-  .eg-fixed-h{width:100%;height:186px;overflow:hidden;}
-  .eg-fixed-h img{width:100%;height:auto;}
-  .explore-card.has-photo .num{padding:16px 20px 0;}
-  .explore-card.has-photo h4{padding:0 20px;}
-  .explore-card.has-photo p{padding:0 20px 20px;}
 
   /* ===== process ===== */
   .process-section{background:var(--black);color:var(--off-white);}
@@ -446,12 +431,11 @@
   .proj-card .proj-sub{font-size:12px;color:var(--olive);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
   .proj-card .proj-desc{font-size:13px;color:var(--dim);line-height:1.6;margin-top:8px;}
   .proj-simple-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
-  .proj-simple-card{display:block;border:1px solid var(--border);background:var(--paper);padding:24px;transition:transform .3s var(--ease),border-color .3s;}
+  .proj-simple-card{border:1px solid var(--border);background:var(--paper);padding:24px;transition:transform .3s var(--ease),border-color .3s;}
   .proj-simple-card:hover{transform:translateY(-4px);border-color:var(--olive);}
   .proj-simple-card .num{font-family:var(--font-pixel);font-size:10px;color:var(--olive);}
   .proj-simple-card h4{font-family:var(--font-display);font-size:16px;font-weight:700;margin:10px 0 4px;text-transform:uppercase;}
   .proj-simple-card p{font-size:12px;color:var(--dim);}
-  .proj-simple-card img{width:100%;height:auto;display:block;border-radius:2px;margin-bottom:14px;}
 
   /* ===== design principles (sobre-mi.html) ===== */
   .principles-grid{margin-top:56px;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
@@ -462,49 +446,6 @@
 
   /* ===== contact page ===== */
   .local-time{font-family:var(--font-pixel);font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.75);text-transform:uppercase;margin-top:20px;}
-
-  /* ===== case study pages ===== */
-  .cs-hero{padding:160px 40px 0;}
-  .cs-hero h1{font-family:var(--font-display);font-size:clamp(34px,6vw,72px);font-weight:600;text-transform:uppercase;line-height:.96;letter-spacing:-.03em;}
-  .cs-intro{margin-top:24px;font-size:18px;line-height:1.7;color:var(--dim);max-width:80ch;}
-  .cs-meta-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:24px;margin-top:48px;padding:32px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-  .cs-meta-grid dt{font-family:var(--font-pixel);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--olive);margin-bottom:8px;}
-  .cs-meta-grid dd{font-size:15px;color:var(--black);line-height:1.5;}
-  .cs-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);}
-  .cs-stat{background:var(--paper);padding:32px 20px;text-align:center;}
-  .cs-stat b{display:block;font-family:var(--font-pixel);font-size:clamp(22px,2.6vw,32px);color:var(--olive);font-weight:400;}
-  .cs-stat span{display:block;margin-top:8px;font-size:11px;letter-spacing:.5px;text-transform:uppercase;color:var(--dim);}
-  .cs-media{aspect-ratio:16/10;border-radius:4px;overflow:hidden;background:var(--paper);}
-  .cs-media img{width:100%;height:auto;display:block;}
-  .cs-section{padding:80px 0;border-top:1px solid var(--border);}
-  .cs-section-num{font-family:var(--font-pixel);font-size:11px;color:var(--olive);letter-spacing:1px;text-transform:uppercase;}
-  .cs-section h2{font-family:var(--font-display);font-size:clamp(26px,3.6vw,44px);font-weight:700;text-transform:uppercase;margin-top:14px;letter-spacing:-.02em;}
-  .cs-section > p.lead{margin-top:20px;font-size:16px;color:var(--dim);max-width:75ch;line-height:1.7;}
-  .cs-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:40px;}
-  .cs-card{border:1px solid var(--border);background:var(--paper);padding:28px;}
-  .cs-card .tag{font-family:var(--font-pixel);font-size:10px;color:var(--olive);letter-spacing:1px;text-transform:uppercase;}
-  .cs-card h3{font-size:17px;font-weight:700;margin-top:10px;text-transform:uppercase;}
-  .cs-card p{font-size:14px;color:var(--dim);line-height:1.65;margin-top:8px;}
-  .cs-card .metric{margin-top:16px;font-family:var(--font-pixel);font-size:20px;color:var(--olive);}
-  .cs-card .metric-label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;}
-  .cs-process{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;}
-  .cs-process-step{border-top:1px solid var(--border);padding-top:20px;}
-  .cs-process-step .num{font-family:var(--font-pixel);color:var(--olive);font-size:13px;}
-  .cs-process-step h4{font-size:17px;font-weight:700;margin:10px 0 6px;text-transform:uppercase;}
-  .cs-process-step p{font-size:14px;color:var(--dim);line-height:1.6;}
-  .cs-quote{padding:80px 40px;background:var(--black);color:var(--off-white);text-align:center;}
-  .cs-quote blockquote{font-family:var(--font-display);font-size:clamp(20px,2.8vw,32px);font-weight:500;line-height:1.4;max-width:900px;margin:0 auto;font-style:italic;}
-  .cs-quote cite{display:block;margin-top:24px;font-family:var(--font-pixel);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--lime);font-style:normal;}
-  .cs-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:32px;}
-  .cs-tags span{font-size:11px;text-transform:uppercase;letter-spacing:.5px;border:1px solid var(--border);padding:7px 14px;border-radius:20px;color:var(--dim);}
-  .cs-closing{padding:80px 0;}
-  .cs-closing p{font-size:16px;color:var(--dim);line-height:1.75;max-width:75ch;}
-  .cs-closing p+p{margin-top:16px;}
-  .cs-nav-back{display:inline-flex;align-items:center;gap:8px;font-size:13px;letter-spacing:.5px;text-transform:uppercase;font-weight:600;border-bottom:1px solid var(--black);padding-bottom:2px;}
-  @media (max-width:900px){
-    .cs-hero{padding:120px 24px 0;}
-    .cs-section{padding:56px 0;}
-  }
 
   /* ===== footer ===== */
   footer{background:var(--black);color:var(--off-white);padding:70px 40px 32px;position:relative;z-index:1;}
@@ -535,9 +476,6 @@
     .menu-overlay{padding:100px 24px 40px;}
     .about-secondary-grid{grid-template-columns:1fr;gap:32px;}
     .about-more-row{justify-content:flex-start;}
-    .skills-row{grid-template-columns:1fr 1fr;}
-    .skill-item{min-width:0;}
-    .skill-desc{white-space:normal;}
     .metrics-grid{grid-template-columns:1fr 1fr;}
     .explore-grid{grid-template-columns:1fr 1fr;}
     .process-steps{grid-template-columns:1fr;}
@@ -549,11 +487,6 @@
     .proj-grid{grid-template-columns:1fr;}
     .proj-simple-grid{grid-template-columns:1fr 1fr;}
     .principles-grid{grid-template-columns:1fr;}
-  }
-
-
-  @media (max-width:600px){
-    .skills-row{grid-template-columns:1fr;}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -581,9 +514,9 @@
 <div class="menu-overlay" id="menuOverlay">
   <nav>
     <ul class="menu-links">
-      <li><span class="num">01</span><a href="index.html#top" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text>Inicio</span></a></li>
+      <li><span class="num">01</span><a href="index.html#top" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Inicio</span></a></li>
       <li><span class="num">02</span><a href="sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Sobre mí</span></a></li>
-      <li><span class="num">03</span><a href="experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Experiencia</span></a></li>
+      <li><span class="num">03</span><a href="experiencia.html" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text>Experiencia</span></a></li>
       <li><span class="num">04</span><a href="proyectos.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Proyectos</span></a></li>
       <li><span class="num">05</span><a href="contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Contacto</span></a></li>
     </ul>
@@ -603,274 +536,95 @@
 
 <main id="top">
 
-  <section class="hero-section">
-    <div class="wrap">
-      <p class="hero-greeting" data-anim="fade">¡Hola! Bienvenidos a mi portfolio</p>
-      <div class="hero-top-row">
-        <h1 class="hero-heading" data-anim="letters">Diseño productos que</h1>
-        <p class="hero-desc" data-anim="lines">Lidero equipos de diseño integrando investigación, UI y herramientas de IA en un mismo proceso — para tomar decisiones de producto con más criterio y menos vueltas.</p>
-      </div>
-      <h1 class="hero-heading" data-anim="letters">escalan con criterio</h1>
-      <div class="hero-outline" data-cursor="¡Ese es el punto!" data-easteregg="Hell yeah!">
-        <h1 class="hero-heading is-accent" data-anim="letters">estratégico.</h1>
-        <div class="nav-corners"><span></span><span></span><span></span><span></span></div>
-      </div>
-
-      <p class="hero-subheading" data-anim="fade">UX UI AI Lead · Product Designer · 2026</p>
-      <div class="hero-actions" data-anim="fade">
-        <a href="proyectos.html" class="btn btn-primary" data-hover-anim data-cursor="Ver proyectos"><span data-hover-text>Ver proyectos →</span></a>
-        <a href="https://drive.google.com/file/d/1JsMbCXItNqhNYv1Ru43jRdD53rSbE03M/view" target="_blank" rel="noopener" class="btn btn-ghost" data-hover-anim data-cursor="Abrir CV"><span data-hover-text>Descargar CV</span></a>
-        <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" class="btn-icon" aria-label="LinkedIn" data-cursor="LinkedIn">↗</a>
-      </div>
-      <div class="hero-stats" data-anim="fade">
-        <span>Based in <strong>Rosario y Nuñez · AR</strong></span>
-        <span><strong>5+ años</strong> en product design</span>
-        <span>Fintech · Seguros · <strong>B2B</strong> · SaaS</span>
-      </div>
-    </div>
-
-    <div class="hero-bottom-bar" data-anim="fade">
-      <div class="hbb-left">
-        <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" class="text-link" data-hover-anim data-cursor="Ir a LinkedIn"><span data-hover-text>LinkedIn,</span></a>
-        <a href="https://drive.google.com/file/d/1JsMbCXItNqhNYv1Ru43jRdD53rSbE03M/view" target="_blank" rel="noopener" class="text-link" data-hover-anim data-cursor="Abrir CV"><span data-hover-text>CV,</span></a>
-      </div>
-      <a href="#about" class="hbb-scroll text-link" data-hover-anim data-cursor="Bajar">
-        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true"><path fill="currentColor" d="m204.24 148.24l-72 72a6 6 0 0 1-8.48 0l-72-72a6 6 0 0 1 8.48-8.48L122 201.51V40a6 6 0 0 1 12 0v161.51l61.76-61.75a6 6 0 0 1 8.48 8.48"/></svg>
-        <span data-hover-text>scroll down</span>
-      </a>
-      <a href="mailto:mariafernandajuarezdg@gmail.com" class="text-link" data-hover-anim data-cursor="Enviar mail"><span data-hover-text>mariafernandajuarezdg@gmail.com</span></a>
-    </div>
-  </section>
-
-  <div class="marquee">
-    <div class="marquee-track" id="marqueeTrack">
-      <span>UX Strategy</span><span>AI First Design</span><span>Product Leadership</span><span>Design Systems</span><span>User Research</span><span>Fintech</span><span>B2B Platforms</span>
-      <span>UX Strategy</span><span>AI First Design</span><span>Product Leadership</span><span>Design Systems</span><span>User Research</span><span>Fintech</span><span>B2B Platforms</span>
-    </div>
-  </div>
-
-  <section class="section-pad" id="about">
-    <div class="wrap">
-      <div class="section-tag" data-anim="fade">Sobre mí</div>
-
-      <div class="about-more-row" data-anim="fade">
-        <a href="sobre-mi.html" class="link-arrow" data-hover-anim data-cursor="Más sobre mí"><span data-hover-text>Más sobre mí ↗</span></a>
-      </div>
-
-      <div class="about-secondary-grid">
-        <div>
-          <div class="about-icon-row" data-anim="fade">
-            <svg class="about-hand" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="currentColor" d="M234.49 111.07L172.72 49.3a6 6 0 0 0-8.49 8.48l45.87 45.87A6 6 0 0 1 206 112H60a6 6 0 0 0-4.24 10.24l52 52a6 6 0 1 0 8.48-8.48L75.49 125H206a18 18 0 0 0 12.73-30.73l-.07-.07l15.34 15.34a6 6 0 0 0 8.48-8.48Z"/></svg>
-            <div class="about-body">
-              <p data-anim="lines">Soy <strong>María Fernanda</strong>: UX/UI Lead y Product Designer con un proceso <strong>AI First</strong>. Investigación, diseño e IA trabajan juntos en cada etapa del producto — detección de necesidades, flujos, wireframes, prototipos e interfaces escalables.</p>
-              <p data-anim="lines">Lidero <strong>equipos multidisciplinarios</strong> con foco en la experiencia del usuario y los objetivos del negocio. Dirigí proyectos en fintech, aseguradoras y CRMs, tomando decisiones estratégicas con criterio, datos y AI en cada etapa del proceso.</p>
-              <p data-anim="lines">La IA no reemplaza el criterio: <strong>lo potencia</strong>. La uso para investigar más rápido, iterar con mayor precisión y anticipar decisiones de producto antes de llegar a la interfaz.</p>
-            </div>
-          </div>
-        </div>
-
-        <div data-anim="fade">
-          <div class="portrait-card">
-            <img src="assets/fer.jpg" alt="María Fernanda Juárez" onerror="this.style.display='none'">
-            <div class="portrait-initials">
-              <span class="big">Mf</span>
-              <span class="tag">María Fernanda Juárez</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="skills-row" data-anim="stagger">
-        <div class="ai-badge"><span class="ai-dot" id="aiDot"></span> AI First design process</div>
-        <div class="skill-item"><span class="skill-name">UX Strategy</span><span class="skill-desc">Research · Flujos · IA</span></div>
-        <div class="skill-item"><span class="skill-name">UI Design</span><span class="skill-desc">Design systems · A11y</span></div>
-        <div class="skill-item"><span class="skill-name">Liderazgo</span><span class="skill-desc">Equipo · Stakeholders</span></div>
-        <div class="skill-item"><span class="skill-name">AI Tools</span><span class="skill-desc">Research · Ideación</span></div>
-        <div class="skill-item"><span class="skill-name">Figma / FigJam</span><span class="skill-desc">Prototipos · Handoff</span></div>
-        <div class="skill-item"><span class="skill-name">Agile</span><span class="skill-desc">Sprints · Discovery</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="metrics-strip">
-    <div class="metrics-grid" data-anim="stagger">
-      <div class="metric-item">
-        <div class="metric-num" data-count="10" data-suffix="k+">0</div>
-        <div class="metric-label">Usuarios impactados</div>
-        <div class="metric-desc">En productos financieros y aseguradoras</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="15" data-suffix="+">0</div>
-        <div class="metric-label">Proyectos liderados</div>
-        <div class="metric-desc">Desde research hasta implementación</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="5" data-suffix="">0</div>
-        <div class="metric-label">Equipos multidisciplinarios</div>
-        <div class="metric-desc">Producto, Dev, Negocio, Marketing</div>
-      </div>
-      <div class="metric-item">
-        <div class="metric-num" data-count="7" data-suffix="">0</div>
-        <div class="metric-label">Design systems</div>
-        <div class="metric-desc">Creados y escalados en producción</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-pad" style="padding-bottom:0;">
+  <section class="page-header">
     <div class="wrap">
       <div class="section-tag" data-anim="fade">Trayectoria</div>
-      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4.4vw,48px);font-weight:600;text-transform:uppercase;letter-spacing:-.03em;line-height:.98;" data-anim="letters">Experiencia</h2>
-      <div style="margin-top:40px;" data-anim="stagger">
-        <div class="exp-teaser-item">
-          <div><span class="company">Goiar</span><br><span class="role">UX UI Lead · Suite Gonnectia B2B/B2C</span></div>
-          <span class="dates">Oct 2025 — actualidad</span>
-        </div>
-        <div class="exp-teaser-item">
-          <div><span class="company">Cooperación Seguros</span><br><span class="role">Product Designer UX UI</span></div>
-          <span class="dates">Jul 2023 — Oct 2025</span>
-        </div>
-        <div class="exp-teaser-item">
-          <div><span class="company">Mangoo Dev</span><br><span class="role">UX UI Sr.</span></div>
-          <span class="dates">Sep 2022 — Jul 2023</span>
-        </div>
-      </div>
-      <div class="about-more-row" data-anim="fade" style="border-bottom:none;">
-        <a href="experiencia.html" class="link-arrow" data-hover-anim data-cursor="Ver experiencia"><span data-hover-text>Ver experiencia completa ↗</span></a>
-      </div>
+      <h1 data-anim="letters">Experiencia</h1>
     </div>
   </section>
 
-  <section class="projects-scroll" id="work">
-    <div class="projects-head">
-      <div class="section-tag" data-anim="fade">Proyectos profesionales</div>
-      <h2 data-anim="letters">Trabajo real, impacto real.</h2>
-      <div class="meta" data-anim="fade">004 proyectos<br>Fintech · Seguros · SaaS · B2B<br>2021 — presente</div>
-    </div>
-
-    <div class="ps-section" id="psSection">
-      <div class="ps-content">
-        <div class="ps-content-list">
-          <div class="ps-content-item is-active">
-            <span class="ps-tag line-anim">Fintech</span>
-            <h3 class="ps-title line-anim">Goiar</h3>
-            <p class="ps-desc line-anim">Liderazgo UX estratégico en producto activo — definición de experiencia, criterio de producto y visión de diseño a largo plazo.</p>
-            <div class="ps-tags line-anim"><span class="hl">UX Lead</span><span class="hl">AI</span><span>Strategy</span><span>SaaS</span></div>
-            <span class="ps-date line-anim">Proyecto 01 · 2025-2026</span>
-          </div>
-          <div class="ps-content-item">
-            <span class="ps-tag line-anim">Seguros</span>
-            <h3 class="ps-title line-anim">Cooperación Seguros</h3>
-            <p class="ps-desc line-anim">Lideré el diseño de experiencias digitales para productores y asegurados: cotizadores, denuncias de siniestros, pasarelas de pago y un chatbot de asistencia.</p>
-            <div class="ps-tags line-anim"><span class="hl">Product Lead</span><span>Seguros</span><span>Chatbot</span></div>
-            <span class="ps-date line-anim">Proyecto 02 · 2023</span>
-          </div>
-          <div class="ps-content-item">
-            <span class="ps-tag line-anim">Fintech</span>
-            <h3 class="ps-title line-anim">IEB+ / Fintech</h3>
-            <p class="ps-desc line-anim">Diseñé una plataforma de inversión financiera con arquitectura de información clara y UI moderna, pensada para acercar el mundo financiero a nuevos usuarios (con Mangoodev).</p>
-            <div class="ps-tags line-anim"><span class="hl">UX Strategy</span><span>UI Design</span><span>Fintech</span></div>
-            <span class="ps-date line-anim">Proyecto 03 · 2024</span>
-          </div>
-          <div class="ps-content-item">
-            <span class="ps-tag line-anim">CRM Industrial</span>
-            <h3 class="ps-title line-anim">Oterix</h3>
-            <p class="ps-desc line-anim">Fundé y lidero el diseño de producto de una plataforma B2B para el sector industrial — de la estrategia a la interfaz.</p>
-            <div class="ps-tags line-anim"><span class="hl">Founder</span><span>B2B</span><span>Industrial</span></div>
-            <span class="ps-date line-anim">Proyecto 04 · 2026</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="ps-visual">
-        <a href="proyectos/goiar.html" class="ps-visual-item" data-cursor="Ver caso">
-          <img src="assets/proyectos/goiar/cover.webp" alt="Goiar">
-          <div class="ps-mobile-info"></div>
-        </a>
-
-        <a href="proyectos/cooperacion.html" class="ps-visual-item" data-cursor="Ver caso">
-          <img src="assets/proyectos/cooperacion/cover.jpg" alt="Cooperación Seguros">
-        </a>
-
-        <a href="proyectos/ieb.html" class="ps-visual-item" data-cursor="Ver caso">
-          <img src="assets/proyectos/ieb/cover.jpg" alt="IEB+">
-        </a>
-
-        <a href="proyectos/oterix.html" class="ps-visual-item" data-cursor="Ver caso">
-          <img src="assets/proyectos/oterix/cover.jpg" alt="Oterix">
-        </a>
-
-        <div class="ps-more" data-anim="fade">
-          <a href="proyectos.html" class="link-arrow" data-hover-anim data-cursor="Ver proyectos"><span data-hover-text>Ver todos los proyectos ↗</span></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-pad">
+  <section class="section-pad" style="padding-top:0;">
     <div class="wrap">
-      <div class="section-tag" data-anim="fade">Exploración & challenges</div>
-      <h2 style="font-family:var(--font-display);font-size:clamp(28px,4.4vw,48px);font-weight:600;text-transform:uppercase;letter-spacing:-.03em;line-height:.98;max-width:22ch;" data-anim="letters">Exploración y aprendizaje continuo.</h2>
-      <div class="explore-grid" data-anim="stagger">
-        <a href="exploracion/luna-llena.html" class="explore-card has-photo" style="grid-column:span 2;" data-cursor="Ver exploración">
-          <img src="assets/exploracion/luna-llena/cover.jpg" alt="En luna llena" loading="lazy">
-          <span class="num">Exploración 01</span>
-          <h4>En luna llena</h4>
-          <p>App web para conocer más sobre las fases de la luna y eventos relacionados.</p>
-        </a>
-        <a href="exploracion/mandalas.html" class="explore-card has-photo" style="grid-column:span 2;" data-cursor="Ver exploración">
-          <img src="assets/exploracion/mandalas/cover.jpg" alt="Sereia · Mandalas del alma" loading="lazy">
-          <span class="num">Exploración 02</span>
-          <h4>Mandalas del alma</h4>
-          <p>Relajate pintando mandalas, obtené devoluciones personalizadas y accedé a cursos.</p>
-        </a>
-        <a href="exploracion/bikeing.html" class="explore-card has-photo" data-cursor="Ver caso">
-          <div class="eg-fixed-h"><img src="assets/exploracion/bikeing/cover.jpg" alt="Bikeing" loading="lazy"></div>
-          <span class="num">Ejercicio 01</span>
-          <h4>Bikeing</h4>
-          <p>App ciclismo</p>
-        </a>
-        <a href="exploracion/holaquetal.html" class="explore-card has-photo" data-cursor="Ver caso">
-          <div class="eg-fixed-h"><img src="assets/exploracion/holaquetal/01.jpg" alt="Hola ¿qué tal?" loading="lazy"></div>
-          <span class="num">Ejercicio 02</span>
-          <h4>Hola ¿qué tal?</h4>
-          <p>App networking</p>
-        </a>
-        <a href="exploracion/delosbarcos.html" class="explore-card has-photo" data-cursor="Ver caso">
-          <div class="eg-fixed-h"><img src="assets/exploracion/delosbarcos/cover.jpg" alt="De los Barcos" loading="lazy"></div>
-          <span class="num">Ejercicio 03</span>
-          <h4>De los Barcos</h4>
-          <p>CRM · 2023</p>
-        </a>
-        <a href="exploracion/topdoctor.html" class="explore-card has-photo" data-cursor="Ver caso">
-          <div class="eg-fixed-h"><img src="assets/exploracion/topdoctor/01.jpg" alt="TopDoctors" loading="lazy"></div>
-          <span class="num">Ejercicio 04</span>
-          <h4>TopDoctors</h4>
-          <p>Salud · 2022</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <section class="section-pad process-section">
-    <div class="wrap">
-      <div class="section-tag" data-anim="fade">Cómo trabajo</div>
-      <h2 data-anim="letters">Del research a la interfaz final.</h2>
-      <div class="process-steps" data-anim="stagger">
-        <div class="process-step">
-          <span class="num">01</span>
-          <h3>Investigar</h3>
-          <p>Detecto necesidades reales del negocio y de los usuarios antes de definir flujos o interfaces.</p>
+      <div class="exp-list" data-anim="stagger">
+        <div class="exp-item">
+          <div class="exp-dates">Oct 2025 — actualidad</div>
+          <div>
+            <div class="exp-role-header"><span class="exp-company">Goiar Fintech</span><span class="exp-role">UX/UI Lead</span></div>
+            <ul class="exp-bullets">
+              <li>Liderazgo del equipo UX/UI, con foco en estrategia, ejecución y crecimiento profesional.</li>
+              <li>Definición de visión UX, roadmap trimestral y OKRs alineados a objetivos de negocio.</li>
+              <li>Diseño y mejora de productos fintech B2B–B2C, CRM y plataformas internas, priorizando impacto y escalabilidad.</li>
+              <li>Implementación de procesos de Design Ops: rituales, documentación, handoff y gobernanza UX.</li>
+              <li>Trabajo cross-functional con Producto, Tecnología y Stakeholders para discovery, definición y validación de soluciones.</li>
+              <li>Incorporación de métricas UX y exploración de IA aplicada al diseño y toma de decisiones.</li>
+            </ul>
+          </div>
         </div>
-        <div class="process-step">
-          <span class="num">02</span>
-          <h3>Diseñar</h3>
-          <p>Wireframes, prototipos e interfaces escalables, trabajando codo a codo con equipos multidisciplinarios.</p>
+        <div class="exp-item">
+          <div class="exp-dates">Jul 2023 — Oct 2025</div>
+          <div>
+            <div class="exp-role-header"><span class="exp-company">Cooperación Seguros</span><span class="exp-role">Product Designer UX UI</span></div>
+            <ul class="exp-bullets">
+              <li>Lideré de forma integral el proceso de diseño de producto como única UX/UI, desde discovery hasta lanzamiento.</li>
+              <li>Responsable del diseño de plataformas clave: Asegurados Online, Siniestros, E-Pagos, Chatbot para Productores, Intranet, Cotizadores, Gestión de Pólizas, Franquicia, Inspecciones.</li>
+              <li>Conduje entrevistas con usuarios y stakeholders, diseño de prototipos y validación mediante pruebas A/B y sesiones de usabilidad.</li>
+              <li>Trabajo colaborativo con desarrollo, QA y negocio, asegurando consistencia, accesibilidad y evolución del Design System.</li>
+              <li>Documentación y presentación de procesos, garantizando escalabilidad y alineación estratégica.</li>
+            </ul>
+          </div>
         </div>
-        <div class="process-step">
-          <span class="num">03</span>
-          <h3>Iterar con IA</h3>
-          <p>Incorporo herramientas de AI para investigar más rápido e iterar con mayor precisión.</p>
+        <div class="exp-item">
+          <div class="exp-dates">Sep 2022 — Jul 2023</div>
+          <div>
+            <div class="exp-role-header"><span class="exp-company">Mangoo Dev</span><span class="exp-role">UX UI Sr.</span></div>
+            <ul class="exp-bullets">
+              <li>Diseño UX UI en proyectos Fintech de inversiones (app-desk) y CRM.</li>
+              <li>Elaboración de benchmark, flujos de usuario y prototipos interactivos.</li>
+              <li>Creación y mantenimiento de Design System en Figma.</li>
+              <li>Participación activa en ceremonias Scrum (dailys, sprint planning, retro, refinamiento).</li>
+              <li>Validación de hipótesis mediante research cualitativo y cuantitativo.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dates">Mar 2020 — actualidad</div>
+          <div>
+            <div class="exp-role-header"><span class="exp-company">ZRNI Studio</span><span class="exp-role">Founder — Product Designer UX/UI / Branding / Consultoría</span></div>
+            <ul class="exp-bullets">
+              <li>Consultoría integral en Branding y Experiencia de Usuario.</li>
+              <li>Branding / UX UI / Diseño Web-App / Social Media.</li>
+              <li>Coordinación de equipos multidisciplinarios.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dates">Ago 2019 — Oct 2021</div>
+          <div>
+            <div class="exp-role-header"><span class="exp-company">NeuralSoft</span><span class="exp-role">Diseñadora Gráfica Sr. / UX UI</span></div>
+            <ul class="exp-bullets">
+              <li>Diseño de experiencia en sistemas de gestión empresarial (ERP).</li>
+              <li>Desarrollo de componentes para Design System corporativo.</li>
+              <li>Creación de material audiovisual y piezas de marketing digital.</li>
+              <li>Rediseño de sitios web institucionales bajo criterios SEO y accesibilidad.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dates">Nov 2013 — Feb 2021</div>
+          <div>
+            <div class="exp-role-header"><span class="exp-company">Ministerio de Trabajo</span><span class="exp-role">Consultora en Diseño y Comunicación</span></div>
+            <ul class="exp-bullets">
+              <li>Comunicación estratégica y vinculación con el contexto.</li>
+              <li>Coordinación de comunicación visual para Red Nacional de Centros de Formación Continua UOMRA.</li>
+              <li>Diseño de sitios web, materiales impresos, redes sociales y logística de eventos.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-dates">Ene 2013 — Nov 2013</div>
+          <div>
+            <div class="exp-role-header"><span class="exp-company">Home Global</span><span class="exp-role">Diseñadora Gráfica</span></div>
+          </div>
         </div>
       </div>
     </div>
@@ -878,16 +632,11 @@
 
   <section class="section-pad cta-banner" id="contact">
     <div class="wrap">
-      <h2 data-anim="letters">Hablemos.</h2>
-      <p data-anim="lines">Estoy disponible para proyectos de liderazgo UX, consultoría de producto y colaboraciones estratégicas.</p>
+      <h2 data-anim="letters">¿Trabajamos juntos?</h2>
+      <p data-anim="lines">Estoy abierta a nuevos desafíos de liderazgo en diseño de producto, consultoría UX y proyectos que necesiten criterio estratégico.</p>
       <div class="cta-actions" data-anim="fade">
-        <a href="mailto:mariafernandajuarezdg@gmail.com" class="btn btn-primary" data-hover-anim data-cursor="Enviar mail"><span data-hover-text>Escribime</span></a>
-        <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" class="btn btn-ghost" data-hover-anim data-cursor="Ir a LinkedIn"><span data-hover-text>LinkedIn ↗</span></a>
-      </div>
-      <div class="cta-links" data-anim="fade">
-        <a href="mailto:mariafernandajuarezdg@gmail.com">mariafernandajuarezdg@gmail.com</a>
-        <a href="tel:+5493413373195">+54 9 341 337 3195</a>
-        <span>Rosario y Nuñez, Argentina</span>
+        <a href="contacto.html" class="btn btn-primary" data-hover-anim data-cursor="Ir a contacto"><span data-hover-text>Contactame</span></a>
+        <a href="proyectos.html" class="btn btn-ghost" data-hover-anim data-cursor="Ver proyectos"><span data-hover-text>Ver proyectos ↗</span></a>
       </div>
     </div>
   </section>
@@ -1301,6 +1050,15 @@ function initProjectsScroll(){
         onEnter: () => makeActive(i),
         onEnterBack: () => makeActive(i)
       });
+
+      // parallax on the mock contents
+      const inner = el.querySelector('.mock-inner');
+      if (inner) {
+        gsap.fromTo(inner, { yPercent: -8 }, {
+          yPercent: 8, ease: 'none',
+          scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true }
+        });
+      }
     });
 
     makeActive(0);
