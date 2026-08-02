@@ -530,8 +530,16 @@
     .wrap,.section-pad,.projects-scroll{padding-left:24px;padding-right:24px;}
     header.site-nav{padding:18px 24px;}
     .hero-section{padding:120px 24px 48px;}
-    .hero-top-row{flex-direction:column;gap:16px;}
-    .hero-desc{max-width:none;padding-top:0;}
+    .hero-section .wrap{display:flex;flex-direction:column;}
+    .hero-top-row{display:contents;}
+    .hero-top-row .hero-heading{order:1;}
+    .wrap>.hero-heading{order:2;}
+    .hero-outline{order:3;}
+    .hero-desc{max-width:none;padding-top:0;order:4;}
+    .hero-greeting{order:0;}
+    .hero-subheading{order:5;}
+    .hero-actions{order:6;}
+    .hero-stats{order:7;}
     .menu-overlay{padding:100px 24px 40px;}
     .about-secondary-grid{grid-template-columns:1fr;gap:32px;}
     .about-more-row{justify-content:flex-start;}
