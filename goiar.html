@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Goiar — Case Study UX Lead | María Fernanda Juárez</title>
+<meta name="description" content="Cómo lidero como UX Lead cuatro frentes de Goiar en paralelo: producto core, cuenta estratégica, proceso comercial y equipo de diseño — con research, AI y métricas de impacto." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Goiar — Case Study UX Lead | María Fernanda Juárez" />
+<meta property="og:description" content="Cómo lidero como UX Lead cuatro frentes de Goiar en paralelo: producto core, cuenta estratégica, proceso comercial y equipo de diseño — con research, AI y métricas de impacto." />
+<meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/proyectos/goiar/cover.webp" />
+<meta property="og:url" content="https://mfernandaj-portfolio.vercel.app/goiar.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root { --bg: #faf8f5; --surface: #f0ede8; --fg: #1c1917; --text: #1c1917; --muted: #78716c; --border: #e7e5e4; --green: #4a6741; --accent: #4a6741; --accent2: #4a6741; --serif: 'Playfair Display', Georgia, serif; --sans: 'Inter', system-ui, sans-serif; }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--fg); line-height: 1.6; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--bg); border-bottom: 1px solid var(--border); }
+  .nav-inner { max-width: 1400px; margin: 0 auto; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; }
+  .nav-brand { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--green); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; }
+  .nav-link { font-family: var(--sans); font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .nav-link:hover, .nav-link.active { color: var(--fg); }
+a:focus-visible, button:focus-visible { outline: 2px solid #4a6741; outline-offset: 3px;  border-radius: 2px; }
+::selection { background: #4a6741; color: #faf8f5; }
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #d6d1c7; border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover { background: #4a6741; }
+body { animation: page-fade-in 0.4s ease; }
+@keyframes page-fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+  .container { max-width: 1300px; margin: 0 auto; padding: 130px 48px 80px; }
+  
+  /* HERO */
+  .hero { margin-bottom: 10rem; }
+  .status-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: rgba(74, 103, 65, 0.08); border: 1px solid var(--accent2); border-radius: 100px; font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent2); margin-bottom: 2rem; }
+  .status-badge::before { content: ''; width: 6px; height: 6px; background: var(--accent2); border-radius: 50%; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  
+  .project-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; display: flex; align-items: center; gap: 1rem; }
+  .project-label::before { content: ''; width: 50px; height: 1px; background: var(--accent); }
+  
+  .project-title { font-family: var(--serif); font-style: italic; font-size: clamp(4rem, 10vw, 8rem); font-weight: 200; line-height: 0.95; margin-bottom: 2rem; letter-spacing: -0.02em; }
+  .project-subtitle { font-size: 1.6rem; line-height: 1.5; color: var(--muted); margin-bottom: 5rem; max-width: 950px; }
+  
+  .hero-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 5rem; margin-bottom: 5rem; }
+  .hero-main { }
+  .hero-sidebar { }
+  .hero-image { border-radius: 16px; overflow: hidden; margin-bottom: 3rem; }
+  .hero-image img { width: 100%; height: auto; display: block; }
+
+  .meta-list { display: flex; flex-direction: column; gap: 2.5rem; }
+  .meta-item { }
+  .meta-label { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .meta-value { font-size: 1.05rem; color: var(--text); line-height: 1.6; }
+  
+  /* SECTIONS */
+  .section { margin-bottom: 10rem; }
+  .section-header { margin-bottom: 4rem; }
+  .section-number { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .section-title { font-family: var(--serif); font-style: italic; font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
+  .section-intro { font-size: 1.3rem; line-height: 1.7; color: var(--text); max-width: 950px; }
+  
+  /* PROCESS — compact grid */
+  .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin-top: 3rem; }
+  .process-step { padding: 2rem 1.8rem; background: var(--surface); border-radius: 16px; }
+  .process-num { font-family: var(--serif); font-style: italic; font-size: 2.1rem; font-weight: 300; color: var(--accent); opacity: 0.35; line-height: 1; margin-bottom: 0.9rem; }
+  .process-step h3 { font-family: var(--serif); font-style: italic; font-size: 1.1rem; font-weight: 400; margin-bottom: 0.6rem; }
+  .process-step p { font-size: 0.9rem; line-height: 1.6; color: var(--muted); margin: 0; }
+
+  /* VERTICALES */
+  .verticals-list { display: flex; flex-direction: column; gap: 2rem; margin-top: 4rem; }
+  .vertical-item { padding: 3rem; border-radius: 20px; }
+  .vertical-item:nth-child(even) { background: var(--surface); }
+  .vertical-tag { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+  .vertical-item h3 { font-family: var(--serif); font-style: italic; font-size: 1.9rem; font-weight: 400; margin-bottom: 1.2rem; }
+  .vertical-role { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+  .vertical-lead { font-size: 1.15rem; line-height: 1.6; color: var(--fg); font-weight: 500; margin-bottom: 1rem; max-width: 900px; }
+  .vertical-item p { font-size: 1.02rem; line-height: 1.8; color: var(--muted); margin-bottom: 1.2rem; max-width: 900px; }
+  .vertical-item p:last-of-type { margin-bottom: 1.5rem; }
+  .research-note { margin: 0 0 1.3rem; padding: 1.2rem 1.4rem; background: rgba(74,103,65,0.05); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; display: flex; flex-direction: column; gap: 0.55rem; max-width: 900px; }
+  .vertical-item .research-note p.research-line { color: var(--text); font-size: 0.92rem; line-height: 1.6; margin: 0; max-width: none; }
+  .research-line strong { font-family: var(--sans); color: var(--accent); }
+  .vertical-impact { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 0.3rem; }
+  .impact-chip { display: inline-flex; align-items: center; padding: 0.55rem 1.1rem; background: rgba(74,103,65,0.06); border: 1px solid rgba(74,103,65,0.2); border-radius: 100px; font-size: 0.85rem; line-height: 1.3; color: var(--text); }
+  .impact-chip strong { font-family: var(--sans); color: var(--accent); font-weight: 700; }
+
+  .vertical-grid { display: grid; grid-template-columns: 45fr 55fr; gap: 3rem; align-items: start; }
+  .carousel { position: relative; background: var(--surface); border-radius: 14px; overflow: hidden; }
+  .carousel-viewport { overflow: hidden; }
+  .carousel-track { display: flex; transition: transform 0.45s cubic-bezier(0.4,0,0.2,1); }
+  .carousel-slide { flex: 0 0 100%; display: flex; align-items: center; justify-content: center; height: 580px; padding: 24px; }
+  .carousel-slide img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; border-radius: 6px; }
+  .carousel-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 34px; height: 34px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); color: var(--fg); font-size: 16px; line-height: 1; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; }
+  .carousel-btn:hover { background: var(--border); }
+  .carousel-btn.prev { left: 10px; }
+  .carousel-btn.next { right: 10px; }
+  .carousel-dots { display: flex; justify-content: center; gap: 6px; padding: 10px 0; }
+  .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; padding: 0; transition: background 0.2s, transform 0.2s; }
+  .carousel-dot.active { background: var(--accent); transform: scale(1.4); }
+  .carousel-expand { position: absolute; top: 16px; right: 16px; width: 36px; height: 36px; border-radius: 50%; background: var(--bg); border: 1px solid var(--border); color: var(--fg); font-size: 15px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.2s; z-index: 2; }
+  .carousel-expand:hover { background: var(--border); }
+
+  .lightbox-overlay { position: fixed; inset: 0; background: rgba(28,25,23,0.94); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 5vh 5vw; }
+  .lightbox-overlay.active { display: flex; }
+  .lightbox-overlay img { max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 8px; }
+  .lightbox-close { position: absolute; top: 24px; right: 32px; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 22px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+  .lightbox-nav { position: absolute; top: 50%; transform: translateY(-50%); width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.3); color: #fff; font-size: 22px; line-height: 1; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+  .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+  .lightbox-nav.prev { left: 24px; }
+  .lightbox-nav.next { right: 24px; }
+
+  /* EXPLORACIÓN CON AI */
+  .ai-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+  .ai-card { display: flex; flex-direction: column; gap: 0.9rem; padding: 2.2rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; }
+  .ai-card.featured { grid-column: span 2; border-color: var(--accent); background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); }
+  .ai-card-icon { width: 44px; height: 44px; border-radius: 50%; background: rgba(74,103,65,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; }
+  .ai-card-image { border-radius: 12px; overflow: hidden; }
+  .ai-card-image img { width: 100%; height: auto; display: block; }
+  .ai-card-tag { font-family: var(--sans); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+  .ai-card-title { font-family: var(--serif); font-style: italic; font-size: 1.3rem; font-weight: 400; margin: 0; }
+  .ai-card-desc { font-size: 0.95rem; line-height: 1.7; color: var(--muted); margin: 0; }
+
+  /* STATS */
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem; margin: 5rem 0; padding: 4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .stat-item { text-align: center; }
+  .stat-number { font-family: var(--serif); font-style: italic; font-size: 4rem; font-weight: 300; font-style: italic; color: var(--accent); margin-bottom: 0.5rem; line-height: 1; }
+  .stat-label { font-family: var(--sans); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  
+  /* QUOTE */
+  .quote-block { max-width: 1000px; margin: 8rem auto; padding: 5rem 4rem; background: linear-gradient(135deg, var(--surface) 0%, transparent 100%); border-left: 4px solid var(--accent); }
+  .quote-block p { font-family: var(--serif); font-style: italic; font-size: 2rem; font-weight: 300; font-style: italic; line-height: 1.4; color: var(--text); }
+  
+  footer { border-top: 1px solid var(--border); margin-top: 80px; }
+  .footer-inner { max-width: 1400px; margin: 0 auto; padding: 28px 48px; display: flex; justify-content: space-between; }
+  .footer-inner span { font-size: 12px; color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .nav-inner, .footer-inner { padding-left: 24px; padding-right: 24px; }
+    .container { padding: 110px 24px 60px; }
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
+    .vertical-item { padding: 2rem; border-radius: 16px; }
+    .vertical-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    .carousel-slide { height: 300px; padding: 12px; }
+    .ai-card.featured { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">María Fernanda Juárez</a>
+    <div class="nav-links">
+      <a href="sobre-mi.html" class="nav-link">sobre mí</a>
+      <a href="experiencia.html" class="nav-link">experiencia</a>
+      <a href="proyectos.html" class="nav-link">proyectos</a>
+      <a href="index.html#contacto" class="nav-link">contacto</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  
+  <div class="hero">
+    <div class="hero-grid">
+      <div class="hero-main">
+        <span class="status-badge">En curso</span>
+        <p class="project-label">Proyecto Destacado · UX Lead</p>
+        <h1 class="project-title">Goiar</h1>
+        <p class="project-subtitle">
+          Suite Gonnectia — Diseño integral de producto para un ecosistema SaaS que conecta comercios, clientes y operaciones de cobranza con flujos completos navegables, AI integrada y expansión internacional.
+        </p>
+        <p style="font-size: 1.15rem; line-height: 1.8; color: var(--text);">
+          Como UX Lead, diseño de punta a punta cuatro frentes que sostengo en paralelo: el producto core, la cuenta más grande del ecosistema, el aporte de UX al proceso comercial y la gestión del equipo de diseño — con QA asistido por AI, prototipado con FigmaMake + Claude y automatización de historias de usuario desde Jira.
+        </p>
+      </div>
+
+      <div class="hero-sidebar">
+        <div class="hero-image">
+          <img src="assets/proyectos/goiar/B2C-2.webp" onerror="this.parentElement.style.display='none'" alt="Goiar - App B2C" />
+        </div>
+        <div class="meta-list">
+          <div class="meta-item">
+            <p class="meta-label">Rol</p>
+            <p class="meta-value">UX Lead<br/>Product Designer<br/>Design System Owner</p>
+          </div>
+          <div class="meta-item">
+            <p class="meta-label">Alcance</p>
+            <p class="meta-value">B2C, B2B, BackOffice<br/>Web + Mobile</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number">4</div>
+      <p class="stat-label">Verticales de producto</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">3</div>
+      <p class="stat-label">Países activos</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">50+</div>
+      <p class="stat-label">Flujos diseñados</p>
+    </div>
+    <div class="stat-item">
+      <div class="stat-number">15+</div>
+      <p class="stat-label">Clientes B2B</p>
+    </div>
+  </div>
+
+  <!-- VERTICALES -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">01 — Verticales</p>
+      <h2 class="section-title">Frentes de Trabajo</h2>
+      <p class="section-intro">
+        Mi trabajo en Goiar se despliega en cuatro frentes que se retroalimentan: el producto core, la cuenta estratégica más grande del ecosistema, el aporte de UX al proceso comercial, y el liderazgo del equipo de diseño.
+      </p>
+    </div>
+
+    <div class="verticals-list">
+      <div class="vertical-item">
+        <div class="vertical-grid">
+          <div class="vertical-text">
+            <p class="vertical-tag">Producto</p>
+            <h3>Suite Gonnectia — GoDigital B2B, GoDigital B2C, GoCollect</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">De la investigación a producción: diseñé la Suite Gonnectia completa —tres productos fintech sobre un mismo sistema de diseño— y los llevé a vivir muchas veces más rápido que si se construyeran desde cero.</p>
+            <p>
+              Empecé por entender al usuario: entrevistas en etapa F&amp;F y ya en producción, journey mapping por rol y arquitectura de la información. Con eso definí los flujos end-to-end y el diseño de interfaz, iterando con feedback constante de Comercial, Producto y Desarrollo hasta el handoff.
+            </p>
+            <p>
+              GoDigital B2C (app del cliente final), GoDigital B2B (panel de comercios adheridos) y GoCollect (cobranzas del equipo comercial) comparten tokens, patrones y librería — pero con distinta jerarquía de información según el rol de cada usuario.
+            </p>
+            <div class="research-note">
+              <p class="research-line"><strong>12 entrevistas</strong> con usuarios en etapa F&amp;F y ya en producción, en Argentina y Chile.</p>
+              <p class="research-line"><strong>Hallazgo:</strong> el alta de comercios en GoDigital B2B se abandonaba cuando se pedían datos que el comercio ya había dado en otro paso — rediseñé el flujo para autocompletarlos.</p>
+              <p class="research-line"><strong>Validación:</strong> 2 rondas de test de usabilidad antes de cada pase a producción, con ajustes de flujo entre ronda y ronda.</p>
+            </div>
+            <div class="vertical-impact">
+              <span class="impact-chip"><strong>12–24 meses → 1 mes</strong>&nbsp;de producción para un fintech propio</span>
+              <span class="impact-chip"><strong>3</strong>&nbsp;productos, 1 solo design system</span>
+            </div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital-01.webp" alt="Suite Gonnectia - GoDigital B2C, app del cliente final" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital-02.webp" alt="Suite Gonnectia - Recaudación y liquidaciones" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/godigital-03.webp" alt="Suite Gonnectia - Panel web, pagos y dólar MEP" loading="lazy" /></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vertical-item">
+        <div class="vertical-grid">
+          <div class="vertical-text">
+            <p class="vertical-tag">Cuenta Estratégica</p>
+            <h3>Clientes Agro</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">Diseño y evoluciono el portal completo del cliente —la cuenta más grande del agro en Argentina (confidencial)— desde el research hasta la interfaz final.</p>
+            <p>
+              Trabajo el portal de punta a punta: benchmark de portales similares del sector, discovery de nuevas funcionalidades, rediseño de flujos y pantallas existentes, y entrevistas directas con los usuarios del cliente para validar cada hipótesis antes de pasarla a desarrollo.
+            </p>
+            <p>
+              En paralelo, diseñé un dashboard con AI que le dio al cliente autonomía total sobre sus métricas —sin depender de un analista de datos— y corro una auditoría de UX/UI asistida por AI sobre todo el portal: bugs, accesibilidad y propuestas de mejora.
+            </p>
+            <div class="vertical-impact">
+              <span class="impact-chip"><strong>De reportes manuales → dashboard en tiempo real</strong></span>
+              <span class="impact-chip"><strong>+17,7%</strong>&nbsp;sesiones vs. período anterior (~70.900 sesiones/mes)</span>
+              <span class="impact-chip"><strong>21,9% → 21,4%</strong>&nbsp;dead clicks sobre esas ~70.900 sesiones/mes</span>
+            </div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/agro.webp" alt="Clientes Agro - dashboard de métricas" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/agro1.webp" alt="Clientes Agro - reporte de métricas con automatización AI" loading="lazy" /></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vertical-item">
+        <div class="vertical-grid">
+          <div class="vertical-text">
+            <p class="vertical-tag">De Lead a Kickoff</p>
+            <h3>Comercial UX/UI</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">Diseño cada pieza que el equipo comercial necesita para cerrar una cuenta, antes de que exista contrato: landings, prototipos y presentaciones.</p>
+            <p>
+              Landings por producto e industria (agro, seguros, logística), prototipos con el look & feel de cada cliente potencial y presentaciones de propuesta de valor. Participo en el kickoff de cada cuenta para fijar los criterios de diseño desde el primer día.
+            </p>
+            <div class="vertical-impact">
+              <span class="impact-chip"><strong>De días → misma semana</strong>&nbsp;del lead: tiempo de entrega de un prototipo demo-ready</span>
+              <span class="impact-chip"><strong>10+</strong>&nbsp;landings y prototipos de propuesta comercial diseñados</span>
+            </div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta1.webp" alt="Comercial UX/UI - material de preventa 1" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta2.webp" alt="Comercial UX/UI - material de preventa 2" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta3.webp" alt="Comercial UX/UI - material de preventa 3" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta4.webp" alt="Comercial UX/UI - material de preventa 4" loading="lazy" /></div>
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/venta5.webp" alt="Comercial UX/UI - material de preventa 5" loading="lazy" /></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vertical-item">
+        <div class="vertical-grid">
+          <div class="vertical-text">
+            <p class="vertical-tag">Mi Rol Como Líder</p>
+            <h3>Liderazgo del Equipo de UX/UI</h3>
+            <p class="vertical-role">Mi aporte</p>
+            <p class="vertical-lead">Lidero al equipo en dos planos: como referente técnico de diseño y como responsable de la gestión de personas y procesos.</p>
+            <p>
+              Defino la visión UX y el roadmap trimestral alineado a objetivos de negocio, superviso la calidad del Design System y guío al equipo en decisiones de diseño complejas. En paralelo, distribuyo tareas, hago mentoría y seguimiento de carrera, y soy el punto de contacto de diseño frente a Product, Dev y Comercial.
+            </p>
+            <div class="vertical-impact">
+              <span class="impact-chip">Roadmap trimestral y OKRs alineados a negocio</span>
+              <span class="impact-chip"><strong>5,2 días</strong>&nbsp;lead time promedio</span>
+              <span class="impact-chip"><strong>72%</strong>&nbsp;de handoffs a Dev sin retrabajo</span>
+              <span class="impact-chip"><strong>68%</strong>&nbsp;de tareas que cumplen Definition of Done al primer intento</span>
+            </div>
+          </div>
+          <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+              <div class="carousel-track">
+                <div class="carousel-slide"><img src="assets/proyectos/goiar/cover.webp" alt="Liderazgo del equipo - imagen de referencia" loading="lazy" /></div>
+              </div>
+            </div>
+            <button class="carousel-btn prev" type="button" aria-label="Anterior">‹</button>
+            <button class="carousel-btn next" type="button" aria-label="Siguiente">›</button>
+            <button class="carousel-expand" type="button" aria-label="Ampliar">⤢</button>
+            <div class="carousel-dots"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPLORACIÓN CON AI -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">02 — Exploración</p>
+      <h2 class="section-title">Exploración con AI</h2>
+      <p class="section-intro">
+        Además de los cuatro frentes centrales, uso AI para acelerar tareas puntuales dentro y fuera del proceso de diseño. Estos son algunos de los experimentos que ya están en uso.
+      </p>
+    </div>
+
+    <div class="ai-grid">
+      <div class="ai-card featured">
+        <div class="ai-card-icon">🖼️</div>
+        <p class="ai-card-tag">Lo más importante</p>
+        <h3 class="ai-card-title">De Figma a pantallas con AI</h3>
+        <p class="ai-card-desc">Llevamos todo el aplicativo de Figma a pantallas recreadas con AI, logrando velocidad, consistencia y escalabilidad en la producción de UI en toda la plataforma.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon">🔍</div>
+        <h3 class="ai-card-title">Agente de Auditoría AI</h3>
+        <p class="ai-card-desc">Un agente que audita la plataforma y el sitio web: detecta bugs y problemas de accesibilidad, revisa SEO, GEO y SEM, y genera propuestas de mejora e insights semanales.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-image">
+          <img src="assets/proyectos/goiar/capacity.webp" alt="Dashboard de Capacity" loading="lazy" />
+        </div>
+        <h3 class="ai-card-title">Dashboard de Capacity</h3>
+        <p class="ai-card-desc">Roadmap, carga de horas y capacity del equipo en tiempo real, con seguimiento de tareas por diseñador.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon">⚙️</div>
+        <h3 class="ai-card-title">Automatizaciones de Equipo</h3>
+        <p class="ai-card-desc">Design System automatizado, skill de carga de horas, generación de presentaciones y creación de historias de usuario en Jira, con documentación automática en Notion.</p>
+      </div>
+
+      <div class="ai-card">
+        <div class="ai-card-icon">⚽</div>
+        <h3 class="ai-card-title">Prode</h3>
+        <p class="ai-card-desc">Carga de partidos, visualización de resultados, ranking e información de fecha y hora — proyecto propio para jugar en equipo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="section">
+    <div class="section-header">
+      <p class="section-number">03 — Proceso</p>
+      <h2 class="section-title">Metodología de Trabajo</h2>
+      <p class="section-intro">
+        Independientemente del frente, sigo el mismo proceso de diseño de punta a punta: investigación, arquitectura, prototipado de alta fidelidad y un ciclo continuo de QA post-lanzamiento.
+      </p>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Discovery</h3>
+        <p>Entrevistas, journey mapping y benchmarking por vertical.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Arquitectura</h3>
+        <p>Wireframes, flujos por rol y componentes compartidos.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>UI & Prototipos</h3>
+        <p>Figma + FigmaMake, testing con usuarios reales.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h3>Handoff & QA</h3>
+        <p>Specs, Design System y QA continuo con AI.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="quote-block">
+    <p>"El desafío de Goiar es diseñar coherencia en la complejidad: múltiples productos, roles, geografías y modelos de negocio bajo una experiencia unificada."</p>
+  </div>
+
+  <section class="section">
+    <h2 class="section-title">Impacto</h2>
+    <p style="font-size: 1.15rem; line-height: 1.9; color: var(--muted); max-width: 900px;">
+      Sostener estos cuatro frentes en paralelo significa equilibrar velocidad con profundidad: sistemas que escalan sin perder la experiencia específica de cada rol, cliente y geografía.
+    </p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© María Fernanda Juárez 2026</span>
+    <span>Rosario, Argentina</span>
+  </div>
+</footer>
+
+<div class="lightbox-overlay" id="lightbox">
+  <button class="lightbox-close" type="button" aria-label="Cerrar">&times;</button>
+  <button class="lightbox-nav prev" type="button" aria-label="Anterior">‹</button>
+  <img src="" alt="" />
+  <button class="lightbox-nav next" type="button" aria-label="Siguiente">›</button>
+</div>
+
+<script>
+  var lightbox = document.getElementById('lightbox');
+  var lightboxImg = lightbox.querySelector('img');
+  var activeGoTo = null;
+  var activeGetIndex = null;
+
+  function closeLightbox() { lightbox.classList.remove('active'); lightbox.currentCarousel = null; }
+  lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function (e) { if (e.target === lightbox) closeLightbox(); });
+  lightbox.querySelector('.lightbox-nav.prev').addEventListener('click', function () { if (activeGoTo) activeGoTo(activeGetIndex() - 1); });
+  lightbox.querySelector('.lightbox-nav.next').addEventListener('click', function () { if (activeGoTo) activeGoTo(activeGetIndex() + 1); });
+  document.addEventListener('keydown', function (e) {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft' && activeGoTo) activeGoTo(activeGetIndex() - 1);
+    if (e.key === 'ArrowRight' && activeGoTo) activeGoTo(activeGetIndex() + 1);
+  });
+
+  document.querySelectorAll('[data-carousel]').forEach(function (carousel) {
+    var track = carousel.querySelector('.carousel-track');
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
+    var dotsWrap = carousel.querySelector('.carousel-dots');
+    var prevBtn = carousel.querySelector('.carousel-btn.prev');
+    var nextBtn = carousel.querySelector('.carousel-btn.next');
+    var expandBtn = carousel.querySelector('.carousel-expand');
+    var index = 0;
+
+    if (slides.length > 1) {
+      slides.forEach(function (_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+        dot.addEventListener('click', function () { goTo(i); });
+        dotsWrap.appendChild(dot);
+      });
+    } else {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+    }
+    var dots = Array.prototype.slice.call(dotsWrap.querySelectorAll('.carousel-dot'));
+
+    function updateLightboxIfOpen() {
+      if (lightbox.classList.contains('active') && lightbox.currentCarousel === carousel) {
+        var img = slides[index].querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+      }
+    }
+
+    function goTo(i) {
+      index = (i + slides.length) % slides.length;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      dots.forEach(function (d, di) { d.classList.toggle('active', di === index); });
+      updateLightboxIfOpen();
+    }
+
+    function openLightbox() {
+      lightbox.currentCarousel = carousel;
+      var img = slides[index].querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      activeGoTo = goTo;
+      activeGetIndex = function () { return index; };
+    }
+
+    if (expandBtn) expandBtn.addEventListener('click', openLightbox);
+    slides.forEach(function (slide) {
+      var img = slide.querySelector('img');
+      if (img) { img.style.cursor = 'zoom-in'; img.addEventListener('click', openLightbox); }
+    });
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { goTo(index - 1); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { goTo(index + 1); });
+  });
+</script>
+
+</body>
+</html>
