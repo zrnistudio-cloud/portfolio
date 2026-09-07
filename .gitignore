@@ -1,13 +1,3 @@
-# macOS
 .DS_Store
-
-# Logs
-*.log
-
-# Editor
-.vscode/
-.idea/
-
-# Temporary files
-*.tmp
-*~
+**/.DS_Store
+Thumbs.db
