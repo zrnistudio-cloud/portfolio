@@ -534,11 +534,13 @@
   .cs-frente-step p{font-size:15px;color:var(--dim);line-height:1.7;}
   .cs-frente-step .metric{margin-top:14px;font-family:var(--font-pixel);font-size:20px;color:var(--olive);}
   .cs-frente-step .metric-label{font-size:11px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin-top:4px;}
-  .cs-metric-pills{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px;}
-  .cs-metric-pill{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;aspect-ratio:1;background:var(--paper);border:1px solid var(--border);border-radius:6px;padding:12px;}
-  .cs-metric-pill b{font-family:var(--font-pixel);font-size:clamp(13px,1.6vw,18px);font-weight:400;color:var(--olive);}
+  .cs-metric-pills{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:20px;background:var(--border);border:1px solid var(--border);}
+  .cs-metric-pill{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;gap:10px;background:var(--paper);padding:28px 14px;}
+  .cs-metric-pill svg{width:26px;height:26px;color:var(--olive);flex-shrink:0;}
+  .cs-metric-pill b{font-family:var(--font-pixel);font-size:clamp(12px,1.4vw,17px);font-weight:400;color:var(--olive);line-height:1.3;}
   .cs-metric-pill span{font-size:11px;color:var(--dim);letter-spacing:.2px;line-height:1.35;}
-  @media (max-width:700px){ .cs-metric-pills{grid-template-columns:repeat(2,1fr);gap:8px;} .cs-metric-pill{padding:10px 8px;} }
+  @media (max-width:900px){ .cs-metric-pills{grid-template-columns:repeat(2,1fr);} .cs-metric-pill{padding:22px 12px;} }
+  @media (max-width:480px){ .cs-metric-pills{grid-template-columns:1fr;} }
   .cs-frente-media{margin-top:32px;border-radius:6px;overflow:hidden;}
   .cs-frente-media .cs-card-carousel{aspect-ratio:16/9;}
   @media (max-width:700px){ .cs-frente-media .cs-card-carousel{aspect-ratio:4/3;} }
@@ -788,11 +790,26 @@
       <h2>Impacto medible por frente</h2>
       <p class="lead">Cada frente sostiene su propio indicador de avance: velocidad de cotización, adopción de canales digitales y reducción de carga manual.</p>
       <div class="cs-metric-pills">
-        <div class="cs-metric-pill"><b>Min → &lt;2min</b><span>cotización por productor, de mail a app</span></div>
-        <div class="cs-metric-pill"><b>~40%</b><span>denuncias por canal digital (estimado)</span></div>
-        <div class="cs-metric-pill"><b>~35%</b><span>pólizas pagadas online (estimado)</span></div>
-        <div class="cs-metric-pill"><b>~1.200 / -25%</b><span>consultas resueltas por chatbot / llamadas al call center (estimado)</span></div>
-        <div class="cs-metric-pill"><b>Mail → digital</b><span>comprobantes reconocidos automáticamente por CUIT</span></div>
+        <div class="cs-metric-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3.2 1.8"/></svg>
+          <b>Min → &lt;2min</b><span>cotización por productor, de mail a app</span>
+        </div>
+        <div class="cs-metric-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.3h2"/></svg>
+          <b>~40%</b><span>denuncias por canal digital (estimado)</span>
+        </div>
+        <div class="cs-metric-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 9.7h19"/><path d="M6 14.8h4"/></svg>
+          <b>~35%</b><span>pólizas pagadas online (estimado)</span>
+        </div>
+        <div class="cs-metric-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5c0 4.14-3.8 7.5-8.5 7.5-.9 0-1.77-.12-2.58-.35L4.5 20.5l1.32-3.96A7.4 7.4 0 0 1 4 11.5C4 7.36 7.8 4 12.5 4S21 7.36 21 11.5z"/></svg>
+          <b>~1.200 / -25%</b><span>consultas resueltas por chatbot / llamadas al call center (estimado)</span>
+        </div>
+        <div class="cs-metric-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2.5h9l3 3v16H6z"/><path d="M15 2.5v3h3"/><path d="M9 12h6M9 15.3h6M9 8.7h3"/></svg>
+          <b>Mail → digital</b><span>comprobantes reconocidos automáticamente por CUIT</span>
+        </div>
       </div>
     </div>
   </section>
