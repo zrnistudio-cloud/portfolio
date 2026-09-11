@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>María Fernanda Juárez — UX UI AI Lead · Product Designer</title>
-<meta name="description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." />
+<meta name="description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." data-i18n data-en="UX/UI Product Designer with strategic vision and end-to-end leadership. Specialized in fintech, insurance, CRMs and scalable digital products. Rosario &amp; Nuñez, Argentina." />
 <meta name="author" content="María Fernanda Juárez" />
 <meta name="robots" content="noindex, nofollow" />
 
@@ -119,6 +119,14 @@
   .menu-btn:hover{background:var(--olive-dark);}
   .menu-btn .plus{font-size:16px;transition:transform .4s var(--ease);display:inline-block;}
   body.menu-open .menu-btn .plus{transform:rotate(135deg);}
+
+  /* ===== language switch ===== */
+  .lang-toggle{display:flex;align-items:center;gap:2px;background:var(--paper);border:1px solid var(--border);border-radius:20px;padding:3px;}
+  .lang-btn{font-family:var(--font-pixel);font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:6px 10px;border-radius:16px;color:var(--dim);transition:background .25s var(--ease),color .25s var(--ease);}
+  .lang-btn:hover{color:var(--black);}
+  .lang-btn.active{background:var(--olive);color:var(--white);}
+  .lang-btn.active:hover{color:var(--white);}
+  .menu-footer .lang-toggle{margin-top:2px;}
 
   /* ===== menu overlay ===== */
   .menu-overlay{
@@ -562,10 +570,14 @@
 <div class="cursor" id="cursor"><p>Ver</p></div>
 
 <header class="site-nav">
-  <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio">María Fernanda Juárez</a>
+  <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio" data-en-cursor="Back to top">María Fernanda Juárez</a>
   <div class="nav-right">
+    <div class="lang-toggle" data-lang-toggle role="group" aria-label="Idioma / Language">
+      <button type="button" class="lang-btn" data-lang-btn="es">ES</button>
+      <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
     <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="menuOverlay" data-hover-anim>
-      <span class="plus">+</span> <span data-hover-text>Menú</span>
+      <span class="plus">+</span> <span data-hover-text data-i18n data-en="Menu">Menú</span>
     </button>
   </div>
 </header>
@@ -573,22 +585,29 @@
 <div class="menu-overlay" id="menuOverlay">
   <nav>
     <ul class="menu-links">
-      <li><span class="num">01</span><a href="../index.html#top" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Inicio</span></a></li>
-      <li><span class="num">02</span><a href="../sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Sobre mí</span></a></li>
-      <li><span class="num">03</span><a href="../experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Experiencia</span></a></li>
-      <li><span class="num">04</span><a href="../proyectos.html" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text>Proyectos</span></a></li>
-      <li><span class="num">05</span><a href="../contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Contacto</span></a></li>
+      <li><span class="num">01</span><a href="../index.html#top" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Home">Inicio</span></a></li>
+      <li><span class="num">02</span><a href="../sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="About">Sobre mí</span></a></li>
+      <li><span class="num">03</span><a href="../experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Experience">Experiencia</span></a></li>
+      <li><span class="num">04</span><a href="../proyectos.html" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text data-i18n data-en="Projects">Proyectos</span></a></li>
+      <li><span class="num">05</span><a href="../contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Contact">Contacto</span></a></li>
     </ul>
   </nav>
   <div class="nav-corners" id="navCorners"><span></span><span></span><span></span><span></span></div>
   <div class="menu-footer">
     <div class="col">
-      <span>Sociales</span>
-      <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" data-cursor="Ir a LinkedIn">LinkedIn</a>
+      <span data-i18n data-en="Social">Sociales</span>
+      <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" data-cursor="Ir a LinkedIn" data-en-cursor="Go to LinkedIn">LinkedIn</a>
     </div>
     <div class="col">
-      <span>Escribime</span>
-      <a href="mailto:mariafernandajuarezdg@gmail.com" data-cursor="Enviar mail">[ mariafernandajuarezdg@gmail.com ]</a>
+      <span data-i18n data-en="Write to me">Escribime</span>
+      <a href="mailto:mariafernandajuarezdg@gmail.com" data-cursor="Enviar mail" data-en-cursor="Send email">[ mariafernandajuarezdg@gmail.com ]</a>
+    </div>
+    <div class="col">
+      <span data-i18n data-en="Language">Idioma</span>
+      <div class="lang-toggle" data-lang-toggle role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-btn" data-lang-btn="es">Español</button>
+        <button type="button" class="lang-btn" data-lang-btn="en">English</button>
+      </div>
     </div>
   </div>
 </div>
@@ -597,9 +616,9 @@
 
   <section class="cs-hero">
     <div class="wrap">
-      <div class="section-tag" data-anim="fade">Proyecto de exploración</div>
+      <div class="section-tag" data-anim="fade" data-i18n data-en="Exploration project">Proyecto de exploración</div>
       <h1 data-anim="letters">En Luna Llena</h1>
-      <p class="cs-intro" data-anim="lines">Una experiencia lunar para consultar fases, descubrir eventos bajo la luna llena y recibir lecturas de bienestar con una mirada intuitiva, simbólica y editorial.</p>
+      <p class="cs-intro" data-anim="lines" data-i18n data-en="A lunar experience for checking phases, discovering full-moon events and receiving wellness readings with an intuitive, symbolic, editorial perspective.">Una experiencia lunar para consultar fases, descubrir eventos bajo la luna llena y recibir lecturas de bienestar con una mirada intuitiva, simbólica y editorial.</p>
       <div class="cs-tags" data-anim="stagger">
         <span>UX Research</span><span>UI Design</span><span>Branding</span><span>Editorial Design</span><span>Wellness</span>
       </div>
@@ -617,19 +636,19 @@
 
   <section class="cs-section">
     <div class="wrap">
-      <span class="cs-section-num">Visión del proyecto</span>
-      <h2>Conectar con los ciclos lunares</h2>
-      <p class="lead">En Luna Llena nace de la necesidad de crear un espacio digital que conecte a las personas con los ciclos lunares de una forma cercana, mágica y ritual. No es solo una app de calendario astronómico, es una experiencia de bienestar que invita a la introspección y la conexión con los ritmos naturales.</p>
+      <span class="cs-section-num" data-i18n data-en="Project vision">Visión del proyecto</span>
+      <h2 data-i18n data-en="Connecting with lunar cycles">Conectar con los ciclos lunares</h2>
+      <p class="lead" data-i18n data-en="En Luna Llena was born from the need to create a digital space that connects people with lunar cycles in a close, magical, ritual way. It's not just an astronomical calendar app — it's a wellness experience that invites introspection and connection with natural rhythms.">En Luna Llena nace de la necesidad de crear un espacio digital que conecte a las personas con los ciclos lunares de una forma cercana, mágica y ritual. No es solo una app de calendario astronómico, es una experiencia de bienestar que invita a la introspección y la conexión con los ritmos naturales.</p>
       <div class="cs-cards" data-anim="stagger">
         <div class="cs-card">
-          <span class="tag">El desafío</span>
-          <h3>Diseñar con sensibilidad</h3>
-          <p>Traducir la atmósfera contemplativa y ceremonial de la observación lunar a una interfaz digital que se sintiera íntima, cálida y respetuosa con la práctica del usuario.</p>
+          <span class="tag" data-i18n data-en="The challenge">El desafío</span>
+          <h3 data-i18n data-en="Designing with sensitivity">Diseñar con sensibilidad</h3>
+          <p data-i18n data-en="Translating the contemplative, ceremonial atmosphere of moon-watching into a digital interface that felt intimate, warm and respectful of the user's practice.">Traducir la atmósfera contemplativa y ceremonial de la observación lunar a una interfaz digital que se sintiera íntima, cálida y respetuosa con la práctica del usuario.</p>
         </div>
         <div class="cs-card">
-          <span class="tag">Arquitectura</span>
-          <h3>Dos formas de entrar</h3>
-          <p>Desde el inicio, la persona elige "mirar el cielo afuera" (fase lunar, calendario de las 13 lunas) o "mirar su mundo adentro" (eventos y lecturas). Esa bifurcación ordena toda la navegación.</p>
+          <span class="tag" data-i18n data-en="Architecture">Arquitectura</span>
+          <h3 data-i18n data-en="Two ways in">Dos formas de entrar</h3>
+          <p data-i18n data-en="From the start, the person chooses to &quot;look at the sky outside&quot; (moon phase, 13-moon calendar) or &quot;look at their inner world&quot; (events and readings). That fork shapes the entire navigation.">Desde el inicio, la persona elige "mirar el cielo afuera" (fase lunar, calendario de las 13 lunas) o "mirar su mundo adentro" (eventos y lecturas). Esa bifurcación ordena toda la navegación.</p>
         </div>
       </div>
     </div>
@@ -637,38 +656,38 @@
 
   <section class="cs-section">
     <div class="wrap">
-      <span class="cs-section-num">Funcionalidades clave</span>
-      <h2>Qué incluye la experiencia</h2>
+      <span class="cs-section-num" data-i18n data-en="Key features">Funcionalidades clave</span>
+      <h2 data-i18n data-en="What the experience includes">Qué incluye la experiencia</h2>
       <div class="cs-cards" data-anim="stagger">
-        <div class="cs-card"><h3>Calendario lunar</h3><p>Fase lunar del día con su significado, cuenta regresiva a la próxima luna llena y calendario navegable de las 13 lunas del año.</p></div>
-        <div class="cs-card"><h3>Eventos y rituales</h3><p>Agenda de eventos especiales, círculos de luna llena y rituales comunitarios en Argentina, con ubicación y modalidad.</p></div>
-        <div class="cs-card"><h3>Lecturas de bienestar</h3><p>Devoluciones personalizadas según la fase lunar actual, con sugerencias de prácticas y mensajes intuitivos.</p></div>
+        <div class="cs-card"><h3 data-i18n data-en="Lunar calendar">Calendario lunar</h3><p data-i18n data-en="Today's moon phase with its meaning, a countdown to the next full moon, and a navigable calendar of the year's 13 moons.">Fase lunar del día con su significado, cuenta regresiva a la próxima luna llena y calendario navegable de las 13 lunas del año.</p></div>
+        <div class="cs-card"><h3 data-i18n data-en="Events and rituals">Eventos y rituales</h3><p data-i18n data-en="A schedule of special events, full-moon circles and community rituals across Argentina, with location and format.">Agenda de eventos especiales, círculos de luna llena y rituales comunitarios en Argentina, con ubicación y modalidad.</p></div>
+        <div class="cs-card"><h3 data-i18n data-en="Wellness readings">Lecturas de bienestar</h3><p data-i18n data-en="Personalized reflections based on the current moon phase, with suggested practices and intuitive messages.">Devoluciones personalizadas según la fase lunar actual, con sugerencias de prácticas y mensajes intuitivos.</p></div>
       </div>
     </div>
   </section>
 
   <section class="cs-section">
     <div class="wrap">
-      <span class="cs-section-num">Proceso de diseño</span>
-      <h2>Cómo lo construí</h2>
+      <span class="cs-section-num" data-i18n data-en="Design process">Proceso de diseño</span>
+      <h2 data-i18n data-en="How I built it">Cómo lo construí</h2>
       <div class="cs-process" data-anim="stagger">
-        <div class="cs-process-step"><span class="num">01</span><h4>Investigación de usuarios</h4><p>Entrevistas con personas interesadas en astrología, rituales lunares y bienestar holístico.</p></div>
-        <div class="cs-process-step"><span class="num">02</span><h4>Tono y estética</h4><p>Paleta de colores nocturnos con acentos violetas, tipografía editorial e ilustraciones delicadas.</p></div>
-        <div class="cs-process-step"><span class="num">03</span><h4>Wireframes y prototipos</h4><p>Flujos intuitivos priorizando la experiencia contemplativa: animaciones suaves, espacios generosos, lectura pausada.</p></div>
-        <div class="cs-process-step"><span class="num">04</span><h4>Validación</h4><p>Tests con el público objetivo, con ajustes en lenguaje, jerarquía visual y frecuencia de notificaciones.</p></div>
+        <div class="cs-process-step"><span class="num">01</span><h4 data-i18n data-en="User research">Investigación de usuarios</h4><p data-i18n data-en="Interviews with people interested in astrology, lunar rituals and holistic wellness.">Entrevistas con personas interesadas en astrología, rituales lunares y bienestar holístico.</p></div>
+        <div class="cs-process-step"><span class="num">02</span><h4 data-i18n data-en="Tone and aesthetics">Tono y estética</h4><p data-i18n data-en="A nocturnal color palette with violet accents, editorial typography and delicate illustrations.">Paleta de colores nocturnos con acentos violetas, tipografía editorial e ilustraciones delicadas.</p></div>
+        <div class="cs-process-step"><span class="num">03</span><h4 data-i18n data-en="Wireframes and prototypes">Wireframes y prototipos</h4><p data-i18n data-en="Intuitive flows prioritizing the contemplative experience: smooth animations, generous spacing, unhurried reading.">Flujos intuitivos priorizando la experiencia contemplativa: animaciones suaves, espacios generosos, lectura pausada.</p></div>
+        <div class="cs-process-step"><span class="num">04</span><h4 data-i18n data-en="Validation">Validación</h4><p data-i18n data-en="Tests with the target audience, with adjustments to language, visual hierarchy and notification frequency.">Tests con el público objetivo, con ajustes en lenguaje, jerarquía visual y frecuencia de notificaciones.</p></div>
       </div>
     </div>
   </section>
 
   <section class="cs-quote">
-    <blockquote data-anim="fade">"Un espacio donde lo digital se encuentra con lo ritual, creando una experiencia de conexión íntima con los ciclos de la naturaleza."</blockquote>
-    <cite>Reflexión de diseño</cite>
+    <blockquote data-anim="fade" data-i18n data-en="&quot;A space where the digital meets the ritual, creating an intimate experience of connection with the cycles of nature.&quot;">"Un espacio donde lo digital se encuentra con lo ritual, creando una experiencia de conexión íntima con los ciclos de la naturaleza."</blockquote>
+    <cite data-i18n data-en="Design reflection">Reflexión de diseño</cite>
   </section>
 
   <section class="section-pad" style="padding-top:80px;">
     <div class="wrap cs-closing">
-      <p><strong style="color:var(--black);">Aprendizajes:</strong> este proyecto me permitió explorar el diseño centrado en la experiencia emocional y simbólica — equilibrar información funcional (datos astronómicos precisos) con contenido inspiracional, manteniendo claridad y belleza en cada pantalla. El mayor desafío fue diseñar una interfaz que invitara a la calma en un mundo digital que suele demandar velocidad.</p>
-      <a href="../proyectos.html" class="cs-nav-back" data-hover-anim data-cursor="Volver" style="margin-top:40px;"><span data-hover-text>← Volver a proyectos</span></a>
+      <p data-i18n data-en="&lt;strong style=&quot;color:var(--black);&quot;&gt;Takeaways:&lt;/strong&gt; this project let me explore design centered on emotional and symbolic experience — balancing functional information (precise astronomical data) with inspirational content, while keeping every screen clear and beautiful. The biggest challenge was designing an interface that invited calm in a digital world that usually demands speed."><strong style="color:var(--black);">Aprendizajes:</strong> este proyecto me permitió explorar el diseño centrado en la experiencia emocional y simbólica — equilibrar información funcional (datos astronómicos precisos) con contenido inspiracional, manteniendo claridad y belleza en cada pantalla. El mayor desafío fue diseñar una interfaz que invitara a la calma en un mundo digital que suele demandar velocidad.</p>
+      <a href="../proyectos.html" class="cs-nav-back" data-hover-anim data-cursor="Volver" data-en-cursor="Back" style="margin-top:40px;"><span data-hover-text data-i18n data-en="← Back to projects">← Volver a proyectos</span></a>
     </div>
   </section>
 
@@ -677,27 +696,27 @@
 <footer>
   <div class="wrap footer-top">
     <div class="footer-brand">
-      <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio">María Fernanda Juárez</a>
-      <p>Product Designer UX/UI. Visión estratégica y liderazgo end-to-end en fintech, seguros, CRMs y productos digitales escalables.</p>
+      <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio" data-en-cursor="Back to top">María Fernanda Juárez</a>
+      <p data-i18n data-en="Product Designer UX/UI. Strategic vision and end-to-end leadership in fintech, insurance, CRMs and scalable digital products.">Product Designer UX/UI. Visión estratégica y liderazgo end-to-end en fintech, seguros, CRMs y productos digitales escalables.</p>
     </div>
     <div class="footer-col">
       <h4>Links</h4>
-      <a href="../index.html#top">Inicio</a>
-      <a href="../sobre-mi.html">Sobre mí</a>
-      <a href="../experiencia.html">Experiencia</a>
-      <a href="../proyectos.html">Proyectos</a>
-      <a href="../contacto.html">Contacto</a>
+      <a href="../index.html#top" data-i18n data-en="Home">Inicio</a>
+      <a href="../sobre-mi.html" data-i18n data-en="About">Sobre mí</a>
+      <a href="../experiencia.html" data-i18n data-en="Experience">Experiencia</a>
+      <a href="../proyectos.html" data-i18n data-en="Projects">Proyectos</a>
+      <a href="../contacto.html" data-i18n data-en="Contact">Contacto</a>
     </div>
     <div class="footer-col">
-      <h4>Contacto</h4>
+      <h4 data-i18n data-en="Contact">Contacto</h4>
       <a href="mailto:mariafernandajuarezdg@gmail.com">mariafernandajuarezdg@gmail.com</a>
       <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener">LinkedIn</a>
-      <span>Rosario y Nuñez, Argentina</span>
+      <span data-i18n data-en="Rosario &amp; Nuñez, Argentina">Rosario y Nuñez, Argentina</span>
     </div>
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 María Fernanda Juárez</span>
-    <span>UX UI AI Lead · Rosario y Nuñez, AR</span>
+    <span data-i18n data-en="UX UI AI Lead · Rosario &amp; Nuñez, AR">UX UI AI Lead · Rosario y Nuñez, AR</span>
   </div>
 </footer>
 
@@ -707,6 +726,53 @@
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script>
 document.documentElement.classList.add('pre-anim');
+
+/* ============================================================
+   0. LANGUAGE SWITCH (ES / EN)
+   Elements marked data-i18n carry the English version inline in
+   data-en (HTML for normal elements, plain value for meta/title/img
+   alt). The Spanish original is cached in a data attribute the first
+   time it runs, so toggling is symmetric and needs no dictionary file.
+   ============================================================ */
+function getLang(){
+  try { return localStorage.getItem('lang') === 'en' ? 'en' : 'es'; }
+  catch(e){ return 'es'; }
+}
+function applyLang(lang){
+  document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'es');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const tag = el.tagName;
+    const en = el.getAttribute('data-en');
+    if (tag === 'META') {
+      if (el.dataset.es === undefined) el.dataset.es = el.getAttribute('content') || '';
+      el.setAttribute('content', lang === 'en' ? (en || '') : el.dataset.es);
+    } else if (tag === 'IMG') {
+      if (el.dataset.es === undefined) el.dataset.es = el.getAttribute('alt') || '';
+      el.setAttribute('alt', lang === 'en' ? (en || '') : el.dataset.es);
+    } else if (tag === 'TITLE') {
+      if (el.dataset.es === undefined) el.dataset.es = el.textContent;
+      el.textContent = lang === 'en' ? (en || el.textContent) : el.dataset.es;
+    } else {
+      if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+      if (en !== null) el.innerHTML = lang === 'en' ? en : el.dataset.es;
+      el.removeAttribute('aria-label');
+    }
+  });
+  document.querySelectorAll('[data-en-cursor]').forEach(el => {
+    if (el.dataset.esCursor === undefined) el.dataset.esCursor = el.getAttribute('data-cursor') || '';
+    el.setAttribute('data-cursor', lang === 'en' ? el.getAttribute('data-en-cursor') : el.dataset.esCursor);
+  });
+  document.querySelectorAll('[data-lang-btn]').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
+  });
+  try { localStorage.setItem('lang', lang); } catch(e){}
+  window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
+}
+function initLangToggle(){
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang-btn')));
+  });
+}
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hasGsap = typeof gsap !== 'undefined';
@@ -1194,6 +1260,8 @@ function initPulse(){
    BOOT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
+  applyLang(getLang());
+  initLangToggle();
   initMenu();
   initAnchors();
   initCursor();

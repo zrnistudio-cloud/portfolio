@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <title>María Fernanda Juárez — UX UI AI Lead · Product Designer</title>
-<meta name="description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." />
+<meta name="description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." data-i18n data-en="UX/UI Product Designer with strategic vision and end-to-end leadership. Specialized in fintech, insurance, CRMs and scalable digital products. Rosario &amp; Nuñez, Argentina." />
 <meta name="author" content="María Fernanda Juárez" />
 <meta name="robots" content="noindex, nofollow" />
 
@@ -119,6 +119,14 @@
   .menu-btn:hover{background:var(--olive-dark);}
   .menu-btn .plus{font-size:16px;transition:transform .4s var(--ease);display:inline-block;}
   body.menu-open .menu-btn .plus{transform:rotate(135deg);}
+
+  /* ===== language switch ===== */
+  .lang-toggle{display:flex;align-items:center;gap:2px;background:var(--paper);border:1px solid var(--border);border-radius:20px;padding:3px;}
+  .lang-btn{font-family:var(--font-pixel);font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:6px 10px;border-radius:16px;color:var(--dim);transition:background .25s var(--ease),color .25s var(--ease);}
+  .lang-btn:hover{color:var(--black);}
+  .lang-btn.active{background:var(--olive);color:var(--white);}
+  .lang-btn.active:hover{color:var(--white);}
+  .menu-footer .lang-toggle{margin-top:2px;}
 
   /* ===== menu overlay ===== */
   .menu-overlay{
@@ -562,10 +570,14 @@
 <div class="cursor" id="cursor"><p>Ver</p></div>
 
 <header class="site-nav">
-  <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio">María Fernanda Juárez</a>
+  <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio" data-en-cursor="Back to top">María Fernanda Juárez</a>
   <div class="nav-right">
+    <div class="lang-toggle" data-lang-toggle role="group" aria-label="Idioma / Language">
+      <button type="button" class="lang-btn" data-lang-btn="es">ES</button>
+      <button type="button" class="lang-btn" data-lang-btn="en">EN</button>
+    </div>
     <button class="menu-btn" id="menuToggle" aria-expanded="false" aria-controls="menuOverlay" data-hover-anim>
-      <span class="plus">+</span> <span data-hover-text>Menú</span>
+      <span class="plus">+</span> <span data-hover-text data-i18n data-en="Menu">Menú</span>
     </button>
   </div>
 </header>
@@ -573,22 +585,29 @@
 <div class="menu-overlay" id="menuOverlay">
   <nav>
     <ul class="menu-links">
-      <li><span class="num">01</span><a href="../index.html#top" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Inicio</span></a></li>
-      <li><span class="num">02</span><a href="../sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Sobre mí</span></a></li>
-      <li><span class="num">03</span><a href="../experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Experiencia</span></a></li>
-      <li><span class="num">04</span><a href="../proyectos.html" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text>Proyectos</span></a></li>
-      <li><span class="num">05</span><a href="../contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text>Contacto</span></a></li>
+      <li><span class="num">01</span><a href="../index.html#top" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Home">Inicio</span></a></li>
+      <li><span class="num">02</span><a href="../sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="About">Sobre mí</span></a></li>
+      <li><span class="num">03</span><a href="../experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Experience">Experiencia</span></a></li>
+      <li><span class="num">04</span><a href="../proyectos.html" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text data-i18n data-en="Projects">Proyectos</span></a></li>
+      <li><span class="num">05</span><a href="../contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Contact">Contacto</span></a></li>
     </ul>
   </nav>
   <div class="nav-corners" id="navCorners"><span></span><span></span><span></span><span></span></div>
   <div class="menu-footer">
     <div class="col">
-      <span>Sociales</span>
-      <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" data-cursor="Ir a LinkedIn">LinkedIn</a>
+      <span data-i18n data-en="Social">Sociales</span>
+      <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener" data-cursor="Ir a LinkedIn" data-en-cursor="Go to LinkedIn">LinkedIn</a>
     </div>
     <div class="col">
-      <span>Escribime</span>
-      <a href="mailto:mariafernandajuarezdg@gmail.com" data-cursor="Enviar mail">[ mariafernandajuarezdg@gmail.com ]</a>
+      <span data-i18n data-en="Write to me">Escribime</span>
+      <a href="mailto:mariafernandajuarezdg@gmail.com" data-cursor="Enviar mail" data-en-cursor="Send email">[ mariafernandajuarezdg@gmail.com ]</a>
+    </div>
+    <div class="col">
+      <span data-i18n data-en="Language">Idioma</span>
+      <div class="lang-toggle" data-lang-toggle role="group" aria-label="Idioma / Language">
+        <button type="button" class="lang-btn" data-lang-btn="es">Español</button>
+        <button type="button" class="lang-btn" data-lang-btn="en">English</button>
+      </div>
     </div>
   </div>
 </div>
@@ -597,14 +616,14 @@
 
   <section class="cs-hero">
     <div class="wrap">
-      <div class="section-tag" data-anim="fade">Case study · UX Lead</div>
+      <div class="section-tag" data-anim="fade" data-i18n data-en="Case study · UX Lead">Case study · UX Lead</div>
       <h1 data-anim="letters">Oterix</h1>
-      <p class="cs-intro" data-anim="lines">Diseño UX/UI de OTERIX, un SaaS de gestión de órdenes de trabajo industrial que digitaliza el mantenimiento de planta: activos, preventivos y trazabilidad completa, en producción y operativo hoy.</p>
+      <p class="cs-intro" data-anim="lines" data-i18n data-en="UX/UI design for OTERIX, a SaaS for managing industrial work orders that digitizes plant maintenance: assets, preventive maintenance and full traceability, in production and operating today.">Diseño UX/UI de OTERIX, un SaaS de gestión de órdenes de trabajo industrial que digitaliza el mantenimiento de planta: activos, preventivos y trazabilidad completa, en producción y operativo hoy.</p>
       <dl class="cs-meta-grid" data-anim="stagger">
-        <div><dt>Rol</dt><dd>UX Lead · Product Designer</dd></div>
-        <div><dt>Industria</dt><dd>B2B · Industrial Tech</dd></div>
-        <div><dt>Alcance</dt><dd>Research · UX/UI · System Design</dd></div>
-        <div><dt>Año</dt><dd>2024</dd></div>
+        <div><dt data-i18n data-en="Role">Rol</dt><dd>UX Lead · Product Designer</dd></div>
+        <div><dt data-i18n data-en="Industry">Industria</dt><dd>B2B · Industrial Tech</dd></div>
+        <div><dt data-i18n data-en="Scope">Alcance</dt><dd>Research · UX/UI · System Design</dd></div>
+        <div><dt data-i18n data-en="Year">Año</dt><dd>2024</dd></div>
       </dl>
     </div>
   </section>
@@ -625,23 +644,23 @@
   <section class="cs-section">
     <div class="wrap">
       <span class="cs-section-num">Overview</span>
-      <h2>Mantenimiento industrial, digitalizado</h2>
-      <p class="lead">OTERIX digitaliza las órdenes de trabajo, activos y preventivos de una planta industrial, con trazabilidad completa y control en tiempo real desde cualquier dispositivo.</p>
+      <h2 data-i18n data-en="Industrial maintenance, digitized">Mantenimiento industrial, digitalizado</h2>
+      <p class="lead" data-i18n data-en="OTERIX digitizes work orders, assets and preventive maintenance for an industrial plant, with full traceability and real-time control from any device.">OTERIX digitaliza las órdenes de trabajo, activos y preventivos de una planta industrial, con trazabilidad completa y control en tiempo real desde cualquier dispositivo.</p>
       <div class="cs-cards" data-anim="stagger">
         <div class="cs-card">
-          <span class="tag">Problema</span>
-          <h3>Mantenimiento sin sistema</h3>
-          <p>Órdenes en papel o Excel, sin trazabilidad de activos, aprobaciones que demoran días y equipos descoordinados. El 40% del tiempo se pierde buscando información, y el 60% de las fallas podrían evitarse con un preventivo bien gestionado.</p>
+          <span class="tag" data-i18n data-en="Problem">Problema</span>
+          <h3 data-i18n data-en="Maintenance without a system">Mantenimiento sin sistema</h3>
+          <p data-i18n data-en="Orders on paper or Excel, no asset traceability, approvals that take days, and uncoordinated teams. 40% of time is lost searching for information, and 60% of failures could be prevented with well-managed preventive maintenance.">Órdenes en papel o Excel, sin trazabilidad de activos, aprobaciones que demoran días y equipos descoordinados. El 40% del tiempo se pierde buscando información, y el 60% de las fallas podrían evitarse con un preventivo bien gestionado.</p>
         </div>
         <div class="cs-card">
-          <span class="tag">Solución</span>
-          <h3>Sistema real y operativo</h3>
-          <p>OTs con prioridad (P1 a P5), flujo de aprobación por roles, estructura jerárquica Área → Categoría → Activo con historial, preventivos con recurrencia y calendario automático, acceso mobile y notificaciones por WhatsApp.</p>
+          <span class="tag" data-i18n data-en="Solution">Solución</span>
+          <h3 data-i18n data-en="A real, operational system">Sistema real y operativo</h3>
+          <p data-i18n data-en="Work orders with priority (P1 to P5), role-based approval flow, hierarchical structure Area → Category → Asset with history, recurring preventive maintenance with automatic scheduling, mobile access and WhatsApp notifications.">OTs con prioridad (P1 a P5), flujo de aprobación por roles, estructura jerárquica Área → Categoría → Activo con historial, preventivos con recurrencia y calendario automático, acceso mobile y notificaciones por WhatsApp.</p>
         </div>
         <div class="cs-card">
-          <span class="tag">Impacto</span>
-          <h3>Resultados medibles</h3>
-          <p>-30% en tiempo de resolución, 100% de registro digital con trazabilidad real, +45% de cumplimiento del preventivo y acceso 24/7. Implementación en menos de una semana, multi-empresa y multi-planta.</p>
+          <span class="tag" data-i18n data-en="Impact">Impacto</span>
+          <h3 data-i18n data-en="Measurable results">Resultados medibles</h3>
+          <p data-i18n data-en="-30% in resolution time, 100% digital record with real traceability, +45% preventive-maintenance compliance and 24/7 access. Implementation in under a week, multi-company and multi-plant.">-30% en tiempo de resolución, 100% de registro digital con trazabilidad real, +45% de cumplimiento del preventivo y acceso 24/7. Implementación en menos de una semana, multi-empresa y multi-planta.</p>
         </div>
       </div>
     </div>
@@ -649,28 +668,28 @@
 
   <section class="cs-section">
     <div class="wrap">
-      <span class="cs-section-num">Proceso</span>
-      <h2>Cómo llegué a la solución</h2>
+      <span class="cs-section-num" data-i18n data-en="Process">Proceso</span>
+      <h2 data-i18n data-en="How I arrived at the solution">Cómo llegué a la solución</h2>
       <div class="cs-process" data-anim="stagger">
         <div class="cs-process-step">
           <span class="num">01</span>
           <h4>Research & Discovery</h4>
-          <p>Entrevistas en profundidad con técnicos, supervisores y gerentes de planta, más shadowing de jornadas completas para entender pain points reales.</p>
+          <p data-i18n data-en="In-depth interviews with technicians, supervisors and plant managers, plus full-shift shadowing to understand real pain points.">Entrevistas en profundidad con técnicos, supervisores y gerentes de planta, más shadowing de jornadas completas para entender pain points reales.</p>
         </div>
         <div class="cs-process-step">
           <span class="num">02</span>
-          <h4>Arquitectura de información</h4>
-          <p>Flujos de trabajo optimizados desde la creación hasta el cierre de órdenes, priorizando velocidad y claridad en entornos de alta presión.</p>
+          <h4 data-i18n data-en="Information architecture">Arquitectura de información</h4>
+          <p data-i18n data-en="Optimized workflows from order creation to closure, prioritizing speed and clarity in high-pressure environments.">Flujos de trabajo optimizados desde la creación hasta el cierre de órdenes, priorizando velocidad y claridad en entornos de alta presión.</p>
         </div>
         <div class="cs-process-step">
           <span class="num">03</span>
-          <h4>Diseño de interfaz</h4>
-          <p>Wireframes de baja fidelidad validados con usuarios, con diseño visual adaptado a condiciones reales: tablets industriales, guantes, ambientes de planta.</p>
+          <h4 data-i18n data-en="Interface design">Diseño de interfaz</h4>
+          <p data-i18n data-en="Low-fidelity wireframes validated with users, with visual design adapted to real conditions: industrial tablets, gloves, plant environments.">Wireframes de baja fidelidad validados con usuarios, con diseño visual adaptado a condiciones reales: tablets industriales, guantes, ambientes de planta.</p>
         </div>
         <div class="cs-process-step">
           <span class="num">04</span>
-          <h4>Validación & iteración</h4>
-          <p>Tests de usabilidad en contexto operativo real, con simplificación de formularios y mejora del sistema de alertas.</p>
+          <h4 data-i18n data-en="Validation & iteration">Validación & iteración</h4>
+          <p data-i18n data-en="Usability tests in a real operational context, with simplified forms and an improved alert system.">Tests de usabilidad en contexto operativo real, con simplificación de formularios y mejora del sistema de alertas.</p>
         </div>
       </div>
     </div>
@@ -678,14 +697,14 @@
 
   <section class="cs-section">
     <div class="wrap">
-      <span class="cs-section-num">Decisiones clave</span>
-      <h2>Diseño de la solución</h2>
+      <span class="cs-section-num" data-i18n data-en="Key decisions">Decisiones clave</span>
+      <h2 data-i18n data-en="Solution design">Diseño de la solución</h2>
       <div class="cs-cards" data-anim="stagger">
-        <div class="cs-card"><h3>Dashboard en tiempo real</h3><p>Visibilidad completa del estado de planta — OTs abiertas, críticas y cerradas, técnicos asignados y tiempos de resolución.</p></div>
-        <div class="cs-card"><h3>Jerarquía Área → Categoría → Activo</h3><p>Estructura para organizar toda la planta, con historial de intervenciones y materiales asociados por activo.</p></div>
-        <div class="cs-card"><h3>Flujo de aprobación por roles</h3><p>Estados claros (Emitida → Aprobada → En ejecución → Cerrada) con permisos diferenciados por rol.</p></div>
-        <div class="cs-card"><h3>Preventivos con recurrencia</h3><p>Programación de OTs preventivas con generación automática del calendario y alertas anticipadas.</p></div>
-        <div class="cs-card"><h3>WhatsApp como canal operativo</h3><p>Notificación al técnico al asignarle una OT y aviso al supervisor ante una orden crítica, con enlace directo desde el mensaje.</p></div>
+        <div class="cs-card"><h3 data-i18n data-en="Real-time dashboard">Dashboard en tiempo real</h3><p data-i18n data-en="Full visibility into plant status — open, critical and closed work orders, assigned technicians and resolution times.">Visibilidad completa del estado de planta — OTs abiertas, críticas y cerradas, técnicos asignados y tiempos de resolución.</p></div>
+        <div class="cs-card"><h3 data-i18n data-en="Area → Category → Asset hierarchy">Jerarquía Área → Categoría → Activo</h3><p data-i18n data-en="A structure to organize the entire plant, with intervention history and materials linked to each asset.">Estructura para organizar toda la planta, con historial de intervenciones y materiales asociados por activo.</p></div>
+        <div class="cs-card"><h3 data-i18n data-en="Role-based approval flow">Flujo de aprobación por roles</h3><p data-i18n data-en="Clear states (Issued → Approved → In progress → Closed) with role-differentiated permissions.">Estados claros (Emitida → Aprobada → En ejecución → Cerrada) con permisos diferenciados por rol.</p></div>
+        <div class="cs-card"><h3 data-i18n data-en="Recurring preventive maintenance">Preventivos con recurrencia</h3><p data-i18n data-en="Scheduling of preventive work orders with automatic calendar generation and early alerts.">Programación de OTs preventivas con generación automática del calendario y alertas anticipadas.</p></div>
+        <div class="cs-card"><h3 data-i18n data-en="WhatsApp as an operational channel">WhatsApp como canal operativo</h3><p data-i18n data-en="Notifies the technician when a work order is assigned and alerts the supervisor on a critical order, with a direct link from the message.">Notificación al técnico al asignarle una OT y aviso al supervisor ante una orden crítica, con enlace directo desde el mensaje.</p></div>
       </div>
     </div>
   </section>
@@ -693,17 +712,17 @@
   <section class="section-pad">
     <div class="wrap">
       <div class="cs-stats" data-anim="stagger">
-        <div class="cs-stat"><b>-30%</b><span>Tiempo de resolución</span></div>
-        <div class="cs-stat"><b>100%</b><span>Registro digital y trazabilidad</span></div>
-        <div class="cs-stat"><b>+45%</b><span>Cumplimiento del preventivo</span></div>
+        <div class="cs-stat"><b>-30%</b><span data-i18n data-en="Resolution time">Tiempo de resolución</span></div>
+        <div class="cs-stat"><b>100%</b><span data-i18n data-en="Digital record and traceability">Registro digital y trazabilidad</span></div>
+        <div class="cs-stat"><b>+45%</b><span data-i18n data-en="Preventive-maintenance compliance">Cumplimiento del preventivo</span></div>
       </div>
     </div>
   </section>
 
   <section class="section-pad" style="padding-top:0;">
     <div class="wrap cs-closing">
-      <p>OTERIX está operativo en producción hoy, con implementación en menos de una semana y soporte multi-empresa y multi-planta. Los equipos técnicos acceden a toda la información desde el celular, mientras supervisores y gerencia tienen visibilidad 24/7 sobre el estado real de la operación.</p>
-      <a href="../proyectos.html" class="cs-nav-back" data-hover-anim data-cursor="Volver" style="margin-top:40px;"><span data-hover-text>← Volver a proyectos</span></a>
+      <p data-i18n data-en="OTERIX is operating in production today, with implementation in under a week and multi-company, multi-plant support. Technical teams access all information from their phone, while supervisors and management have 24/7 visibility into the real state of the operation.">OTERIX está operativo en producción hoy, con implementación en menos de una semana y soporte multi-empresa y multi-planta. Los equipos técnicos acceden a toda la información desde el celular, mientras supervisores y gerencia tienen visibilidad 24/7 sobre el estado real de la operación.</p>
+      <a href="../proyectos.html" class="cs-nav-back" data-hover-anim data-cursor="Volver" data-en-cursor="Back" style="margin-top:40px;"><span data-hover-text data-i18n data-en="← Back to projects">← Volver a proyectos</span></a>
     </div>
   </section>
 
@@ -712,27 +731,27 @@
 <footer>
   <div class="wrap footer-top">
     <div class="footer-brand">
-      <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio">María Fernanda Juárez</a>
-      <p>Product Designer UX/UI. Visión estratégica y liderazgo end-to-end en fintech, seguros, CRMs y productos digitales escalables.</p>
+      <a href="../index.html#top" class="logo-mark" data-cursor="Al inicio" data-en-cursor="Back to top">María Fernanda Juárez</a>
+      <p data-i18n data-en="Product Designer UX/UI. Strategic vision and end-to-end leadership in fintech, insurance, CRMs and scalable digital products.">Product Designer UX/UI. Visión estratégica y liderazgo end-to-end en fintech, seguros, CRMs y productos digitales escalables.</p>
     </div>
     <div class="footer-col">
       <h4>Links</h4>
-      <a href="../index.html#top">Inicio</a>
-      <a href="../sobre-mi.html">Sobre mí</a>
-      <a href="../experiencia.html">Experiencia</a>
-      <a href="../proyectos.html">Proyectos</a>
-      <a href="../contacto.html">Contacto</a>
+      <a href="../index.html#top" data-i18n data-en="Home">Inicio</a>
+      <a href="../sobre-mi.html" data-i18n data-en="About">Sobre mí</a>
+      <a href="../experiencia.html" data-i18n data-en="Experience">Experiencia</a>
+      <a href="../proyectos.html" data-i18n data-en="Projects">Proyectos</a>
+      <a href="../contacto.html" data-i18n data-en="Contact">Contacto</a>
     </div>
     <div class="footer-col">
-      <h4>Contacto</h4>
+      <h4 data-i18n data-en="Contact">Contacto</h4>
       <a href="mailto:mariafernandajuarezdg@gmail.com">mariafernandajuarezdg@gmail.com</a>
       <a href="https://www.linkedin.com/in/mariafernandajuarez" target="_blank" rel="noopener">LinkedIn</a>
-      <span>Rosario y Nuñez, Argentina</span>
+      <span data-i18n data-en="Rosario &amp; Nuñez, Argentina">Rosario y Nuñez, Argentina</span>
     </div>
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 María Fernanda Juárez</span>
-    <span>UX UI AI Lead · Rosario y Nuñez, AR</span>
+    <span data-i18n data-en="UX UI AI Lead · Rosario &amp; Nuñez, AR">UX UI AI Lead · Rosario y Nuñez, AR</span>
   </div>
 </footer>
 
@@ -742,6 +761,53 @@
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script>
 document.documentElement.classList.add('pre-anim');
+
+/* ============================================================
+   0. LANGUAGE SWITCH (ES / EN)
+   Elements marked data-i18n carry the English version inline in
+   data-en (HTML for normal elements, plain value for meta/title/img
+   alt). The Spanish original is cached in a data attribute the first
+   time it runs, so toggling is symmetric and needs no dictionary file.
+   ============================================================ */
+function getLang(){
+  try { return localStorage.getItem('lang') === 'en' ? 'en' : 'es'; }
+  catch(e){ return 'es'; }
+}
+function applyLang(lang){
+  document.documentElement.setAttribute('lang', lang === 'en' ? 'en' : 'es');
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const tag = el.tagName;
+    const en = el.getAttribute('data-en');
+    if (tag === 'META') {
+      if (el.dataset.es === undefined) el.dataset.es = el.getAttribute('content') || '';
+      el.setAttribute('content', lang === 'en' ? (en || '') : el.dataset.es);
+    } else if (tag === 'IMG') {
+      if (el.dataset.es === undefined) el.dataset.es = el.getAttribute('alt') || '';
+      el.setAttribute('alt', lang === 'en' ? (en || '') : el.dataset.es);
+    } else if (tag === 'TITLE') {
+      if (el.dataset.es === undefined) el.dataset.es = el.textContent;
+      el.textContent = lang === 'en' ? (en || el.textContent) : el.dataset.es;
+    } else {
+      if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+      if (en !== null) el.innerHTML = lang === 'en' ? en : el.dataset.es;
+      el.removeAttribute('aria-label');
+    }
+  });
+  document.querySelectorAll('[data-en-cursor]').forEach(el => {
+    if (el.dataset.esCursor === undefined) el.dataset.esCursor = el.getAttribute('data-cursor') || '';
+    el.setAttribute('data-cursor', lang === 'en' ? el.getAttribute('data-en-cursor') : el.dataset.esCursor);
+  });
+  document.querySelectorAll('[data-lang-btn]').forEach(b => {
+    b.classList.toggle('active', b.getAttribute('data-lang-btn') === lang);
+  });
+  try { localStorage.setItem('lang', lang); } catch(e){}
+  window.dispatchEvent(new CustomEvent('langchange', { detail: { lang } }));
+}
+function initLangToggle(){
+  document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.getAttribute('data-lang-btn')));
+  });
+}
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hasGsap = typeof gsap !== 'undefined';
@@ -1229,6 +1295,8 @@ function initPulse(){
    BOOT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
+  applyLang(getLang());
+  initLangToggle();
   initMenu();
   initAnchors();
   initCursor();
