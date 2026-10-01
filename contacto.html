@@ -7,7 +7,19 @@
 <title data-i18n data-en="Contact — María Fernanda Juárez">Contacto — María Fernanda Juárez</title>
 <meta name="description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." data-i18n data-en="UX/UI Product Designer with strategic vision and end-to-end leadership. Specialized in fintech, insurance, CRMs and scalable digital products. Rosario &amp; Nuñez, Argentina." />
 <meta name="author" content="María Fernanda Juárez" />
-<meta name="robots" content="noindex, nofollow" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://mfernandaj-portfolio.vercel.app/contacto.html" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Contacto — María Fernanda Juárez" />
+<meta property="og:description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." />
+<meta property="og:url" content="https://mfernandaj-portfolio.vercel.app/contacto.html" />
+<meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/fer.jpg" />
+<meta property="og:locale" content="es_AR" />
+<meta property="og:site_name" content="María Fernanda Juárez — Portfolio" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Contacto — María Fernanda Juárez" />
+<meta name="twitter:description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." />
+<meta name="twitter:image" content="https://mfernandaj-portfolio.vercel.app/assets/fer.jpg" />
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%235b6e2b'/><text y='0.75em' x='0.15em' font-size='55' fill='%23befd66' font-family='monospace'>Mf</text></svg>" />
 
@@ -505,6 +517,27 @@
     .principles-grid{grid-template-columns:1fr;}
   }
 
+  /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
+  @media (max-width:420px){
+    header.site-nav{padding:14px 16px;}
+    .logo-mark{
+      font-size:9px;padding:6px 8px;max-width:38vw;
+      overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    }
+    .nav-right{gap:8px;}
+    .lang-toggle{padding:2px;}
+    .lang-btn{padding:5px 7px;font-size:9px;}
+    .menu-btn{
+      padding:0;gap:0;border-radius:50%;width:38px;height:38px;
+      justify-content:center;flex-shrink:0;
+    }
+    .menu-btn .plus{font-size:18px;}
+    .menu-btn span:not(.plus){
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+      overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
+    }
+  }
+
   @media (prefers-reduced-motion:reduce){
     *{animation-duration:.01ms !important;transition-duration:.01ms !important;}
     html.pre-anim [data-anim]{visibility:visible;}
@@ -785,12 +818,19 @@ function initReveals(instant){
     };
 
     if (type === 'letters') {
-      const letters = splitLetters(el);
-      gsap.set(el, { visibility: 'visible' });
-      gsap.from(letters, {
-        yPercent: 115, duration: 0.9, ease: 'power3.out',
-        stagger: { each: 0.016, from: 'start' }, ...base
-      });
+      if (window.innerWidth <= 480) {
+        // Small phones: skip letter-splitting so the hero text never renders
+        // fragmented mid-animation — fade/slide the whole line instead.
+        gsap.set(el, { visibility: 'visible' });
+        gsap.from(el, { y: 20, opacity: 0, duration: 0.6, ease: 'power3.out', ...base });
+      } else {
+        const letters = splitLetters(el);
+        gsap.set(el, { visibility: 'visible' });
+        gsap.from(letters, {
+          yPercent: 115, duration: 0.9, ease: 'power3.out',
+          stagger: { each: 0.016, from: 'start' }, ...base
+        });
+      }
     }
     else if (type === 'words') {
       const words = splitWords(el);
@@ -1088,6 +1128,9 @@ function initMarquee(){
    10. METRIC COUNTERS
    ============================================================ */
 function initCounters(){
+  // The final value is already in the markup (data-count/data-suffix build it),
+  // so counters never render "0" even if GSAP fails to load or reduced-motion
+  // is on — this just layers a count-up animation on top when possible.
   if (!hasGsap || reduceMotion) return;
   document.querySelectorAll('[data-count]').forEach(el => {
     const end = parseFloat(el.getAttribute('data-count'));
@@ -1096,6 +1139,7 @@ function initCounters(){
     gsap.to(obj, {
       v: end, duration: 1.4, ease: 'power2.out',
       scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+      onStart: () => { el.textContent = '0' + suffix; },
       onUpdate: () => { el.textContent = Math.round(obj.v) + suffix; }
     });
   });
