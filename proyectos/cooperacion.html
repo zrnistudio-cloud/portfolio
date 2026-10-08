@@ -653,6 +653,20 @@
   }
   @media (max-width:600px){ .cs-shots.desk{grid-template-columns:1fr;} .cs-shots.phones{grid-auto-columns:68%;} }
 
+  /* ===== cooperacion: hero phone mockup + fila de 3 ===== */
+  .cs-hero-grid{grid-template-columns:1fr 340px;}
+  .cs-hero-visual{position:relative;display:flex;justify-content:center;}
+  .cs-hero-visual::before{content:'';position:absolute;inset:6% -8% 2% -8%;background:radial-gradient(circle at 50% 45%,rgba(190,253,102,.55),rgba(91,110,43,.12) 62%,transparent 72%);z-index:0;}
+  .phone-mockup{position:relative;z-index:1;width:100%;max-width:290px;padding:11px;border-radius:46px;background:linear-gradient(145deg,#2b2b2b,#0d0d0d);box-shadow:0 0 0 2px #3a3a3a inset,0 40px 70px -18px rgba(0,0,0,.55),0 14px 28px -10px rgba(0,0,0,.35);transform:rotate(3deg);}
+  .phone-screen{position:relative;border-radius:36px;overflow:hidden;background:#fff;aspect-ratio:750/1730;}
+  .phone-screen img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+  .phone-notch{position:absolute;top:9px;left:50%;transform:translateX(-50%);width:34%;height:20px;background:#0d0d0d;border-radius:14px;z-index:2;}
+  .phone-btn{position:absolute;width:3px;background:#2b2b2b;border-radius:2px;}
+  .phone-btn.pb1{left:-3px;top:15%;height:7%;} .phone-btn.pb2{left:-3px;top:25%;height:11%;} .phone-btn.pb3{right:-3px;top:22%;height:16%;}
+  @media (max-width:900px){ .cs-hero-grid{grid-template-columns:1fr;} .cs-hero-visual{max-width:none;order:-1;margin:0 auto 8px;} .phone-mockup{max-width:230px;} }
+  .cs-shots.row3{grid-template-columns:repeat(3,1fr);width:100%;}
+  @media (max-width:700px){ .cs-shots.row3{grid-template-columns:1fr;} }
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -734,11 +748,24 @@
 
   <section class="cs-hero">
     <div class="wrap">
-      <div class="section-tag" data-anim="fade" data-i18n data-en="Case study · UX/UI Product Designer">Case study · Product Designer UX/UI</div>
-      <h1 data-anim="letters">Cooperación Seguros</h1>
-      <p class="cs-intro" data-anim="lines" data-i18n data-en="Cooperación Seguros is an Argentine insurer with a national network of independent agents (Productores Asesores) managing life, workers&#x27; comp and general insurance policies for thousands of policyholders across the country. When I joined, much of that operation — quoting, filing a claim, paying a policy — still depended on the phone, email or a loose spreadsheet. As the team&#x27;s sole UX/UI designer, I led the end-to-end design of four products that cover the whole operation: AOL (policyholders&#x27; app), PortalPAS (agents&#x27; portal), ePagos (payment gateway) and the internal Intranet — all on a shared Design System.">Cooperación Seguros es una aseguradora argentina con una red nacional de Productores Asesores que gestionan pólizas de vida, ART y seguros generales para miles de asegurados en todo el país. Cuando entré, gran parte de esa operación —cotizar, denunciar un siniestro, pagar una póliza— todavía dependía del teléfono, el mail o una planilla suelta. Como única UX/UI del equipo, lideré de punta a punta el diseño de cuatro productos que cubren toda la operación: AOL (app de asegurados), PortalPAS (portal de productores), ePagos (pasarela de pagos) y la Intranet interna — todos sobre un mismo Design System.</p>
-      <div class="cs-tags" data-anim="stagger">
-        <span data-i18n data-en="Insurance">Seguros</span><span>B2B2C</span><span>Design System</span><span>Mobile-first</span>
+      <div class="cs-hero-grid">
+        <div class="cs-hero-text">
+        <div class="section-tag" data-anim="fade" data-i18n data-en="Case study · UX/UI Product Designer">Case study · Product Designer UX/UI</div>
+        <h1 data-anim="letters">Cooperación Seguros</h1>
+        <p class="cs-intro" data-anim="lines" data-i18n data-en="Cooperación Seguros is an Argentine insurer with a national network of independent agents (Productores Asesores) managing life, workers&#x27; comp and general insurance policies for thousands of policyholders across the country. When I joined, much of that operation — quoting, filing a claim, paying a policy — still depended on the phone, email or a loose spreadsheet. As the team&#x27;s sole UX/UI designer, I led the end-to-end design of four products that cover the whole operation: AOL (policyholders&#x27; app), PortalPAS (agents&#x27; portal), ePagos (payment gateway) and the internal Intranet — all on a shared Design System.">Cooperación Seguros es una aseguradora argentina con una red nacional de Productores Asesores que gestionan pólizas de vida, ART y seguros generales para miles de asegurados en todo el país. Cuando entré, gran parte de esa operación —cotizar, denunciar un siniestro, pagar una póliza— todavía dependía del teléfono, el mail o una planilla suelta. Como única UX/UI del equipo, lideré de punta a punta el diseño de cuatro productos que cubren toda la operación: AOL (app de asegurados), PortalPAS (portal de productores), ePagos (pasarela de pagos) y la Intranet interna — todos sobre un mismo Design System.</p>
+        <div class="cs-tags" data-anim="stagger">
+          <span data-i18n data-en="Insurance">Seguros</span><span>B2B2C</span><span>Design System</span><span>Mobile-first</span>
+        </div>
+        </div>
+        <div class="cs-hero-visual" data-anim="fade">
+          <div class="phone-mockup">
+            <span class="phone-btn pb1"></span><span class="phone-btn pb2"></span><span class="phone-btn pb3"></span>
+            <div class="phone-screen">
+              <span class="phone-notch"></span>
+              <img src="../assets/proyectos/cooperacion/AOL/AOL%20-%20home.jpg" alt="AOL — app de Asegurados Online: home con tarjeta de seguro y acceso a pagar">
+            </div>
+          </div>
+        </div>
       </div>
       <dl class="cs-meta-grid" data-anim="stagger">
         <div><dt data-i18n data-en="Role">Rol</dt><dd data-i18n data-en="Sole UX/UI on the team · Product Designer">Única UX/UI del equipo · Product Designer</dd></div>
@@ -804,14 +831,10 @@
             <div class="cs-frente-kpi"><b>-40%</b><span data-i18n data-en="phone queries to administration (estimated)">consultas telefónicas a administración (estimado)</span></div>
             <div class="cs-frente-kpi"><b>3 pasos</b><span data-i18n data-en="to issue a quote">para emitir una cotización</span></div>
           </div>
-          <div class="cs-shots desk">
+          <div class="cs-shots row3">
             <img src="../assets/proyectos/cooperacion/PortalPAS/Cotizar.jpg" alt="PortalPAS — cotizador de seguros en tres pasos" loading="lazy">
             <img src="../assets/proyectos/cooperacion/PortalPAS/Dashboard.jpg" alt="PortalPAS — dashboard con siniestros, recibos, pólizas y cartera" loading="lazy">
             <img src="../assets/proyectos/cooperacion/PortalPAS/Socios.jpg" alt="PortalPAS — gestión de socios con búsqueda por documento" loading="lazy">
-            <img src="../assets/proyectos/cooperacion/PortalPAS/portalpas.jpg" alt="PortalPAS — vistas de propuestas, cobranzas y siniestros" loading="lazy">
-          </div>
-          <div class="cs-shots one">
-            <img src="../assets/proyectos/cooperacion/PortalPAS/portalpas2.jpg" alt="PortalPAS — dashboard, siniestros, gestión de socios, cobranzas y confirmación de cotización" loading="lazy">
           </div>
         </article>
 
