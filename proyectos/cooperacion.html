@@ -4,20 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title>María Fernanda Juárez — UX UI AI Lead · Product Designer</title>
+<title>María Fernanda Juárez — UX/UI AI Lead · Product Designer</title>
 <meta name="description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." data-i18n data-en="UX/UI Product Designer with strategic vision and end-to-end leadership. Specialized in fintech, insurance, CRMs and scalable digital products. Rosario &amp; Nuñez, Argentina." />
 <meta name="author" content="María Fernanda Juárez" />
 <meta name="robots" content="index, follow" />
 <link rel="canonical" href="https://mfernandaj-portfolio.vercel.app/proyectos/cooperacion.html" />
 <meta property="og:type" content="article" />
-<meta property="og:title" content="María Fernanda Juárez — UX UI AI Lead · Product Designer" />
+<meta property="og:title" content="María Fernanda Juárez — UX/UI AI Lead · Product Designer" />
 <meta property="og:description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." />
 <meta property="og:url" content="https://mfernandaj-portfolio.vercel.app/proyectos/cooperacion.html" />
 <meta property="og:image" content="https://mfernandaj-portfolio.vercel.app/assets/proyectos/cooperacion/cover.jpg" />
 <meta property="og:locale" content="es_AR" />
 <meta property="og:site_name" content="María Fernanda Juárez — Portfolio" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="María Fernanda Juárez — UX UI AI Lead · Product Designer" />
+<meta name="twitter:title" content="María Fernanda Juárez — UX/UI AI Lead · Product Designer" />
 <meta name="twitter:description" content="Product Designer UX/UI con visión estratégica y liderazgo end-to-end. Especializada en fintech, seguros, CRMs y productos digitales escalables. Rosario y Nuñez, Argentina." />
 <meta name="twitter:image" content="https://mfernandaj-portfolio.vercel.app/assets/proyectos/cooperacion/cover.jpg" />
 
@@ -630,6 +630,29 @@
     .principles-grid{grid-template-columns:1fr;}
   }
 
+  /* ===== cooperacion: proyectos (objetivo, kpis, shots) ===== */
+  .cs-frente-goal{margin-top:20px;padding:16px 20px;border-left:3px solid var(--olive);background:var(--paper);font-size:15px;line-height:1.65;color:var(--black);max-width:80ch;}
+  .cs-frente-goal strong{display:block;font-family:var(--font-pixel);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--olive);margin-bottom:6px;font-weight:400;}
+  .cs-frente.has-bg .cs-frente-goal{background:var(--off-white);}
+  .cs-frente-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:32px;background:var(--border);border:1px solid var(--border);}
+  .cs-frente-kpi{background:var(--paper);padding:24px 14px;text-align:center;}
+  .cs-frente-kpi b{display:block;font-family:var(--font-pixel);font-size:clamp(16px,1.9vw,24px);color:var(--olive);font-weight:400;}
+  .cs-frente-kpi span{display:block;margin-top:8px;font-size:11px;line-height:1.4;letter-spacing:.3px;text-transform:uppercase;color:var(--dim);}
+  .cs-shots{display:grid;gap:14px;margin-top:32px;}
+  .cs-shots img{width:100%;height:auto;display:block;border-radius:8px;border:1px solid var(--border);background:var(--white);}
+  .cs-shots.desk{grid-template-columns:repeat(2,1fr);}
+  .cs-shots.desk.three{grid-template-columns:repeat(3,1fr);}
+  .cs-shots.phones{grid-template-columns:repeat(5,1fr);}
+  .cs-shots.one{grid-template-columns:1fr;}
+  .cs-shots.narrow{max-width:760px;margin-left:auto;margin-right:auto;}
+  @media (max-width:900px){
+    .cs-frente-kpis{grid-template-columns:repeat(2,1fr);}
+    .cs-shots.desk.three{grid-template-columns:1fr;}
+    .cs-shots.phones{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:46%;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;}
+    .cs-shots.phones img{scroll-snap-align:start;}
+  }
+  @media (max-width:600px){ .cs-shots.desk{grid-template-columns:1fr;} .cs-shots.phones{grid-auto-columns:68%;} }
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -713,15 +736,15 @@
     <div class="wrap">
       <div class="section-tag" data-anim="fade" data-i18n data-en="Case study · UX/UI Product Designer">Case study · Product Designer UX/UI</div>
       <h1 data-anim="letters">Cooperación Seguros</h1>
-      <p class="cs-intro" data-anim="lines" data-i18n data-en="Cooperación Seguros is an Argentine insurer with a national network of independent agents (Productores Asesores) managing life, workers' comp and general insurance policies for thousands of policyholders across the country. When I joined, much of that operation — quoting, filing a claim, paying a policy — still depended on the phone, email or a loose spreadsheet. As the team's sole UX/UI designer, I led the end-to-end redesign of nine platforms, focused on three fronts: the agents' portal, the policyholders' app, and the team's internal intranet.">Cooperación Seguros es una aseguradora argentina con una red nacional de Productores Asesores que gestionan pólizas de vida, ART y seguros generales para miles de asegurados en todo el país. Cuando entré, gran parte de esa operación —cotizar, denunciar un siniestro, pagar una póliza— todavía dependía del teléfono, el mail o una planilla suelta. Como única UX/UI del equipo, lideré de punta a punta el rediseño de nueve plataformas, con foco en tres frentes: el portal de productores, la app de asegurados y la intranet interna del equipo.</p>
+      <p class="cs-intro" data-anim="lines" data-i18n data-en="Cooperación Seguros is an Argentine insurer with a national network of independent agents (Productores Asesores) managing life, workers&#x27; comp and general insurance policies for thousands of policyholders across the country. When I joined, much of that operation — quoting, filing a claim, paying a policy — still depended on the phone, email or a loose spreadsheet. As the team&#x27;s sole UX/UI designer, I led the end-to-end design of four products that cover the whole operation: AOL (policyholders&#x27; app), PortalPAS (agents&#x27; portal), ePagos (payment gateway) and the internal Intranet — all on a shared Design System.">Cooperación Seguros es una aseguradora argentina con una red nacional de Productores Asesores que gestionan pólizas de vida, ART y seguros generales para miles de asegurados en todo el país. Cuando entré, gran parte de esa operación —cotizar, denunciar un siniestro, pagar una póliza— todavía dependía del teléfono, el mail o una planilla suelta. Como única UX/UI del equipo, lideré de punta a punta el diseño de cuatro productos que cubren toda la operación: AOL (app de asegurados), PortalPAS (portal de productores), ePagos (pasarela de pagos) y la Intranet interna — todos sobre un mismo Design System.</p>
       <div class="cs-tags" data-anim="stagger">
         <span data-i18n data-en="Insurance">Seguros</span><span>B2B2C</span><span>Design System</span><span>Mobile-first</span>
       </div>
       <dl class="cs-meta-grid" data-anim="stagger">
         <div><dt data-i18n data-en="Role">Rol</dt><dd data-i18n data-en="Sole UX/UI on the team · Product Designer">Única UX/UI del equipo · Product Designer</dd></div>
         <div><dt data-i18n data-en="Period">Período</dt><dd data-i18n data-en="Jul 2023 – Oct 2025 · 2+ years">Jul 2023 – Oct 2025 · 2+ años</dd></div>
-        <div><dt data-i18n data-en="Scope">Alcance</dt><dd data-i18n data-en="9 platforms · Discovery to launch">9 plataformas · Discovery a lanzamiento</dd></div>
-        <div><dt data-i18n data-en="Industry">Industria</dt><dd data-i18n data-en="Insurance · B2B2C">Seguros · B2B2C</dd></div>
+        <div><dt data-i18n data-en="Scope">Alcance</dt><dd data-i18n data-en="4 products · 9 platforms · Discovery to launch">4 productos · 9 plataformas · Discovery a lanzamiento</dd></div>
+        <div><dt data-i18n data-en="Research">Research</dt><dd data-i18n data-en="18+ interviews with agents &amp; policyholders">18+ entrevistas a productores y asegurados</dd></div>
       </dl>
     </div>
   </section>
@@ -729,7 +752,7 @@
   <nav class="cs-toc" id="csToc" aria-label="Secciones del proyecto">
     <div class="wrap">
       <a href="#overview" data-toc-link>Overview</a>
-      <a href="#frentes" data-toc-link data-i18n data-en="Fronts">Frentes</a>
+      <a href="#frentes" data-toc-link data-i18n data-en="Projects">Proyectos</a>
       <a href="#resultados" data-toc-link data-i18n data-en="Results">Resultados</a>
       <a href="#reflexion" data-toc-link data-i18n data-en="Reflection">Reflexión</a>
     </div>
@@ -738,98 +761,156 @@
   <section class="section-pad" id="overview">
     <div class="wrap">
       <span class="cs-section-num">Overview</span>
-      <h2 data-i18n data-en="Before designing, listening">Antes de diseñar, escuchar</h2>
-      <p class="cs-overview-lead" data-i18n data-en="Cooperación Seguros is an Argentine insurer with a national network of independent agents managing life, workers' comp and general insurance policies for thousands of policyholders across the country. As the team's sole UX/UI designer, with no dedicated research support, I interviewed agents and policyholders before every major redesign and used those findings — not intuition — to decide what to prioritize across the nine-platform redesign.">Cooperación Seguros es una aseguradora argentina con una red nacional de Productores Asesores que gestionan pólizas de vida, ART y seguros generales para miles de asegurados en todo el país. Como única UX/UI del equipo, y sin research dedicado propio, entrevisté productores y asegurados antes de cada rediseño grande y usé esos hallazgos —no la intuición— para decidir qué priorizar en el rediseño de las nueve plataformas.</p>
+      <h2 data-i18n data-en="Listening before designing">Antes de diseñar, escuchar</h2>
+      <p class="cs-overview-lead" data-i18n data-en="As the team&#x27;s sole UX/UI designer, with no dedicated research support, I interviewed agents and policyholders before every major redesign and used those findings — not intuition — to decide what to prioritize. Four products came out of it, each for a different audience, sharing one visual language and one component library.">Como única UX/UI del equipo, y sin research dedicado propio, entrevisté productores y asegurados antes de cada rediseño grande y usé esos hallazgos —no la intuición— para decidir qué priorizar. De ahí salieron cuatro productos, cada uno para una audiencia distinta, compartiendo un mismo lenguaje visual y una misma librería de componentes.</p>
       <div class="cs-stats" data-anim="stagger" style="margin-top:40px;">
+        <div class="cs-stat"><b>4</b><span data-i18n data-en="Core products">Productos core</span></div>
         <div class="cs-stat"><b>9</b><span data-i18n data-en="Platforms designed">Plataformas diseñadas</span></div>
         <div class="cs-stat"><b>2+</b><span data-i18n data-en="Years as sole UX/UI">Años como única UX/UI</span></div>
         <div class="cs-stat"><b>18+</b><span data-i18n data-en="Research interviews">Entrevistas de research</span></div>
-        <div class="cs-stat"><b>3</b><span data-i18n data-en="Highest-impact fronts">Frentes de mayor impacto</span></div>
       </div>
     </div>
   </section>
 
   <section class="cs-section" id="frentes">
     <div class="wrap">
-      <span class="cs-section-num">01 — Frentes</span>
-      <h2 data-i18n data-en="Work fronts">Frentes de trabajo</h2>
-      <p class="lead" data-i18n data-en="Nine platforms share a single Design System, organized across three fronts: the portal agents use every day, the app policyholders use, and the intranet that sustains the internal operation.">Nueve plataformas comparten un mismo Design System, organizadas en tres frentes: el portal que usan los productores todos los días, la app que usan los asegurados, y la intranet que sostiene la operación interna.</p>
+      <span class="cs-section-num">01 — Proyectos</span>
+      <h2 data-i18n data-en="Four products, one ecosystem">Cuatro productos, un ecosistema</h2>
+      <p class="lead" data-i18n data-en="Each product answers a different audience — agents, policyholders, customers paying online and employees — but all share the same Design System, so the experience feels like one company.">Cada producto responde a una audiencia distinta —productores, asegurados, clientes que pagan online y colaboradores— pero todos comparten el mismo Design System, para que la experiencia se sienta como una sola empresa.</p>
 
       <div class="cs-frentes">
         <article class="cs-frente" data-anim="fade">
-          <span class="tag" data-i18n data-en="Core product">Producto core</span>
-          <h3 data-i18n data-en="Agents Portal">Portal Productores</h3>
+          <span class="tag" data-i18n data-en="Core product · Web B2B">Producto core · Web B2B</span>
+          <h3 data-i18n data-en="PortalPAS — Producers Portal">PortalPAS — Portal de Productores</h3>
+          <div class="cs-tags" style="margin-top:16px;"><span data-i18n data-en="Research">Research</span><span>Design System</span><span data-i18n data-en="Dashboards">Dashboards</span><span>Mobile-first</span></div>
+          <p class="cs-frente-goal"><strong data-i18n data-en="Goal">Objetivo</strong> <span data-i18n data-en="Let every insurance agent manage their book end to end — quote, collect, track claims and serve policyholders — without relying on email or the phone.">Que cada Productor Asesor gestione su cartera de punta a punta —cotizar, cobrar, seguir siniestros y atender a sus socios— sin depender del mail ni del teléfono.</span></p>
           <div class="cs-frente-steps">
             <div class="cs-frente-step">
               <span class="cs-frente-step-label" data-i18n data-en="The problem">El problema</span>
-              <p data-i18n data-en="Quoting by email took minutes or hours of back-and-forth, and agents couldn't handle it on the go. They also had no self-service channel for managing collections, policyholders, claims or repetitive questions without calling.">Cotizar por mail tomaba minutos u horas de ida y vuelta, y el productor no podía resolverlo en movimiento. Tampoco tenían un canal propio para autogestionar cobranzas, socios, siniestros o dudas repetitivas sin llamar.</p>
+              <p data-i18n data-en="Quoting by email took minutes or hours of back-and-forth, and agents couldn&#x27;t handle it on the go. They also had no view of their book, due dates or claim status without calling administration.">Cotizar por mail tomaba minutos u horas de ida y vuelta y el productor no podía resolverlo en movimiento. Tampoco veía su cartera, sus vencimientos ni el estado de sus siniestros sin llamar a administración.</p>
             </div>
             <div class="cs-frente-step">
               <span class="cs-frente-step-label" data-i18n data-en="The solution">La solución</span>
-              <p data-i18n data-en="Direct research with agents — 8 out of 10 quoted from their phone, between client visits — defined a mobile-first, four-step quoting flow for the business's five lines, with an instantly downloadable PDF. On that same foundation I designed the dashboard, collections, policyholder management, advanced claims search, and a chatbot that resolves the most repeated queries before routing to a person.">Research directo con productores —8 de cada 10 cotizaban desde el celular, entre visitas a clientes— definió un cotizador mobile-first de cuatro pasos para las cinco ramas del negocio, con PDF descargable al instante. Sobre esa misma base diseñé dashboard, cobranzas, gestión de socios, búsqueda avanzada de siniestros y un chatbot que resuelve las consultas más repetidas antes de derivar a una persona.</p>
+              <p data-i18n data-en="A guided three-step quoting flow (Details, Risk, Quote &amp; send) for Personal Accident, Family Package and Commercial Comprehensive insurance, with an instantly downloadable PDF. On the same foundation: a dashboard with claims, critical receipts and total book, policyholder management searchable by ID/tax ID, advanced claims search, collections and commissions.">Un cotizador guiado de tres pasos (Datos, Riesgo, Cotizar y enviar) para Accidentes Personales, Combinado Familiar e Integral de Comercio, con PDF descargable al instante. Sobre la misma base: un dashboard con siniestros, recibos críticos y cartera total, gestión de socios con búsqueda por DNI/CUIT, búsqueda avanzada de siniestros, cobranzas y comisiones.</p>
             </div>
             <div class="cs-frente-step">
               <span class="cs-frente-step-label" data-i18n data-en="Results">Resultados</span>
-              <p data-i18n data-en="A quoting flow agents complete on their own, from their phone, without waiting on anyone — plus a dedicated channel for everything else.">Un cotizador que el productor completa solo, desde el celular, sin esperar respuesta de nadie — y un canal propio para todo lo demás.</p>
-              <div class="metric" data-i18n data-en="Several min by email → &lt;2 min">Varios min por mail → &lt;2 min</div>
-              <div class="metric-label" data-i18n data-en="300+ active agents nationwide (estimated)">300+ productores activos en todo el país (estimado)</div>
+              <p data-i18n data-en="A single place where the agent completes a quote in under two minutes from their phone and sees at a glance what needs attention today: renewals, overdue receipts and claims under review.">Un único lugar donde el productor completa una cotización en menos de dos minutos desde el celular y ve de un vistazo qué requiere su atención hoy: renovaciones, recibos vencidos y siniestros en evaluación.</p>
             </div>
           </div>
-          <div class="cs-frente-media">
-            <div class="cs-frente-grid">
-              <img src="../assets/proyectos/cooperacion/productores-01.jpg" alt="PortalPAS - cotizador de propiedades, información del riesgo" loading="lazy">
-              <img src="../assets/proyectos/cooperacion/productores-02.jpg" alt="PortalPAS - dashboard, siniestros, gestión de socios y cobranzas" loading="lazy">
-            </div>
+          <div class="cs-frente-kpis">
+            <div class="cs-frente-kpi"><b>&lt;2 min</b><span data-i18n data-en="full quote (before: several min by email)">cotización completa (antes: varios min por mail)</span></div>
+            <div class="cs-frente-kpi"><b>300+</b><span data-i18n data-en="active agents nationwide">productores activos en todo el país</span></div>
+            <div class="cs-frente-kpi"><b>-40%</b><span data-i18n data-en="phone queries to administration (estimated)">consultas telefónicas a administración (estimado)</span></div>
+            <div class="cs-frente-kpi"><b>3 pasos</b><span data-i18n data-en="to issue a quote">para emitir una cotización</span></div>
           </div>
-        </article>
-
-        <article class="cs-frente cs-frente-split" data-anim="fade">
-          <div class="cs-frente-text">
-            <span class="tag" data-i18n data-en="Digital channel · Payments">Canal digital · Pagos</span>
-            <h3 data-i18n data-en="Policyholders App">App Asegurados</h3>
-            <div class="cs-frente-steps">
-              <div class="cs-frente-step">
-                <span class="cs-frente-step-label" data-i18n data-en="The problem">El problema</span>
-                <p data-i18n data-en="Filing a claim depended almost entirely on calling the call center. In research, the friction policyholders mentioned most was having to wait on hold to repeat the same information twice — and paying a policy had no simple digital path either.">Denunciar un siniestro dependía casi por completo de una llamada al call center. En research, la fricción más mencionada por asegurados fue tener que esperar en línea para contar lo mismo dos veces — y pagar una póliza tampoco tenía una vía digital simple.</p>
-              </div>
-              <div class="cs-frente-step">
-                <span class="cs-frente-step-label" data-i18n data-en="The solution">La solución</span>
-                <p data-i18n data-en="I designed a digital claims flow with photo and document upload, without removing the phone option for those who prefer it. In parallel, a three-step payment gateway — details, card and verification — with real-time validation, designed to be completed in under a minute from a WhatsApp or SMS link.">Diseñé un flujo de denuncia digital con carga de fotos y documentación, sin sacar la opción telefónica para quien la prefiera. En paralelo, una pasarela de pagos en tres pasos —datos, tarjeta y verificación— con validación en tiempo real, pensada para completarse en menos de un minuto desde un link de WhatsApp o SMS.</p>
-              </div>
-              <div class="cs-frente-step">
-                <span class="cs-frente-step-label" data-i18n data-en="Results">Resultados</span>
-                <p data-i18n data-en="Two flows that used to require a phone call are now resolved on their own, in minutes, from the policyholder's phone.">Dos flujos que antes exigían una llamada ahora se resuelven solos, en minutos, desde el celular del asegurado.</p>
-                <div class="metric">~40% / ~35%</div>
-                <div class="metric-label" data-i18n data-en="claims via digital channel / policies paid online (estimated)">denuncias por canal digital / pólizas pagadas online (estimado)</div>
-              </div>
-            </div>
+          <div class="cs-shots desk">
+            <img src="../assets/proyectos/cooperacion/PortalPAS/Cotizar.jpg" alt="PortalPAS — cotizador de seguros en tres pasos" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/PortalPAS/Dashboard.jpg" alt="PortalPAS — dashboard con siniestros, recibos, pólizas y cartera" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/PortalPAS/Socios.jpg" alt="PortalPAS — gestión de socios con búsqueda por documento" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/PortalPAS/portalpas.jpg" alt="PortalPAS — vistas de propuestas, cobranzas y siniestros" loading="lazy">
           </div>
-          <div class="cs-frente-media">
-            <div class="cs-frente-grid">
-              <img src="../assets/proyectos/cooperacion/asegurados-01.jpg" alt="e-Pagos - flujo completo en desktop y mobile" loading="lazy">
-              <img src="../assets/proyectos/cooperacion/asegurados-02.jpg" alt="e-Pagos - carga de datos de tarjeta en mobile" loading="lazy">
-            </div>
+          <div class="cs-shots one">
+            <img src="../assets/proyectos/cooperacion/PortalPAS/portalpas2.jpg" alt="PortalPAS — dashboard, siniestros, gestión de socios, cobranzas y confirmación de cotización" loading="lazy">
           </div>
         </article>
 
         <article class="cs-frente has-bg" data-anim="fade">
-          <span class="tag" data-i18n data-en="Internal use">Uso interno</span>
-          <h3 data-i18n data-en="Internal Intranet">Intranet Interna</h3>
+          <span class="tag" data-i18n data-en="Digital channel · Mobile app">Canal digital · App mobile</span>
+          <h3 data-i18n data-en="AOL — Asegurados Online">AOL — Asegurados Online</h3>
+          <div class="cs-tags" style="margin-top:16px;"><span data-i18n data-en="Mobile-first">Mobile-first</span><span>UX Research</span><span>Design System</span><span data-i18n data-en="Accessibility">Accesibilidad</span></div>
+          <p class="cs-frente-goal"><strong data-i18n data-en="Goal">Objetivo</strong> <span data-i18n data-en="Give policyholders full autonomy from their phone — view policies, file a claim, request roadside assistance and pay — without going through the call center.">Darle al asegurado autonomía total desde el celular —consultar sus pólizas, denunciar un siniestro, pedir auxilio mecánico y pagar— sin pasar por el call center.</span></p>
           <div class="cs-frente-steps">
             <div class="cs-frente-step">
               <span class="cs-frente-step-label" data-i18n data-en="The problem">El problema</span>
-              <p data-i18n data-en="The administration team uploaded receipts and reconciled vendors by hand, with loose spreadsheets and no systematic way to validate amounts or keep accounting records.">El equipo de administración cargaba comprobantes y reconciliaba proveedores a mano, con planillas sueltas y sin una forma sistemática de validar importes o llevar el registro contable.</p>
+              <p data-i18n data-en="Filing a claim depended almost entirely on a phone call. In research, the friction policyholders mentioned most was waiting on hold to repeat the same story twice; checking a policy or requesting a tow truck also meant calling.">Denunciar un siniestro dependía casi por completo de una llamada. En research, la fricción más mencionada por asegurados fue esperar en línea para contar lo mismo dos veces; consultar una póliza o pedir una grúa exigía llamar.</p>
             </div>
             <div class="cs-frente-step">
               <span class="cs-frente-step-label" data-i18n data-en="The solution">La solución</span>
-              <p data-i18n data-en="I designed an intranet where the team uploads the invoice and the system automatically recognizes the vendor by tax ID, with three-column accounting distribution and automatic amount validation.">Diseñé una intranet donde el equipo sube la factura y el sistema reconoce automáticamente al proveedor por CUIT, con distribución contable en tres columnas y validación automática del importe.</p>
+              <p data-i18n data-en="An app with five-section navigation (Home, Policies, Claims, Roadside assistance, Contact us). Home shows one card per policy, installment status and a direct pay action; claims are filed in guided steps (vehicle, event, cause, description); policy lookup includes annexes to print, download or pay; roadside assistance offers map location and a one-tap tow request.">Una app con navegación de cinco secciones (Home, Pólizas, Denuncias, Auxilio mecánico, Contactános). Home con una tarjeta por seguro, estado de cuota y acceso directo a pagar; denuncia de siniestro en pasos guiados (vehículo, evento, causa, descripción); consulta de pólizas con anexos para imprimir, descargar o pagar; auxilio mecánico con ubicación en mapa y pedido de grúa en un toque.</p>
             </div>
             <div class="cs-frente-step">
               <span class="cs-frente-step-label" data-i18n data-en="Results">Resultados</span>
-              <p data-i18n data-en="A process that used to live in email and spreadsheets is now a single digital flow, with less manual work and less room for error.">Un proceso que antes vivía en mail y planillas ahora es un flujo digital único, con menos carga manual y menos margen de error.</p>
-              <div class="metric" data-i18n data-en="Email and spreadsheets → digital">Mail y planillas → digital</div>
-              <div class="metric-label" data-i18n data-en="automatic vendor recognition by tax ID">reconocimiento automático de proveedor por CUIT</div>
+              <p data-i18n data-en="The most frequent procedures are now resolved on their own, in minutes, from the policyholder&#x27;s phone, leaving the call center for cases that truly need it.">Los trámites más frecuentes se resuelven solos, en minutos, desde el celular del asegurado, y el call center queda para los casos que de verdad lo necesitan.</p>
             </div>
+          </div>
+          <div class="cs-frente-kpis">
+            <div class="cs-frente-kpi"><b>~40%</b><span data-i18n data-en="claims via digital channel (estimated)">denuncias por canal digital (estimado)</span></div>
+            <div class="cs-frente-kpi"><b>-25%</b><span data-i18n data-en="calls to the call center (estimated)">llamadas al call center (estimado)</span></div>
+            <div class="cs-frente-kpi"><b>&lt;3 min</b><span data-i18n data-en="complete claim filing">denuncia completa de siniestro</span></div>
+            <div class="cs-frente-kpi"><b>5</b><span data-i18n data-en="modules in a single navigation">módulos en una sola navegación</span></div>
+          </div>
+          <div class="cs-shots phones">
+            <img src="../assets/proyectos/cooperacion/AOL/AOL%20-%20home.jpg" alt="AOL — home con tarjeta de seguro y acceso a pagar" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/AOL/Consulta%20denunciasin.jpg" alt="AOL — denuncia de siniestro paso 1" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/AOL/Consulta%20P%C3%93LIZAS.jpg" alt="AOL — consulta de pólizas y anexos" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/AOL/Consulta%20AuxilioM.jpg" alt="AOL — auxilio mecánico con mapa" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/AOL/AOL%20-%20Registro.jpg" alt="AOL — registro de usuario" loading="lazy">
+          </div>
+        </article>
+
+        <article class="cs-frente" data-anim="fade">
+          <span class="tag" data-i18n data-en="Payments · Web + Mobile">Pagos · Web + Mobile</span>
+          <h3 data-i18n data-en="ePagos — Payment gateway">ePagos — Pasarela de pagos</h3>
+          <div class="cs-tags" style="margin-top:16px;"><span data-i18n data-en="Fintech">Fintech</span><span>Payway</span><span data-i18n data-en="Conversion">Conversión</span><span>Responsive</span></div>
+          <p class="cs-frente-goal"><strong data-i18n data-en="Goal">Objetivo</strong> <span data-i18n data-en="Let policyholders pay their installment online in under a minute, without creating an account, from a link received via WhatsApp or SMS.">Que el asegurado pague su cuota online en menos de un minuto, sin crear una cuenta, desde un link recibido por WhatsApp o SMS.</span></p>
+          <div class="cs-frente-steps">
+            <div class="cs-frente-step">
+              <span class="cs-frente-step-label" data-i18n data-en="The problem">El problema</span>
+              <p data-i18n data-en="Paying a policy had no simple digital path: customers had to visit a branch, make a transfer or call. Every extra step meant an installment paid late.">Pagar una póliza no tenía una vía digital simple: había que ir a una sucursal, hacer una transferencia o llamar. Cada paso extra era una cuota que se pagaba tarde.</p>
+            </div>
+            <div class="cs-frente-step">
+              <span class="cs-frente-step-label" data-i18n data-en="The solution">La solución</span>
+              <p data-i18n data-en="A three-step flow — Your details, Card &amp; verification, Paid — with an always-visible operation summary (policyholder, policy, installment and amount), debit or credit selection with Visa, Mastercard, NaranjaX, Cabal and Amex, real-time field-by-field validation and a visual card that fills in as you type. Integrated with Payway and fully responsive.">Un flujo de tres pasos —Tus datos, Tarjeta y verificación, Pagado— con resumen de la operación siempre visible (asegurado, póliza, cuota y monto), selección de débito o crédito con Visa, Mastercard, NaranjaX, Cabal y Amex, validación en tiempo real campo por campo y una tarjeta visual que se completa mientras se escribe. Integrado con Payway y responsive.</p>
+            </div>
+            <div class="cs-frente-step">
+              <span class="cs-frente-step-label" data-i18n data-en="Results">Resultados</span>
+              <p data-i18n data-en="A payment that used to require an errand is now completed on its own, in under a minute, from any device, with instant confirmation.">Un pago que antes exigía un trámite se completa solo, en menos de un minuto, desde cualquier dispositivo, con confirmación inmediata.</p>
+            </div>
+          </div>
+          <div class="cs-frente-kpis">
+            <div class="cs-frente-kpi"><b>~35%</b><span data-i18n data-en="policies paid online (estimated)">pólizas pagadas online (estimado)</span></div>
+            <div class="cs-frente-kpi"><b>&lt;1 min</b><span data-i18n data-en="end-to-end payment time">tiempo de pago de punta a punta</span></div>
+            <div class="cs-frente-kpi"><b>3 pasos</b><span data-i18n data-en="with real-time validation">con validación en tiempo real</span></div>
+            <div class="cs-frente-kpi"><b>5</b><span data-i18n data-en="card brands supported">marcas de tarjeta soportadas</span></div>
+          </div>
+          <div class="cs-shots one">
+            <img src="../assets/proyectos/cooperacion/epagos/epagos-01.jpg" alt="ePagos — flujo en tablet y mobile" loading="lazy">
+          </div>
+          <div class="cs-shots desk three">
+            <img src="../assets/proyectos/cooperacion/epagos/E-pagos%20-%20met%20pagos.jpg" alt="ePagos — información de la operación y métodos de pago" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/epagos/E-pagos%20-%20Datos%20tarj.jpg" alt="ePagos — carga de datos de tarjeta con validación" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/epagos/E-pagos%20-%20confirmaci%C3%B3n.jpg" alt="ePagos — confirmación de pago" loading="lazy">
+          </div>
+        </article>
+
+        <article class="cs-frente has-bg" data-anim="fade">
+          <span class="tag" data-i18n data-en="Internal use · Culture &amp; operations">Uso interno · Cultura y operación</span>
+          <h3 data-i18n data-en="Intranet — Employee portal">Intranet — Portal del empleado</h3>
+          <div class="cs-tags" style="margin-top:16px;"><span data-i18n data-en="Intranet">Intranet</span><span data-i18n data-en="Information architecture">Arquitectura de información</span><span data-i18n data-en="Internal communications">Comunicación interna</span></div>
+          <p class="cs-frente-goal"><strong data-i18n data-en="Goal">Objetivo</strong> <span data-i18n data-en="Bring together in one place the information, applications and community every employee needs to work, instead of hunting through emails, spreadsheets and separate systems.">Reunir en un solo lugar la información, las aplicaciones y la comunidad que cada colaborador necesita para trabajar, en vez de buscarlas en mails, planillas y sistemas separados.</span></p>
+          <div class="cs-frente-steps">
+            <div class="cs-frente-step">
+              <span class="cs-frente-step-label" data-i18n data-en="The problem">El problema</span>
+              <p data-i18n data-en="Internal applications were scattered, institutional communications traveled by mass email, and finding a colleague&#x27;s or an agent&#x27;s contact meant opening outdated spreadsheets.">Las aplicaciones internas estaban dispersas, las comunicaciones institucionales viajaban por mail masivo y encontrar el contacto de un colega o de un productor implicaba abrir planillas desactualizadas.</p>
+            </div>
+            <div class="cs-frente-step">
+              <span class="cs-frente-step-label" data-i18n data-en="The solution">La solución</span>
+              <p data-i18n data-en="A home that organizes the workday: unified contact search (internal and agents), shortcuts to the most-used applications (payslip, BI, quoting, document manager, virtual campus), news, active campaigns, birthdays, calendar and recommended files. Side navigation by Institutional, Departments and Community, plus an embedded poll to validate the redesign with the users themselves.">Una home que ordena la jornada: buscador de contactos unificado (internos y productores), accesos directos a las aplicaciones más usadas (recibo, BI, cotizaciones, gestor documental, campus virtual), novedades, campañas vigentes, cumpleaños, calendario y archivos recomendados. Navegación lateral por Institucional, Departamentos y Comunidad, y una encuesta integrada para validar el rediseño con los propios usuarios.</p>
+            </div>
+            <div class="cs-frente-step">
+              <span class="cs-frente-step-label" data-i18n data-en="Results">Resultados</span>
+              <p data-i18n data-en="A single entry point that replaces dozens of scattered searches and gives internal communication its own measurable, on-brand channel.">Un punto de entrada único que reemplaza decenas de búsquedas dispersas y le da a la comunicación interna un canal propio, medible y con identidad de marca.</p>
+            </div>
+          </div>
+          <div class="cs-frente-kpis">
+            <div class="cs-frente-kpi"><b>10+</b><span data-i18n data-en="applications reachable from a single place">aplicaciones accesibles desde un único lugar</span></div>
+            <div class="cs-frente-kpi"><b>1</b><span data-i18n data-en="unified contact search">buscador unificado de contactos</span></div>
+            <div class="cs-frente-kpi"><b>-30%</b><span data-i18n data-en="internal mass emails (estimated)">mails masivos internos (estimado)</span></div>
+            <div class="cs-frente-kpi"><b>100%</b><span data-i18n data-en="of institutional news in a single channel">de las novedades institucionales en un solo canal</span></div>
+          </div>
+          <div class="cs-shots one narrow">
+            <img src="../assets/proyectos/cooperacion/Intranet/HOME.jpg" alt="Intranet — home con novedades, accesos directos, campañas y calendario" loading="lazy">
           </div>
         </article>
       </div>
@@ -839,30 +920,31 @@
   <section class="cs-section" id="resultados">
     <div class="wrap">
       <span class="cs-section-num">02 — Resultados</span>
-      <h2 data-i18n data-en="Measurable impact by front">Impacto medible por frente</h2>
-      <p class="lead" data-i18n data-en="Each front sustains its own progress indicator: quoting speed, digital channel adoption and reduced manual work.">Cada frente sostiene su propio indicador de avance: velocidad de cotización, adopción de canales digitales y reducción de carga manual.</p>
+      <h2 data-i18n data-en="Measurable impact by product">Impacto medible por producto</h2>
+      <p class="lead" data-i18n data-en="Each product sustains its own progress indicator: quoting speed, digital channel adoption, online payments and reduced manual work.">Cada producto sostiene su propio indicador de avance: velocidad de cotización, adopción de canales digitales, pagos online y reducción de carga manual.</p>
       <div class="cs-metric-pills">
         <div class="cs-metric-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3.2 1.8"/></svg>
-          <b>Min → &lt;2min</b><span data-i18n data-en="quoting time per agent, email to app">cotización por productor, de mail a app</span>
+          <b>Min → &lt;2min</b><span data-i18n data-en="PortalPAS · quoting time per agent, email to app">PortalPAS · cotización por productor, de mail a app</span>
         </div>
         <div class="cs-metric-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18.3h2"/></svg>
-          <b>~40%</b><span data-i18n data-en="claims via digital channel (estimated)">denuncias por canal digital (estimado)</span>
+          <b>~40%</b><span data-i18n data-en="AOL · claims via digital channel (estimated)">AOL · denuncias por canal digital (estimado)</span>
         </div>
         <div class="cs-metric-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="2"/><path d="M2.5 9.7h19"/><path d="M6 14.8h4"/></svg>
-          <b>~35%</b><span data-i18n data-en="policies paid online (estimated)">pólizas pagadas online (estimado)</span>
+          <b>~35%</b><span data-i18n data-en="ePagos · policies paid online (estimated)">ePagos · pólizas pagadas online (estimado)</span>
         </div>
         <div class="cs-metric-pill">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5c0 4.14-3.8 7.5-8.5 7.5-.9 0-1.77-.12-2.58-.35L4.5 20.5l1.32-3.96A7.4 7.4 0 0 1 4 11.5C4 7.36 7.8 4 12.5 4S21 7.36 21 11.5z"/></svg>
-          <b>~1.200 / -25%</b><span data-i18n data-en="queries resolved by chatbot / calls to the call center (estimated)">consultas resueltas por chatbot / llamadas al call center (estimado)</span>
+          <b>-25%</b><span data-i18n data-en="AOL · calls to the call center (estimated)">AOL · llamadas al call center (estimado)</span>
         </div>
         <div class="cs-metric-pill">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2.5h9l3 3v16H6z"/><path d="M15 2.5v3h3"/><path d="M9 12h6M9 15.3h6M9 8.7h3"/></svg>
-          <b>Mail → digital</b><span data-i18n data-en="receipts automatically recognized by tax ID">comprobantes reconocidos automáticamente por CUIT</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>
+          <b>10+</b><span data-i18n data-en="Intranet · applications from a single place">Intranet · aplicaciones desde un único lugar</span>
         </div>
       </div>
+      <p style="margin-top:20px;font-size:12px;color:var(--dim);" data-i18n data-en="Figures marked as estimated are internal estimates from the product and support teams; the rest come from usage dashboards and research sessions.">Las cifras marcadas como estimadas son estimaciones internas de los equipos de producto y soporte; el resto proviene de dashboards de uso y sesiones de research.</p>
     </div>
   </section>
 
@@ -907,7 +989,7 @@
   </div>
   <div class="wrap footer-bottom">
     <span>© 2026 María Fernanda Juárez</span>
-    <span data-i18n data-en="UX UI AI Lead · Rosario &amp; Nuñez, AR">UX UI AI Lead · Rosario y Nuñez, AR</span>
+    <span data-i18n data-en="UX/UI AI Lead · Rosario &amp; Nuñez, AR">UX/UI AI Lead · Rosario y Nuñez, AR</span>
   </div>
 </footer>
 
