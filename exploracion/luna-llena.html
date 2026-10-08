@@ -29,8 +29,8 @@
 
 <style>
   :root{
-    --off-white:#d9d9d9;
-    --paper:#eeeeec;
+    --off-white:#f4f3ef;
+    --paper:#fbfaf8;
     --black:#1c1c1c;
     --olive:#5b6e2b;
     --olive-dark:#44531f;
@@ -115,7 +115,7 @@
     position:fixed;top:0;left:0;right:0;z-index:500;
     display:flex;align-items:center;justify-content:space-between;
     padding:22px 40px;
-    background:rgba(217,217,217,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    background:rgba(244,243,239,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   }
   .logo-mark{
     font-family:var(--font-pixel);font-size:13px;letter-spacing:.5px;
@@ -990,7 +990,7 @@ function runPageLoad(){
     defaults: { ease: 'linear' },
     onComplete: () => {
       gsap.set(grid, { display: 'none' });
-      gsap.set('.transition-block', { backgroundColor: '#d9d9d9' });
+      gsap.set('.transition-block', { backgroundColor: '#f4f3ef' });
       initReveals();
       ScrollTrigger.refresh();
     }

@@ -29,8 +29,8 @@
 
 <style>
   :root{
-    --off-white:#d9d9d9;
-    --paper:#eeeeec;
+    --off-white:#f4f3ef;
+    --paper:#fbfaf8;
     --black:#1c1c1c;
     --olive:#5b6e2b;
     --olive-dark:#44531f;
@@ -115,7 +115,7 @@
     position:fixed;top:0;left:0;right:0;z-index:500;
     display:flex;align-items:center;justify-content:space-between;
     padding:22px 40px;
-    background:rgba(217,217,217,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    background:rgba(244,243,239,.7);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   }
   .logo-mark{
     font-family:var(--font-pixel);font-size:13px;letter-spacing:.5px;
@@ -526,7 +526,7 @@
   .cs-card-carousel .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .5s ease;}
   .cs-card-carousel .slide.active{opacity:1;visibility:visible;}
   .cs-card-carousel .slide img{width:100%;height:100%;object-fit:contain;display:block;}
-  .cs-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(238,238,236,.9);color:var(--black);font-size:14px;line-height:1;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;}
+  .cs-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;border:1px solid var(--border);background:rgba(251,250,248,.9);color:var(--black);font-size:14px;line-height:1;cursor:pointer;z-index:2;display:flex;align-items:center;justify-content:center;}
   .cs-carousel-arrow.prev{left:10px;}
   .cs-carousel-arrow.next{right:10px;}
   .cs-carousel-dots{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px;z-index:2;}
@@ -552,7 +552,7 @@
   }
 
   /* ===== case study — in-page nav + next project (goiar only) ===== */
-  .cs-toc{position:sticky;top:84px;z-index:40;background:rgba(238,238,236,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin-top:56px;}
+  .cs-toc{position:sticky;top:84px;z-index:40;background:rgba(251,250,248,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--border);margin-top:56px;}
   .cs-toc .wrap{display:flex;gap:28px;overflow-x:auto;padding:20px 40px;scrollbar-width:none;}
   .cs-toc .wrap::-webkit-scrollbar{display:none;}
   .cs-toc a{font-family:var(--font-pixel);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--dim);white-space:nowrap;padding-bottom:5px;border-bottom:2px solid transparent;transition:color .2s ease,border-color .2s ease;}
@@ -1230,7 +1230,7 @@ function runPageLoad(){
     defaults: { ease: 'linear' },
     onComplete: () => {
       gsap.set(grid, { display: 'none' });
-      gsap.set('.transition-block', { backgroundColor: '#d9d9d9' });
+      gsap.set('.transition-block', { backgroundColor: '#f4f3ef' });
       initReveals();
       ScrollTrigger.refresh();
     }
