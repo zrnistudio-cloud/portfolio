@@ -667,6 +667,32 @@
   .cs-shots.row3 img{border-radius:0;border-left:0;border-right:0;}
   @media (max-width:700px){ .cs-shots.row3{grid-template-columns:1fr;} }
 
+  /* ===== cooperacion: bandas de color por proyecto ===== */
+  .cs-frentes{margin-top:56px;}
+  .cs-frente{--b-bg:var(--paper);--b-fg:var(--black);--b-dim:#5f5f5f;--b-acc:var(--olive);--b-line:rgba(0,0,0,.18);--b-card:var(--paper);
+    position:relative;isolation:isolate;padding:80px 0;margin:0;border:0;border-radius:0;color:var(--b-fg);}
+  .cs-frente::before{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;margin-left:-50vw;background:var(--b-bg);}
+  .cs-frente:first-child{padding-top:80px;}
+  .cs-frente.band-1{--b-bg:var(--lime);--b-fg:#1c1c1c;--b-dim:#3d4a1a;--b-acc:#2f3b10;--b-line:rgba(28,28,28,.25);--b-card:rgba(255,255,255,.55);}
+  .cs-frente.band-2{--b-bg:#1c1c1c;--b-fg:#f4f3ef;--b-dim:#b9b8b2;--b-acc:var(--lime);--b-line:rgba(255,255,255,.22);--b-card:rgba(255,255,255,.06);}
+  .cs-frente.band-3{--b-bg:var(--olive);--b-fg:#fbfaf8;--b-dim:#dfe6cc;--b-acc:var(--lime);--b-line:rgba(255,255,255,.3);--b-card:rgba(255,255,255,.1);}
+  .cs-frente.band-4{--b-bg:#e3e0d4;--b-fg:#1c1c1c;--b-dim:#55554f;--b-acc:var(--olive);--b-line:rgba(28,28,28,.2);--b-card:rgba(255,255,255,.6);}
+  .cs-frente > .tag,.cs-frente-goal strong{color:var(--b-acc);}
+  .cs-frente > .tag::before{content:counter(frente,decimal-leading-zero) " / 04 · ";}
+  .cs-frentes{counter-reset:frente;} .cs-frente{counter-increment:frente;}
+  .cs-frente h3{color:var(--b-fg);font-size:clamp(28px,4vw,52px);}
+  .cs-frente .cs-tags span{border-color:var(--b-line);color:var(--b-dim);}
+  .cs-frente .cs-frente-goal{background:var(--b-card);border-left-color:var(--b-acc);color:var(--b-fg);}
+  .cs-frente-step-label{color:var(--b-fg);}
+  .cs-frente-step p{color:var(--b-dim);}
+  .cs-frente-kpis{background:var(--b-line);border-color:var(--b-line);}
+  .cs-frente-kpi{background:var(--b-bg);}
+  .cs-frente-kpi b{color:var(--b-acc);}
+  .cs-frente-kpi span{color:var(--b-dim);}
+  .cs-frente .cs-shots img{border-color:var(--b-line);}
+  .cs-frente.band-2 .cs-frente-kpi,.cs-frente.band-3 .cs-frente-kpi{background:var(--b-card);}
+  @media (max-width:700px){ .cs-frente{padding:56px 0;} .cs-frente:first-child{padding-top:56px;} }
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -806,7 +832,7 @@
       <p class="lead" data-i18n data-en="Each product answers a different audience — agents, policyholders, customers paying online and employees — but all share the same Design System, so the experience feels like one company.">Cada producto responde a una audiencia distinta —productores, asegurados, clientes que pagan online y colaboradores— pero todos comparten el mismo Design System, para que la experiencia se sienta como una sola empresa.</p>
 
       <div class="cs-frentes">
-        <article class="cs-frente" data-anim="fade">
+        <article class="cs-frente band-1" data-anim="fade">
           <span class="tag" data-i18n data-en="Core product · Web B2B">Producto core · Web B2B</span>
           <h3 data-i18n data-en="PortalPAS — Producers Portal">PortalPAS — Portal de Productores</h3>
           <div class="cs-tags" style="margin-top:16px;"><span data-i18n data-en="Research">Research</span><span>Design System</span><span data-i18n data-en="Dashboards">Dashboards</span><span>Mobile-first</span></div>
@@ -832,13 +858,13 @@
             <div class="cs-frente-kpi"><b>3 pasos</b><span data-i18n data-en="to issue a quote">para emitir una cotización</span></div>
           </div>
           <div class="cs-shots row3">
-            <img src="../assets/proyectos/cooperacion/PortalPAS/Cotizar.jpg" alt="PortalPAS — cotizador de seguros en tres pasos" loading="lazy">
-            <img src="../assets/proyectos/cooperacion/PortalPAS/Dashboard.jpg" alt="PortalPAS — dashboard con siniestros, recibos, pólizas y cartera" loading="lazy">
-            <img src="../assets/proyectos/cooperacion/PortalPAS/Socios.jpg" alt="PortalPAS — gestión de socios con búsqueda por documento" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/PortalPAS/1%20Dashboard.jpg" alt="PortalPAS — dashboard con siniestros, recibos, pólizas y cartera" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/PortalPAS/2%20Cotizar.jpg" alt="PortalPAS — cotizador de seguros en tres pasos" loading="lazy">
+            <img src="../assets/proyectos/cooperacion/PortalPAS/3%20Socios.jpg" alt="PortalPAS — gestión de socios con búsqueda por documento" loading="lazy">
           </div>
         </article>
 
-        <article class="cs-frente has-bg" data-anim="fade">
+        <article class="cs-frente band-2" data-anim="fade">
           <span class="tag" data-i18n data-en="Digital channel · Mobile app">Canal digital · App mobile</span>
           <h3 data-i18n data-en="AOL — Asegurados Online">AOL — Asegurados Online</h3>
           <div class="cs-tags" style="margin-top:16px;"><span data-i18n data-en="Mobile-first">Mobile-first</span><span>UX Research</span><span>Design System</span><span data-i18n data-en="Accessibility">Accesibilidad</span></div>
@@ -872,7 +898,7 @@
           </div>
         </article>
 
-        <article class="cs-frente" data-anim="fade">
+        <article class="cs-frente band-3" data-anim="fade">
           <span class="tag" data-i18n data-en="Payments · Web + Mobile">Pagos · Web + Mobile</span>
           <h3 data-i18n data-en="ePagos — Payment gateway">ePagos — Pasarela de pagos</h3>
           <div class="cs-tags" style="margin-top:16px;"><span data-i18n data-en="Fintech">Fintech</span><span>Payway</span><span data-i18n data-en="Conversion">Conversión</span><span>Responsive</span></div>
@@ -907,7 +933,7 @@
           </div>
         </article>
 
-        <article class="cs-frente has-bg" data-anim="fade">
+        <article class="cs-frente band-4" data-anim="fade">
           <span class="tag" data-i18n data-en="Internal use · Culture &amp; operations">Uso interno · Cultura y operación</span>
           <h3 data-i18n data-en="Intranet — Employee portal">Intranet — Portal del empleado</h3>
           <div class="cs-tags" style="margin-top:16px;"><span data-i18n data-en="Intranet">Intranet</span><span data-i18n data-en="Information architecture">Arquitectura de información</span><span data-i18n data-en="Internal communications">Comunicación interna</span></div>
