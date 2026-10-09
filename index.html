@@ -616,6 +616,16 @@
   .hero-intro-row .hero-desc{padding-top:6px;margin:0;}
   @media (max-width:900px){ .hero-intro-row{display:contents;} }
 
+  /* ejercicios en mobile: palabras enteras, menos espacio imagen-texto */
+  @media (max-width:900px){
+    .eg-ejercicio{height:auto;align-self:stretch;}
+    .eg-fixed-h{height:112px;}
+    .eg-fixed-h img{height:100%;object-fit:cover;object-position:top center;}
+    .explore-card.has-photo.eg-ejercicio .num{padding:10px 10px 0;font-size:11px;}
+    .explore-card.has-photo.eg-ejercicio h4{padding:0 10px;margin:4px 0 2px;font-size:clamp(11px,3.4vw,14px);line-height:1.2;overflow-wrap:normal;word-break:normal;hyphens:none;letter-spacing:-.02em;}
+    .explore-card.has-photo.eg-ejercicio p{padding:0 10px 12px;font-size:11px;}
+  }
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
