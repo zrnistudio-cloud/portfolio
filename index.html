@@ -25,7 +25,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Inter+Tight:wght@500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
 
 <style>
   :root{
@@ -611,6 +611,12 @@
   .hero-section .wrap{max-width:none;width:100%;margin:0;padding-left:0;padding-right:0;}
   .hero-bottom-bar{max-width:none;padding-left:40px;padding-right:40px;}
 
+  /* saludo manuscrito + descripción alineada arriba */
+  .hero-intro-row{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;flex-wrap:wrap;margin-bottom:8px;}
+  .hero-greeting{font-family:'Caveat','Segoe Script','Bradley Hand',cursive;font-style:italic;font-weight:600;font-size:clamp(26px,2.6vw,38px);line-height:1;letter-spacing:0;text-transform:none;margin:0;color:var(--olive);}
+  .hero-intro-row .hero-desc{padding-top:6px;margin:0;}
+  @media (max-width:900px){ .hero-intro-row{display:contents;} }
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -713,10 +719,12 @@
 
   <section class="hero-section">
     <div class="wrap">
-      <p class="hero-greeting" data-anim="fade" data-i18n data-en="Hi! Welcome to my portfolio">¡Hola! Bienvenidos a mi portfolio</p>
+      <div class="hero-intro-row">
+        <p class="hero-greeting" data-anim="fade" data-i18n data-en="Hi! Welcome to my portfolio">¡Hola! Bienvenidos a mi portfolio</p>
+        <p class="hero-desc" data-anim="lines" data-i18n data-en="I lead discovery, design systems and delivery alongside Product, Engineering and Business. I use AI to speed up research, prototyping, QA and documentation — without replacing product judgment.">Lidero discovery, sistemas de diseño y delivery junto a Producto, Tecnología y Negocio. Uso IA para acelerar investigación, prototipado, QA y documentación sin reemplazar criterio de producto.</p>
+      </div>
       <div class="hero-top-row">
         <h1 class="hero-heading" data-anim="letters" data-i18n data-en="I design">Diseño</h1>
-        <p class="hero-desc" data-anim="lines" data-i18n data-en="I lead discovery, design systems and delivery alongside Product, Engineering and Business. I use AI to speed up research, prototyping, QA and documentation — without replacing product judgment.">Lidero discovery, sistemas de diseño y delivery junto a Producto, Tecnología y Negocio. Uso IA para acelerar investigación, prototipado, QA y documentación sin reemplazar criterio de producto.</p>
       </div>
       <h1 class="hero-heading" data-anim="letters" data-i18n data-en="digital products">productos digitales</h1>
       <h1 class="hero-heading" data-anim="letters" data-i18n data-en="that scale with">que escalan con</h1>
