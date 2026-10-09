@@ -202,7 +202,7 @@
   @media (max-width:900px){ .hero-bottom-bar{display:none;} }
   .hero-heading{
     font-family:var(--font-display);
-    font-size:clamp(34px,7.4vw,108px);font-weight:600;text-transform:uppercase;
+    font-size:clamp(34px,5.2vw,84px);font-weight:600;text-transform:uppercase;
     line-height:.92;letter-spacing:-.03em;text-align:left;
   }
   .hero-heading em,.hero-heading.is-accent{font-style:normal;color:var(--olive);}
@@ -603,6 +603,10 @@
   .cs-card .metric,.cs-frente-step .metric{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;line-height:1.05;}
   .cs-frente-step .metric-label{font-size:12px;font-weight:600;}
 
+  .hero-heading .split-letter{transition:color .25s ease;}
+  .hero-heading .split-letter.is-hot{color:var(--olive);}
+  .hero-heading.is-accent .split-letter.is-hot{color:var(--black);}
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -707,10 +711,10 @@
     <div class="wrap">
       <p class="hero-greeting" data-anim="fade" data-i18n data-en="Hi! Welcome to my portfolio">¡Hola! Bienvenidos a mi portfolio</p>
       <div class="hero-top-row">
-        <h1 class="hero-heading" data-anim="letters" data-i18n data-en="I design digital products">Diseño productos digitales</h1>
+        <h1 class="hero-heading" data-anim="letters" data-i18n data-en="I design digital">Diseño productos</h1>
         <p class="hero-desc" data-anim="lines" data-i18n data-en="I lead discovery, design systems and delivery alongside Product, Engineering and Business. I use AI to speed up research, prototyping, QA and documentation — without replacing product judgment.">Lidero discovery, sistemas de diseño y delivery junto a Producto, Tecnología y Negocio. Uso IA para acelerar investigación, prototipado, QA y documentación sin reemplazar criterio de producto.</p>
       </div>
-      <h1 class="hero-heading" data-anim="letters" data-i18n data-en="that scale with">que escalan con</h1>
+      <h1 class="hero-heading" data-anim="letters" data-i18n data-en="products that scale with">digitales que escalan con</h1>
       <div class="hero-outline" data-cursor="¡Ese es el punto!" data-en-cursor="That is the point!" data-easteregg="Hell yeah!">
         <h1 class="hero-heading is-accent" data-anim="letters" data-i18n data-en="strategic judgment and AI.">criterio estratégico e IA.</h1>
         <div class="nav-corners"><span></span><span></span><span></span><span></span></div>
@@ -1605,6 +1609,72 @@ window.addEventListener('resize', () => {
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden && hasGsap) ScrollTrigger.refresh();
 });
+
+/* ============================================================
+   HERO — letras interactivas (ola magnética al pasar el mouse)
+   ============================================================ */
+function initHeroHover(){
+  const mq = window.matchMedia;
+  if (mq('(hover:none),(pointer:coarse)').matches || mq('(prefers-reduced-motion: reduce)').matches) return;
+  const hero = document.querySelector('.hero-section');
+  if (!hero || typeof gsap === 'undefined') return;
+  const R = 170;            // radio de influencia (px)
+  let items = [], mx = -9999, my = -9999, raf = null, active = false;
+
+  function ensureSplit(){
+    hero.querySelectorAll('.hero-heading[data-anim="letters"]').forEach(h => {
+      if (!h.querySelector('.split-mask') && window.innerWidth > 480) {
+        splitLetters(h);
+        gsap.set(h, { visibility: 'visible' });
+      }
+    });
+  }
+  function collect(){
+    ensureSplit();
+    items = [...hero.querySelectorAll('.hero-heading .split-mask')].map(el => {
+      gsap.set(el, { transformOrigin: '50% 100%' });
+      const letter = el.querySelector('.split-letter');
+      return {
+        el,
+        y: gsap.quickTo(el, 'y', { duration: 0.45, ease: 'power3.out' }),
+        r: gsap.quickTo(el, 'rotation', { duration: 0.5, ease: 'power3.out' }),
+        s: gsap.quickTo(el, 'scale', { duration: 0.45, ease: 'power3.out' }),
+        letter
+      };
+    });
+  }
+  function tick(){
+    raf = null;
+    for (const it of items) {
+      const b = it.el.getBoundingClientRect();
+      const dx = mx - (b.left + b.width / 2);
+      const dy = my - (b.top + b.height / 2);
+      let f = Math.max(0, 1 - Math.hypot(dx, dy) / R);
+      f = f * f * (3 - 2 * f);
+      it.y(-f * 26);
+      it.r((-dx / R) * 14 * f);
+      it.s(1 + f * 0.14);
+      it.letter.classList.toggle('is-hot', f > 0.55);
+    }
+  }
+  function reset(){
+    active = false;
+    items.forEach(it => {
+      gsap.to(it.el, { y: 0, rotation: 0, scale: 1, duration: 1.1, ease: 'elastic.out(1, 0.35)', overwrite: true });
+      it.letter.classList.remove('is-hot');
+    });
+    setTimeout(collect, 1150);
+  }
+  hero.addEventListener('mousemove', e => {
+    if (!items.length || !items[0].el.isConnected) collect();
+    mx = e.clientX; my = e.clientY; active = true;
+    if (!raf) raf = requestAnimationFrame(tick);
+  });
+  hero.addEventListener('mouseleave', reset);
+  window.addEventListener('langchange', () => { setTimeout(collect, 30); });
+  collect();
+}
+document.addEventListener('DOMContentLoaded', () => { setTimeout(initHeroHover, 400); });
 </script>
 
 </body>
