@@ -1070,6 +1070,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+<script src="assets/intro/intro.js"></script>
 <script>
 document.documentElement.classList.add('pre-anim');
 
@@ -1290,7 +1291,30 @@ function buildGrid(){
   return grid;
 }
 
+/* Primera visita: en lugar de la grilla, se reproduce la intro animada
+   (assets/intro/intro.js). Al terminar o con "Saltar video" se disuelve
+   y aparece el portfolio. Las visitas siguientes usan la grilla. */
+function runFirstVisitIntro(){
+  let seen = true;
+  try { seen = localStorage.getItem('introVisto') === '1'; } catch (e) {}
+  if (seen || reduceMotion || document.hidden || typeof window.playIntro !== 'function') return false;
+  try { localStorage.setItem('introVisto', '1'); } catch (e) {}
+  document.getElementById('transition').style.display = 'none';
+  document.getElementById('pageLoadLogo').style.display = 'none';
+  if (lenis) lenis.stop();
+  document.documentElement.style.overflow = 'hidden';
+  window.scrollTo(0, 0);
+  window.playIntro(() => {
+    document.documentElement.style.overflow = '';
+    if (lenis) lenis.start();
+    initReveals(!hasGsap);
+    if (hasGsap) ScrollTrigger.refresh();
+  });
+  return true;
+}
+
 function runPageLoad(){
+  if (runFirstVisitIntro()) return;
   const grid = buildGrid();
   const logo = document.getElementById('pageLoadLogo');
 
