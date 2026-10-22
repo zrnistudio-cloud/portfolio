@@ -13,7 +13,6 @@ const CSS = `
 #introOv .i-cap.on{opacity:1;transform:none}
 #introOv .i-n{font:800 14px/1 var(--font-pixel,system-ui);background:#befd66;color:#2c3614;border-radius:8px;padding:8px 9px;letter-spacing:.04em}
 #introOv .i-t{font:700 clamp(15px,1.6vw,22px)/1.2 var(--font-pixel,system-ui)}
-#introOv .i-s{font:400 clamp(12px,1.05vw,15px)/1.3 var(--font-body,system-ui);color:#d6d9c9;margin-top:3px}
 #introOv .i-skip{position:absolute;top:max(3vh,16px);right:max(3vw,16px);z-index:2;cursor:pointer;
   background:rgba(20,26,10,.6);color:#befd66;border:1.5px solid rgba(190,253,102,.55);border-radius:999px;
   padding:10px 20px;font:600 14px/1 var(--font-pixel,system-ui);letter-spacing:.02em;transition:background .2s,color .2s}
@@ -25,7 +24,7 @@ const EN = (typeof getLang === 'function' ? getLang() : document.documentElement
 const st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
 const root = document.createElement('div'); root.id = 'introOv'; root.setAttribute('role','dialog'); root.setAttribute('aria-label', EN ? 'Intro video' : 'Video de introducción');
 root.innerHTML = '<canvas data-i="c"></canvas>'
-  + '<div class="i-cap" data-i="cap"><span class="i-n" data-i="capn">01</span><div><div class="i-t" data-i="capt"></div><div class="i-s" data-i="caps"></div></div></div>'
+  + '<div class="i-cap" data-i="cap"><span class="i-n" data-i="capn">01</span><div class="i-t" data-i="capt"></div></div>'
   + '<button class="i-skip" type="button" data-i="skip">' + (EN ? 'Skip video' : 'Saltar video') + ' ›</button>';
 document.body.appendChild(root);
 const Q = k => root.querySelector('[data-i="' + k + '"]');
@@ -316,14 +315,14 @@ const CAPS_ES = [
   [5.6, 11.2, '02', 'Diseñadora gráfica en una oficina', 'Afiches, marcas y café de máquina.'],
   [11.6, 19.6,'03', 'Toma un avión', 'Nuevos destinos, nuevos proyectos.'],
   [20.0, 24.6,'04', 'Líder UX/UI en una fintech', 'Desde casa, 100% remoto.'],
-  [25.0, 31.6,'05', 'Hoy un robot hace su trabajo…', '…y ella juega al golf.'],
+  [25.0, 31.6,'05', 'Hoy un robot hace su trabajo y ella juega al golf', '…y ella juega al golf.'],
 ];
 const CAPS_EN = [
   [0.4, 5.2,  '01', 'Studies design', 'Sketches, typography and lots of boards.'],
   [5.6, 11.2, '02', 'Graphic designer at an office', 'Posters, brands and vending-machine coffee.'],
   [11.6, 19.6,'03', 'Catches a plane', 'New places, new projects.'],
   [20.0, 24.6,'04', 'UX/UI Lead at a fintech', 'From home, 100% remote.'],
-  [25.0, 31.6,'05', 'Today a robot does her job…', '…and she plays golf.'],
+  [25.0, 31.6,'05', 'Today a robot does her job and she plays golf', '…and she plays golf.'],
 ];
 const CAPS = EN ? CAPS_EN : CAPS_ES;
 const DUR = 33.5;
@@ -410,7 +409,7 @@ function render(now){
   ctx.drawImage(buf, (sw - LW * sc) / 2, oy, LW * sc, LH * sc);
   // subtítulos
   const ci = CAPS.findIndex(c => t >= c[0] && t < c[1]);
-  if (ci !== lastCap){ lastCap = ci; if (ci >= 0){ const c = CAPS[ci]; Q('capn').textContent = c[2]; Q('capt').textContent = c[3]; Q('caps').textContent = c[4]; capEl.classList.add('on'); } else capEl.classList.remove('on'); }
+  if (ci !== lastCap){ lastCap = ci; if (ci >= 0){ const c = CAPS[ci]; Q('capn').textContent = c[2]; Q('capt').textContent = c[3]; capEl.classList.add('on'); } else capEl.classList.remove('on'); }
   if (!FREEZE && t >= DUR - 0.9 && !ended) finish();
   if (!gone) raf = requestAnimationFrame(render);
 }

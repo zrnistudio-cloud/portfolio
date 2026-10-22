@@ -1291,14 +1291,14 @@ function buildGrid(){
   return grid;
 }
 
-/* Primera visita: en lugar de la grilla, se reproduce la intro animada
-   (assets/intro/intro.js). Al terminar o con "Saltar video" se disuelve
-   y aparece el portfolio. Las visitas siguientes usan la grilla. */
+/* Entrada desde afuera del sitio (URL tipeada, link externo, favorito):
+   en lugar de la grilla se reproduce la intro animada (assets/intro/intro.js).
+   Al terminar o con "Saltar video" se disuelve y aparece el portfolio.
+   Si se llega navegando desde otra página del portfolio, se usa la grilla. */
 function runFirstVisitIntro(){
-  let seen = true;
-  try { seen = localStorage.getItem('introVisto') === '1'; } catch (e) {}
-  if (seen || reduceMotion || document.hidden || typeof window.playIntro !== 'function') return false;
-  try { localStorage.setItem('introVisto', '1'); } catch (e) {}
+  let internal = false;
+  try { internal = !!document.referrer && new URL(document.referrer).origin === location.origin; } catch (e) {}
+  if (internal || reduceMotion || document.hidden || typeof window.playIntro !== 'function') return false;
   document.getElementById('transition').style.display = 'none';
   document.getElementById('pageLoadLogo').style.display = 'none';
   if (lenis) lenis.stop();
