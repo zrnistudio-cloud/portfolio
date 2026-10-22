@@ -1,4 +1,4 @@
-/* Intro animada (pixel art) — se muestra solo en la primera visita.
+/* Intro animada (pixel art) — se muestra al entrar al portfolio desde afuera del sitio.
    window.playIntro(onReveal): arma un overlay a pantalla completa, reproduce
    la historia y al terminar (o con "Saltar video") se disuelve y llama onReveal. */
 (function(){
@@ -6,25 +6,16 @@ const CSS = `
 #introOv{position:fixed;inset:0;z-index:2000;background:#0B1026;overflow:hidden;opacity:1;transition:opacity .9s ease}
 #introOv.out{opacity:0;pointer-events:none}
 #introOv canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated;image-rendering:crisp-edges}
-#introOv .i-cap{position:absolute;left:4vw;bottom:6vh;display:flex;align-items:center;gap:14px;max-width:88vw;
-  background:rgba(20,26,10,.78);color:#f4f3ef;padding:14px 22px 14px 14px;border-radius:14px;
-  border:2px solid rgba(190,253,102,.22);box-shadow:0 10px 30px rgba(0,0,0,.35);
-  transform:translateY(20px);opacity:0;transition:opacity .45s,transform .45s;font-family:var(--font-body,system-ui,sans-serif)}
-#introOv .i-cap.on{opacity:1;transform:none}
-#introOv .i-n{font:800 14px/1 var(--font-pixel,system-ui);background:#befd66;color:#2c3614;border-radius:8px;padding:8px 9px;letter-spacing:.04em}
-#introOv .i-t{font:700 clamp(15px,1.6vw,22px)/1.2 var(--font-pixel,system-ui)}
 #introOv .i-skip{position:absolute;top:max(3vh,16px);right:max(3vw,16px);z-index:2;cursor:pointer;
   background:rgba(20,26,10,.6);color:#befd66;border:1.5px solid rgba(190,253,102,.55);border-radius:999px;
   padding:10px 20px;font:600 14px/1 var(--font-pixel,system-ui);letter-spacing:.02em;transition:background .2s,color .2s}
 #introOv .i-skip:hover{background:#befd66;color:#2c3614}
-@media (max-width:600px){#introOv .i-cap{left:4vw;right:4vw;bottom:5vh;padding:11px 16px 11px 11px}}
 `;
 window.playIntro = function(onReveal){
 const EN = (typeof getLang === 'function' ? getLang() : document.documentElement.lang) === 'en';
 const st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
 const root = document.createElement('div'); root.id = 'introOv'; root.setAttribute('role','dialog'); root.setAttribute('aria-label', EN ? 'Intro video' : 'Video de introducción');
 root.innerHTML = '<canvas data-i="c"></canvas>'
-  + '<div class="i-cap" data-i="cap"><span class="i-n" data-i="capn">01</span><div class="i-t" data-i="capt"></div></div>'
   + '<button class="i-skip" type="button" data-i="skip">' + (EN ? 'Skip video' : 'Saltar video') + ' ›</button>';
 document.body.appendChild(root);
 const Q = k => root.querySelector('[data-i="' + k + '"]');
@@ -310,21 +301,6 @@ function circleS(x, y, r){ b.beginPath(); b.arc(Math.round(x - camX) + .5, Math.
 function rectS(x, y, w, h){ b.strokeRect(Math.round(x - camX) + .5, Math.round(y - camY) + .5, w, h); }
 
 // ── Guion (segundos) ─────────────────────────────────────────────────────────
-const CAPS_ES = [
-  [0.4, 5.2,  '01', 'Estudia diseño', 'Bocetos, tipografía y muchas láminas.'],
-  [5.6, 11.2, '02', 'Diseñadora gráfica en una oficina', 'Afiches, marcas y café de máquina.'],
-  [11.6, 19.6,'03', 'Toma un avión', 'Nuevos destinos, nuevos proyectos.'],
-  [20.0, 24.6,'04', 'Líder UX/UI en una fintech', 'Desde casa, 100% remoto.'],
-  [25.0, 31.6,'05', 'Hoy un robot hace su trabajo y ella juega al golf', '…y ella juega al golf.'],
-];
-const CAPS_EN = [
-  [0.4, 5.2,  '01', 'Studies design', 'Sketches, typography and lots of boards.'],
-  [5.6, 11.2, '02', 'Graphic designer at an office', 'Posters, brands and vending-machine coffee.'],
-  [11.6, 19.6,'03', 'Catches a plane', 'New places, new projects.'],
-  [20.0, 24.6,'04', 'UX/UI Lead at a fintech', 'From home, 100% remote.'],
-  [25.0, 31.6,'05', 'Today a robot does her job and she plays golf', '…and she plays golf.'],
-];
-const CAPS = EN ? CAPS_EN : CAPS_ES;
 const DUR = 33.5;
 const ease = p => p < 0 ? 0 : p > 1 ? 1 : p * p * (3 - 2 * p);
 const lerp = (a, b2, p) => a + (b2 - a) * p;
@@ -378,8 +354,7 @@ function state(t){
 }
 
 // ── Bucle ────────────────────────────────────────────────────────────────────
-let t0 = performance.now() - START * 1000, ended = false, lastCap = -1;
-const capEl = Q('cap');
+let t0 = performance.now() - START * 1000, ended = false;
 function render(now){
   const t = FREEZE ? START : (now - t0) / 1000;
   const S = state(Math.min(t, DUR));
@@ -407,9 +382,6 @@ function render(now){
   ctx.imageSmoothingEnabled = false;
   if (portrait){ ctx.fillStyle = '#5B8ED6'; ctx.fillRect(0, 0, sw, oy + 2); ctx.fillStyle = '#6B4729'; ctx.fillRect(0, oy + LH * sc - 2, sw, sh); }
   ctx.drawImage(buf, (sw - LW * sc) / 2, oy, LW * sc, LH * sc);
-  // subtítulos
-  const ci = CAPS.findIndex(c => t >= c[0] && t < c[1]);
-  if (ci !== lastCap){ lastCap = ci; if (ci >= 0){ const c = CAPS[ci]; Q('capn').textContent = c[2]; Q('capt').textContent = c[3]; capEl.classList.add('on'); } else capEl.classList.remove('on'); }
   if (!FREEZE && t >= DUR - 0.9 && !ended) finish();
   if (!gone) raf = requestAnimationFrame(render);
 }
