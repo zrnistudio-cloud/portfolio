@@ -30,7 +30,8 @@ const LW = 320, LH = 180, G = 142;            // resolución lógica y línea de
 const cv = Q('c'), ctx = cv.getContext('2d');
 const buf = document.createElement('canvas'); buf.width = LW; buf.height = LH;
 const b = buf.getContext('2d');
-const HM = location.hash.match(/introt=([\d.]+)/); const START = HM ? parseFloat(HM[1]) : 0;
+const HM = location.hash.match(/introt=([\d.]+)/); const START = HM ? parseFloat(HM[1]) : 8;   // arranca en la oficina (se omite la etapa universitaria)
+const CAM_MIN = 330;                         // la cámara no muestra la universidad
 const FREEZE = /introfreeze/.test(location.hash);
 
 function resize(){ const d = devicePixelRatio || 1; cv.width = innerWidth * d; cv.height = innerHeight * d; }
@@ -358,7 +359,7 @@ let t0 = performance.now() - START * 1000, ended = false;
 function render(now){
   const t = FREEZE ? START : (now - t0) / 1000;
   const S = state(Math.min(t, DUR));
-  camX = Math.max(0, Math.min(WORLD - LW, Math.round(S.focus - LW / 2)));
+  camX = Math.max(CAM_MIN, Math.min(WORLD - LW, Math.round(S.focus - LW / 2)));
   camY = Math.round(S.camY);
   b.imageSmoothingEnabled = false;
   sky(t);
