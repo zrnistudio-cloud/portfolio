@@ -355,9 +355,10 @@ function state(t){
 }
 
 // ── Bucle ────────────────────────────────────────────────────────────────────
-let t0 = performance.now() - START * 1000, ended = false;
+const SPEED = 1.26, END = 32;                // reproduce más rápido y corta antes: ~19 s en total
+let t0 = performance.now(), ended = false;
 function render(now){
-  const t = FREEZE ? START : (now - t0) / 1000;
+  const t = FREEZE ? START : START + (now - t0) / 1000 * SPEED;
   const S = state(Math.min(t, DUR));
   camX = Math.max(CAM_MIN, Math.min(WORLD - LW, Math.round(S.focus - LW / 2)));
   camY = Math.round(S.camY);
@@ -383,7 +384,7 @@ function render(now){
   ctx.imageSmoothingEnabled = false;
   if (portrait){ ctx.fillStyle = '#5B8ED6'; ctx.fillRect(0, 0, sw, oy + 2); ctx.fillStyle = '#6B4729'; ctx.fillRect(0, oy + LH * sc - 2, sw, sh); }
   ctx.drawImage(buf, (sw - LW * sc) / 2, oy, LW * sc, LH * sc);
-  if (!FREEZE && t >= DUR - 0.9 && !ended) finish();
+  if (!FREEZE && t >= END && !ended) finish();
   if (!gone) raf = requestAnimationFrame(render);
 }
 raf = requestAnimationFrame(render);
