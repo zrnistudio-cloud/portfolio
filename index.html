@@ -642,6 +642,18 @@
   @media (max-width:1100px){ .process-steps.is-five{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:600px){ .process-steps.is-five{grid-template-columns:1fr;} }
 
+  /* ===== avatar interactivo (reemplaza la foto del home) ===== */
+  :root{--ink:#1c1c1c;--bg:#f4f3ef;--accent:#befd66;--green:#5b6e2b;}
+  .avatar-wrap{display:flex;justify-content:center;padding-top:56px;}
+  #av{position:relative;width:min(100%,400px);aspect-ratio:1;}
+  #jelly{position:absolute;inset:0;will-change:transform;}
+  #av canvas{width:100%;height:100%;display:block;border-radius:50%;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;background:#ddd;}
+  #av canvas.grabbing{cursor:grabbing;}
+  #bubble{position:absolute;left:50%;bottom:100%;margin-bottom:14px;transform:translateX(-50%);z-index:11;background:var(--ink);color:var(--bg);font-weight:700;padding:8px 14px;border-radius:999px;font-size:15px;white-space:nowrap;opacity:0;transition:opacity .18s;pointer-events:none;}
+  #bubble.on{opacity:1;}
+  .confetti{position:fixed;width:10px;height:14px;border-radius:3px;z-index:12;pointer-events:none;}
+  @media (max-width:900px){ #av{width:min(70vw,280px);} }
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -821,12 +833,8 @@
         </div>
 
         <div data-anim="fade">
-          <div class="portrait-card">
-            <img src="assets/fer.jpg" alt="María Fernanda Juárez" onerror="this.style.display='none'">
-            <div class="portrait-initials">
-              <span class="big">Mf</span>
-              <span class="tag">María Fernanda Juárez</span>
-            </div>
+          <div class="avatar-wrap">
+            <div id="av"><div id="jelly"><canvas id="c" aria-label="Avatar interactivo de Fer" role="img"></canvas></div><div id="bubble"></div></div>
           </div>
         </div>
       </div>
@@ -1754,5 +1762,6 @@ function initHeroHover(){
 document.addEventListener('DOMContentLoaded', () => { setTimeout(initHeroHover, 400); });
 </script>
 
+<script src="assets/avatar/avatar.js"></script>
 </body>
 </html>
