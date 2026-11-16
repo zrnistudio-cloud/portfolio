@@ -668,6 +668,10 @@
   .cs-card .metric,.cs-frente-step .metric{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;line-height:1.05;}
   .cs-frente-step .metric-label{font-size:12px;font-weight:600;}
 
+  .cs-note-link{display:flex;flex-direction:column;gap:10px;padding:28px 32px;border:1px solid var(--border);background:var(--paper);transition:border-color .3s;}
+  .cs-note-link:hover{border-color:var(--olive);}
+  .cs-note-link strong{font-family:var(--font-display);font-size:clamp(18px,2.2vw,26px);font-weight:700;line-height:1.2;}
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -730,7 +734,8 @@
       <li><span class="num">02</span><a href="../sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="About">Sobre mí</span></a></li>
       <li><span class="num">03</span><a href="../experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Experience">Experiencia</span></a></li>
       <li><span class="num">04</span><a href="../proyectos.html" class="nav-link js-menu-link is--active" data-hover-anim><span data-hover-text data-i18n data-en="Projects">Proyectos</span></a></li>
-      <li><span class="num">05</span><a href="../contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Contact">Contacto</span></a></li>
+      <li><span class="num">05</span><a href="../notas.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Notes">Notas</span></a></li>
+      <li><span class="num">06</span><a href="../contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Contact">Contacto</span></a></li>
     </ul>
   </nav>
   <div class="nav-corners" id="navCorners"><span></span><span></span><span></span><span></span></div>
@@ -975,6 +980,15 @@
     <cite data-i18n data-en="Design reflection">Reflexión de diseño</cite>
   </section>
 
+  <section class="section-pad" style="padding-bottom:0;">
+    <div class="wrap">
+      <a href="../notas/proceso-de-diseno-con-ia-en-goiar.html" class="cs-note-link" data-cursor="Leer" data-en-cursor="Read">
+        <span class="cs-next-label" data-i18n data-en="Related note">Nota relacionada</span>
+        <strong data-i18n data-en="How we transformed the design process with AI at Goiar →">Cómo transformamos el proceso de diseño con IA en Goiar →</strong>
+      </a>
+    </div>
+  </section>
+
   <section class="section-pad cs-next">
     <div class="wrap">
       <span class="cs-next-label" data-i18n data-en="Next project">Siguiente proyecto</span>
@@ -1000,6 +1014,7 @@
       <a href="../sobre-mi.html" data-i18n data-en="About">Sobre mí</a>
       <a href="../experiencia.html" data-i18n data-en="Experience">Experiencia</a>
       <a href="../proyectos.html" data-i18n data-en="Projects">Proyectos</a>
+      <a href="../notas.html" data-i18n data-en="Notes">Notas</a>
       <a href="../contacto.html" data-i18n data-en="Contact">Contacto</a>
     </div>
     <div class="footer-col">

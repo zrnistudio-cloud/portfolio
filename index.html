@@ -633,6 +633,15 @@
   .explore-grid .eg-fixed-h img{width:100%;height:100%;object-fit:cover;object-position:top center;}
   @media (max-width:900px){ .explore-grid{grid-template-columns:1fr 1fr;} .explore-grid .eg-ejercicio{height:auto;} }
 
+  /* cómo trabajo: 5 fases con herramientas */
+  .process-lead{margin-top:20px;max-width:62ch;font-size:16px;line-height:1.65;color:#b9b9b6;}
+  .process-steps.is-five{grid-template-columns:repeat(5,1fr);gap:24px;}
+  .process-steps.is-five .process-step h3{font-size:19px;line-height:1.1;}
+  .process-tools{display:block;margin:0 0 10px;font-size:12px;font-weight:600;letter-spacing:.3px;color:var(--lime);line-height:1.5;}
+  .process-link{display:inline-block;margin-top:48px;padding-bottom:4px;border-bottom:1.5px solid var(--lime);color:var(--lime);font-size:14px;font-weight:600;letter-spacing:.3px;}
+  @media (max-width:1100px){ .process-steps.is-five{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .process-steps.is-five{grid-template-columns:1fr;} }
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -716,7 +725,8 @@
       <li><span class="num">02</span><a href="sobre-mi.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="About">Sobre mí</span></a></li>
       <li><span class="num">03</span><a href="experiencia.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Experience">Experiencia</span></a></li>
       <li><span class="num">04</span><a href="proyectos.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Projects">Proyectos</span></a></li>
-      <li><span class="num">05</span><a href="contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Contact">Contacto</span></a></li>
+      <li><span class="num">05</span><a href="notas.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Notes">Notas</span></a></li>
+      <li><span class="num">06</span><a href="contacto.html" class="nav-link js-menu-link" data-hover-anim><span data-hover-text data-i18n data-en="Contact">Contacto</span></a></li>
     </ul>
   </nav>
   <div class="nav-corners" id="navCorners"><span></span><span></span><span></span><span></span></div>
@@ -1016,23 +1026,40 @@
     <div class="wrap">
       <div class="section-tag" data-anim="fade" data-i18n data-en="How I work · AI-first">Cómo trabajo · AI-first</div>
       <h2 data-anim="letters" data-i18n data-en="From problem to product, with AI at every step.">Del problema al producto, con IA en cada paso.</h2>
-      <div class="process-steps" data-anim="stagger">
+      <p class="process-lead" data-anim="lines" data-i18n data-en="AI gives me speed to research, generate and document. The judgment on which problem to solve and what reaches the user remains mine.">La IA me da velocidad para investigar, generar y documentar. El criterio sobre qué problema resolver y qué llega al usuario sigue siendo mío.</p>
+      <div class="process-steps is-five" data-anim="stagger">
         <div class="process-step">
           <span class="num">01</span>
-          <h3 data-i18n data-en="Discover with AI">Descubrir con IA</h3>
-          <p data-i18n data-en="I cross-reference interviews, usage data and support tickets with AI to find patterns in hours, not weeks. AI speeds up synthesis; decisions still come from talking to real users.">Cruzo entrevistas, datos de uso y tickets con IA para encontrar patrones en horas, no en semanas. La IA acelera la síntesis; las decisiones salen de hablar con usuarios reales.</p>
+          <h3 data-i18n data-en="Discover">Descubrir</h3>
+          <span class="process-tools">ChatGPT · Claude</span>
+          <p data-i18n data-en="I organize interviews and data with AI to find patterns and shape hypotheses. Listening to users is on me: that is not delegated.">Ordeno entrevistas y datos con IA para encontrar patrones y armar hipótesis. Escuchar al usuario lo hago yo: eso no se delega.</p>
         </div>
         <div class="process-step">
           <span class="num">02</span>
-          <h3 data-i18n data-en="Prototype for real">Prototipar en serio</h3>
-          <p data-i18n data-en="I design in Figma, from wireframe to a component-based design system, and use AI to generate variants and flows and turn them into a functional prototype. I validate with something people can actually use, not a static mockup.">Diseño en Figma, del wireframe a un design system de componentes, y uso IA para generar variantes y flujos y llevarlos a un prototipo funcional. Valido con algo que se puede usar, no con una imagen estática.</p>
+          <h3 data-i18n data-en="Ideate">Idear</h3>
+          <span class="process-tools">ChatGPT · Claude</span>
+          <p data-i18n data-en="I use AI as a copilot to explore scenarios, edge cases and flow alternatives, opening up options before choosing one.">Uso la IA como copiloto para explorar escenarios, casos borde y alternativas de flujo, y abrir opciones antes de elegir una.</p>
         </div>
         <div class="process-step">
           <span class="num">03</span>
-          <h3 data-i18n data-en="Build and measure">Construir y medir</h3>
-          <p data-i18n data-en="I take designs to production with AI-assisted code alongside Development, and measure real usage to decide what to iterate next. Product judgment stays human.">Llevo los diseños a producción con código asistido por IA junto a Desarrollo, y mido el uso real para decidir qué iterar. El criterio de producto sigue siendo humano.</p>
+          <h3 data-i18n data-en="Design &amp; prototype">Diseñar y prototipar</h3>
+          <span class="process-tools">Figma · v0 · Lovable · Claude · Codex</span>
+          <p data-i18n data-en="I design on top of the design system and move quickly to a functional prototype, to validate with something people can use.">Diseño sobre el design system y paso rápido a un prototipo funcional, para validar con algo que se puede usar.</p>
+        </div>
+        <div class="process-step">
+          <span class="num">04</span>
+          <h3 data-i18n data-en="Build with Development">Construir con Desarrollo</h3>
+          <span class="process-tools">Figma · Design System · QA UX/UI</span>
+          <p data-i18n data-en="Refinement and feasibility from the start. I deliver states, edge cases and criteria, and review what gets built.">Refinamientos y factibilidad desde el inicio. Entrego estados, casos borde y criterios, y reviso lo implementado.</p>
+        </div>
+        <div class="process-step">
+          <span class="num">05</span>
+          <h3 data-i18n data-en="Document &amp; measure">Documentar y medir</h3>
+          <span class="process-tools">ChatGPT · Claude · Clarity · Hotjar</span>
+          <p data-i18n data-en="User stories, decisions and components documented with AI, and real usage data to decide what to iterate.">User stories, decisiones y componentes documentados con IA, y datos de uso real para decidir qué iterar.</p>
         </div>
       </div>
+      <a href="notas/proceso-de-diseno-con-ia-en-goiar.html" class="process-link" data-anim="fade" data-cursor="Leer" data-en-cursor="Read"><span data-i18n data-en="Read: how we transformed the design process with AI at Goiar →">Leer: cómo transformamos el proceso de diseño con IA en Goiar →</span></a>
     </div>
   </section>
 
@@ -1066,6 +1093,7 @@
       <a href="sobre-mi.html" data-i18n data-en="About">Sobre mí</a>
       <a href="experiencia.html" data-i18n data-en="Experience">Experiencia</a>
       <a href="proyectos.html" data-i18n data-en="Projects">Proyectos</a>
+      <a href="notas.html" data-i18n data-en="Notes">Notas</a>
       <a href="contacto.html" data-i18n data-en="Contact">Contacto</a>
     </div>
     <div class="footer-col">
