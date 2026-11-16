@@ -626,6 +626,13 @@
     .explore-card.has-photo.eg-ejercicio p{padding:0 10px 12px;font-size:11px;}
   }
 
+  /* exploración: 3 por fila, tarjetas parejas */
+  .explore-grid{grid-template-columns:repeat(3,1fr);}
+  .explore-grid .explore-card{align-self:stretch;}
+  .explore-grid .eg-fixed-h{height:auto;aspect-ratio:16/10;}
+  .explore-grid .eg-fixed-h img{width:100%;height:100%;object-fit:cover;object-position:top center;}
+  @media (max-width:900px){ .explore-grid{grid-template-columns:1fr 1fr;} .explore-grid .eg-ejercicio{height:auto;} }
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -965,23 +972,23 @@
       <div class="section-tag" data-anim="fade" data-i18n data-en="Exploration & challenges">Exploración & challenges</div>
       <h2 style="font-family:var(--font-display);font-size:clamp(28px,4.4vw,48px);font-weight:600;text-transform:uppercase;letter-spacing:-.03em;line-height:.98;max-width:22ch;" data-anim="letters" data-i18n data-en="Exploration and continuous learning.">Exploración y aprendizaje continuo.</h2>
       <div class="explore-grid" data-anim="stagger">
-        <a href="exploracion/luna-llena.html" class="explore-card has-photo" style="grid-column:span 2;" data-cursor="Ver exploración" data-en-cursor="View exploration">
-          <img src="assets/exploracion/luna-llena/cover.jpg" alt="En luna llena" loading="lazy">
-          <span class="num" data-i18n data-en="Exploration 01">Exploración 01</span>
-          <h4 data-i18n data-en="En luna llena">En luna llena</h4>
-          <p data-i18n data-en="A web app to explore moon phases and related events.">App web para conocer más sobre las fases de la luna y eventos relacionados.</p>
-        </a>
-        <a href="exploracion/mandalas.html" class="explore-card has-photo" style="grid-column:span 2;" data-cursor="Ver exploración" data-en-cursor="View exploration">
-          <img src="assets/exploracion/mandalas/cover.jpg" alt="Sereia · Mandalas del alma" loading="lazy">
-          <span class="num" data-i18n data-en="Exploration 02">Exploración 02</span>
-          <h4 data-i18n data-en="Mandalas of the soul">Mandalas del alma</h4>
-          <p data-i18n data-en="Unwind painting mandalas, get personalized readings and access courses.">Relajate pintando mandalas, obtené devoluciones personalizadas y accedé a cursos.</p>
-        </a>
         <a href="exploracion/bikeing.html" class="explore-card has-photo eg-ejercicio" data-cursor="Ver caso" data-en-cursor="View case">
           <div class="eg-fixed-h"><img src="assets/exploracion/bikeing/cover.jpg" alt="Bikeing" loading="lazy"></div>
           <span class="num" data-i18n data-en="Exercise 01">Ejercicio 01</span>
           <h4>Bikeing</h4>
           <p data-i18n data-en="Cycling app">App ciclismo</p>
+        </a>
+        <a href="exploracion/luna-llena.html" class="explore-card has-photo eg-ejercicio" data-cursor="Ver exploración" data-en-cursor="View exploration">
+          <div class="eg-fixed-h"><img src="assets/exploracion/luna-llena/cover.jpg" alt="En luna llena" loading="lazy"></div>
+          <span class="num" data-i18n data-en="Exploration 01">Exploración 01</span>
+          <h4 data-i18n data-en="En luna llena">En luna llena</h4>
+          <p data-i18n data-en="A web app to explore moon phases and related events.">App web para conocer más sobre las fases de la luna y eventos relacionados.</p>
+        </a>
+        <a href="exploracion/mandalas.html" class="explore-card has-photo eg-ejercicio" data-cursor="Ver exploración" data-en-cursor="View exploration">
+          <div class="eg-fixed-h"><img src="assets/exploracion/mandalas/cover.jpg" alt="Sereia · Mandalas del alma" loading="lazy"></div>
+          <span class="num" data-i18n data-en="Exploration 02">Exploración 02</span>
+          <h4 data-i18n data-en="Mandalas of the soul">Mandalas del alma</h4>
+          <p data-i18n data-en="Unwind painting mandalas, get personalized readings and access courses.">Relajate pintando mandalas, obtené devoluciones personalizadas y accedé a cursos.</p>
         </a>
         <a href="exploracion/holaquetal.html" class="explore-card has-photo eg-ejercicio" data-cursor="Ver caso" data-en-cursor="View case">
           <div class="eg-fixed-h"><img src="assets/exploracion/holaquetal/01.jpg" alt="Hola ¿qué tal?" loading="lazy"></div>
