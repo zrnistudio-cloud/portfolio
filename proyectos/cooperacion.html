@@ -735,6 +735,11 @@
   .cs-card .metric,.cs-frente-step .metric{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;line-height:1.05;}
   .cs-frente-step .metric-label{font-size:12px;font-weight:600;}
 
+  .cs-note-link{display:flex;flex-direction:column;gap:10px;padding:28px 32px;border:1px solid var(--border);background:var(--paper);transition:border-color .3s;}
+  .cs-note-link:hover{border-color:var(--olive);}
+  .cs-note-link strong{font-family:var(--font-display);font-size:clamp(18px,2.2vw,26px);font-weight:700;line-height:1.2;}
+  .cs-note-link .cs-next-label{font-size:11px;font-weight:600;color:var(--olive);letter-spacing:1px;text-transform:uppercase;}
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -1053,6 +1058,15 @@
   <section class="cs-quote" id="reflexion">
     <blockquote data-anim="fade" data-i18n data-en="&quot;The challenge at Cooperación Seguros wasn't designing one more app: it was turning an operation that lived on the phone and on paper into a coherent digital product, with no dedicated research support and sustaining nine platforms at the same time.&quot;">"El desafío de Cooperación Seguros no era diseñar una app más: era llevar una operación que vivía en el teléfono y el papel a un producto digital coherente, sin research dedicado y sosteniendo nueve plataformas al mismo tiempo."</blockquote>
     <cite data-i18n data-en="Design reflection">Reflexión de diseño</cite>
+  </section>
+
+  <section class="section-pad" style="padding-bottom:0;">
+    <div class="wrap">
+      <a href="../notas/cooperacion-seguros-unica-disenadora-nueve-plataformas.html" class="cs-note-link" data-cursor="Leer" data-en-cursor="Read" style="margin-top:16px;">
+        <span class="cs-next-label" data-i18n data-en="Related note">Nota relacionada</span>
+        <strong data-i18n data-en="Cooperación Seguros: being the only designer for nine platforms →">Cooperación Seguros: ser la única diseñadora de nueve plataformas →</strong>
+      </a>
+    </div>
   </section>
 
   <section class="section-pad cs-next">

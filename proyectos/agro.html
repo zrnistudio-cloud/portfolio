@@ -636,6 +636,11 @@
   .cs-card .metric,.cs-frente-step .metric{font-family:var(--font-display);font-weight:800;font-size:clamp(24px,2.4vw,32px);letter-spacing:-.03em;line-height:1.05;}
   .cs-frente-step .metric-label{font-size:12px;font-weight:600;}
 
+  .cs-note-link{display:flex;flex-direction:column;gap:10px;padding:28px 32px;border:1px solid var(--border);background:var(--paper);transition:border-color .3s;}
+  .cs-note-link:hover{border-color:var(--olive);}
+  .cs-note-link strong{font-family:var(--font-display);font-size:clamp(18px,2.2vw,26px);font-weight:700;line-height:1.2;}
+  .cs-note-link .cs-next-label{font-size:11px;font-weight:600;color:var(--olive);letter-spacing:1px;text-transform:uppercase;}
+
   /* ===== mobile nav fix (<=420px) — prevents header overflow on small phones ===== */
   @media (max-width:420px){
     header.site-nav{padding:14px 16px;}
@@ -781,6 +786,15 @@
   <section class="cs-quote">
     <blockquote data-anim="fade" data-i18n data-en="&quot;The goal wasn't to redesign for the sake of it: it was to remove the invisible friction the client didn't even know they had, and give them back control of their own numbers.&quot;">"El objetivo no era rediseñar por rediseñar: era sacar la fricción invisible que el cliente ni sabía que tenía, y devolverle el control de sus propios números."</blockquote>
     <cite data-i18n data-en="Design reflection">Reflexión de diseño</cite>
+  </section>
+
+  <section class="section-pad" style="padding-bottom:0;">
+    <div class="wrap">
+      <a href="../notas/cliente-agro-redisenar-con-datos-de-uso.html" class="cs-note-link" data-cursor="Leer" data-en-cursor="Read" style="margin-top:16px;">
+        <span class="cs-next-label" data-i18n data-en="Related note">Nota relacionada</span>
+        <strong data-i18n data-en="Agro client: redesigning a portal with usage data →">Cliente Agro: rediseñar un portal con datos de uso →</strong>
+      </a>
+    </div>
   </section>
 
   <section class="section-pad cs-next">
